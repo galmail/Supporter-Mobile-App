@@ -2,12 +2,13 @@
 
 ## Tech Stack ##
 
-* Node&Express: to run/test the project on the browser
+* Node.js
 * Backbone
-* Less/Sass
+* Underscore
 * Handlebars
 * jQuery/Zepto
 * Foundation
+* Less/Sass
 
 ## Getting Started ##
 
