@@ -1,6 +1,11 @@
 .container-not-logged {
     background-color: #6daae5;
-    color: white;
-    text-align: center;
-    padding: 5px;
+               color: white;
+          text-align: center;
+             padding: 25px 10px 25px 10px;
+}
+
+.link {
+    text-decoration: underline;
+              color: #4b84b2;
 }

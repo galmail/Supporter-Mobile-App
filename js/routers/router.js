@@ -7,7 +7,7 @@ define([
 ], function ($, Backbone, Foundation, templateSrc) {
 	'use strict';
 
-	var mainContainer = $('.main-container');
+	var mainContainer = $('.js-main-container');
 
 	var Router = Backbone.Router.extend({
 		routes: {
