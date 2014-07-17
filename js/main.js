@@ -16,6 +16,12 @@ require.config({
 		backboneLocalstorage: {
 			deps: ['backbone'],
 			exports: 'Store'
+		},
+		foundation: {
+			deps: [
+				'jquery'
+			],
+			exports: 'Foundation'
 		}
 	},
 	paths: {
@@ -23,7 +29,9 @@ require.config({
 		underscore: 'libs/underscore/underscore',
 		backbone: 'libs/backbone/backbone',
 		backboneLocalstorage: 'libs/backbone.localStorage/backbone.localStorage',
-		text: 'libs/requirejs-text/text'
+		text: 'libs/requirejs-text/text',
+		modernizr: 'libs/modernizr/modernizr',
+		foundation: 'libs/foundation/foundation.min'
 	}
 });
 

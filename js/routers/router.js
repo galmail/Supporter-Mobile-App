@@ -1,8 +1,10 @@
 /*global define*/
 define([
 	'jquery',
-	'backbone'
-], function ($, Backbone) {
+	'backbone',
+	'foundation',
+	'text!templates/home.html'
+], function ($, Backbone, Foundation, templateSrc) {
 	'use strict';
 
 	var mainContainer = $('.main-container');
@@ -13,7 +15,7 @@ define([
 			'login': 'login' //http://localhost/#login
 		},
 		home: function (param) {
-			var templateSrc = 'hello: <%= name %>';
+			console.info('src', templateSrc);
 			var data = {
 				name: 'moe'
 			};
@@ -21,7 +23,6 @@ define([
 			var compiled = _.template(templateSrc, data);
 
 			mainContainer.html(compiled);
-
 		},
 		login: function (param) {
 			alert('login');
