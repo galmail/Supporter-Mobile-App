@@ -1,5 +1,6 @@
 body {
 	font-family: 'Roboto', sans-serif;
+    text-align: center;
 }
 
 .body-not-logged {
@@ -8,11 +9,18 @@ body {
 
 .container-not-logged {
 	color: white;
-	text-align: center;
 	padding: 25px 10px 25px 10px;
 }
 
 .link {
 	text-decoration: underline;
 	color: #4b84b2;
+}
+
+
+/* KNOW MORE */
+
+.know-more {
+    color:white;
+    text-align: center;
 }
