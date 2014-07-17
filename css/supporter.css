@@ -1,5 +1,8 @@
-.container-not-logged {
+.body-not-logged {
     background-color: #6daae5;
+}
+
+.container-not-logged {
                color: white;
           text-align: center;
              padding: 25px 10px 25px 10px;
