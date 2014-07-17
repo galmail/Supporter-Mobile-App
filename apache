@@ -1,0 +1,5 @@
+Starting: "sudo apachectl start"
+
+Stopping: "sudo apachectl stop"
+
+Restarting: "sudo apachectl restart"
