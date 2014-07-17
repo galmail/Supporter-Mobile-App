@@ -39,7 +39,7 @@ require([
 	'backbone',
 	'routers/router'
 ], function (Backbone, Router) {
-	var router = new Router();
+	var router = Router.getInstance();
 	Backbone.history.start();
 	router.navigate('home', {trigger: true});
 });

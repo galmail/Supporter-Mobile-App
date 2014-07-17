@@ -19,9 +19,16 @@ define([
 		},
 
 		login: function (param) {
+			alert('LOGIN IN ROUTER');
 		}
 
 	});
+
+	var instance;
+
+    Router.getInstance = function () {
+        return instance || (instance = new Router());
+    };
 
 	return Router;
 });
