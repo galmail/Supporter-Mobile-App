@@ -3,11 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/home.html'
+    'text!templates/WarningInfo.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
-
-    //var router = Router.getInstance();
 
     var View = Backbone.View.extend({
 
@@ -16,7 +14,6 @@ define([
         template: _.template(templateSrc),
 
         events: {
-            'click .js-login': 'onLogin'
         },
 
         initialize: function () {
@@ -27,13 +24,6 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
-        },
-
-        onLogin: function () {
-            alert('login');
-            // router.navigate('login', {
-            //     trigger: true
-            // });
         }
     });
 

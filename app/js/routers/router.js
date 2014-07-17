@@ -3,23 +3,76 @@ define([
 	'jquery',
 	'backbone',
 	'foundation',
-	'views/home'
-], function ($, Backbone, Foundation, HomeView) {
+	'views/menuLogClear',
+	'views/PickClub',
+	'views/KnowMore',
+	'views/SignIn',
+	'views/PickClubConfirm',
+	'views/ClubDisclaimer',
+	'views/RemindPassword',
+	'views/CreateNewAccount',
+	'views/SelectOperators',
+	'views/WarningInfo',
+	'views/UnifiedRegister',
+	'views/UnifiedLogin'
+], function ($, Backbone, Foundation,
+				MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
+				RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView, UnifiedLoginView) {
+
 	'use strict';
 
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'home': 'home', 	//http://localhost/#home
-			'login': 'login' 	//http://localhost/#login
+			'menuLogClear'		: 'menuLogClear',
+			'pickClub' 			: 'pickClub',
+			'knowMore' 			: 'knowMore',
+			'signIn' 			: 'signIn',
+			'pickClubConfirm' 	: 'pickClubConfirm',
+			'clubDisclaimer' 	: 'clubDisclaimer',
+			'remindPassword' 	: 'remindPassword',
+			'createNewAccount' 	: 'createNewAccount',
+			'selectOperators'	: 'selectOperators',
+			'warningInfo' 		: 'warningInfo',
+			'unifiedRegister' 	: 'unifiedRegister',
+			'unifiedLogin' 		: 'unifiedLogin'
 		},
 
-		home: function (param) {
-			new HomeView();
+		menuLogClear: function (param) {
+			new MenuLogClearView();
 		},
-
-		login: function (param) {
-			alert('LOGIN IN ROUTER');
+		pickClub: function (param) {
+			new PickClubView();
+		},
+		knowMore: function (param) {
+			new KnowMoreView();
+		},
+		signIn: function (param) {
+			new SignInView();
+		},
+		pickClubConfirm: function (param) {
+			new PickClubConfirmView();
+		},
+		clubDisclaimer: function (param) {
+			new ClubDisclaimerView();
+		},
+		remindPassword: function (param) {
+			new RemindPasswordView();
+		},
+		createNewAccount: function (param) {
+			new CreateNewAccountView();
+		},
+		selectOperators: function (param) {
+			new SelectOperatorsView();
+		},
+		warningInfo: function (param) {
+			new WarningInfoView();
+		},
+		unifiedRegister: function (param) {
+			new UnifiedRegisterView();
+		},
+		unifiedLogin: function (param) {
+			new UnifiedLoginView();
 		}
 
 	});
