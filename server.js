@@ -1,15 +1,15 @@
 var express = require('express');
 var app = express();
 
-// The number of milliseconds in one day
-var oneDay = 86400000;
+app.set('development');
 
 // Use compress middleware to gzip content
 app.use(express.compress());
 
 // Serve up content from public directory
+
 app.use(express.static(__dirname + '/app', {
-	maxAge : oneDay
+	maxAge : 0
 }));
 
 app.listen(process.env.PORT || 3000);
