@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/SelectOperators.html'
+    'text!/templates/SelectOperators.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/WarningInfo.html'
+    'text!/templates/WarningInfo.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

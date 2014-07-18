@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/PickClubConfirm.html'
+    'text!/templates/PickClubConfirm.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 
