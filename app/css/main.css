@@ -20,11 +20,14 @@ body {
 .body-not-logged {
   background-color: #6daae5;
 }
-.container-not-logged {
+#container {
   color: white;
   padding: 25px 10px 25px 10px;
 }
 .link {
   text-decoration: underline;
   color: #4b84b2;
+}
+.club-disclaimer {
+  color: white;
 }
