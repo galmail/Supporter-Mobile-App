@@ -18,11 +18,8 @@ npm start
 ```
 Now open: http://localhost:3000
 
-LESS:
-npm install less
-lessc app/less/main.less > app/css/main.css
+## Foundation ##
 
-FOUNDATION:
 http://foundation.zurb.com/docs/
 
 http://foundation.zurb.com/docs/components/buttons.html

@@ -1,7 +1,15 @@
 {
-  "name" : "SupporterStaticContentServer",
-  "version" : "0.0.1",
-  "dependencies" : {
-    "express" : "3.x"
-  }
+	"author": "Gal Dubitski",
+	"name": "SupporterStaticContentServer",
+	"version": "0.0.1",
+	"repository": {
+		"url": "https://bitbucket.org/supp0rter/supporter-mobile-app.git"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"dependencies": {
+		"express": "3.x",
+		"less": "*"
+	}
 }
