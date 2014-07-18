@@ -1,26 +1,30 @@
+/**
+ * Supporter Fonts
+ **/
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RobotoThin';
+  src: url("../fonts/Roboto-Thin.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
-	font-family: 'Roboto', sans-serif;
-    text-align: center;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
-
 .body-not-logged {
-	background-color: #6daae5;
+  background-color: #6daae5;
 }
-
 .container-not-logged {
-	color: white;
-	padding: 25px 10px 25px 10px;
+  color: white;
+  padding: 25px 10px 25px 10px;
 }
-
 .link {
-	text-decoration: underline;
-	color: #4b84b2;
-}
-
-
-/* KNOW MORE */
-
-.know-more {
-    color:white;
-    text-align: center;
+  text-decoration: underline;
+  color: #4b84b2;
 }

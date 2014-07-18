@@ -18,3 +18,6 @@ npm start
 ```
 Now open: http://localhost:3000
 
+LESS:
+npm install less
+lessc app/css/main.less > app/css/main.css
