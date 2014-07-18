@@ -16,7 +16,7 @@ define([
         template: _.template(templateSrc),
 
         events: {
-            'click .js-login': 'onLogin'
+            //'click .js-login': 'onLogin'
         },
 
         initialize: function () {
@@ -27,13 +27,6 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
-        },
-
-        onLogin: function () {
-            alert('login');
-            // router.navigate('login', {
-            //     trigger: true
-            // });
         }
     });
 

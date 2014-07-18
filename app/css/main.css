@@ -15,7 +15,6 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
-  text-align: center;
 }
 .body-not-logged {
   background-color: #6daae5;
@@ -28,31 +27,42 @@ body {
   text-decoration: underline;
   color: #4b84b2;
 }
+.full-width {
+  width: 100%;
+}
+.logo {
+  text-align: center;
+  margin: 20px auto;
+  height: 100px;
+  width: 100px;
+  background: url('../img/logo.png') center center no-repeat;
+  background-size: 100px 100px;
+}
 .club-disclaimer {
   color: white;
 }
-.pick-club {
-  color: white;
+.club-disclaimer .disclaimer {
+  font-size: 14px;
 }
-.pick-club .search input {
-  background: url("../img/search.png");
-  background-repeat: no-repeat;
-  padding-left: 45px;
+.know-more .disclaimer {
+  font-size: 14px;
 }
-.pick-club .clubs-list {
-  color: black;
-  background-color: white;
-  margin-left: 1em;
-  margin-right: 1em;
+.menu-log-clear {
+  text-align: center;
 }
-.pick-club .clubs-list .club {
-  border-bottom: 5px;
-  border-bottom-color: gray;
-  border: solid;
+.pick-club-confirm {
+  text-align: center;
 }
-.pick-club .clubs-list .club .left {
-  text-align: left;
+.pick-club-confirm .club {
+  text-align: center;
+  margin: 20px auto;
+  border: 1px solid white;
+  width: 200px;
+  height: 180px;
 }
-.pick-club .clubs-list .club .right {
-  text-align: right;
+.remind-password {
+  text-align: center;
+}
+.sign-in {
+  text-align: center;
 }
