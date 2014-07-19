@@ -14,6 +14,10 @@ app.use(express.static(__dirname + '/app', {
 
 app.listen(process.env.PORT || 3000);
 
+process.on('uncaughtException', function(err) {
+	console.log('Caught exception: ' + err);
+});
+
 /*********** LESS WATCH *************/
 
 (function() {
@@ -43,9 +47,7 @@ app.listen(process.env.PORT || 3000);
 		contents = fs.readFileSync(path).toString();
 		lessParser.parse(contents, function(err, tree) {
 			if (err) {
-				console.log(err.message);
-				return;
-				//throw new Error(err);
+				throw new Error(err);
 			}
 			var cssFilename = filename.replace(/less$/, 'css');
 			fs.writeFileSync(join(cssDir, cssFilename), tree.toCSS());
@@ -66,7 +68,7 @@ app.listen(process.env.PORT || 3000);
 
 		var path;
 
-		if(typeof(filename)!="string"){
+		if ( typeof (filename) != "string") {
 			filename = filename.value;
 		}
 
