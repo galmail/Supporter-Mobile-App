@@ -50,6 +50,9 @@ h3 {
   background: url('../img/logo.png') center center no-repeat;
   background-size: 100px 100px;
 }
+.logo-clear {
+  margin: 60px auto 120px auto;
+}
 .header {
   padding: 0px 0px 40px 0px;
 }

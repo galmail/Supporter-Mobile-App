@@ -14,28 +14,33 @@ define([
 	'views/SelectOperators',
 	'views/WarningInfo',
 	'views/UnifiedRegister',
-	'views/UnifiedLogin'
+	'views/UnifiedLogin',
+	'views/OperatorsSingleLogin',
+	'views/NewAccountEnd'
 ], function ($, Backbone, Foundation,
 				MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
-				RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView, UnifiedLoginView) {
+				RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
+				UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
 
 	'use strict';
 
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'menuLogClear'		: 'menuLogClear',
-			'pickClub' 			: 'pickClub',
-			'knowMore' 			: 'knowMore',
-			'signIn' 			: 'signIn',
-			'pickClubConfirm' 	: 'pickClubConfirm',
-			'clubDisclaimer' 	: 'clubDisclaimer',
-			'remindPassword' 	: 'remindPassword',
-			'createNewAccount' 	: 'createNewAccount',
-			'selectOperators'	: 'selectOperators',
-			'warningInfo' 		: 'warningInfo',
-			'unifiedRegister' 	: 'unifiedRegister',
-			'unifiedLogin' 		: 'unifiedLogin'
+			'menuLogClear'			: 'menuLogClear',
+			'pickClub' 				: 'pickClub',
+			'knowMore' 				: 'knowMore',
+			'signIn' 				: 'signIn',
+			'pickClubConfirm' 		: 'pickClubConfirm',
+			'clubDisclaimer' 		: 'clubDisclaimer',
+			'remindPassword' 		: 'remindPassword',
+			'createNewAccount' 		: 'createNewAccount',
+			'selectOperators'		: 'selectOperators',
+			'warningInfo' 			: 'warningInfo',
+			'unifiedRegister' 		: 'unifiedRegister',
+			'unifiedLogin' 			: 'unifiedLogin',
+			'operatorsSingleLogin'	: 'operatorsSingleLogin',
+			'newAccountEnd'			: 'newAccountEnd'
 		},
 
 		menuLogClear: function (param) {
@@ -73,6 +78,12 @@ define([
 		},
 		unifiedLogin: function (param) {
 			new UnifiedLoginView();
+		},
+		opperatorSingleLogin: function (param) {
+			new OperatorsSingleLoginView();
+		},
+		newAccountEnd: function (param) {
+			new NewAccountEndView();
 		}
 
 	});
