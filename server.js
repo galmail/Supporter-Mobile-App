@@ -17,7 +17,7 @@ app.listen(process.env.PORT || 3000);
 /*********** LESS WATCH *************/
 
 (function() {
-	
+
 	var mainLessFile = "main.less";
 
 	var lessDir = __dirname + '/app/less', cssDir = __dirname + '/app/css';
@@ -42,9 +42,11 @@ app.listen(process.env.PORT || 3000);
 
 		contents = fs.readFileSync(path).toString();
 		lessParser.parse(contents, function(err, tree) {
-			if (err)
-				throw new Error(err);
-
+			if (err) {
+				console.log(err.message);
+				return;
+				//throw new Error(err);
+			}
 			var cssFilename = filename.replace(/less$/, 'css');
 			fs.writeFileSync(join(cssDir, cssFilename), tree.toCSS());
 			// Relations
@@ -56,18 +58,18 @@ app.listen(process.env.PORT || 3000);
 			});
 		});
 	};
-	
+
 	var watch = function(filename) {
-		
+
 		if (relations[filename])
 			return;
 
 		var path;
-		
+
 		if(typeof(filename)!="string"){
 			filename = filename.value;
 		}
-		
+
 		if (filename.charAt(0) == '/')
 			path = filename;
 		else
