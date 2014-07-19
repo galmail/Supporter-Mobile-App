@@ -16,12 +16,18 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+h1,
+h2,
+h3 {
+  color: #ffffff;
+}
 .body-not-logged {
   background-color: #6daae5;
 }
 #container {
-  color: white;
+  color: #ffffff;
   padding: 25px 10px 25px 10px;
+  text-align: center;
 }
 .link {
   text-decoration: underline;
@@ -30,6 +36,12 @@ body {
 .full-width {
   width: 100%;
 }
+.half-width {
+  width: 49%;
+}
+.one-third-width {
+  width: 32%!important;
+}
 .logo {
   text-align: center;
   margin: 20px auto;
@@ -37,6 +49,38 @@ body {
   width: 100px;
   background: url('../img/logo.png') center center no-repeat;
   background-size: 100px 100px;
+}
+.header {
+  padding: 0px 0px 40px 0px;
+}
+/* Foundation overrides */
+.inline-input {
+  display: inline-block !important;
+}
+input,
+select {
+  background-color: transparent!important;
+  border: 1px solid white!important;
+  color: #ffffff !important;
+}
+input.tight,
+select.tight {
+  margin: 0 0 0.5rem 0!important;
+}
+input.disabled,
+select.disabled {
+  border: 1px solid #cccccc !important;
+  color: #cccccc !important;
+}
+input:focus,
+select:focus {
+  color: #ffffff;
+}
+::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.disabled::-webkit-input-placeholder {
+  color: #cccccc;
 }
 .club-disclaimer {
   color: white;
@@ -47,22 +91,10 @@ body {
 .know-more .disclaimer {
   font-size: 14px;
 }
-.menu-log-clear {
-  text-align: center;
-}
-.pick-club-confirm {
-  text-align: center;
-}
 .pick-club-confirm .club {
   text-align: center;
   margin: 20px auto;
   border: 1px solid white;
   width: 200px;
   height: 180px;
-}
-.remind-password {
-  text-align: center;
-}
-.sign-in {
-  text-align: center;
 }

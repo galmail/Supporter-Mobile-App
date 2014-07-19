@@ -3,13 +3,20 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+h1,
+h2,
+h3 {
+    color: @white;
+}
+
 .body-not-logged {
     background-color: @not-logged-color;
 }
 
 #container {
-    color: white;
+    color: @white;
     padding: 25px 10px 25px 10px;
+    text-align: center;
 }
 
 .link {
@@ -20,6 +27,12 @@ body {
 .full-width {
     width: 100%;
 }
+.half-width {
+    width: 49%;
+}
+.one-third-width {
+    width: 32%!important;
+}
 
 .logo {
     text-align: center;
@@ -29,3 +42,54 @@ body {
     background: url('../img/logo.png') center center no-repeat;
     background-size: 100px 100px;
 }
+
+.header {
+    padding: 0px 0px 40px 0px;
+}
+
+
+
+/* Foundation overrides */
+
+.inline-input {
+    display: inline-block!important;
+}
+
+input,
+select {
+    background-color: transparent!important;
+    border: 1px solid white!important;
+    color: @white!important;
+
+    &.tight {
+        margin: 0 0 0.5rem 0!important;
+    }
+
+    &.disabled {
+        border: 1px solid @disabled!important;
+        color: @disabled!important;
+    }
+
+    &:focus {
+        color: @white;
+    };
+}
+
+::-webkit-input-placeholder {
+   color: @white;
+}
+.disabled::-webkit-input-placeholder {
+   color: @disabled;
+}
+
+// :-moz-placeholder {
+//    color: @white;
+// }
+
+// ::-moz-placeholder {
+//    color: @white;
+// }
+
+// :-ms-input-placeholder {
+//    color: @white;
+// }
