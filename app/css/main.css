@@ -2,36 +2,49 @@
  * Supporter Fonts
  **/
 @font-face {
-  font-family: 'Roboto';
-  src: url("../fonts/Roboto-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'Roboto' !important;
+  src: url("../fonts/Roboto-Regular.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
 }
 @font-face {
-  font-family: 'RobotoThin';
-  src: url("../fonts/Roboto-Thin.ttf");
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'RobotoThin' !important;
+  src: url("../fonts/Roboto-Thin.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
 }
-body {
-  font-family: 'Roboto', sans-serif;
+body,
+p,
+a,
+button,
+.button {
+  font-family: 'RobotoThin', sans-serif !important;
+  font-size: 1.2rem!important;
+  text-shadow: 1px 1px 1px #007399;
+}
+p {
+  line-height: 1.2em!important;
+}
+button,
+.button {
+  margin-bottom: 1rem;
 }
 h1,
 h2,
 h3 {
-  color: #ffffff;
+  color: #e6e6e6;
 }
 .body-not-logged {
-  background-color: #6daae5;
+  background-color: #45b0e6;
 }
 #container {
-  color: #ffffff;
-  padding: 25px 10px 25px 10px;
+  color: #e6e6e6;
+  padding: 15px 10px 15px 10px;
   text-align: center;
 }
 .link {
   text-decoration: underline;
-  color: #4b84b2;
+  display: inline-block;
 }
 .full-width {
   width: 100%;
@@ -44,11 +57,11 @@ h3 {
 }
 .logo {
   text-align: center;
-  margin: 20px auto;
-  height: 100px;
-  width: 100px;
+  margin: 15px auto;
+  height: 130px;
+  width: 130px;
   background: url('../img/logo.png') center center no-repeat;
-  background-size: 100px 100px;
+  background-size: 130px 130px;
 }
 .logo-clear {
   margin: 60px auto 120px auto;
@@ -64,7 +77,7 @@ input,
 select {
   background-color: transparent!important;
   border: 1px solid white!important;
-  color: #ffffff !important;
+  color: #e6e6e6 !important;
 }
 input.tight,
 select.tight {
@@ -72,18 +85,18 @@ select.tight {
 }
 input.disabled,
 select.disabled {
-  border: 1px solid #cccccc !important;
-  color: #cccccc !important;
+  border: 1px solid #808080 !important;
+  color: #808080 !important;
 }
 input:focus,
 select:focus {
-  color: #ffffff;
+  color: #e6e6e6;
 }
 ::-webkit-input-placeholder {
-  color: #ffffff;
+  color: #e6e6e6;
 }
 .disabled::-webkit-input-placeholder {
-  color: #cccccc;
+  color: #808080;
 }
 .club-disclaimer {
   color: white;
@@ -92,10 +105,20 @@ select:focus {
   font-size: 14px;
 }
 .know-more {
-  text-align: center;
+  text-align: left;
 }
 .know-more .disclaimer {
-  font-size: 14px;
+  font-size: 15px!important;
+}
+.menu-log-clear .link {
+  color: #007399;
+  margin-top: 20px;
+}
+.menu-log-clear .intro {
+  margin: 35px;
+}
+.pick-club-confirm .link {
+  color: #e6e6e6;
 }
 .pick-club-confirm .club {
   text-align: center;
