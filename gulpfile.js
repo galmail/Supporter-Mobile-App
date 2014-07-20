@@ -40,7 +40,8 @@ gulp.task('requirejsBuild', function() {
 		name : "main",
 		out : "supporter.js",
 		removeCombined : true,
-		findNestedDependencies : true
+		findNestedDependencies : true,
+		include: ['libs/requirejs/require.js']
 	}).pipe(gulp.dest('./www/js/'));
 	// pipe it to the output DIR
 });

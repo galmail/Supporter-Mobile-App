@@ -1,18 +1,21 @@
 var express = require('express');
 var app = express();
 
-app.set('development');
-
-// Use compress middleware to gzip content
-app.use(express.compress());
-
-// Serve up content from public directory
-
-app.use(express.static(__dirname + '/app', {
-	maxAge : 0
-}));
+switch(app.get('env')){
+	case 'development':
+		app.use(express.static(__dirname + '/app', { maxAge : 0 }));
+		break;
+    case 'production':
+    	app.use(express.static(__dirname + '/www', { maxAge : 0 }));
+    	app.use(express.compress());
+        break;
+    default:
+        return;
+}
 
 app.listen(process.env.PORT || 3000);
+
+console.log("Node.js is running in " + app.get('env'));
 
 process.on('uncaughtException', function(err) {
 	console.log('Caught exception: ' + err);
