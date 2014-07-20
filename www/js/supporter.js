@@ -14702,7 +14702,7 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!templates/MenuLogClear.html',[],function () { return '<div class="menu-log-clear">\n\n    <div class="logo" />\n\n    <p class="intro">Welcome<br>We will help you support<br>your favorite club</p>\n\n    <a href="#pickClub" class="medium success button full-width js-login">Ok, lets pick a club</a>\n    <a href="#knowMore" class="medium secondary full-width button">I want to know more</a>\n\n    <a href="#signIn" class="link" href="">I\'m already registered</a>\n\n</div>';});
+define('text!templates/MenuLogClear.html',[],function () { return '<div class="menu-log-clear">\n\n    <div class="logo" />\n\n    <p class="large intro">Welcome<br>We will help you support your favorite club</p>\n\n    <a href="#pickClub" class="medium success button full-width js-login">Ok, lets pick a club</a>\n    <a href="#knowMore" class="medium secondary full-width button">I want to know more</a>\n\n    <a href="#signIn" class="link link-bottom-page" href="">I\'m already registered</a>\n\n</div>';});
 
 /*global define*/
 define('views/MenuLogClear',[
@@ -14738,7 +14738,7 @@ define('views/MenuLogClear',[
 
     return View;
 });
-define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<p class="intro medium"> Find the club you wish to support and start donating to the club.</p>\n\n\t<input type="text" class="js-search" placeholder="Search" />\n\n\t<ul class="hide js-results">\n\t\t<li>\n\t\t\t<div class="team-name">IFK Göteborg\n\t\t\t<div class="team-city">Fotboll, Göteborg</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t\t<li>\n\t\t\t<div class="team-name">Hammarby IF Fotbollförening\n\t\t\t<div class="team-city">Fotboll, Stokholm</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t\t<li>\n\t\t\t<div class="team-name">AIK FF\n\t\t\t<div class="team-city">Fotboll, Solna</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t</ul>\n\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
+define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<p class="intro medium"> Find the club you wish to support and start donating to the club.</p>\n\n\t<input type="text" class="js-search" placeholder="Search" />\n\n\t<ul style="display: none" class="js-results">\n\t\t<li data-id="ifk">\n\t\t\t<div class="team-name">IFK Göteborg\n\t\t\t<div class="team-city">Fotboll, Göteborg</div></div>\n\t\t\t<div style="background-image: url(\'../img/clubs/ifk.jpg\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="hammarby">\n\t\t\t<div class="team-name">Hammarby IF\n\t\t\t<div class="team-city">Fotboll, Stockholm</div></div>\n\t\t\t<div style="background-image: url(\'../img/clubs/hammarby.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="malmo">\n\t\t\t<div class="team-name">Malmö FF\n\t\t\t<div class="team-city">Fotboll, Malmö</div></div>\n\t\t\t<div  style="background-image: url(\'../img/clubs/malmo.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t</ul>\n\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
 
 /*global define*/
 define('views/PickClub',[
@@ -14757,7 +14757,7 @@ define('views/PickClub',[
 
         events: {
             'keyup .js-search': 'search',
-            'click li' : 'onItemClick'
+            'click .js-results li' : 'onItemClick'
         },
 
         initialize: function () {
@@ -14775,19 +14775,20 @@ define('views/PickClub',[
         search: function (e) {
             var that = this;
             setTimeout(function () {
-                that.results.removeClass('hide');
+                that.results.fadeIn('slow');
             }, 600);
         },
 
-        onItemClick: function() {
-            window.location.href = '#pickClubConfirm';
+        onItemClick: function(e) {
+            var clubId =  $(e.currentTarget).data('id');
+            window.location.href = '#pickClubConfirm/'+clubId;
         }
 
     });
 
     return View;
 });
-define('text!templates/KnowMore.html',[],function () { return '<div class="know-more">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed quis massa sed erat posuere blandit.<p>\n\n    <p class="disclaimer">\n    Your money, your team<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Integer mollis nisi vestibulum felis aliquam pulvinar. Vivamus at sem eros. Nam vel scelerisque odio. Pellentesque quis ullamcorper enim, porta tempor magna. Cras eget lorem et mi lacinia rutrum.\n    </p>\n    <p class="disclaimer">\n    Why Supporter.se<br>\n    Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n    </p>\n\n    <a href="#menuLogClear" class="medium success button full-width">OK</a>\n</div>';});
+define('text!templates/KnowMore.html',[],function () { return '<div class="know-more">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed posuere blandit.<p>\n\n    <p class="disclaimer">\n    Your money, your team<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Nam vel scelerisque odio. Pellentesque quis ullamcorper enim, porta tempor magna.\n    </p>\n    <p class="disclaimer">\n    Why Supporter.se<br>\n    Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue.\n    </p>\n\n    <a href="#menuLogClear" class="medium success button full-width">OK</a>\n</div>';});
 
 /*global define*/
 define('views/KnowMore',[
@@ -14820,7 +14821,7 @@ define('views/KnowMore',[
 
     return View;
 });
-define('text!templates/SignIn.html',[],function () { return '<div class="sign-in">\n    <div class="logo" />\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a href="#selectOperators" class="medium success button full-width js-login">Sign in</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n\n    <a href="#remindPassword" class="link" href="">Forgot Password</a>\n</div>';});
+define('text!templates/SignIn.html',[],function () { return '<div class="sign-in">\n    <div class="logo" />\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a href="#selectOperators" class="medium success button full-width js-login">Sign in</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n\n    <a href="#remindPassword" class="link link-bottom-page" href="">Forgot Password</a>\n</div>';});
 
 /*global define*/
 define('views/SignIn',[
@@ -14853,7 +14854,7 @@ define('views/SignIn',[
 
     return View;
 });
-define('text!templates/PickClubConfirm.html',[],function () { return '<div class="pick-club-confirm">\n    <p>You chose to support</p>\n\n    <div class="club"/>\n\n\n    <p>By continuiong, you agree to the <a class="link" href="#clubDisclaimer">terms and conditions</a> and <a class="link" href="#clubDisclaimer">privacy policy</a> to use this service</p>\n\n    <a href="#createNewAccount" class="medium success button full-width js-login">Confirm</a><br>\n    <a href="#pickClub" class="medium secondary full-width button">Pick another club</a><br>\n</div>';});
+define('text!templates/PickClubConfirm.html',[],function () { return '<div class="pick-club-confirm">\n    <p>You chose to support</p>\n\n    <div class="club"/>\n\n\n    <p class="small disclaimer">By continuing, you agree to the <a class="link small" href="#clubDisclaimer">terms and conditions</a> and <a class="link small" href="#clubDisclaimer">privacy policy</a> to use this service</p>\n\n    <a href="#createNewAccount" class="medium success button full-width js-login">Confirm</a><br>\n    <a href="#pickClub" class="medium secondary full-width button">Pick another club</a><br>\n</div>';});
 
 /*global define*/
 define('views/PickClubConfirm',[
@@ -14875,21 +14876,22 @@ define('views/PickClubConfirm',[
 
         initialize: function () {
             this.body = this.$el.parents('body');
-            this.club = this.options.club;
+            this.clubId = this.options.clubId;
             this.render();
         },
 
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
-            // set css for image here
+            console.info('MSG',  this.$el.find('.club'));
+            this.$el.find('.club').css('background-image', 'url(../img/clubs/large/'+this.clubId+'.png)');
 
         }
     });
 
     return View;
 });
-define('text!templates/ClubDisclaimer.html',[],function () { return '<div class="club-disclaimer">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed quis massa sed erat posuere blandit. Donec vitae ultrices lorem, a ornare lacus. <p>\n\n    <p class="disclaimer">\n    How it works<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Integer mollis nisi vestibulum felis aliquam pulvinar. Vivamus at sem eros. Nam vel scelerisque odio. Fusce eget arcu lobortis, sollicitudin urna ut, elementum sem. Pellentesque quis ullamcorper enim, porta tempor magna. Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue tristique.\n    </p>\n\n    <a href="#pickClubConfirm" class="medium success button full-width">OK</a><br>\n</div>';});
+define('text!templates/ClubDisclaimer.html',[],function () { return '<div class="club-disclaimer">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed posuere blandit.<p>\n\n    <p class="disclaimer">\n    Your money, your team<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Nam vel scelerisque odio. Pellentesque quis ullamcorper enim, porta tempor magna.\n    </p>\n    <p class="disclaimer">\n    Why Supporter.se<br>\n    Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue.\n    </p>\n\n    <a href="#pickClubConfirm/ifk" class="medium success button full-width">OK</a>\n</div>';});
 
 /*global define*/
 define('views/ClubDisclaimer',[
@@ -14922,7 +14924,7 @@ define('views/ClubDisclaimer',[
 
     return View;
 });
-define('text!templates/RemindPassword.html',[],function () { return '<div class="remind-password">\n\n    <div class="logo"/>\n\n    <p>Don\'t worry. It happens to everyone.</p>\n    <p>Enter your email and get a message with a reset password link.</p>\n\n    <input type="text" placeholder="Email" />\n\n    <a href="#signIn" class="medium success button full-width js-login">Send</a><br>\n    <a href="#signIn" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/RemindPassword.html',[],function () { return '<div class="remind-password">\n\n    <div class="logo"/>\n\n    <p class="small">Don\'t worry. It happens to everyone.</p>\n    <p class="small">Enter your email and get a message with a reset password link.</p>\n\n    <input type="text" placeholder="Email" />\n\n    <a href="#signIn" class="medium success button full-width js-login">Send</a><br>\n    <a href="#signIn" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
 
 /*global define*/
 define('views/RemindPassword',[
@@ -14955,7 +14957,7 @@ define('views/RemindPassword',[
 
     return View;
 });
-define('text!templates/CreateNewAccount.html',[],function () { return '<div class="create-new-account">\n<div class="header">\n    <h2>Unified Registration 1/3</h2>\n    <h3>Creat a supporter account</h3>\n</div>\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a href="#selectOperators" class="medium success button full-width js-login">Create</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/CreateNewAccount.html',[],function () { return '<div class="create-new-account">\n\n    <p class="large intro">Unified Registration 1/3<br>Create a supporter account</p>\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a href="#selectOperators" class="medium success button full-width js-login">Create</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
 
 /*global define*/
 define('views/CreateNewAccount',[
@@ -14988,15 +14990,18 @@ define('views/CreateNewAccount',[
 
     return View;
 });
-define('text!templates/SelectOperators.html',[],function () { return '<div class="select-operators">\n    <a href="#unifiedRegister" class="medium success button full-width">OK</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/SelectOperators.html',[],function () { return '<div class="select-operators">\n\n    <p class="small">Choose which gambling company you want to create a new account at</p>\n    <p class="small">If you already have an account, deselect the operator</p>\n\n    <ul>\n        <li class="small list-header">create</li>\n        <li>\n            <img class="operator" src="../img/operators/betsafe.png" />\n            <div class="switch">\n              <input id="betsafe" type="checkbox">\n              <label for="betsafe"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="../img/operators/bettson.png" />\n            <div class="switch">\n              <input id="bettson" type="checkbox">\n              <label for="bettson"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="../img/operators/nordicbet.png" />\n            <div class="switch">\n              <input id="nordicbet" type="checkbox">\n              <label for="nordicbet"></label>\n            </div>\n        </li>\n    </ul>\n\n    <a href="#unifiedRegister" class="medium success button full-width">OK</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+
+define('text!templates/snippets/UnifiedRegistration.html',[],function () { return '<div class="clearfix">\n    <div class="tiny unified-registration left">Unified registration</div>\n    <div class="tiny unified-registration right"><%=step%>/<%=total%></div>\n</div>';});
 
 /*global define*/
 define('views/SelectOperators',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/SelectOperators.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/SelectOperators.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     
 
     var View = Backbone.View.extend({
@@ -15005,8 +15010,7 @@ define('views/SelectOperators',[
 
         template: _.template(templateSrc),
 
-        events: {
-        },
+        events: {},
 
         initialize: function () {
             this.body = this.$el.parents('body');
@@ -15016,6 +15020,10 @@ define('views/SelectOperators',[
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 1,
+                total: 3
+            }));
         }
     });
 
@@ -15028,8 +15036,9 @@ define('views/WarningInfo',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/WarningInfo.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/WarningInfo.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     
 
     var View = Backbone.View.extend({
@@ -15049,20 +15058,25 @@ define('views/WarningInfo',[
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 3,
+                total: 3
+            }));
         }
     });
 
     return View;
 });
-define('text!templates/UnifiedRegister.html',[],function () { return '<div class="unified-register">\n\n    <div class="header">\n    Unified Registration<br>\n    We use your social security number to try to fill out the form for you\n    </div>\n        <input type="text" placeholder="Social Security Number" />\n\n        <div class="clearfix">\n        <a href="#menuLogClear" class="medium secondary button half-width left">Cancel</a>\n        <a href="#operatorsSingleLogIn" class="medium success button half-width right">OK</a>\n        </div>\n\n        <input type="text" disabled class="tight disabled" placeholder="Username" />\n        <input type="text" disabled class="tight disabled" placeholder="First name" />\n        <input type="text" disabled class="tight disabled" placeholder="Surname" />\n        <select disabled class="tight disabled" >\n          <option value="husker">Gender</option>\n          <option value="starbuck">Male</option>\n          <option value="hotdog">Female</option>\n          <option value="apollo">Not specified</option>\n        </select>\n        <input type="text" disabled class="tight disabled" placeholder="Address" />\n        <input type="text" disabled class="tight disabled" placeholder="Zip Code" />\n        <input type="text" disabled class="tight disabled" placeholder="City" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Year" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Month" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Day" />\n</div>';});
+define('text!templates/UnifiedRegister.html',[],function () { return '<div class="unified-login">\n\n    <div class="header small">\n    Unified Registration<br>\n    We use your social security number to try to fill out the form for you\n    </div>\n    <input type="text" placeholder="Social Security Number" />\n\n    <div class="clearfix">\n    <a href="#menuLogClear" class="medium secondary button half-width left">Cancel</a>\n    <a href="#operatorsSingleLogin" class="medium success button half-width right">OK</a>\n    </div>\n\n    <input type="text" disabled class="tight disabled" placeholder="Username" />\n    <input type="text" disabled class="tight disabled" placeholder="First name" />\n    <input type="text" disabled class="tight disabled" placeholder="Surname" />\n    <input type="text" disabled class="tight disabled" placeholder="Address" />\n    <input type="text" disabled class="tight disabled" placeholder="Zip Code" />\n    <input type="text" disabled class="tight disabled" placeholder="City" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Year" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Month" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Day" />\n</div>';});
 
 /*global define*/
 define('views/UnifiedRegister',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/UnifiedRegister.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/UnifiedRegister.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     
 
     var View = Backbone.View.extend({
@@ -15082,20 +15096,25 @@ define('views/UnifiedRegister',[
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 2,
+                total: 3
+            }));
         }
     });
 
     return View;
 });
-define('text!templates/UnifiedLogin.html',[],function () { return '<div class="unified-login">\n\n    <div class="header">\n    Unified Registration<br>\n    We use your social security number to try to fill out the form for you\n    </div>\n        <input type="text" placeholder="Social Security Number" />\n\n        <div class="clearfix">\n        <a href="#menuLogClear" class="medium secondary button half-width left">Cancel</a>\n        <a href="#newAccountEnd" class="medium success button half-width right">OK</a>\n        </div>\n\n        <input type="text" disabled class="tight disabled" placeholder="Username" />\n        <input type="text" disabled class="tight disabled" placeholder="First name" />\n        <input type="text" disabled class="tight disabled" placeholder="Surname" />\n        <select disabled class="tight disabled" >\n          <option value="husker">Gender</option>\n          <option value="starbuck">Male</option>\n          <option value="hotdog">Female</option>\n          <option value="apollo">Not specified</option>\n        </select>\n        <input type="text" disabled class="tight disabled" placeholder="Address" />\n        <input type="text" disabled class="tight disabled" placeholder="Zip Code" />\n        <input type="text" disabled class="tight disabled" placeholder="City" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Year" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Month" />\n        <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Day" />\n</div>';});
+define('text!templates/UnifiedLogin.html',[],function () { return '<div class="unified-login">\n\n    <div class="header small">\n    Unified Registration<br>\n    We use your social security number to try to fill out the form for you\n    </div>\n    <input class="js-ssn" type="text" placeholder="Social Security Number" />\n\n    <div class="clearfix">\n    <a href="#menuLogClear" class="medium secondary button half-width left">Cancel</a>\n    <a href="#newAccountEnd" class="medium success button half-width right">OK</a>\n    </div>\n\n    <input type="text" disabled class="tight disabled" placeholder="Username" />\n    <input type="text" disabled class="tight disabled" placeholder="First name" />\n    <input type="text" disabled class="tight disabled" placeholder="Surname" />\n    <input type="text" disabled class="tight disabled" placeholder="Address" />\n    <input type="text" disabled class="tight disabled" placeholder="Zip Code" />\n    <input type="text" disabled class="tight disabled" placeholder="City" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Year" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Month" />\n    <input type="text" disabled class="tight disabled one-third-width inline-input" placeholder="Day" />\n</div>';});
 
 /*global define*/
 define('views/UnifiedLogin',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/UnifiedLogin.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/UnifiedLogin.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     
 
     var View = Backbone.View.extend({
@@ -15105,6 +15124,7 @@ define('views/UnifiedLogin',[
         template: _.template(templateSrc),
 
         events: {
+            'keyup .js-ssn': 'onSsn',
         },
 
         initialize: function () {
@@ -15115,20 +15135,72 @@ define('views/UnifiedLogin',[
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 2,
+                total: 3
+            }));
+        },
+        onSsn: function () {
+            // fill out the form
         }
     });
 
     return View;
 });
-define('text!templates/OperatorsSingleLogin.html',[],function () { return '<div class="operators-single-login">\n\n    <div class="logo logo-clear" />\n\n    <a href="#unifiedLogin" class="medium success button full-width">Go to Unified Login</a><br>\n    <a href="#operatorsSingleLogin" class="medium secondary full-width button">Go to Single Login</a><br>\n\n</div>';});
+define('text!templates/OperatorsSingleLogin.html',[],function () { return '<div class="operators-single-login">\n\n    <p class="small">Do you have existing Accounts?<br>Use them as your supporter account</p>\n\n    <dl class="accordion" >\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/betsafe.png" /><span class="label">Login</span></a>\n        <div id="betsafe" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/bettson.png" /><span class="label">Login</span></a>\n        <div id="bettson" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/nordicbet.png" /><span class="label">Login</span></a>\n        <div id="nordicbet" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n    </dl>\n\n    <a href="#newAccountEnd" class="medium success button full-width">Go to Unified Login</a><br>\n    <a href="#warningInfo" class="medium secondary full-width button">Go to Single Login</a><br>\n\n</div>';});
 
 /*global define*/
 define('views/OperatorsSingleLogin',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/OperatorsSingleLogin.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/OperatorsSingleLogin.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
+    
+
+    var View = Backbone.View.extend({
+
+        el: '#container',
+
+        template: _.template(templateSrc),
+
+        events: {
+            'click .js-accordion-header':   'toggleAccordion'
+        },
+
+        initialize: function () {
+            this.body = this.$el.parents('body');
+            this.render();
+        },
+
+        render: function () {
+            this.body.addClass('body-not-logged');
+            this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 3,
+                total: 3
+            }));
+        },
+
+        toggleAccordion: function (e) {
+            var target = $(e.currentTarget);
+            target.find('.js-content').slideToggle();
+        }
+    });
+
+    return View;
+});
+define('text!templates/NewAccountEnd.html',[],function () { return '<div class="new-account-end">\n\n    <div class="logo logo-clear" />\n\n    <p class="large">Registration Successfull Welcome to Supporter.se</p>\n\n    <a href="#mainMenuLogged" class="medium success button full-width">OK</a>\n\n</div>';});
+
+/*global define*/
+define('views/NewAccountEnd',[
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!templates/NewAccountEnd.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     
 
     var View = Backbone.View.extend({
@@ -15148,19 +15220,23 @@ define('views/OperatorsSingleLogin',[
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 3,
+                total: 3
+            }));
         }
     });
 
     return View;
 });
-define('text!templates/NewAccountEnd.html',[],function () { return '<div class="new-account-end">\n\n    <div class="logo logo-clear" />\n\n    <p>Registration Successfull<br>Welcome to Supporter.se</p>\n\n    <a href="#" class="medium success button full-width">OK</a>\n\n</div>';});
+define('text!templates/MainMenuLogged.html',[],function () { return '<div class="main-menu-logged">\n<div class="panel">\n  <h5>Main Menu Logged</h5>\n</div>\n\n  <a href="#menuLogClear">HOME</a>\n</div>';});
 
 /*global define*/
-define('views/NewAccountEnd',[
+define('views/MainMenuLogged',[
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/NewAccountEnd.html'
+    'text!templates/MainMenuLogged.html'
 ], function ($, _, Backbone, templateSrc) {
     
 
@@ -15179,7 +15255,7 @@ define('views/NewAccountEnd',[
         },
 
         render: function () {
-            this.body.addClass('body-not-logged');
+            this.body.removeClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
         }
     });
@@ -15204,11 +15280,12 @@ define('routers/router',[
 	'views/UnifiedRegister',
 	'views/UnifiedLogin',
 	'views/OperatorsSingleLogin',
-	'views/NewAccountEnd'
+	'views/NewAccountEnd',
+	'views/MainMenuLogged'
 ], function ($, Backbone, Foundation,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
+	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView) {
 
 	
 
@@ -15228,7 +15305,10 @@ define('routers/router',[
 			'unifiedRegister': 'unifiedRegister',
 			'unifiedLogin': 'unifiedLogin',
 			'operatorsSingleLogin': 'operatorsSingleLogin',
-			'newAccountEnd': 'newAccountEnd'
+			'newAccountEnd': 'newAccountEnd',
+
+			//Logged zone,
+			'mainMenuLogged': 'mainMenuLogged'
 		},
 
 		menuLogClear: function () {
@@ -15245,7 +15325,7 @@ define('routers/router',[
 		},
 		pickClubConfirm: function (param) {
 			new PickClubConfirmView({
-				club: param
+				clubId: param
 			});
 		},
 		clubDisclaimer: function () {
@@ -15269,11 +15349,17 @@ define('routers/router',[
 		unifiedLogin: function () {
 			new UnifiedLoginView();
 		},
-		opperatorSingleLogin: function () {
+		operatorsSingleLogin: function () {
 			new OperatorsSingleLoginView();
 		},
 		newAccountEnd: function () {
 			new NewAccountEndView();
+		},
+
+		//LOGGED ZONE
+
+		mainMenuLogged: function () {
+			new MainMenuLoggedView();
 		}
 
 	});
@@ -15327,6 +15413,7 @@ require([
 	'backbone',
 	'routers/router'
 ], function (Backbone, Router) {
+
 	var router = Router.getInstance();
 	Backbone.history.start();
 	router.navigate('menuLogClear', {trigger: true});
