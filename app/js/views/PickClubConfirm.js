@@ -18,14 +18,15 @@ define([
 
         initialize: function () {
             this.body = this.$el.parents('body');
-            this.club = this.options.club;
+            this.clubId = this.options.clubId;
             this.render();
         },
 
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
-            // set css for image here
+            console.info('MSG',  this.$el.find('.club'));
+            this.$el.find('.club').css('background-image', 'url(../img/clubs/large/'+this.clubId+'.png)');
 
         }
     });

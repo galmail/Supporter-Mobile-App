@@ -37,8 +37,9 @@ define([
             }, 600);
         },
 
-        onItemClick: function() {
-            window.location.href = '#pickClubConfirm';
+        onItemClick: function(e) {
+            var clubId =  $(e.currentTarget).data('id');
+            window.location.href = '#pickClubConfirm/'+clubId;
         }
 
     });

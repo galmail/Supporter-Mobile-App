@@ -57,7 +57,7 @@ define([
 		},
 		pickClubConfirm: function (param) {
 			new PickClubConfirmView({
-				club: param
+				clubId: param
 			});
 		},
 		clubDisclaimer: function () {
