@@ -119,8 +119,8 @@ select.tight {
 }
 input.disabled,
 select.disabled {
-  border: 1px solid rgba(230, 230, 230, 0.5) !important;
-  color: rgba(230, 230, 230, 0.5) !important;
+  border: 1px solid rgba(230, 230, 230, 0.6) !important;
+  color: rgba(230, 230, 230, 0.6) !important;
 }
 input:focus,
 select:focus {
@@ -130,7 +130,7 @@ select:focus {
   color: #e6e6e6;
 }
 .disabled::-webkit-input-placeholder {
-  color: rgba(230, 230, 230, 0.5);
+  color: rgba(230, 230, 230, 0.6);
 }
 :-moz-placeholder {
   color: #e6e6e6;
@@ -152,10 +152,10 @@ div.switch label {
   display: inline-block;
 }
 .club-disclaimer {
-  color: white;
+  text-align: left;
 }
 .club-disclaimer .disclaimer {
-  font-size: 14px;
+  font-size: 15px !important;
 }
 .create-new-account .intro {
   margin: 35px 35px 45px 35px ;
@@ -171,6 +171,9 @@ div.switch label {
 }
 .pick-club-confirm .link {
   color: #e6e6e6;
+}
+.pick-club-confirm .link:visited {
+  color: #e6e6e6 !important;
 }
 .pick-club-confirm .club {
   text-align: center;
