@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/WarningInfo.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/WarningInfo.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     'use strict';
 
     var View = Backbone.View.extend({
@@ -24,6 +25,10 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 3,
+                total: 3
+            }));
         }
     });
 

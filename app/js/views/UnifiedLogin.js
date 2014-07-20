@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/UnifiedLogin.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/UnifiedLogin.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     'use strict';
 
     var View = Backbone.View.extend({
@@ -25,6 +26,10 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 2,
+                total: 3
+            }));
         },
         onSsn: function () {
             // fill out the form

@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/SelectOperators.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/SelectOperators.html',
+    'text!templates/snippets/UnifiedRegistration.html'
+], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
     'use strict';
 
     var View = Backbone.View.extend({
@@ -13,8 +14,7 @@ define([
 
         template: _.template(templateSrc),
 
-        events: {
-        },
+        events: {},
 
         initialize: function () {
             this.body = this.$el.parents('body');
@@ -24,6 +24,10 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                step: 1,
+                total: 3
+            }));
         }
     });
 
