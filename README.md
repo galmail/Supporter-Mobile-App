@@ -16,6 +16,7 @@
 ## Getting Started ##
 
 ```
+npm install cordova -g
 npm install
 npm start
 ```
@@ -23,22 +24,30 @@ Now open: http://localhost:3000
 
 ## Deployment ##
 
-To deploy the app run:
+Test that app on the browser:
 
 ```
 gulp
+NODE_ENV=production npm start
+```
+Now open: http://localhost:3000
+
+Prepare app for iOS/Android:
+
+```
+cordova platform add ios
+cordova platform add android
+```
+
+Test the app on emulator (iPhone/Android):
+
+```
 cordova build
-```
-
-Test the app locally on iPhone or Android by running:
-
-```
 cordova run ios
 cordova run android
 ```
 
-Finally go to [Phonegap Build](http://build.phonegap.com) update code and rebuild all 
-
+Finally go to [Phonegap Build](http://build.phonegap.com) update code and rebuild all
 
 ## Foundation ##
 
