@@ -18,12 +18,15 @@ define([
 
         initialize: function () {
             this.body = this.$el.parents('body');
+            this.club = this.options.club;
             this.render();
         },
 
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            // set css for image here
+
         }
     });
 

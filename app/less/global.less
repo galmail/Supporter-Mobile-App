@@ -1,16 +1,16 @@
 
 body, p, a, button, .button {
     font-family: 'RobotoThin', sans-serif!important;
-    font-size: 1.2rem!important; //thin 25px, regular 21px, regular 15px
+    font-size: @text-large!important; //thin 25px, regular 21px, regular 15px
     text-shadow: 1px 1px 1px @shadow;
 }
 
 p {
-    line-height: 1.2em!important;
+    line-height: @text-large!important;
 }
 
 button, .button {
-    margin-bottom: 1rem;
+    margin-bottom: @text-large;
 }
 
 
@@ -18,6 +18,19 @@ h1,
 h2,
 h3 {
     color: @white;
+}
+
+.large {
+    font-size: @text-large!important;
+    line-height: @text-large!important;
+}
+.medium {
+    font-size: @text-medium!important;
+    line-height: @text-medium!important;
+}
+.small {
+    font-size: @text-small!important;
+    line-height: @text-small!important;
 }
 
 .body-not-logged {
@@ -33,7 +46,15 @@ h3 {
 .link {
     text-decoration: underline;
     display: inline-block;
+    color: @secondary-color;
+
+    &-inline {
+        color: @white;
+    }
+
 }
+
+
 
 .full-width {
     width: 100%;
@@ -73,7 +94,7 @@ h3 {
 input,
 select {
     background-color: transparent!important;
-    border: 1px solid white!important;
+    border: 1px solid @white!important;
     color: @white!important;
 
     &.tight {
@@ -97,14 +118,14 @@ select {
    color: @disabled;
 }
 
-// :-moz-placeholder {
-//    color: @white;
-// }
+:-moz-placeholder {
+   color: @white;
+}
 
-// ::-moz-placeholder {
-//    color: @white;
-// }
+::-moz-placeholder {
+   color: @white;
+}
 
-// :-ms-input-placeholder {
-//    color: @white;
-// }
+:-ms-input-placeholder {
+   color: @white;
+}

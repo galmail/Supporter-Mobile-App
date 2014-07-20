@@ -18,71 +18,73 @@ define([
 	'views/OperatorsSingleLogin',
 	'views/NewAccountEnd'
 ], function ($, Backbone, Foundation,
-				MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
-				RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-				UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
+	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
+	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
+	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
 
 	'use strict';
 
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'menuLogClear'			: 'menuLogClear',
-			'pickClub' 				: 'pickClub',
-			'knowMore' 				: 'knowMore',
-			'signIn' 				: 'signIn',
-			'pickClubConfirm' 		: 'pickClubConfirm',
-			'clubDisclaimer' 		: 'clubDisclaimer',
-			'remindPassword' 		: 'remindPassword',
-			'createNewAccount' 		: 'createNewAccount',
-			'selectOperators'		: 'selectOperators',
-			'warningInfo' 			: 'warningInfo',
-			'unifiedRegister' 		: 'unifiedRegister',
-			'unifiedLogin' 			: 'unifiedLogin',
-			'operatorsSingleLogin'	: 'operatorsSingleLogin',
-			'newAccountEnd'			: 'newAccountEnd'
+			'menuLogClear': 'menuLogClear',
+			'pickClub': 'pickClub',
+			'knowMore': 'knowMore',
+			'signIn': 'signIn',
+			'pickClubConfirm/:club': 'pickClubConfirm',
+			'clubDisclaimer': 'clubDisclaimer',
+			'remindPassword': 'remindPassword',
+			'createNewAccount': 'createNewAccount',
+			'selectOperators': 'selectOperators',
+			'warningInfo': 'warningInfo',
+			'unifiedRegister': 'unifiedRegister',
+			'unifiedLogin': 'unifiedLogin',
+			'operatorsSingleLogin': 'operatorsSingleLogin',
+			'newAccountEnd': 'newAccountEnd'
 		},
 
-		menuLogClear: function (param) {
+		menuLogClear: function () {
 			new MenuLogClearView();
 		},
-		pickClub: function (param) {
+		pickClub: function () {
 			new PickClubView();
 		},
-		knowMore: function (param) {
+		knowMore: function () {
 			new KnowMoreView();
 		},
-		signIn: function (param) {
+		signIn: function () {
 			new SignInView();
 		},
 		pickClubConfirm: function (param) {
-			new PickClubConfirmView();
+			new PickClubConfirmView({
+				club: param
+			});
 		},
-		clubDisclaimer: function (param) {
+		clubDisclaimer: function () {
 			new ClubDisclaimerView();
 		},
-		remindPassword: function (param) {
+		remindPassword: function () {
 			new RemindPasswordView();
 		},
-		createNewAccount: function (param) {
+		createNewAccount: function () {
 			new CreateNewAccountView();
 		},
-		selectOperators: function (param) {
+		selectOperators: function () {
 			new SelectOperatorsView();
 		},
-		warningInfo: function (param) {
+		warningInfo: function () {
 			new WarningInfoView();
 		},
-		unifiedRegister: function (param) {
+		unifiedRegister: function () {
 			new UnifiedRegisterView();
 		},
-		unifiedLogin: function (param) {
+		unifiedLogin: function () {
 			new UnifiedLoginView();
 		},
-		opperatorSingleLogin: function (param) {
+		opperatorSingleLogin: function () {
 			new OperatorsSingleLoginView();
 		},
-		newAccountEnd: function (param) {
+		newAccountEnd: function () {
 			new NewAccountEndView();
 		}
 
@@ -90,9 +92,9 @@ define([
 
 	var instance;
 
-    Router.getInstance = function () {
-        return instance || (instance = new Router());
-    };
+	Router.getInstance = function () {
+		return instance || (instance = new Router());
+	};
 
 	return Router;
 });
