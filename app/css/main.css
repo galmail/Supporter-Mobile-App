@@ -37,15 +37,15 @@ h3 {
 }
 .large {
   font-size: 1.2rem !important;
-  line-height: 1.2rem !important;
+  line-height: 1.4rem !important;
 }
 .medium {
   font-size: 18px !important;
-  line-height: 18px !important;
+  line-height: 20px !important;
 }
 .small {
   font-size: 15px !important;
-  line-height: 15px !important;
+  line-height: 18px !important;
 }
 .body-not-logged {
   background-color: #45b0e6;
@@ -151,6 +151,9 @@ select:focus {
   width: 180px;
   height: 200px;
   background-size: 180px 200px;
+}
+.pick-club-confirm .disclaimer {
+  text-align: left;
 }
 .pick-club {
   text-align: left;
