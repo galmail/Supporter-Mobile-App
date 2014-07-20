@@ -19,20 +19,32 @@ a,
 button,
 .button {
   font-family: 'RobotoThin', sans-serif !important;
-  font-size: 1.2rem!important;
+  font-size: 1.2rem !important;
   text-shadow: 1px 1px 1px #007399;
 }
 p {
-  line-height: 1.2em!important;
+  line-height: 1.2rem !important;
 }
 button,
 .button {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 h1,
 h2,
 h3 {
   color: #e6e6e6;
+}
+.large {
+  font-size: 1.2rem !important;
+  line-height: 1.2rem !important;
+}
+.medium {
+  font-size: 18px !important;
+  line-height: 18px !important;
+}
+.small {
+  font-size: 15px !important;
+  line-height: 15px !important;
 }
 .body-not-logged {
   background-color: #45b0e6;
@@ -45,6 +57,10 @@ h3 {
 .link {
   text-decoration: underline;
   display: inline-block;
+  color: #007399;
+}
+.link-inline {
+  color: #e6e6e6;
 }
 .full-width {
   width: 100%;
@@ -76,7 +92,7 @@ h3 {
 input,
 select {
   background-color: transparent!important;
-  border: 1px solid white!important;
+  border: 1px solid #e6e6e6 !important;
   color: #e6e6e6 !important;
 }
 input.tight,
@@ -98,6 +114,15 @@ select:focus {
 .disabled::-webkit-input-placeholder {
   color: #808080;
 }
+:-moz-placeholder {
+  color: #e6e6e6;
+}
+::-moz-placeholder {
+  color: #e6e6e6;
+}
+:-ms-input-placeholder {
+  color: #e6e6e6;
+}
 .club-disclaimer {
   color: white;
 }
@@ -108,10 +133,9 @@ select:focus {
   text-align: left;
 }
 .know-more .disclaimer {
-  font-size: 15px!important;
+  font-size: 15px !important;
 }
 .menu-log-clear .link {
-  color: #007399;
   margin-top: 20px;
 }
 .menu-log-clear .intro {
@@ -126,4 +150,57 @@ select:focus {
   border: 1px solid white;
   width: 200px;
   height: 180px;
+}
+.pick-club {
+  text-align: left;
+}
+.pick-club input,
+.pick-club input:focus {
+  background: url("../img/search.png");
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  background-size: 35px 35px;
+}
+.pick-club .intro {
+  text-align: center;
+}
+.pick-club .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  float: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.pick-club .ifk {
+  background-image: url("../img/clubs/ifk.jpg");
+}
+.pick-club .team-name {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.pick-club .team-city {
+  margin: 0;
+  padding: 0;
+  line-height: 5px;
+  font-size: 10px;
+}
+.pick-club li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.pick-club li:last-child {
+  border-bottom: none;
+}
+.pick-club ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
 }

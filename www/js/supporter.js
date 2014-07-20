@@ -14738,7 +14738,7 @@ define('views/MenuLogClear',[
 
     return View;
 });
-define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<div class="row">\n\t\t<div class="small-12">\n\t\t\t<div class="text_header"> Find the club you wish to support and start donating to the club.</div>\n\t\t</div>\n\t</div>\n\t<div class="row">\n\t\t<div class="small-12 columns search">\n\t\t\t<input type="text" placeholder="Search..." />\n\t\t</div>\n\t</div>\n\t<div class="row club">\n\t\t<div class="small-8 columns">\n\t\t\t<div class="club-name">Malmo FF</div>\n\t\t\t<div class="sport">Fotboll, Malmo</div>\n\t\t</div>\n\t\t<div class="small-4 columns">\n\t\t\t<img src="img/clubs/ACM_club.jpg" />\n\t\t</div>\n\t</div>\n\t<div class="row club">\n\t\t<div class="small-8 columns">\n\t\t\t<div class="club-name">Chelsea FC</div>\n\t\t\t<div class="sport">Fotboll, London</div>\n\t\t</div>\n\t\t<div class="small-4 columns">\n\t\t\t<img src="img/clubs/chelsea_club.jpg" />\n\t\t</div>\n\t</div>\n\t<div class="row club">\n\t\t<div class="small-8 columns">\n\t\t\t<div class="club-name">IFK Goteborg</div>\n\t\t\t<div class="sport">Fotboll, Goteborg</div>\n\t\t</div>\n\t\t<div class="small-4 columns">\n\t\t\t<img src="img/clubs/IFK_club.jpg" />\n\t\t</div>\n\t</div>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<p class="intro medium"> Find the club you wish to support and start donating to the club.</p>\n\n\t<input type="text" class="js-search" placeholder="Search" />\n\n\t<ul class="hide js-results">\n\t\t<li>\n\t\t\t<div class="team-name">IFK Göteborg\n\t\t\t<div class="team-city">Fotboll, Göteborg</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t\t<li>\n\t\t\t<div class="team-name">Hammarby IF Fotbollförening\n\t\t\t<div class="team-city">Fotboll, Stokholm</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t\t<li>\n\t\t\t<div class="team-name">AIK FF\n\t\t\t<div class="team-city">Fotboll, Solna</div></div>\n\t\t\t<div class="team-logo-small ifk"></div>\n\t\t</li>\n\t</ul>\n\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
 
 /*global define*/
 define('views/PickClub',[
@@ -14756,22 +14756,38 @@ define('views/PickClub',[
         template: _.template(templateSrc),
 
         events: {
+            'keyup .js-search': 'search',
+            'click li' : 'onItemClick'
         },
 
         initialize: function () {
             this.body = this.$el.parents('body');
             this.render();
+            this.searchInput = this.$el.find('.js-search');
+            this.results = this.$el.find('.js-results');
         },
 
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+        },
+
+        search: function (e) {
+            var that = this;
+            setTimeout(function () {
+                that.results.removeClass('hide');
+            }, 600);
+        },
+
+        onItemClick: function() {
+            window.location.href = '#pickClubConfirm';
         }
+
     });
 
     return View;
 });
-define('text!templates/KnowMore.html',[],function () { return '<div class="know-more">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed quis massa sed erat posuere blandit. Donec vitae ultrices lorem, a ornare lacus. <p>\n\n    <p class="disclaimer">\n    Your money, your team<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Integer mollis nisi vestibulum felis aliquam pulvinar. Vivamus at sem eros. Nam vel scelerisque odio. Pellentesque quis ullamcorper enim, porta tempor magna. Cras eget lorem et mi lacinia rutrum.\n    </p>\n    <p class="disclaimer">\n    Why Supporter.se<br>\n    Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n    </p>\n\n    <a href="#menuLogClear" class="medium success button full-width">OK</a>\n</div>';});
+define('text!templates/KnowMore.html',[],function () { return '<div class="know-more">\n    <p class="disclaimer">\n    How it works<br>\n    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis ipsum ut purus posuere hendrerit. Nulla non sem nunc. Nullam nisi arcu, gravida at pellentesque vel, tempor id enim. Praesent tincidunt condimentum lorem. Sed quis massa sed erat posuere blandit.<p>\n\n    <p class="disclaimer">\n    Your money, your team<br>\n    Vestibulum lectus augue, congue at felis vel, tempor gravida urna. Integer mollis nisi vestibulum felis aliquam pulvinar. Vivamus at sem eros. Nam vel scelerisque odio. Pellentesque quis ullamcorper enim, porta tempor magna. Cras eget lorem et mi lacinia rutrum.\n    </p>\n    <p class="disclaimer">\n    Why Supporter.se<br>\n    Cras eget lorem et mi lacinia rutrum. Phasellus accumsan metus sit amet urna malesuada, vel placerat augue tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n    </p>\n\n    <a href="#menuLogClear" class="medium success button full-width">OK</a>\n</div>';});
 
 /*global define*/
 define('views/KnowMore',[
@@ -14859,12 +14875,15 @@ define('views/PickClubConfirm',[
 
         initialize: function () {
             this.body = this.$el.parents('body');
+            this.club = this.options.club;
             this.render();
         },
 
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+            // set css for image here
+
         }
     });
 
@@ -15187,71 +15206,73 @@ define('routers/router',[
 	'views/OperatorsSingleLogin',
 	'views/NewAccountEnd'
 ], function ($, Backbone, Foundation,
-				MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
-				RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-				UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
+	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
+	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
+	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
 
 	
 
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'menuLogClear'			: 'menuLogClear',
-			'pickClub' 				: 'pickClub',
-			'knowMore' 				: 'knowMore',
-			'signIn' 				: 'signIn',
-			'pickClubConfirm' 		: 'pickClubConfirm',
-			'clubDisclaimer' 		: 'clubDisclaimer',
-			'remindPassword' 		: 'remindPassword',
-			'createNewAccount' 		: 'createNewAccount',
-			'selectOperators'		: 'selectOperators',
-			'warningInfo' 			: 'warningInfo',
-			'unifiedRegister' 		: 'unifiedRegister',
-			'unifiedLogin' 			: 'unifiedLogin',
-			'operatorsSingleLogin'	: 'operatorsSingleLogin',
-			'newAccountEnd'			: 'newAccountEnd'
+			'menuLogClear': 'menuLogClear',
+			'pickClub': 'pickClub',
+			'knowMore': 'knowMore',
+			'signIn': 'signIn',
+			'pickClubConfirm/:club': 'pickClubConfirm',
+			'clubDisclaimer': 'clubDisclaimer',
+			'remindPassword': 'remindPassword',
+			'createNewAccount': 'createNewAccount',
+			'selectOperators': 'selectOperators',
+			'warningInfo': 'warningInfo',
+			'unifiedRegister': 'unifiedRegister',
+			'unifiedLogin': 'unifiedLogin',
+			'operatorsSingleLogin': 'operatorsSingleLogin',
+			'newAccountEnd': 'newAccountEnd'
 		},
 
-		menuLogClear: function (param) {
+		menuLogClear: function () {
 			new MenuLogClearView();
 		},
-		pickClub: function (param) {
+		pickClub: function () {
 			new PickClubView();
 		},
-		knowMore: function (param) {
+		knowMore: function () {
 			new KnowMoreView();
 		},
-		signIn: function (param) {
+		signIn: function () {
 			new SignInView();
 		},
 		pickClubConfirm: function (param) {
-			new PickClubConfirmView();
+			new PickClubConfirmView({
+				club: param
+			});
 		},
-		clubDisclaimer: function (param) {
+		clubDisclaimer: function () {
 			new ClubDisclaimerView();
 		},
-		remindPassword: function (param) {
+		remindPassword: function () {
 			new RemindPasswordView();
 		},
-		createNewAccount: function (param) {
+		createNewAccount: function () {
 			new CreateNewAccountView();
 		},
-		selectOperators: function (param) {
+		selectOperators: function () {
 			new SelectOperatorsView();
 		},
-		warningInfo: function (param) {
+		warningInfo: function () {
 			new WarningInfoView();
 		},
-		unifiedRegister: function (param) {
+		unifiedRegister: function () {
 			new UnifiedRegisterView();
 		},
-		unifiedLogin: function (param) {
+		unifiedLogin: function () {
 			new UnifiedLoginView();
 		},
-		opperatorSingleLogin: function (param) {
+		opperatorSingleLogin: function () {
 			new OperatorsSingleLoginView();
 		},
-		newAccountEnd: function (param) {
+		newAccountEnd: function () {
 			new NewAccountEndView();
 		}
 
@@ -15259,9 +15280,9 @@ define('routers/router',[
 
 	var instance;
 
-    Router.getInstance = function () {
-        return instance || (instance = new Router());
-    };
+	Router.getInstance = function () {
+		return instance || (instance = new Router());
+	};
 
 	return Router;
 });
@@ -15308,6 +15329,6 @@ require([
 ], function (Backbone, Router) {
 	var router = Router.getInstance();
 	Backbone.history.start();
-	//router.navigate('menuLogClear', {trigger: true});
+	router.navigate('menuLogClear', {trigger: true});
 });
 define("main", function(){});
