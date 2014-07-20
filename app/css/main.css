@@ -33,6 +33,9 @@ button:hover {
 .secondary {
   color: #45b0e6 !important;
 }
+.secondary:hover {
+  background-color: #007399 !important;
+}
 h1,
 h2,
 h3 {
@@ -72,7 +75,10 @@ h3 {
   color: #e6e6e6;
 }
 .link-bottom-page {
-  margin-top: 20px;
+  margin-top: 15px;
+}
+.link:visited {
+  color: #007399 !important;
 }
 .full-width {
   width: 100%;
@@ -169,7 +175,7 @@ div.switch label {
 .pick-club-confirm .club {
   text-align: center;
   margin: 20px;
-  height: 230px;
+  height: 200px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
