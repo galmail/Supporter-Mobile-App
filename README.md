@@ -17,6 +17,7 @@
 
 ```
 npm install cordova -g
+npm install gulp -g
 npm install
 npm start
 ```
