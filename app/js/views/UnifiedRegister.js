@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/UnifiedRegister.html'
+    'text!templates/UnifiedRegister.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

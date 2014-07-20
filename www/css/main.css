@@ -1,0 +1,129 @@
+/**
+ * Supporter Fonts
+ **/
+@font-face {
+  font-family: 'Roboto' !important;
+  src: url("../fonts/Roboto-Regular.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+@font-face {
+  font-family: 'RobotoThin' !important;
+  src: url("../fonts/Roboto-Thin.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+body,
+p,
+a,
+button,
+.button {
+  font-family: 'RobotoThin', sans-serif !important;
+  font-size: 1.2rem!important;
+  text-shadow: 1px 1px 1px #007399;
+}
+p {
+  line-height: 1.2em!important;
+}
+button,
+.button {
+  margin-bottom: 1rem;
+}
+h1,
+h2,
+h3 {
+  color: #e6e6e6;
+}
+.body-not-logged {
+  background-color: #45b0e6;
+}
+#container {
+  color: #e6e6e6;
+  padding: 15px 10px 15px 10px;
+  text-align: center;
+}
+.link {
+  text-decoration: underline;
+  display: inline-block;
+}
+.full-width {
+  width: 100%;
+}
+.half-width {
+  width: 49%;
+}
+.one-third-width {
+  width: 32%!important;
+}
+.logo {
+  text-align: center;
+  margin: 15px auto;
+  height: 130px;
+  width: 130px;
+  background: url('../img/logo.png') center center no-repeat;
+  background-size: 130px 130px;
+}
+.logo-clear {
+  margin: 60px auto 120px auto;
+}
+.header {
+  padding: 0px 0px 40px 0px;
+}
+/* Foundation overrides */
+.inline-input {
+  display: inline-block !important;
+}
+input,
+select {
+  background-color: transparent!important;
+  border: 1px solid white!important;
+  color: #e6e6e6 !important;
+}
+input.tight,
+select.tight {
+  margin: 0 0 0.5rem 0!important;
+}
+input.disabled,
+select.disabled {
+  border: 1px solid #808080 !important;
+  color: #808080 !important;
+}
+input:focus,
+select:focus {
+  color: #e6e6e6;
+}
+::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+.disabled::-webkit-input-placeholder {
+  color: #808080;
+}
+.club-disclaimer {
+  color: white;
+}
+.club-disclaimer .disclaimer {
+  font-size: 14px;
+}
+.know-more {
+  text-align: left;
+}
+.know-more .disclaimer {
+  font-size: 15px!important;
+}
+.menu-log-clear .link {
+  color: #007399;
+  margin-top: 20px;
+}
+.menu-log-clear .intro {
+  margin: 35px;
+}
+.pick-club-confirm .link {
+  color: #e6e6e6;
+}
+.pick-club-confirm .club {
+  text-align: center;
+  margin: 20px auto;
+  border: 1px solid white;
+  width: 200px;
+  height: 180px;
+}

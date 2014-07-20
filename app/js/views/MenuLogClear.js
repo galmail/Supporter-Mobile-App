@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/MenuLogClear.html'
+    'text!templates/MenuLogClear.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

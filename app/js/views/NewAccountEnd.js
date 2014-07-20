@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/NewAccountEnd.html'
+    'text!templates/NewAccountEnd.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/CreateNewAccount.html'
+    'text!templates/CreateNewAccount.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

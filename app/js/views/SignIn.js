@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/SignIn.html'
+    'text!templates/SignIn.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

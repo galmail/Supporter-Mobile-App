@@ -1,5 +1,5 @@
 /*global require*/
-'use strict';
+//'use strict';
 
 require.config({
 	shim: {

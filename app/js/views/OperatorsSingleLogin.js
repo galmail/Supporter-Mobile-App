@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/OperatorsSingleLogin.html'
+    'text!templates/OperatorsSingleLogin.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

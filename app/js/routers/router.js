@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'backbone',
 	'foundation',
-	'views/menuLogClear',
+	'views/MenuLogClear',
 	'views/PickClub',
 	'views/KnowMore',
 	'views/SignIn',

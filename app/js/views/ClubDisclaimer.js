@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/ClubDisclaimer.html'
+    'text!templates/ClubDisclaimer.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

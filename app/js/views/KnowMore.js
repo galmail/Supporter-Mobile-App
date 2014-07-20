@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/KnowMore.html'
+    'text!templates/KnowMore.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 

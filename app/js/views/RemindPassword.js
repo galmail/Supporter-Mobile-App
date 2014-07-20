@@ -3,7 +3,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!/templates/RemindPassword.html'
+    'text!templates/RemindPassword.html'
 ], function ($, _, Backbone, templateSrc) {
     'use strict';
 
