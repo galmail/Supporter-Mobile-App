@@ -15,7 +15,7 @@ define([
         template: _.template(templateSrc),
 
         events: {
-            'click .js-select-operator-ok' : 'onSelectOperatorsOk'
+            'click .js-select-operator-ok': 'onSelectOperatorsOk'
         },
 
         initialize: function () {
@@ -33,16 +33,31 @@ define([
             }));
         },
 
-        onSelectOperatorsOk: function() {
+        onSelectOperatorsOk: function () {
             console.info('MSG', this);
-            var flag = false;
-            _.each(this.checkboxes, function(i, checkbox){
-                newFlag &= checkbox.checked;
+            var allChecked, redirected;
+            _.each(this.checkboxes, function (checkbox, i) {
+                var newFlag = checkbox.checked;
+
+                if (allChecked === undefined) {
+                    allChecked = newFlag;
+                }
+                else if (allChecked !== newFlag) {
+                    window.location.href = '#unifiedRegister';
+                    redirected = true;
+                }
+                console.info('allChecked, newFlag', allChecked, newFlag);
             }, this);
 
-            // if todos - warning info
-            //     if ninguno - fake
-            //         else unified register
+            if (redirected) {
+                return;
+            }
+            else if (allChecked) {
+                window.location.href = '#warningInfo';
+            }
+            else {
+                window.location.href = '#mainMenuLogged';
+            }
         }
     });
 
