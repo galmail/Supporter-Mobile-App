@@ -14738,7 +14738,7 @@ define('views/MenuLogClear',[
 
     return View;
 });
-define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<p class="intro medium"> Find the club you wish to support and start donating to the club.</p>\n\n\t<input type="text" class="js-search" placeholder="Search" />\n\n\t<ul style="display: none" class="js-results">\n\t\t<li data-id="ifk">\n\t\t\t<div class="team-name">IFK Göteborg\n\t\t\t<div class="team-city">Fotboll, Göteborg</div></div>\n\t\t\t<div style="background-image: url(\'../img/clubs/ifk.jpg\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="hammarby">\n\t\t\t<div class="team-name">Hammarby IF\n\t\t\t<div class="team-city">Fotboll, Stockholm</div></div>\n\t\t\t<div style="background-image: url(\'../img/clubs/hammarby.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="malmo">\n\t\t\t<div class="team-name">Malmö FF\n\t\t\t<div class="team-city">Fotboll, Malmö</div></div>\n\t\t\t<div  style="background-image: url(\'../img/clubs/malmo.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t</ul>\n\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
+define('text!templates/PickClub.html',[],function () { return '<div class="pick-club">\n\t<p class="intro medium"> Find the club you wish to support and start donating to the club.</p>\n\n\t<input type="text" class="js-search" placeholder="Search" />\n\n\t<ul style="display: none" class="js-results">\n\t\t<li data-id="ifk">\n\t\t\t<div class="team-name">IFK Göteborg\n\t\t\t<div class="team-city">Fotboll, Göteborg</div></div>\n\t\t\t<div style="background-image: url(\'img/clubs/ifk.jpg\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="hammarby">\n\t\t\t<div class="team-name">Hammarby IF\n\t\t\t<div class="team-city">Fotboll, Stockholm</div></div>\n\t\t\t<div style="background-image: url(\'img/clubs/hammarby.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t\t<li data-id="malmo">\n\t\t\t<div class="team-name">Malmö FF\n\t\t\t<div class="team-city">Fotboll, Malmö</div></div>\n\t\t\t<div  style="background-image: url(\'img/clubs/malmo.png\');" class="team-logo-small"></div>\n\t\t</li>\n\t</ul>\n\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
 
 /*global define*/
 define('views/PickClub',[
@@ -14990,7 +14990,7 @@ define('views/CreateNewAccount',[
 
     return View;
 });
-define('text!templates/SelectOperators.html',[],function () { return '<div class="select-operators">\n\n    <p class="small">Choose which gambling company you want to create a new account at</p>\n    <p class="small">If you already have an account, deselect the operator</p>\n\n    <ul>\n        <li class="small list-header">create</li>\n        <li>\n            <img class="operator" src="../img/operators/betsafe.png" />\n            <div class="switch">\n              <input id="betsafe" type="checkbox">\n              <label for="betsafe"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="../img/operators/bettson.png" />\n            <div class="switch">\n              <input id="bettson" type="checkbox">\n              <label for="bettson"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="../img/operators/nordicbet.png" />\n            <div class="switch">\n              <input id="nordicbet" type="checkbox">\n              <label for="nordicbet"></label>\n            </div>\n        </li>\n    </ul>\n\n    <a href="#unifiedRegister" class="medium success button full-width">OK</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/SelectOperators.html',[],function () { return '<div class="select-operators">\n\n    <p class="small">Choose which gambling company you want to create a new account at</p>\n    <p class="small">If you already have an account, deselect the operator</p>\n\n    <ul>\n        <li class="small list-header">create</li>\n        <li>\n            <img class="operator" src="img/operators/betsafe.png" />\n            <div class="switch">\n              <input id="betsafe" type="checkbox">\n              <label for="betsafe"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="img/operators/bettson.png" />\n            <div class="switch">\n              <input id="bettson" type="checkbox">\n              <label for="bettson"></label>\n            </div>\n        </li>\n        <li>\n            <img class="operator" src="img/operators/nordicbet.png" />\n            <div class="switch">\n              <input id="nordicbet" type="checkbox">\n              <label for="nordicbet"></label>\n            </div>\n        </li>\n    </ul>\n\n    <a class="medium success button full-width js-select-operator-ok">OK</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a>\n</div>';});
 
 define('text!templates/snippets/UnifiedRegistration.html',[],function () { return '<div class="clearfix">\n    <div class="tiny unified-registration left">Unified registration</div>\n    <div class="tiny unified-registration right"><%=step%>/<%=total%></div>\n</div>';});
 
@@ -15010,11 +15010,14 @@ define('views/SelectOperators',[
 
         template: _.template(templateSrc),
 
-        events: {},
+        events: {
+            'click .js-select-operator-ok' : 'onSelectOperatorsOk'
+        },
 
         initialize: function () {
             this.body = this.$el.parents('body');
             this.render();
+            this.checkboxes = this.$el.find('input');
         },
 
         render: function () {
@@ -15024,6 +15027,18 @@ define('views/SelectOperators',[
                 step: 1,
                 total: 3
             }));
+        },
+
+        onSelectOperatorsOk: function() {
+            console.info('MSG', this);
+            var flag = false;
+            _.each(this.checkboxes, function(i, checkbox){
+                newFlag &= checkbox.checked;
+            }, this);
+
+            // if todos - warning info
+            //     if ninguno - fake
+            //         else unified register
         }
     });
 
@@ -15086,6 +15101,7 @@ define('views/UnifiedRegister',[
         template: _.template(templateSrc),
 
         events: {
+            //'.js-unified-register-ok' : 'onUnifiedRegisterOk'
         },
 
         initialize: function () {
@@ -15101,6 +15117,7 @@ define('views/UnifiedRegister',[
                 total: 3
             }));
         }
+
     });
 
     return View;
@@ -15147,7 +15164,7 @@ define('views/UnifiedLogin',[
 
     return View;
 });
-define('text!templates/OperatorsSingleLogin.html',[],function () { return '<div class="operators-single-login">\n\n    <p class="small">Do you have existing Accounts?<br>Use them as your supporter account</p>\n\n    <dl class="accordion" >\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/betsafe.png" /><span class="label">Login</span></a>\n        <div id="betsafe" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/bettson.png" /><span class="label">Login</span></a>\n        <div id="bettson" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="../img/operators/nordicbet.png" /><span class="label">Login</span></a>\n        <div id="nordicbet" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n    </dl>\n\n    <a href="#newAccountEnd" class="medium success button full-width">Go to Unified Login</a><br>\n    <a href="#warningInfo" class="medium secondary full-width button">Go to Single Login</a><br>\n\n</div>';});
+define('text!templates/OperatorsSingleLogin.html',[],function () { return '<div class="operators-single-login">\n\n    <p class="small">Do you have existing Accounts?<br>Use them as your supporter account</p>\n\n    <dl class="accordion" >\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="img/operators/betsafe.png" /><span class="label">Login</span></a>\n        <div id="betsafe" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="img/operators/bettson.png" /><span class="label">Login</span></a>\n        <div id="bettson" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n      <dd class="accordion-navigation js-accordion-header">\n        <a class="heading"><img src="img/operators/nordicbet.png" /><span class="label">Login</span></a>\n        <div id="nordicbet" class="content js-content">\n            <input type="text" placeholder="Email" />\n            <input type="password" placeholder="Password" />\n            <a class="small secondary half-width button">Cancel</a>\n            <a class="small success button half-width js-login">Login</a>\n        </div>\n      </dd>\n    </dl>\n\n    <a href="#newAccountEnd" class="medium success button full-width">Go to Unified Login</a><br>\n    <a href="#warningInfo" class="medium secondary full-width button">Go to Single Login</a><br>\n\n</div>';});
 
 /*global define*/
 define('views/OperatorsSingleLogin',[
@@ -15416,6 +15433,6 @@ require([
 
 	var router = Router.getInstance();
 	Backbone.history.start();
-	router.navigate('menuLogClear', {trigger: true});
+	//router.navigate('menuLogClear', {trigger: true});
 });
 define("main", function(){});
