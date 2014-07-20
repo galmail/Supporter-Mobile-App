@@ -14,11 +14,14 @@ define([
 
         template: _.template(templateSrc),
 
-        events: {},
+        events: {
+            'click .js-select-operator-ok' : 'onSelectOperatorsOk'
+        },
 
         initialize: function () {
             this.body = this.$el.parents('body');
             this.render();
+            this.checkboxes = this.$el.find('input');
         },
 
         render: function () {
@@ -28,6 +31,18 @@ define([
                 step: 1,
                 total: 3
             }));
+        },
+
+        onSelectOperatorsOk: function() {
+            console.info('MSG', this);
+            var flag = false;
+            _.each(this.checkboxes, function(i, checkbox){
+                newFlag &= checkbox.checked;
+            }, this);
+
+            // if todos - warning info
+            //     if ninguno - fake
+            //         else unified register
         }
     });
 

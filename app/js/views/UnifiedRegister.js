@@ -15,6 +15,7 @@ define([
         template: _.template(templateSrc),
 
         events: {
+            //'.js-unified-register-ok' : 'onUnifiedRegisterOk'
         },
 
         initialize: function () {
@@ -30,6 +31,7 @@ define([
                 total: 3
             }));
         }
+
     });
 
     return View;
