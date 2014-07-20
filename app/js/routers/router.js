@@ -16,11 +16,12 @@ define([
 	'views/UnifiedRegister',
 	'views/UnifiedLogin',
 	'views/OperatorsSingleLogin',
-	'views/NewAccountEnd'
+	'views/NewAccountEnd',
+	'views/MainMenuLogged'
 ], function ($, Backbone, Foundation,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView) {
+	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView) {
 
 	'use strict';
 
@@ -40,7 +41,10 @@ define([
 			'unifiedRegister': 'unifiedRegister',
 			'unifiedLogin': 'unifiedLogin',
 			'operatorsSingleLogin': 'operatorsSingleLogin',
-			'newAccountEnd': 'newAccountEnd'
+			'newAccountEnd': 'newAccountEnd',
+
+			//Logged zone,
+			'mainMenuLogged': 'mainMenuLogged'
 		},
 
 		menuLogClear: function () {
@@ -86,6 +90,12 @@ define([
 		},
 		newAccountEnd: function () {
 			new NewAccountEndView();
+		},
+
+		//LOGGED ZONE
+
+		mainMenuLogged: function () {
+			new MainMenuLoggedView();
 		}
 
 	});
