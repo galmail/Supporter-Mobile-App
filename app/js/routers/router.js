@@ -81,7 +81,7 @@ define([
 		unifiedLogin: function () {
 			new UnifiedLoginView();
 		},
-		opperatorSingleLogin: function () {
+		operatorsSingleLogin: function () {
 			new OperatorsSingleLoginView();
 		},
 		newAccountEnd: function () {

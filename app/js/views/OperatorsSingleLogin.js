@@ -14,6 +14,7 @@ define([
         template: _.template(templateSrc),
 
         events: {
+            'click .js-accordion-header':   'toggleAccordion'
         },
 
         initialize: function () {
@@ -24,6 +25,14 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+        },
+
+        toggleAccordion: function (e) {
+
+            var target = $(e.currentTarget);
+            target.find('.js-content').slideToggle();
+            console.info('target', target.find('.js-content'));
+
         }
     });
 

@@ -15,7 +15,7 @@ define([
 
         events: {
             'keyup .js-search': 'search',
-            'click li' : 'onItemClick'
+            'click .js-results li' : 'onItemClick'
         },
 
         initialize: function () {
@@ -33,7 +33,7 @@ define([
         search: function (e) {
             var that = this;
             setTimeout(function () {
-                that.results.removeClass('hide');
+                that.results.fadeIn('slow');
             }, 600);
         },
 

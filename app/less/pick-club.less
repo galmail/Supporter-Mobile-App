@@ -1,6 +1,7 @@
 .pick-club {
     text-align: left;
-    @logo-height: 50px;
+    @logo-side: 45px;
+    @logo-padded-side: 50px;
     input, input:focus {
         background: url("../img/search.png");
         background-repeat: no-repeat;
@@ -14,18 +15,13 @@
 
     .team-logo-small {
         display: inline-block;
-        height: @logo-height;
-        width: @logo-height;
+        height: @logo-padded-side;
+        width: @logo-padded-side;
         vertical-align: middle;
         float: right;
-        background-size: cover;
+        background-size: @logo-side @logo-side;
         background-repeat: no-repeat;
         background-position-y: 3px;
-    }
-
-    // set this via js
-    .ifk {
-        background-image: url("../img/clubs/ifk.jpg");
     }
 
     .team-name {
@@ -49,7 +45,7 @@
 
     li:last-child {
         border-bottom: none;
-    };
+    }
 
     ul {
         color: black;

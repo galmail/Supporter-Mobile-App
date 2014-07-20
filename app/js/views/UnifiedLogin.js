@@ -14,6 +14,7 @@ define([
         template: _.template(templateSrc),
 
         events: {
+            'keyup .js-ssn': 'onSsn',
         },
 
         initialize: function () {
@@ -24,6 +25,9 @@ define([
         render: function () {
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
+        },
+        onSsn: function () {
+            // fill out the form
         }
     });
 
