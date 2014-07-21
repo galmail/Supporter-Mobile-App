@@ -1,4 +1,8 @@
-# Supporter HTML5 Mobile App #
+=======
+Supporter xmobile
+=======
+
+Cross-plattform mobile client
 
 ## Tech Stack ##
 
