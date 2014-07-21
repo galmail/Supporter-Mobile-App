@@ -26,7 +26,7 @@ define([
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
             console.info('MSG',  this.$el.find('.club'));
-            this.$el.find('.club').css('background-image', 'url(../img/clubs/large/'+this.clubId+'.png)');
+            this.$el.find('.club').css('background-image', 'url(img/clubs/large/'+this.clubId+'.png)');
 
         }
     });

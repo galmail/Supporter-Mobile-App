@@ -14854,7 +14854,7 @@ define('views/SignIn',[
 
     return View;
 });
-define('text!templates/PickClubConfirm.html',[],function () { return '<div class="pick-club-confirm">\n    <p>You chose to support</p>\n\n    <div class="club"/>\n\n\n    <p class="small disclaimer">By continuing, you agree to the <a class="link small" href="#clubDisclaimer">terms and conditions</a> and <a class="link small" href="#clubDisclaimer">privacy policy</a> to use this service</p>\n\n    <a href="#createNewAccount" class="medium success button full-width js-login">Confirm</a><br>\n    <a href="#pickClub" class="medium secondary full-width button">Pick another club</a><br>\n</div>';});
+define('text!templates/PickClubConfirm.html',[],function () { return '<div class="pick-club-confirm">\n    <p>You chose to support</p>\n\n    <div class="club">\n    \t\n    </div>\n\n\n    <p class="small disclaimer">By continuing, you agree to the <a class="link small" href="#clubDisclaimer">terms and conditions</a> and <a class="link small" href="#clubDisclaimer">privacy policy</a> to use this service</p>\n\n    <a href="#createNewAccount" class="medium success button full-width js-login">Confirm</a><br>\n    <a href="#pickClub" class="medium secondary full-width button">Pick another club</a><br>\n</div>';});
 
 /*global define*/
 define('views/PickClubConfirm',[
@@ -14884,7 +14884,7 @@ define('views/PickClubConfirm',[
             this.body.addClass('body-not-logged');
             this.$el.html(_.template(templateSrc));
             console.info('MSG',  this.$el.find('.club'));
-            this.$el.find('.club').css('background-image', 'url(../img/clubs/large/'+this.clubId+'.png)');
+            this.$el.find('.club').css('background-image', 'url(img/clubs/large/'+this.clubId+'.png)');
 
         }
     });
