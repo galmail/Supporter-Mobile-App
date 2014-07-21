@@ -13,6 +13,6 @@
     <preference name="BackgroundColor" value="0xffffffff"/>
     <preference name="KeepRunning" value="false"/>
     
-    <content src="index.html" />
+    <content src="index.html#menuLogClear" />
     <access origin="*" />
 </widget>
