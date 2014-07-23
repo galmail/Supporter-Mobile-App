@@ -69,6 +69,15 @@ div.switch input + label {
 div.switch label {
   display: inline-block;
 }
+.tab-bar {
+  background-color: #15a63f;
+}
+.left-small {
+  border-right: solid 1px #15a63f;
+}
+.right-small {
+  border-left: solid 1px #15a63f;
+}
 /**
  * Supporter Fonts
  **/
