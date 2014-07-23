@@ -33,7 +33,6 @@ define([
         },
 
         toggleAccordion: function (e) {
-            console.info('to');
             var currentTarget = $(e.currentTarget);
             var target = $(e.target);
             e.stopPropagation();
