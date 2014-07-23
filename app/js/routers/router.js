@@ -17,11 +17,13 @@ define([
 	'views/UnifiedLogin',
 	'views/OperatorsSingleLogin',
 	'views/NewAccountEnd',
-	'views/MainMenuLogged'
+	'views/MainMenuLogged',
+	'views/About'
 ], function ($, Backbone, Foundation,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView) {
+	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView,
+	AboutView) {
 
 	'use strict';
 
@@ -44,7 +46,8 @@ define([
 			'newAccountEnd': 'newAccountEnd',
 
 			//Logged zone,
-			'mainMenuLogged': 'mainMenuLogged'
+			'mainMenuLogged': 'mainMenuLogged',
+			'about': 'about'
 		},
 
 		menuLogClear: function () {
@@ -93,9 +96,11 @@ define([
 		},
 
 		//LOGGED ZONE
-
 		mainMenuLogged: function () {
 			new MainMenuLoggedView();
+		},
+		about: function () {
+			new AboutView();
 		}
 
 	});

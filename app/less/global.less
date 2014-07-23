@@ -1,33 +1,3 @@
-
-body, p, a, button, .button {
-    font-family: 'RobotoThin', sans-serif!important;
-    font-weight: 800;
-    font-size: @text-large!important; //thin 25px, regular 21px, regular 15px
-}
-
-p {
-    line-height: @text-large!important;
-}
-
-button, .button, button:hover {
-    margin-bottom: @text-large;
-}
-
-.secondary {
-    color: @secondary-text-color!important;
-}
-
-.secondary:hover {
-    background-color: @secondary-color!important;
-}
-
-h1,
-h2,
-h3 {
-    color: @white;
-}
-
-
 .large {
     font-size: @text-large!important;
     line-height: @line-height-large!important;
@@ -74,7 +44,6 @@ h3 {
     color: @secondary-color!important;
 }
 
-
 .full-width {
     width: 100%;
 }
@@ -104,60 +73,3 @@ h3 {
 
 
 
-/* Foundation overrides */
-
-.inline-input {
-    display: inline-block!important;
-}
-
-input,
-select {
-    background-color: transparent!important;
-    border: 1px solid @white!important;
-    color: @white!important;
-
-    &.tight {
-        margin: 0 0 0.5rem 0!important;
-    }
-
-    &.disabled {
-        border: 1px solid @disabled!important;
-        color: @disabled!important;
-    }
-
-    &:focus {
-        color: @white;
-    };
-}
-
-::-webkit-input-placeholder {
-   color: @white;
-}
-.disabled::-webkit-input-placeholder {
-   color: @disabled;
-}
-
-:-moz-placeholder {
-   color: @white;
-}
-
-::-moz-placeholder {
-   color: @white;
-}
-
-:-ms-input-placeholder {
-   color: @white;
-}
-
-div.switch input:checked + label {
-    background: @primary-color;
-    margin: 0!important;
-}
-
-div.switch input + label {
-    margin: 0!important;
-}
-
-div.switch label {
-    display: inline-block;
-}

@@ -1,18 +1,4 @@
-/**
- * Supporter Fonts
- **/
-@font-face {
-  font-family: 'Roboto' !important;
-  src: url("../fonts/Roboto-Regular.ttf") !important;
-  font-weight: normal!important;
-  font-style: normal!important;
-}
-@font-face {
-  font-family: 'RobotoThin' !important;
-  src: url("../fonts/Roboto-Thin.ttf") !important;
-  font-weight: normal!important;
-  font-style: normal!important;
-}
+/* Foundation overrides */
 body,
 p,
 a,
@@ -36,10 +22,67 @@ button:hover {
 .secondary:hover {
   background-color: #007399 !important;
 }
-h1,
-h2,
-h3 {
+.inline-input {
+  display: inline-block !important;
+}
+input,
+select {
+  background-color: transparent!important;
+  border: 1px solid #e6e6e6 !important;
+  color: #e6e6e6 !important;
+}
+input.tight,
+select.tight {
+  margin: 0 0 0.5rem 0!important;
+}
+input.disabled,
+select.disabled {
+  border: 1px solid rgba(230, 230, 230, 0.6) !important;
+  color: rgba(230, 230, 230, 0.6) !important;
+}
+input:focus,
+select:focus {
   color: #e6e6e6;
+}
+::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+.disabled::-webkit-input-placeholder {
+  color: rgba(230, 230, 230, 0.6);
+}
+:-moz-placeholder {
+  color: #e6e6e6;
+}
+::-moz-placeholder {
+  color: #e6e6e6;
+}
+:-ms-input-placeholder {
+  color: #e6e6e6;
+}
+div.switch input:checked + label {
+  background: #15a63f;
+  margin: 0!important;
+}
+div.switch input + label {
+  margin: 0!important;
+}
+div.switch label {
+  display: inline-block;
+}
+/**
+ * Supporter Fonts
+ **/
+@font-face {
+  font-family: 'Roboto' !important;
+  src: url("../fonts/Roboto-Regular.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+@font-face {
+  font-family: 'RobotoThin' !important;
+  src: url("../fonts/Roboto-Thin.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
 }
 .large {
   font-size: 1.2rem !important;
@@ -102,54 +145,6 @@ h3 {
 }
 .header {
   padding: 0px 0px 40px 0px;
-}
-/* Foundation overrides */
-.inline-input {
-  display: inline-block !important;
-}
-input,
-select {
-  background-color: transparent!important;
-  border: 1px solid #e6e6e6 !important;
-  color: #e6e6e6 !important;
-}
-input.tight,
-select.tight {
-  margin: 0 0 0.5rem 0!important;
-}
-input.disabled,
-select.disabled {
-  border: 1px solid rgba(230, 230, 230, 0.6) !important;
-  color: rgba(230, 230, 230, 0.6) !important;
-}
-input:focus,
-select:focus {
-  color: #e6e6e6;
-}
-::-webkit-input-placeholder {
-  color: #e6e6e6;
-}
-.disabled::-webkit-input-placeholder {
-  color: rgba(230, 230, 230, 0.6);
-}
-:-moz-placeholder {
-  color: #e6e6e6;
-}
-::-moz-placeholder {
-  color: #e6e6e6;
-}
-:-ms-input-placeholder {
-  color: #e6e6e6;
-}
-div.switch input:checked + label {
-  background: #15a63f;
-  margin: 0!important;
-}
-div.switch input + label {
-  margin: 0!important;
-}
-div.switch label {
-  display: inline-block;
 }
 .club-disclaimer {
   text-align: left;
@@ -289,6 +284,12 @@ div.switch label {
 }
 .operators-single-login .content {
   background-color: #007399 !important;
+}
+.about {
+  padding-top: 25%;
+}
+.about p {
+  font-size: 15px !important;
 }
 .unified-registration {
   text-align: left;
