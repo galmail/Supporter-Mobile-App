@@ -24,6 +24,9 @@ define([
 	'views/ChangeUserPassword',
 	'views/UserSettings',
 	'views/UserProfile',
+	'views/EditUnifiedData',
+	'views/DeleteUserAccountDone',
+	'views/UserBets',
 	'foundation',
 	'offcanvas'
 ], function ($, Backbone,
@@ -31,7 +34,7 @@ define([
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
-	UserProfileView) {
+	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView) {
 
 	'use strict';
 
@@ -62,7 +65,10 @@ define([
 			'changeUserEmail': 			'changeUserEmail',
 			'changeUserPassword': 		'changeUserPassword',
 			'userSettings': 			'userSettings',
-			'userProfile': 				'userProfile'
+			'userProfile': 				'userProfile',
+			'editUnifiedData': 			'editUnifiedData',
+			'deleteUserAccountDone': 	'deleteUserAccountDone',
+			'userBets': 				'userBets'
 		},
 
 		menuLogClear: function () {
@@ -134,6 +140,15 @@ define([
 		},
 		userProfile: function(){
 			new UserProfileView();
+		},
+		editUnifiedData: function(){
+			new EditUnifiedDataView();
+		},
+		deleteUserAccountDone: function(){
+			new DeleteUserAccountDoneView();
+		},
+		userBets: function(){
+			new UserBetsView();
 		}
 	});
 

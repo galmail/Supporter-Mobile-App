@@ -368,6 +368,10 @@ div.switch label {
   margin-top: 150px;
   margin-bottom: 30px;
 }
+.delete-user-account-done .text {
+  margin-top: 50%;
+  margin-bottom: 30px;
+}
 .change-user-email {
   padding: 0 20px;
   overflow: hidden;
