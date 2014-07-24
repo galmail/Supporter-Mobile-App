@@ -20,6 +20,7 @@ define([
 	'views/ChangeClub',
 	'views/ChangeClubSelection',
 	'views/UserFavorites',
+	'views/OperatorsList',
 	'views/About',
 	'views/DeleteUserAccount',
 	'views/ChangeUserEmail',
@@ -35,7 +36,7 @@ define([
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
-	ChangeClubSelectionView, UserFavoritesView,
+	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
 	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView) {
 
@@ -60,6 +61,7 @@ define([
 			'newAccountEnd': 				'newAccountEnd',
 
 			//Logged zone
+			'operatorsList': 				'operatorsList',
 			'userFavorites': 				'userFavorites',
 			'changeClubSelection/:club': 	'changeClubSelection',
 			'changeClub': 					'changeClub',
@@ -121,6 +123,9 @@ define([
 		},
 
 		//LOGGED ZONE
+		operatorsList: function () {
+			new OperatorsListView();
+		},
 		userFavorites: function () {
 			new UserFavoritesView();
 		},
