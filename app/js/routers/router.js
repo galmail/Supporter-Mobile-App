@@ -20,13 +20,19 @@ define([
 	'views/MainMenuLogged',
 	'views/ChangeClub',
 	'views/About',
+	'views/DeleteUserAccount',
+	'views/DeleteUserEmail',
+	'views/DeleteUserPassword',
+	'views/UserSettings',
+	'views/UserProfile',
 	'foundation',
 	'offcanvas'
 ], function ($, Backbone, Foundation,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
-	AboutView) {
+	AboutView, DeleteUserAccountView, DeleteUserEmailView, DeleteUserPasswordView, UserSettingsView,
+	UserProfileView) {
 
 	'use strict';
 
@@ -51,7 +57,13 @@ define([
 			//Logged zone
 			'changeClub': 				'changeClub',
 			'mainMenuLogged': 			'mainMenuLogged',
-			'about': 					'about'
+			'about': 					'about',
+			
+			'deleteUserAccount': 		'deleteUserAccount',
+			'changeUserEmail': 			'changeUserEmail',
+			'changeUserPassword': 		'changeUserPassword',
+			'userSettings': 			'userSettings',
+			'userProfile': 				'userProfile'
 		},
 
 		menuLogClear: function () {
@@ -108,8 +120,22 @@ define([
 		},
 		about: function () {
 			new AboutView();
+		},
+		deleteUserAccount: function(){
+			new DeleteUserAccountView();
+		},
+		changeUserEmail: function(){
+			new ChangeUserEmailView();
+		},
+		changeUserPassword: function(){
+			new ChangeUserPasswordView();
+		},
+		userSettings: function(){
+			new UserSettingsView();
+		},
+		userProfile: function(){
+			new UserProfileView();
 		}
-
 	});
 
 	var instance;
