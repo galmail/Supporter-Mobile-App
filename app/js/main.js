@@ -17,9 +17,16 @@ require.config({
 			deps: ['backbone'],
 			exports: 'Store'
 		},
-
-    	"foundation": ['jquery'],
-    	"foundation.offcanvas": ['foundation']
+	    foundation: {
+	      deps: ['jquery', 'modernizr']
+	    },
+	    modernizr: {
+	      deps: ['jquery']
+	    },
+	    offcanvas: {
+	      deps: ['jquery', 'foundation'],
+	      exports: 'offcanvas'
+	    }
 	},
 	paths: {
 		jquery: 'libs/jquery/jquery',
@@ -29,28 +36,16 @@ require.config({
 		text: 'libs/requirejs-text/text',
 		modernizr: 'libs/modernizr/modernizr',
 		foundation: 'libs/foundation/foundation',
-    	'foundation.offcanvas': 'libs/foundation/foundation.offcanvas',
+    	offcanvas: 'libs/foundation/foundation.offcanvas'
 	}
 });
 
 require([
 	'backbone',
-	'routers/router',
-    'foundation',
-    'foundation.offcanvas'
+	'routers/router'
 ], function (Backbone, Router) {
-
-	$(document).foundation({
-	  offcanvas : {
-	    open_method: 'move', // Sets method in which offcanvas opens, can also be 'overlap'
-	    close_on_click : true
-	  }
-	});
-
-
-
-    console.info('foundation', $(document).foundation, Foundation);
 	var router = Router.getInstance();
 	Backbone.history.start();
+	$(document).foundation();
 	//router.navigate('menuLogClear', {trigger: true});
 });

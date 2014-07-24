@@ -18,7 +18,9 @@ define([
 	'views/OperatorsSingleLogin',
 	'views/NewAccountEnd',
 	'views/MainMenuLogged',
-	'views/About'
+	'views/About',
+	'foundation',
+	'offcanvas'
 ], function ($, Backbone, Foundation,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
@@ -30,24 +32,24 @@ define([
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'menuLogClear': 'menuLogClear',
-			'pickClub': 'pickClub',
-			'knowMore': 'knowMore',
-			'signIn': 'signIn',
-			'pickClubConfirm/:club': 'pickClubConfirm',
-			'clubDisclaimer': 'clubDisclaimer',
-			'remindPassword': 'remindPassword',
-			'createNewAccount': 'createNewAccount',
-			'selectOperators': 'selectOperators',
-			'warningInfo': 'warningInfo',
-			'unifiedRegister': 'unifiedRegister',
-			'unifiedLogin': 'unifiedLogin',
-			'operatorsSingleLogin': 'operatorsSingleLogin',
-			'newAccountEnd': 'newAccountEnd',
+			'menuLogClear': 			'menuLogClear',
+			'pickClub': 				'pickClub',
+			'knowMore': 				'knowMore',
+			'signIn': 					'signIn',
+			'pickClubConfirm/:club': 	'pickClubConfirm',
+			'clubDisclaimer': 			'clubDisclaimer',
+			'remindPassword': 			'remindPassword',
+			'createNewAccount': 		'createNewAccount',
+			'selectOperators': 			'selectOperators',
+			'warningInfo': 				'warningInfo',
+			'unifiedRegister': 			'unifiedRegister',
+			'unifiedLogin': 			'unifiedLogin',
+			'operatorsSingleLogin': 	'operatorsSingleLogin',
+			'newAccountEnd': 			'newAccountEnd',
 
 			//Logged zone,
-			'mainMenuLogged': 'mainMenuLogged',
-			'about': 'about'
+			'mainMenuLogged': 			'mainMenuLogged',
+			'about': 					'about'
 		},
 
 		menuLogClear: function () {
