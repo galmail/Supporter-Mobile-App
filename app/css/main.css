@@ -155,6 +155,14 @@ div.switch label {
 .header {
   padding: 0px 0px 40px 0px;
 }
+.emailheader {
+  padding: 15px 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+}
 .club-disclaimer {
   text-align: left;
 }
@@ -306,6 +314,8 @@ div.switch label {
 }
 .change-club .intro {
   text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 20px;
 }
 .change-club .team-logo-small {
   display: inline-block;
