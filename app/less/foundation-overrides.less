@@ -26,24 +26,26 @@ button, .button, button:hover {
     display: inline-block!important;
 }
 
-input,
-select {
-    background-color: transparent!important;
-    border: 1px solid @white!important;
-    color: @white!important;
+.body-not-logged{
+    input,
+    select {
+        background-color: transparent!important;
+        border: 1px solid @white!important;
+        color: @white!important;
 
-    &.tight {
-        margin: 0 0 0.5rem 0!important;
+        &.tight {
+            margin: 0 0 0.5rem 0!important;
+        }
+
+        &.disabled {
+            border: 1px solid @disabled!important;
+            color: @disabled!important;
+        }
+
+        &:focus {
+            color: @white;
+        };
     }
-
-    &.disabled {
-        border: 1px solid @disabled!important;
-        color: @disabled!important;
-    }
-
-    &:focus {
-        color: @white;
-    };
 }
 
 ::-webkit-input-placeholder {

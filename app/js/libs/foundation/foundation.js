@@ -295,7 +295,6 @@
     },
 
     init : function (scope, libraries, method, options, response) {
-      alert('init foundation');
       var args = [scope, method, options, response],
           responses = [];
 

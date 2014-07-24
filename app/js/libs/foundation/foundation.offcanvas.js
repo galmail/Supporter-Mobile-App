@@ -12,7 +12,6 @@
     },
 
     init : function (scope, method, options) {
-      alert('inited');
       this.bindings(method, options);
     },
 

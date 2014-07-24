@@ -25,23 +25,23 @@ button:hover {
 .inline-input {
   display: inline-block !important;
 }
-input,
-select {
+.body-not-logged input,
+.body-not-logged select {
   background-color: transparent!important;
   border: 1px solid #e6e6e6 !important;
   color: #e6e6e6 !important;
 }
-input.tight,
-select.tight {
+.body-not-logged input.tight,
+.body-not-logged select.tight {
   margin: 0 0 0.5rem 0!important;
 }
-input.disabled,
-select.disabled {
+.body-not-logged input.disabled,
+.body-not-logged select.disabled {
   border: 1px solid rgba(230, 230, 230, 0.6) !important;
   color: rgba(230, 230, 230, 0.6) !important;
 }
-input:focus,
-select:focus {
+.body-not-logged input:focus,
+.body-not-logged select:focus {
   color: #e6e6e6;
 }
 ::-webkit-input-placeholder {
@@ -112,9 +112,9 @@ div.switch label {
 .body-not-logged {
   background-color: #45b0e6;
   text-shadow: 1px 1px 1px #007399;
+  color: #e6e6e6;
 }
 #container {
-  color: #e6e6e6;
   padding: 30px 15px 15px 15px;
   text-align: center;
 }
@@ -293,6 +293,57 @@ div.switch label {
 }
 .operators-single-login .content {
   background-color: #007399 !important;
+}
+.change-club {
+  text-align: left;
+}
+.change-club input,
+.change-club input:focus {
+  background: url("../img/search.png");
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  background-size: 35px 35px;
+}
+.change-club .intro {
+  text-align: center;
+}
+.change-club .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  float: right;
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.change-club .team-name {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.change-club .team-city {
+  margin: 0;
+  padding: 0;
+  line-height: 5px;
+  font-size: 10px;
+}
+.change-club li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.change-club li:last-child {
+  border-bottom: none;
+}
+.change-club ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+  border: 2px solid #15a63f;
 }
 .about {
   padding-top: 25%;
