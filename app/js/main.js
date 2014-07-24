@@ -46,6 +46,6 @@ require([
 ], function (Backbone, Router) {
 	var router = Router.getInstance();
 	Backbone.history.start();
-	$(document).foundation();
 	//router.navigate('menuLogClear', {trigger: true});
+	$(document).foundation();
 });

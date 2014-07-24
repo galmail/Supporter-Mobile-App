@@ -3,31 +3,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/MenuLogClear.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/MenuLogClear.html',
+    'views/UnloggedView'
+], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
 
-    //var router = Router.getInstance();
-
-    var View = Backbone.View.extend({
-
-        el: '#container',
-
-        template: _.template(templateSrc),
-
-        events: {
-            //'click .js-login': 'onLogin'
-        },
-
-        initialize: function () {
-            this.body = this.$el.parents('body');
-            this.render();
-        },
-
-        render: function () {
-            this.body.addClass('body-not-logged');
-            this.$el.html(_.template(templateSrc));
-        }
+    var View = UnloggedView.extend({
+        template: _.template(templateSrc)
     });
 
     return View;

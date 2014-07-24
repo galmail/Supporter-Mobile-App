@@ -1,16 +1,15 @@
+
 /*global define*/
 define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/PickClub.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/PickClub.html',
+    'views/UnloggedView'
+], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
 
-    var View = Backbone.View.extend({
-
-        el: '#container',
-
+    var View = UnloggedView.extend({
         template: _.template(templateSrc),
 
         events: {
@@ -18,22 +17,11 @@ define([
             'click .js-results li' : 'onItemClick'
         },
 
-        initialize: function () {
-            this.body = this.$el.parents('body');
-            this.render();
-            this.searchInput = this.$el.find('.js-search');
-            this.results = this.$el.find('.js-results');
-        },
-
-        render: function () {
-            this.body.addClass('body-not-logged');
-            this.$el.html(_.template(templateSrc));
-        },
-
         search: function (e) {
             var that = this;
+            var results = this.$el.find('.js-results');
             setTimeout(function () {
-                that.results.fadeIn('slow');
+                results.fadeIn('slow');
             }, 600);
         },
 
@@ -41,7 +29,6 @@ define([
             var clubId =  $(e.currentTarget).data('id');
             window.location.href = '#pickClubConfirm/'+clubId;
         }
-
     });
 
     return View;

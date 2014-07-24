@@ -3,28 +3,13 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/SignIn.html'
-], function ($, _, Backbone, templateSrc) {
+    'text!templates/SignIn.html',
+    'views/UnloggedView'
+], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
 
-    var View = Backbone.View.extend({
-
-        el: '#container',
-
-        template: _.template(templateSrc),
-
-        events: {
-        },
-
-        initialize: function () {
-            this.body = this.$el.parents('body');
-            this.render();
-        },
-
-        render: function () {
-            this.body.addClass('body-not-logged');
-            this.$el.html(_.template(templateSrc));
-        }
+    var View = UnloggedView.extend({
+        template: _.template(templateSrc)
     });
 
     return View;

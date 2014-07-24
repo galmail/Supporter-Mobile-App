@@ -4,32 +4,13 @@ define([
     'underscore',
     'backbone',
     'text!templates/WarningInfo.html',
-    'text!templates/snippets/UnifiedRegistration.html'
-], function ($, _, Backbone, templateSrc, unifiedRegistrationSrc) {
+    'views/UnloggedView'
+], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
 
-    var View = Backbone.View.extend({
-
-        el: '#container',
-
+    var View = UnloggedView.extend({
         template: _.template(templateSrc),
-
-        events: {
-        },
-
-        initialize: function () {
-            this.body = this.$el.parents('body');
-            this.render();
-        },
-
-        render: function () {
-            this.body.addClass('body-not-logged');
-            this.$el.html(_.template(templateSrc));
-            this.$el.prepend(_.template(unifiedRegistrationSrc, {
-                step: 3,
-                total: 3
-            }));
-        }
+        unifiedRegStep: 3
     });
 
     return View;
