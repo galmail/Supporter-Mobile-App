@@ -12,7 +12,7 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         onRender: function () {
-            this.body.addClass('body-not-logged');
+            this.body.addClass('body-logged');
         }
     });
 

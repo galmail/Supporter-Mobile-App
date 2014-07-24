@@ -355,3 +355,80 @@ div.switch label {
   text-align: left;
   margin-bottom: 20px;
 }
+.delete-user-account {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.delete-user-account .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.delete-user-account .text {
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+.change-user-email {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.change-user-email .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.change-user-email .text {
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+.change-user-password {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.change-user-password .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.change-user-password .text {
+  margin-top: 150px;
+  margin-bottom: 30px;
+}
+.user-settings {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.user-settings .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.user-settings .options {
+  text-align: left;
+}
+.user-settings .options div {
+  padding: 20px 0;
+  color: blue;
+  border: solid 1px gray;
+  border-left: 0;
+  border-right: 0;
+}
+.user-profile {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.user-profile .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.user-profile .options {
+  text-align: left;
+}
+.user-profile .options div {
+  padding: 20px 0;
+  color: blue;
+  border: solid 1px gray;
+  border-left: 0;
+  border-right: 0;
+}
