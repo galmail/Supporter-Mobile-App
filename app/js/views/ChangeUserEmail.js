@@ -10,10 +10,7 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc),
-        onRender: function () {
-            this.body.addClass('body-logged');
-        }
+        template: _.template(templateSrc)
     });
 
     return View;
