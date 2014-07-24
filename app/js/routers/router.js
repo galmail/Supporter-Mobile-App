@@ -2,7 +2,6 @@
 define([
 	'jquery',
 	'backbone',
-	'foundation',
 	'views/MenuLogClear',
 	'views/PickClub',
 	'views/KnowMore',
@@ -20,13 +19,22 @@ define([
 	'views/MainMenuLogged',
 	'views/ChangeClub',
 	'views/About',
+	'views/DeleteUserAccount',
+	'views/ChangeUserEmail',
+	'views/ChangeUserPassword',
+	'views/UserSettings',
+	'views/UserProfile',
+	'views/EditUnifiedData',
+	'views/DeleteUserAccountDone',
+	'views/UserBets',
 	'foundation',
 	'offcanvas'
-], function ($, Backbone, Foundation,
+], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
-	AboutView) {
+	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
+	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView) {
 
 	'use strict';
 
@@ -51,7 +59,16 @@ define([
 			//Logged zone
 			'changeClub': 				'changeClub',
 			'mainMenuLogged': 			'mainMenuLogged',
-			'about': 					'about'
+			'about': 					'about',
+			
+			'deleteUserAccount': 		'deleteUserAccount',
+			'changeUserEmail': 			'changeUserEmail',
+			'changeUserPassword': 		'changeUserPassword',
+			'userSettings': 			'userSettings',
+			'userProfile': 				'userProfile',
+			'editUnifiedData': 			'editUnifiedData',
+			'deleteUserAccountDone': 	'deleteUserAccountDone',
+			'userBets': 				'userBets'
 		},
 
 		menuLogClear: function () {
@@ -108,8 +125,31 @@ define([
 		},
 		about: function () {
 			new AboutView();
+		},
+		deleteUserAccount: function(){
+			new DeleteUserAccountView();
+		},
+		changeUserEmail: function(){
+			new ChangeUserEmailView();
+		},
+		changeUserPassword: function(){
+			new ChangeUserPasswordView();
+		},
+		userSettings: function(){
+			new UserSettingsView();
+		},
+		userProfile: function(){
+			new UserProfileView();
+		},
+		editUnifiedData: function(){
+			new EditUnifiedDataView();
+		},
+		deleteUserAccountDone: function(){
+			new DeleteUserAccountDoneView();
+		},
+		userBets: function(){
+			new UserBetsView();
 		}
-
 	});
 
 	var instance;
