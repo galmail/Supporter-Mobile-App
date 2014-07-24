@@ -43,34 +43,34 @@ define([
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			'menuLogClear': 			'menuLogClear',
-			'pickClub': 				'pickClub',
-			'knowMore': 				'knowMore',
-			'signIn': 					'signIn',
-			'pickClubConfirm/:club': 	'pickClubConfirm',
-			'clubDisclaimer': 			'clubDisclaimer',
-			'remindPassword': 			'remindPassword',
-			'createNewAccount': 		'createNewAccount',
-			'selectOperators': 			'selectOperators',
-			'warningInfo': 				'warningInfo',
-			'unifiedRegister': 			'unifiedRegister',
-			'unifiedLogin': 			'unifiedLogin',
-			'operatorsSingleLogin': 	'operatorsSingleLogin',
-			'newAccountEnd': 			'newAccountEnd',
+			'menuLogClear': 				'menuLogClear',
+			'pickClub': 					'pickClub',
+			'knowMore': 					'knowMore',
+			'signIn': 						'signIn',
+			'pickClubConfirm/:club': 		'pickClubConfirm',
+			'clubDisclaimer': 				'clubDisclaimer',
+			'remindPassword': 				'remindPassword',
+			'createNewAccount': 			'createNewAccount',
+			'selectOperators': 				'selectOperators',
+			'warningInfo': 					'warningInfo',
+			'unifiedRegister': 				'unifiedRegister',
+			'unifiedLogin': 				'unifiedLogin',
+			'operatorsSingleLogin': 		'operatorsSingleLogin',
+			'newAccountEnd': 				'newAccountEnd',
 
 			//Logged zone
-			'changeClubSelection':      'changeClubSelection',
-			'changeClub': 				'changeClub',
-			'mainMenuLogged': 			'mainMenuLogged',
-			'about': 					'about',
-			'deleteUserAccount': 		'deleteUserAccount',
-			'changeUserEmail': 			'changeUserEmail',
-			'changeUserPassword': 		'changeUserPassword',
-			'userSettings': 			'userSettings',
-			'userProfile': 				'userProfile',
-			'editUnifiedData': 			'editUnifiedData',
-			'deleteUserAccountDone': 	'deleteUserAccountDone',
-			'userBets': 				'userBets'
+			'changeClubSelection/:club': 	'changeClubSelection',
+			'changeClub': 					'changeClub',
+			'mainMenuLogged': 				'mainMenuLogged',
+			'about': 						'about',
+			'deleteUserAccount': 			'deleteUserAccount',
+			'changeUserEmail': 				'changeUserEmail',
+			'changeUserPassword': 			'changeUserPassword',
+			'userSettings': 				'userSettings',
+			'userProfile': 					'userProfile',
+			'editUnifiedData': 				'editUnifiedData',
+			'deleteUserAccountDone': 		'deleteUserAccountDone',
+			'userBets': 					'userBets'
 		},
 
 		menuLogClear: function () {
@@ -119,8 +119,10 @@ define([
 		},
 
 		//LOGGED ZONE
-		changeClubSelection: function () {
-			new ChangeClubSelectionView();
+		changeClubSelection: function (param) {
+			new ChangeClubSelectionView({
+				clubId: param
+			});
 		},
 		changeClub: function () {
 			new ChangeClubView();

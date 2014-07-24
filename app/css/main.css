@@ -302,6 +302,19 @@ div.switch label {
 .operators-single-login .content {
   background-color: #007399 !important;
 }
+.change-club-selection .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 35px;
+}
+.change-club-selection .club {
+  text-align: center;
+  margin: 20px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .change-club {
   text-align: left;
 }

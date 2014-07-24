@@ -30,6 +30,7 @@ define([
 
         render: function (templateSrc) {
             this.body.addClass('body-not-logged');
+            this.body.removeClass('body-logged');
             this.$el.html(this.template(templateSrc));
 
             if (this.unifiedRegStep !== null) {

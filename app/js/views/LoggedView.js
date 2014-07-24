@@ -26,8 +26,9 @@ define([
         },
 
         render: function (templateSrc) {
-            this.$el.html(this.template(templateSrc));
             this.body.addClass('body-logged');
+            this.body.removeClass('body-not-logged');
+            this.$el.html(this.template(templateSrc));
             this.onRender();
         },
 
