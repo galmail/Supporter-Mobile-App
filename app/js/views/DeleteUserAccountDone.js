@@ -4,15 +4,16 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/UnloggedView',
+    'views/LoggedView',
     'text!templates/DeleteUserAccountDone.html'
-], function ($, _, Backbone, UnloggedView, templateSrc) {
+], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';
 
-    var View = UnloggedView.extend({
+    var View = LoggedView.extend({
         template: _.template(templateSrc),
-        onRender: function () {
-            this.body.addClass('body-not-logged');
+        
+        onInit: function(){
+        	$('.js-navbar').hide();
         }
     });
 
