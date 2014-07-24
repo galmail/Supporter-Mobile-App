@@ -13,6 +13,24 @@ define([
         template: _.template(templateSrc),
         onRender: function() {
             this.$el.prepend(_.template(emailHeaderSrc));
+        },
+
+        events: {
+            'keyup .js-search': 'search',
+            'click .js-results li' : 'onItemClick'
+        },
+
+        search: function (e) {
+            var that = this;
+            var results = this.$el.find('.js-results');
+            setTimeout(function () {
+                results.fadeIn('slow');
+            }, 600);
+        },
+
+        onItemClick: function(e) {
+            var clubId =  $(e.currentTarget).data('id');
+            window.location.href = '#changeClubSelection/'+clubId;
         }
     });
 

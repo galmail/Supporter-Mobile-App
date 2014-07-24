@@ -305,17 +305,10 @@ div.switch label {
 .change-club {
   text-align: left;
 }
-.change-club input,
-.change-club input:focus {
-  background: url("../img/search.png");
-  background-repeat: no-repeat;
-  padding-left: 45px;
-  background-size: 35px 35px;
-}
 .change-club .intro {
   text-align: center;
   font-family: 'Roboto', sans-serif !important;
-  margin-top: 20px;
+  margin-top: 35px;
 }
 .change-club .team-logo-small {
   display: inline-block;
