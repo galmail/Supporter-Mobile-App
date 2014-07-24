@@ -2,7 +2,6 @@
 define([
 	'jquery',
 	'backbone',
-	'foundation',
 	'views/MenuLogClear',
 	'views/PickClub',
 	'views/KnowMore',
@@ -21,17 +20,17 @@ define([
 	'views/ChangeClub',
 	'views/About',
 	'views/DeleteUserAccount',
-	'views/DeleteUserEmail',
-	'views/DeleteUserPassword',
+	'views/ChangeUserEmail',
+	'views/ChangeUserPassword',
 	'views/UserSettings',
 	'views/UserProfile',
 	'foundation',
 	'offcanvas'
-], function ($, Backbone, Foundation,
+], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
-	AboutView, DeleteUserAccountView, DeleteUserEmailView, DeleteUserPasswordView, UserSettingsView,
+	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
 	UserProfileView) {
 
 	'use strict';

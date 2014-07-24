@@ -1,15 +1,19 @@
 /*global define*/
+
 define([
     'jquery',
     'underscore',
     'backbone',
-    'views/ChangeUserPasswordView',
+    'views/LoggedView',
     'text!templates/ChangeUserPassword.html'
-], function ($, _, Backbone, ChangeUserPasswordView, templateSrc) {
+], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';
 
-    var View = ChangeUserPasswordView.extend({
-        template: _.template(templateSrc)
+    var View = LoggedView.extend({
+        template: _.template(templateSrc),
+        onRender: function () {
+            this.body.addClass('body-not-logged');
+        }
     });
 
     return View;

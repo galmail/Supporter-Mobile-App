@@ -1,15 +1,19 @@
 /*global define*/
+
 define([
     'jquery',
     'underscore',
     'backbone',
-    'views/DeleteUserAccountView',
+    'views/LoggedView',
     'text!templates/DeleteUserAccount.html'
-], function ($, _, Backbone, DeleteUserAccountView, templateSrc) {
+], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';
 
-    var View = DeleteUserAccountView.extend({
-        template: _.template(templateSrc)
+    var View = LoggedView.extend({
+        template: _.template(templateSrc),
+        onRender: function () {
+            this.body.addClass('body-not-logged');
+        }
     });
 
     return View;

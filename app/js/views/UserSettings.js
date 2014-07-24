@@ -1,15 +1,19 @@
 /*global define*/
+
 define([
     'jquery',
     'underscore',
     'backbone',
-    'views/UserSettingsView',
+    'views/LoggedView',
     'text!templates/UserSettings.html'
-], function ($, _, Backbone, UserSettingsView, templateSrc) {
+], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';
 
-    var View = UserSettingsView.extend({
-        template: _.template(templateSrc)
+    var View = LoggedView.extend({
+        template: _.template(templateSrc),
+        onRender: function () {
+            this.body.addClass('body-not-logged');
+        }
     });
 
     return View;
