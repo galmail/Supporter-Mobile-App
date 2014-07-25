@@ -48,4 +48,5 @@ require([
 	Backbone.history.start();
 	//router.navigate('menuLogClear', {trigger: true});
 	$(document).foundation();
+	$('body').css('max-height', $(window).height());
 });

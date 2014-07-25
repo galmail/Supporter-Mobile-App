@@ -11,10 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
-        
-        onInit: function(){
-        	$('.js-navbar').hide();
-        }
+        navbar: false
     });
 
     return View;

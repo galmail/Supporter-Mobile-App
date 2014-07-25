@@ -22,6 +22,7 @@ define([
 
         initialize: function (templateSrc) {
             $('.js-navbar').hide();
+            this.$el.css('max-height', $('body').height() + 'px');
             this.body = this.$el.parents('body');
             this.render(templateSrc);
 
