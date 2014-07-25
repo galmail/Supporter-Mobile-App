@@ -10,7 +10,13 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        events: {
+            'click .options div' : 'onItemClick'
+        },
+        onItemClick: function(e) {
+            window.location.href = '#' + e.currentTarget.id;
+        }
     });
 
     return View;
