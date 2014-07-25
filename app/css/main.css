@@ -115,8 +115,17 @@ div.switch label {
   color: #e6e6e6;
 }
 #container {
-  padding: 30px 15px 15px 15px;
+  padding: 30px 15px 30px 15px;
   text-align: center;
+  border: 1px dashed blue;
+  height: 100%;
+  overflow: auto;
+}
+.footer {
+  margin-top: -80px;
+  height: 80px;
+  position: relative;
+  border: 1px solid blue;
 }
 .link {
   text-decoration: underline;
@@ -155,14 +164,6 @@ div.switch label {
 .header {
   padding: 0px 0px 40px 0px;
 }
-.emailheader {
-  padding: 15px 0;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
-}
 .club-disclaimer {
   text-align: left;
 }
@@ -184,7 +185,6 @@ div.switch label {
 .operators-list .intro {
   text-align: center;
   font-family: 'Roboto', sans-serif !important;
-  margin-top: 19px;
 }
 .operators-list li {
   color: #007399;
@@ -402,6 +402,11 @@ div.switch label {
 .unified-registration {
   text-align: left;
   margin-bottom: 20px;
+}
+.emailheader {
+  padding: 15px 0;
+  margin: -30px -15px 0px -15px;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
 }
 .delete-user-account {
   padding: 0 20px;
