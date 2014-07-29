@@ -30,6 +30,12 @@ define([
 	'views/EditUnifiedData',
 	'views/DeleteUserAccountDone',
 	'views/UserBets',
+	
+	'views/UserWallet',
+	'views/UserStatistics',
+	'views/DeleteUserAccountConfirm',
+	'views/LogoutConfirm',
+	
 	'foundation',
 	'offcanvas'
 ], function ($, Backbone,
@@ -38,7 +44,8 @@ define([
 	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
 	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
-	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView) {
+	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView, UserWalletView,
+	UserStatisticsView, DeleteUserAccountConfirmView, LogoutConfirmView) {
 
 	'use strict';
 
@@ -74,7 +81,12 @@ define([
 			'userProfile': 					'userProfile',
 			'editUnifiedData': 				'editUnifiedData',
 			'deleteUserAccountDone': 		'deleteUserAccountDone',
-			'userBets': 					'userBets'
+			'userBets': 					'userBets',
+			
+			'userWallet': 					'userWallet',
+			'userStatistics': 				'userStatistics',
+			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm',
+			'logoutConfirm': 				'logoutConfirm'
 		},
 
 		menuLogClear: function () {
@@ -166,6 +178,18 @@ define([
 		},
 		userBets: function(){
 			new UserBetsView();
+		},
+		userWallet: function(){
+			new UserWalletView();
+		},
+		userStatistics: function(){
+			new UserStatisticsView();
+		},
+		deleteUserAccountConfirm: function(){
+			new DeleteUserAccountConfirmView();
+		},
+		logoutConfirm: function(){
+			new LogoutConfirmView();
 		}
 	});
 
