@@ -34,7 +34,6 @@ define([
 	'views/UserWallet',
 	'views/UserStatistics',
 	'views/DeleteUserAccountConfirm',
-	'views/LogoutConfirm',
 	
 	'foundation',
 	'offcanvas'
@@ -45,7 +44,7 @@ define([
 	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
 	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView, UserWalletView,
-	UserStatisticsView, DeleteUserAccountConfirmView, LogoutConfirmView) {
+	UserStatisticsView, DeleteUserAccountConfirmView) {
 
 	'use strict';
 
@@ -85,8 +84,7 @@ define([
 			
 			'userWallet': 					'userWallet',
 			'userStatistics': 				'userStatistics',
-			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm',
-			'logoutConfirm': 				'logoutConfirm'
+			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm'
 		},
 
 		menuLogClear: function () {
@@ -187,9 +185,6 @@ define([
 		},
 		deleteUserAccountConfirm: function(){
 			new DeleteUserAccountConfirmView();
-		},
-		logoutConfirm: function(){
-			new LogoutConfirmView();
 		}
 	});
 

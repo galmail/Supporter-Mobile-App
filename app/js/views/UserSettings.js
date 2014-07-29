@@ -12,10 +12,22 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         events: {
-            'click .options div' : 'onItemClick'
+            'click .options div' : 'onItemClick',
+            'click .buttons div' : 'onItemClick'
         },
         onItemClick: function(e) {
-            window.location.href = '#' + e.currentTarget.id;
+        	var target = e.currentTarget.id;
+        	if(target == "signOut"){
+        		$('#logoutConfirmModal').show();
+        		$('.modal-bg').show();
+        	}
+        	else if (target == "closeModal"){
+        		$('#logoutConfirmModal').hide();
+        		$('.modal-bg').hide();
+        	}
+        	else {
+        		window.location.href = '#' + target;
+        	}
         }
         
     });
