@@ -5,7 +5,6 @@ a,
 button,
 .button {
   font-family: 'RobotoThin', sans-serif !important;
-  font-weight: 800;
   font-size: 1.2rem !important;
 }
 p {
@@ -483,4 +482,75 @@ div.switch label {
   border: solid 1px gray;
   border-left: 0;
   border-right: 0;
+}
+.edit-unified-data {
+  overflow: hidden;
+}
+.edit-unified-data .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+  margin-bottom: 10px;
+}
+.user-bets .title {
+  padding-bottom: 10px;
+}
+.user-bets .bet {
+  padding-bottom: 5px;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.user-bets .bet .block {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.user-bets .bet .game-data {
+  text-align: center;
+  background-color: white;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.user-bets .bet .game-match {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.user-bets .bet .operator {
+  padding: 9px 5px;
+  color: #45b0e6;
+}
+.user-bets .bet .bets-options {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .bets-options .bet-option {
+  padding: 10px 4px;
+  background-color: white;
+  color: gray;
+  margin-right: 10px;
+  text-align: center;
+}
+.user-bets .bet .bets-options .bet-option.selected {
+  background-color: black;
+  color: white;
+}
+.user-bets .bet .bets-options .bet-option:last-child {
+  margin-right: 0;
+}
+.user-bets .bet .player-bet {
+  padding: 0 5px;
+}
+.user-bets .bet .potential-win {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .potential-win .left {
+  width: 40%;
+}
+.user-bets .bet .donation {
+  text-align: center;
+}
+.user-bets .bet .donation .text {
+  margin-right: 5px;
+}
+.user-bets .bet .donation .club {
+  color: #15a63f;
 }
