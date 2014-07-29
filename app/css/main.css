@@ -589,3 +589,29 @@ div.switch label {
 .user-bets .bet .donation .club {
   color: #15a63f;
 }
+.user-wallet .title {
+  margin-bottom: 15px;
+}
+.user-wallet .title > div:last-child {
+  padding-right: 0;
+}
+.user-wallet .wallet-list .wallet-item {
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.user-wallet .wallet-list .wallet-item:last-child {
+  border-bottom: 0;
+}
+.user-wallet .wallet-list .wallet-item .operator {
+  padding-top: 15px;
+  color: #45b0e6;
+}
+.user-wallet .wallet-list .wallet-item .balance {
+  padding-top: 15px;
+}
+.user-wallet .wallet-list .wallet-item .button {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+}
