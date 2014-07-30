@@ -7,15 +7,15 @@ define([
     'use strict';
 
     var View = Backbone.View.extend({
-    	
+
     	el: '#container',
-    	
+
     	body: $('body'),
-    	
+
     	template: null,
-    	
+
         navbar: true,
-        
+
         events: {},
 
 		initialize: function(templateSrc) {
@@ -24,14 +24,14 @@ define([
             this.body.removeClass('body-not-logged');
             this.setNavBar();
             this.$el.html(this.template(templateSrc));
-            
+
             // refactor into events object later
             $('.js-search').on('click', function() {
                 window.location.href = '#eventsAllFilter';
             });
             this.onRender();
         },
-        
+
         setNavBar: function(){
         	var $navbar = $('.js-navbar nav.tab-bar');
         	if (this.navbar) {

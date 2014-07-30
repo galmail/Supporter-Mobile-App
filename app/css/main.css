@@ -460,23 +460,61 @@ div.switch label {
   margin-top: 100px;
   margin-bottom: 30px;
 }
-.user-settings {
-  overflow: hidden;
+.user-settings .modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
 }
-.user-settings .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
-.user-settings .options {
+.user-settings li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
   text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
 }
-.user-settings .options div {
-  padding: 20px 0;
-  color: blue;
-  border: solid 1px gray;
-  border-left: 0;
-  border-right: 0;
+.user-settings ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.user-settings .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
+}
+.user-settings #logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+}
+.user-settings #logoutConfirmModal .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.user-settings #logoutConfirmModal .buttons {
+  overflow: hidden;
+  border-top: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-settings #logoutConfirmModal .buttons div {
+  padding: 15px;
+}
+.user-settings #logoutConfirmModal .buttons div.ok-btn {
+  border-left: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
 }
 .user-settings .modal-bg {
   width: 100%;
@@ -487,6 +525,26 @@ div.switch label {
   left: 0;
   background-color: black;
   opacity: 0.6;
+}
+.user-settings li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.user-settings ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.user-settings .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
 }
 .user-settings #logoutConfirmModal {
   min-height: 0;

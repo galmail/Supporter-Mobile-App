@@ -5,15 +5,19 @@ define([
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/UserSettings.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/UserSettings.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     'use strict';
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         events: {
-            'click .options div' : 'onItemClick',
-            'click .buttons div' : 'onItemClick'
+            'click .options li' : 'onItemClick',
+            'click .buttons li' : 'onItemClick'
+        },
+        onRender: function() {
+            this.$el.prepend(_.template(emailHeaderSrc));
         },
         onItemClick: function(e) {
         	var target = e.currentTarget.id;
@@ -29,7 +33,7 @@ define([
         		window.location.href = '#' + target;
         	}
         }
-        
+
     });
 
     return View;

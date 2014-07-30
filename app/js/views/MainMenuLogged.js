@@ -10,10 +10,21 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
+
         template: _.template(templateSrc),
-        onRender: function() {
+
+        events: {
+            'click li.js-menu-item': 'goToBetting'
+        },
+
+        onRender: function () {
             this.body.addClass('body-not-logged');
+        },
+
+        goToBetting: function () {
+            window.location.href = '#eventsAllFilter';
         }
+
     });
 
     return View;
