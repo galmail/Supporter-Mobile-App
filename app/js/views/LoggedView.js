@@ -21,21 +21,24 @@ define([
         },
 
         initialize: function (templateSrc) {
-        	//console.log("initialize");
             this.body = this.$el.parents('body');
             this.render(templateSrc);
             this.onInit();
+
+            // refactor into events object later
+            $('.js-search').on('click', function() {
+                window.location.href = '#eventsAllFilter';
+            });
         },
 
         render: function (templateSrc) {
-        	//console.log("render");
         	this.setNavBar();
             this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.$el.html(this.template(templateSrc));
             this.onRender();
         },
-        
+
         setNavBar: function(){
         	var $navbar = $('.js-navbar');
         	if (this.navbar) {

@@ -33,7 +33,7 @@ define([
 	'views/UserWallet',
 	'views/UserStatistics',
 	'views/DeleteUserAccountConfirm',
-	
+	'views/EventsAllFilter',
 	'foundation',
 	'offcanvas'
 ], function ($, Backbone,
@@ -43,7 +43,8 @@ define([
 	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
 	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView, UserWalletView,
-	UserStatisticsView, DeleteUserAccountConfirmView) {
+	UserStatisticsView, DeleteUserAccountConfirmView,
+	EventsAllFilterView) {
 
 	'use strict';
 
@@ -80,10 +81,12 @@ define([
 			'editUnifiedData': 				'editUnifiedData',
 			'deleteUserAccountDone': 		'deleteUserAccountDone',
 			'userBets': 					'userBets',
-			
 			'userWallet': 					'userWallet',
 			'userStatistics': 				'userStatistics',
-			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm'
+			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm',
+
+			//Bet process zone
+			'eventsAllFilter': 				'eventsAllFilter'
 		},
 
 		menuLogClear: function () {
@@ -184,6 +187,11 @@ define([
 		},
 		deleteUserAccountConfirm: function(){
 			new DeleteUserAccountConfirmView();
+		},
+
+		// BETTING PROCESS
+		eventsAllFilter: function(){
+			new EventsAllFilterView();
 		}
 	});
 
