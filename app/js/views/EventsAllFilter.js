@@ -5,14 +5,17 @@ define([
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/MainMenuLogged.html'
+    'text!templates/EventsAllFilter.html'
 ], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
-        onRender: function() {
-            this.body.addClass('body-not-logged');
+        events: {
+            'click .js-back': 'goBack'
+        },
+        goBack: function() {
+            window.history.back();
         }
     });
 

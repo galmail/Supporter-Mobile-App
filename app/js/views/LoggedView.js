@@ -11,9 +11,13 @@ define([
     	
         navbar: true,
 
-        preRender: function(templateSrc) {
+		preRender: function(templateSrc) {
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
+            // refactor into events object later
+            $('.js-search').on('click', function() {
+                window.location.href = '#eventsAllFilter';
+            });
             this.onRender();
         },
 
