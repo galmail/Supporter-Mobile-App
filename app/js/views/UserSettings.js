@@ -14,7 +14,7 @@ define([
         template: _.template(templateSrc),
         events: {
             'click .options li' : 'onItemClick',
-            'click .buttons li' : 'onItemClick'
+            'click .buttons div' : 'onItemClick'
         },
         onRender: function() {
             this.$el.prepend(_.template(emailHeaderSrc));
