@@ -2,23 +2,44 @@
 define([
     'jquery',
     'underscore',
-    'backbone',
-    'views/MainView'
-], function ($, _, Backbone, MainView) {
+    'backbone'
+], function ($, _, Backbone) {
     'use strict';
 
-    var View = MainView.extend({
+    var View = Backbone.View.extend({
+    	
+    	el: '#container',
+    	
+    	body: $('body'),
+    	
+    	template: null,
     	
         navbar: true,
+        
+        events: {},
 
-		preRender: function(templateSrc) {
+		initialize: function(templateSrc) {
+			console.log("LoggedView initialize");
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
+            this.setNavBar();
+            this.$el.html(this.template(templateSrc));
+            
             // refactor into events object later
             $('.js-search').on('click', function() {
                 window.location.href = '#eventsAllFilter';
             });
             this.onRender();
+        },
+        
+        setNavBar: function(){
+        	var $navbar = $('.js-navbar nav.tab-bar');
+        	if (this.navbar) {
+                $navbar.show();
+            }
+            else {
+                $navbar.hide();
+            }
         },
 
         // Override this

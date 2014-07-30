@@ -42,11 +42,14 @@ require.config({
 
 require([
 	'backbone',
-	'routers/router'
-], function (Backbone, Router) {
+	'routers/router',
+	'views/MainView'
+], function (Backbone, Router, AppView) {
+	// initialize main view
+    var mainView = new AppView({ el:$("#content") });
 	var router = Router.getInstance();
 	Backbone.history.start();
 	//router.navigate('menuLogClear', {trigger: true});
 	$(document).foundation();
-	$('body').css('max-height', $(window).height());
+	//$('body').css('max-height', $(window).height());
 });
