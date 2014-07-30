@@ -26,6 +26,10 @@ require.config({
 	    offcanvas: {
 	      deps: ['jquery', 'foundation'],
 	      exports: 'offcanvas'
+	    },
+	    topbar: {
+	      deps: ['jquery', 'foundation'],
+	      exports: 'topbar'
 	    }
 	},
 	paths: {
@@ -36,7 +40,8 @@ require.config({
 		text: 'libs/requirejs-text/text',
 		modernizr: 'libs/modernizr/modernizr',
 		foundation: 'libs/foundation/foundation',
-    	offcanvas: 'libs/foundation/foundation.offcanvas'
+    	offcanvas: 'libs/foundation/foundation.offcanvas',
+    	topbar: 'libs/foundation/foundation.topbar'
 	}
 });
 

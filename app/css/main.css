@@ -68,23 +68,38 @@ div.switch input + label {
 div.switch label {
   display: inline-block;
 }
-.tab-bar {
+nav.top-bar {
   background-color: #15a63f;
 }
-.tab-bar .title {
-  font-style: italic;
-}
-.left-small {
+nav.top-bar .left-small {
   border-right: solid 1px #15a63f;
 }
-.right-small {
-  border-left: solid 1px #15a63f;
-}
-.right-small .search-icon {
+nav.top-bar .left-small a {
   display: block;
   width: 35px;
   height: 35px;
   margin-top: 5px;
+  background-image: url('../img/logo_supporter.png');
+}
+nav.top-bar .right-small {
+  border-left: solid 1px #15a63f;
+}
+nav.top-bar .right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+}
+nav.top-bar .title-area {
+  margin-left: 45px;
+  margin-right: 45px;
+  text-align: center;
+}
+nav.top-bar .title-area .title {
+  font-style: italic;
+  font-size: 23px;
+  line-height: 38px;
+  color: white;
 }
 /**
  * Supporter Fonts

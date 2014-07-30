@@ -35,7 +35,8 @@ define([
 	'views/DeleteUserAccountConfirm',
 	'views/EventsAllFilter',
 	'foundation',
-	'offcanvas'
+	'offcanvas',
+	'topbar'
 ], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,

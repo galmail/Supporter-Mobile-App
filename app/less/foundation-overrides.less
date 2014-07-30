@@ -83,18 +83,19 @@ div.switch label {
 
 //  LOGGED ZONE
 
-.tab-bar {
-    background-color: @primary-color;
-    .title {
-      font-style: italic;
-    }
-}
-
-.left-small {
+nav.top-bar {
+  background-color: @primary-color;
+  .left-small {
     border-right: solid 1px @primary-color;
-}
-
-.right-small {
+    a {
+      display: block;
+      width: 35px;
+      height: 35px;
+      margin-top: 5px;
+      background-image: url('../img/logo_supporter.png');
+    }
+  }
+  .right-small {
     border-left: solid 1px @primary-color;
     .search-icon {
       display: block;
@@ -102,6 +103,20 @@ div.switch label {
       height: 35px;
       margin-top: 5px;
     }
+  }
+  .title-area {
+    margin-left: 45px;
+    margin-right: 45px;
+    text-align: center;
+    .title {
+      font-style: italic;
+      font-size: 23px;
+      line-height: 38px;
+      color: white;
+    }
+  }
 }
+
+
 
 // navbar
