@@ -21,32 +21,37 @@ define([
         },
 
         initialize: function (templateSrc) {
-
-            this.setContainerHeight();
+        	//console.log("initialize");
             this.body = this.$el.parents('body');
             this.render(templateSrc);
-
             this.onInit();
         },
 
         render: function (templateSrc) {
+        	//console.log("render");
+        	this.setNavBar();
             this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.$el.html(this.template(templateSrc));
-
             this.onRender();
         },
-
-        setContainerHeight: function() {
-            var $navbar = $('.js-navbar');
-            var $body   = $('body');
-
-            if (this.navbar) {
+        
+        setNavBar: function(){
+        	var $navbar = $('.js-navbar');
+        	if (this.navbar) {
                 $navbar.show();
-                this.$el.css('max-height', ($body.height() - $navbar.height()) + 'px');
             }
             else {
                 $navbar.hide();
+            }
+        },
+
+        setContainerHeight: function() {
+            var $body   = $('body');
+            if (this.navbar) {
+                this.$el.css('max-height', ($body.height() - $navbar.height()) + 'px');
+            }
+            else {
                 this.$el.css('max-height', $body.height() + 'px');
             }
         },

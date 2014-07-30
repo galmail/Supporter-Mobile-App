@@ -71,11 +71,20 @@ div.switch label {
 .tab-bar {
   background-color: #15a63f;
 }
+.tab-bar .title {
+  font-style: italic;
+}
 .left-small {
   border-right: solid 1px #15a63f;
 }
 .right-small {
   border-left: solid 1px #15a63f;
+}
+.right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
 }
 /**
  * Supporter Fonts
@@ -116,9 +125,7 @@ div.switch label {
 #container {
   padding: 30px 15px 30px 15px;
   text-align: center;
-  border: 1px dashed blue;
   height: 100%;
-  overflow: auto;
 }
 .footer {
   margin-top: -80px;
@@ -162,6 +169,12 @@ div.switch label {
 }
 .header {
   padding: 0px 0px 40px 0px;
+}
+.off-canvas-wrap {
+  height: 100%;
+}
+.off-canvas-wrap > .inner-wrap {
+  height: 100%;
 }
 .club-disclaimer {
   text-align: left;
@@ -465,6 +478,41 @@ div.switch label {
   border-left: 0;
   border-right: 0;
 }
+.user-settings .modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}
+.user-settings #logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+}
+.user-settings #logoutConfirmModal .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.user-settings #logoutConfirmModal .buttons {
+  overflow: hidden;
+  border-top: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-settings #logoutConfirmModal .buttons div {
+  padding: 15px;
+}
+.user-settings #logoutConfirmModal .buttons div.ok-btn {
+  border-left: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
 .user-profile {
   overflow: hidden;
 }
@@ -482,4 +530,152 @@ div.switch label {
   border: solid 1px gray;
   border-left: 0;
   border-right: 0;
+}
+.edit-unified-data {
+  overflow: hidden;
+}
+.edit-unified-data .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+  margin-bottom: 10px;
+}
+.user-bets .title {
+  padding-bottom: 10px;
+}
+.user-bets .bet {
+  padding-bottom: 5px;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.user-bets .bet .block {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.user-bets .bet .game-data {
+  text-align: center;
+  background-color: white;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.user-bets .bet .game-match {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.user-bets .bet .operator {
+  padding: 9px 5px;
+  color: #45b0e6;
+}
+.user-bets .bet .bets-options {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .bets-options .bet-option {
+  padding: 10px 4px;
+  background-color: white;
+  color: gray;
+  margin-right: 10px;
+  text-align: center;
+}
+.user-bets .bet .bets-options .bet-option.selected {
+  background-color: black;
+  color: white;
+}
+.user-bets .bet .bets-options .bet-option:last-child {
+  margin-right: 0;
+}
+.user-bets .bet .player-bet {
+  padding: 0 5px;
+}
+.user-bets .bet .potential-win {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .potential-win .left {
+  width: 40%;
+}
+.user-bets .bet .donation {
+  text-align: center;
+}
+.user-bets .bet .donation .text {
+  margin-right: 5px;
+}
+.user-bets .bet .donation .club {
+  color: #15a63f;
+}
+.user-wallet .title {
+  margin-bottom: 15px;
+}
+.user-wallet .title > div:last-child {
+  padding-right: 0;
+}
+.user-wallet .wallet-list .wallet-item {
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.user-wallet .wallet-list .wallet-item:last-child {
+  border-bottom: 0;
+}
+.user-wallet .wallet-list .wallet-item .operator {
+  padding-top: 15px;
+  color: #45b0e6;
+}
+.user-wallet .wallet-list .wallet-item .balance {
+  padding-top: 15px;
+}
+.user-wallet .wallet-list .wallet-item .button {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+}
+.user-statistics .title {
+  margin-bottom: 10px;
+}
+.user-statistics .title > div {
+  margin-bottom: 5px;
+}
+.user-statistics .title > div.club {
+  color: #45b0e6;
+}
+.user-statistics .user-history-chart {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list .blue {
+  color: #45b0e6;
+}
+.user-statistics .user-history-list .yellow {
+  color: orange;
+}
+.user-statistics .user-history-list .green {
+  color: #15a63f;
+}
+.user-statistics .user-history-list .row {
+  padding-bottom: 5px;
+}
+.user-statistics .all-users-history-list .columns.small-6 {
+  width: 48%;
+}
+.user-statistics .all-users-history-list .row {
+  border-bottom: 1px solid green;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.delete-user-account-confirm {
+  overflow: hidden;
+}
+.delete-user-account-confirm .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.delete-user-account-confirm .text {
+  margin-top: 80px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.delete-user-account-confirm .text p {
+  line-height: 23px !important;
 }
