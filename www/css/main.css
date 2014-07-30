@@ -1,25 +1,10 @@
-/**
- * Supporter Fonts
- **/
-@font-face {
-  font-family: 'Roboto' !important;
-  src: url("../fonts/Roboto-Regular.ttf") !important;
-  font-weight: normal!important;
-  font-style: normal!important;
-}
-@font-face {
-  font-family: 'RobotoThin' !important;
-  src: url("../fonts/Roboto-Thin.ttf") !important;
-  font-weight: normal!important;
-  font-style: normal!important;
-}
+/* Foundation overrides */
 body,
 p,
 a,
 button,
 .button {
   font-family: 'RobotoThin', sans-serif !important;
-  font-weight: 800;
   font-size: 1.2rem !important;
 }
 p {
@@ -36,10 +21,85 @@ button:hover {
 .secondary:hover {
   background-color: #007399 !important;
 }
-h1,
-h2,
-h3 {
+.inline-input {
+  display: inline-block !important;
+}
+.body-not-logged input,
+.body-not-logged select {
+  background-color: transparent!important;
+  border: 1px solid #e6e6e6 !important;
+  color: #e6e6e6 !important;
+}
+.body-not-logged input.tight,
+.body-not-logged select.tight {
+  margin: 0 0 0.5rem 0!important;
+}
+.body-not-logged input.disabled,
+.body-not-logged select.disabled {
+  border: 1px solid rgba(230, 230, 230, 0.6) !important;
+  color: rgba(230, 230, 230, 0.6) !important;
+}
+.body-not-logged input:focus,
+.body-not-logged select:focus {
   color: #e6e6e6;
+}
+::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+.disabled::-webkit-input-placeholder {
+  color: rgba(230, 230, 230, 0.6);
+}
+:-moz-placeholder {
+  color: #e6e6e6;
+}
+::-moz-placeholder {
+  color: #e6e6e6;
+}
+:-ms-input-placeholder {
+  color: #e6e6e6;
+}
+div.switch input:checked + label {
+  background: #15a63f;
+  margin: 0!important;
+}
+div.switch input + label {
+  margin: 0!important;
+}
+div.switch label {
+  display: inline-block;
+}
+.tab-bar {
+  background-color: #15a63f;
+}
+.tab-bar .title {
+  font-style: italic;
+}
+.left-small {
+  border-right: solid 1px #15a63f;
+}
+.right-small {
+  border-left: solid 1px #15a63f;
+}
+.right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+}
+/**
+ * Supporter Fonts
+ **/
+@font-face {
+  font-family: 'Roboto' !important;
+  src: url("../fonts/Roboto-Regular.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+@font-face {
+  font-family: 'RobotoThin' !important;
+  src: url("../fonts/Roboto-Thin.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
 }
 .large {
   font-size: 1.2rem !important;
@@ -60,11 +120,18 @@ h3 {
 .body-not-logged {
   background-color: #45b0e6;
   text-shadow: 1px 1px 1px #007399;
+  color: #e6e6e6;
 }
 #container {
-  color: #e6e6e6;
-  padding: 30px 15px 15px 15px;
+  padding: 30px 15px 30px 15px;
   text-align: center;
+  height: 100%;
+}
+.footer {
+  margin-top: -80px;
+  height: 80px;
+  position: relative;
+  border: 1px solid blue;
 }
 .link {
   text-decoration: underline;
@@ -103,53 +170,11 @@ h3 {
 .header {
   padding: 0px 0px 40px 0px;
 }
-/* Foundation overrides */
-.inline-input {
-  display: inline-block !important;
+.off-canvas-wrap {
+  height: 100%;
 }
-input,
-select {
-  background-color: transparent!important;
-  border: 1px solid #e6e6e6 !important;
-  color: #e6e6e6 !important;
-}
-input.tight,
-select.tight {
-  margin: 0 0 0.5rem 0!important;
-}
-input.disabled,
-select.disabled {
-  border: 1px solid rgba(230, 230, 230, 0.6) !important;
-  color: rgba(230, 230, 230, 0.6) !important;
-}
-input:focus,
-select:focus {
-  color: #e6e6e6;
-}
-::-webkit-input-placeholder {
-  color: #e6e6e6;
-}
-.disabled::-webkit-input-placeholder {
-  color: rgba(230, 230, 230, 0.6);
-}
-:-moz-placeholder {
-  color: #e6e6e6;
-}
-::-moz-placeholder {
-  color: #e6e6e6;
-}
-:-ms-input-placeholder {
-  color: #e6e6e6;
-}
-div.switch input:checked + label {
-  background: #15a63f;
-  margin: 0!important;
-}
-div.switch input + label {
-  margin: 0!important;
-}
-div.switch label {
-  display: inline-block;
+.off-canvas-wrap > .inner-wrap {
+  height: 100%;
 }
 .club-disclaimer {
   text-align: left;
@@ -168,6 +193,37 @@ div.switch label {
 }
 .menu-log-clear .intro {
   margin: 35px 20px;
+}
+.operators-list .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+}
+.operators-list li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.operators-list ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.operators-list .operator-name {
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  line-height: 55px;
+}
+.operators-list .switch {
+  width: 30%;
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
 }
 .pick-club-confirm .link {
   color: #e6e6e6;
@@ -245,10 +301,11 @@ div.switch label {
 .select-operators .operator {
   vertical-align: middle;
   width: 60%;
+  padding: 0 0 0 5px;
   display: inline-block;
 }
 .select-operators .switch {
-  width: 38%;
+  width: 30%;
   text-align: right;
   vertical-align: middle;
   display: inline-block;
@@ -289,7 +346,371 @@ div.switch label {
 .operators-single-login .content {
   background-color: #007399 !important;
 }
+.change-club-selection .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 35px;
+}
+.change-club-selection .club {
+  text-align: center;
+  margin: 20px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.change-club {
+  text-align: left;
+}
+.change-club .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 35px;
+}
+.change-club .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  float: right;
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.change-club .team-name {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.change-club .team-city {
+  margin: 0;
+  padding: 0;
+  line-height: 5px;
+  font-size: 10px;
+}
+.change-club li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.change-club li:last-child {
+  border-bottom: none;
+}
+.change-club ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+  border: 2px solid #15a63f;
+}
+.about {
+  padding-top: 25%;
+}
+.about p {
+  font-size: 15px !important;
+}
 .unified-registration {
   text-align: left;
   margin-bottom: 20px;
+}
+.emailheader {
+  padding: 15px 0;
+  margin: -30px -15px 0px -15px;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+}
+.delete-user-account {
+  overflow: hidden;
+}
+.delete-user-account .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.delete-user-account .text {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.delete-user-account-done .text {
+  margin-top: 70%;
+  margin-bottom: 20px;
+}
+.change-user-email {
+  overflow: hidden;
+}
+.change-user-email .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.change-user-email .text {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.change-user-password {
+  overflow: hidden;
+}
+.change-user-password .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.change-user-password .text {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.user-settings {
+  overflow: hidden;
+}
+.user-settings .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.user-settings .options {
+  text-align: left;
+}
+.user-settings .options div {
+  padding: 20px 0;
+  color: blue;
+  border: solid 1px gray;
+  border-left: 0;
+  border-right: 0;
+}
+.user-settings .modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}
+.user-settings #logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+}
+.user-settings #logoutConfirmModal .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.user-settings #logoutConfirmModal .buttons {
+  overflow: hidden;
+  border-top: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-settings #logoutConfirmModal .buttons div {
+  padding: 15px;
+}
+.user-settings #logoutConfirmModal .buttons div.ok-btn {
+  border-left: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-profile {
+  overflow: hidden;
+}
+.user-profile .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.user-profile .options {
+  text-align: left;
+}
+.user-profile .options div {
+  padding: 20px 0;
+  color: blue;
+  border: solid 1px gray;
+  border-left: 0;
+  border-right: 0;
+}
+.edit-unified-data {
+  overflow: hidden;
+}
+.edit-unified-data .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+  margin-bottom: 10px;
+}
+.user-bets .title {
+  padding-bottom: 10px;
+}
+.user-bets .bet {
+  padding-bottom: 5px;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.user-bets .bet .block {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.user-bets .bet .game-data {
+  text-align: center;
+  background-color: white;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.user-bets .bet .game-match {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.user-bets .bet .operator {
+  padding: 9px 5px;
+  color: #45b0e6;
+}
+.user-bets .bet .bets-options {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .bets-options .bet-option {
+  padding: 10px 4px;
+  background-color: white;
+  color: gray;
+  margin-right: 10px;
+  text-align: center;
+}
+.user-bets .bet .bets-options .bet-option.selected {
+  background-color: black;
+  color: white;
+}
+.user-bets .bet .bets-options .bet-option:last-child {
+  margin-right: 0;
+}
+.user-bets .bet .player-bet {
+  padding: 0 5px;
+}
+.user-bets .bet .potential-win {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .potential-win .left {
+  width: 40%;
+}
+.user-bets .bet .donation {
+  text-align: center;
+}
+.user-bets .bet .donation .text {
+  margin-right: 5px;
+}
+.user-bets .bet .donation .club {
+  color: #15a63f;
+}
+.user-wallet .title {
+  margin-bottom: 15px;
+}
+.user-wallet .title > div:last-child {
+  padding-right: 0;
+}
+.user-wallet .wallet-list .wallet-item {
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.user-wallet .wallet-list .wallet-item:last-child {
+  border-bottom: 0;
+}
+.user-wallet .wallet-list .wallet-item .operator {
+  padding-top: 15px;
+  color: #45b0e6;
+}
+.user-wallet .wallet-list .wallet-item .balance {
+  padding-top: 15px;
+}
+.user-wallet .wallet-list .wallet-item .button {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+}
+.user-statistics .title {
+  margin-bottom: 10px;
+}
+.user-statistics .title > div {
+  margin-bottom: 5px;
+}
+.user-statistics .title > div.club {
+  color: #45b0e6;
+}
+.user-statistics .user-history-chart {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list .blue {
+  color: #45b0e6;
+}
+.user-statistics .user-history-list .yellow {
+  color: orange;
+}
+.user-statistics .user-history-list .green {
+  color: #15a63f;
+}
+.user-statistics .user-history-list .row {
+  padding-bottom: 5px;
+}
+.user-statistics .all-users-history-list .columns.small-6 {
+  width: 48%;
+}
+.user-statistics .all-users-history-list .row {
+  border-bottom: 1px solid green;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.delete-user-account-confirm {
+  overflow: hidden;
+}
+.delete-user-account-confirm .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.delete-user-account-confirm .text {
+  margin-top: 80px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.delete-user-account-confirm .text p {
+  line-height: 23px !important;
+}
+.main-menu-logged {
+  text-align: left;
+}
+.main-menu-logged .intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.main-menu-logged .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 43px;
+  float: left;
+  background-size: 32px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.main-menu-logged .team-name {
+  line-height: 50px;
+}
+.main-menu-logged li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.main-menu-logged li:last-child {
+  border-bottom: none;
+}
+.main-menu-logged ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
 }

@@ -49,7 +49,6 @@ require([
     var mainView = new AppView({ el:$("#content") });
 	var router = Router.getInstance();
 	Backbone.history.start();
-	//router.navigate('menuLogClear', {trigger: true});
 	$(document).foundation();
-	//$('body').css('max-height', $(window).height());
+	router.navigate(window.rootPage, {trigger: true});
 });

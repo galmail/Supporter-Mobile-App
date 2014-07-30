@@ -11,5 +11,12 @@
     	<script data-main="js/main" src="js/libs/requirejs/require.js"></script>
 	</head>
 	<body>
+		<!-- <script>var rootPage="menuLogClear";</script> -->
+		<script type="text/javascript" src="js/cordova.js"></script>
+		<script type="text/javascript">
+			document.addEventListener('deviceready', function() {
+				console.log("device is ready.");
+			}, false);
+		</script>
 	</body>
 </html>
