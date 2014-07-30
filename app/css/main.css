@@ -97,9 +97,11 @@ nav.top-bar .title-area {
 }
 nav.top-bar .title-area .title {
   font-style: italic;
-  font-size: 23px;
+  font-size: 1.25rem;
   line-height: 38px;
   color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #444;
 }
 /**
  * Supporter Fonts
