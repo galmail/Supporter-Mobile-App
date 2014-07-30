@@ -32,7 +32,7 @@ define([
         },
 
         setNavBar: function(){
-        	var $navbar = $('.js-navbar nav.tab-bar');
+        	var $navbar = $('.js-navbar nav.top-bar');
         	if (this.navbar) {
                 $navbar.show();
             }
