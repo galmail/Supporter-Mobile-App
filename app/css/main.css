@@ -71,11 +71,20 @@ div.switch label {
 .tab-bar {
   background-color: #15a63f;
 }
+.tab-bar .title {
+  font-style: italic;
+}
 .left-small {
   border-right: solid 1px #15a63f;
 }
 .right-small {
   border-left: solid 1px #15a63f;
+}
+.right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
 }
 /**
  * Supporter Fonts
@@ -116,9 +125,7 @@ div.switch label {
 #container {
   padding: 30px 15px 30px 15px;
   text-align: center;
-  border: 1px dashed blue;
   height: 100%;
-  overflow: auto;
 }
 .footer {
   margin-top: -80px;
@@ -162,6 +169,12 @@ div.switch label {
 }
 .header {
   padding: 0px 0px 40px 0px;
+}
+.off-canvas-wrap {
+  height: 100%;
+}
+.off-canvas-wrap > .inner-wrap {
+  height: 100%;
 }
 .club-disclaimer {
   text-align: left;
@@ -614,4 +627,55 @@ div.switch label {
   padding-left: 10px;
   padding-right: 10px;
   margin-bottom: 0;
+}
+.user-statistics .title {
+  margin-bottom: 10px;
+}
+.user-statistics .title > div {
+  margin-bottom: 5px;
+}
+.user-statistics .title > div.club {
+  color: #45b0e6;
+}
+.user-statistics .user-history-chart {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list .blue {
+  color: #45b0e6;
+}
+.user-statistics .user-history-list .yellow {
+  color: orange;
+}
+.user-statistics .user-history-list .green {
+  color: #15a63f;
+}
+.user-statistics .user-history-list .row {
+  padding-bottom: 5px;
+}
+.user-statistics .all-users-history-list .columns.small-6 {
+  width: 48%;
+}
+.user-statistics .all-users-history-list .row {
+  border-bottom: 1px solid green;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.delete-user-account-confirm {
+  overflow: hidden;
+}
+.delete-user-account-confirm .account_details {
+  overflow: hidden;
+  padding: 5px 0 15px 0;
+  border-bottom: solid 2px;
+}
+.delete-user-account-confirm .text {
+  margin-top: 80px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.delete-user-account-confirm .text p {
+  line-height: 23px !important;
 }

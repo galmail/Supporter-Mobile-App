@@ -27,9 +27,7 @@
 #container {
     padding: 30px 15px 30px 15px;
     text-align: center;
-    border: 1px dashed blue; // temporal
     height: 100%;
-    overflow: auto;
 }
 
 .footer {
@@ -83,5 +81,21 @@
 .header {
     padding: 0px 0px 40px 0px;
 }
+
+// fixing container's height
+.off-canvas-wrap {
+  height: 100%;
+  &>.inner-wrap {
+    height: 100%;
+    &>.main-section {
+      //height: 100%;
+      &>#container {
+        //min-height: inherit !important;
+        //max-height: inherit !important;
+      }
+    }
+  }
+}
+
 
 

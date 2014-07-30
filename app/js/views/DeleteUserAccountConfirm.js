@@ -10,8 +10,7 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc),
-        navbar: false
+        template: _.template(templateSrc)
     });
 
     return View;

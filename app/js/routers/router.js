@@ -30,7 +30,6 @@ define([
 	'views/EditUnifiedData',
 	'views/DeleteUserAccountDone',
 	'views/UserBets',
-	
 	'views/UserWallet',
 	'views/UserStatistics',
 	'views/DeleteUserAccountConfirm',
