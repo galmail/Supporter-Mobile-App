@@ -435,45 +435,28 @@ nav.top-bar .title-area .title {
   margin: -30px -15px 0px -15px;
   border-bottom: 1px solid rgba(230, 230, 230, 0.6);
 }
-.delete-user-account {
-  overflow: hidden;
-}
-.delete-user-account .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .delete-user-account .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 100px;
   margin-bottom: 30px;
+  text-align: left;
 }
 .delete-user-account-done .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 70%;
   margin-bottom: 20px;
 }
-.change-user-email {
-  overflow: hidden;
-}
-.change-user-email .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .change-user-email .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 100px;
   margin-bottom: 30px;
-}
-.change-user-password {
-  overflow: hidden;
-}
-.change-user-password .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
+  text-align: left;
 }
 .change-user-password .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 100px;
   margin-bottom: 30px;
+  text-align: left;
 }
 .user-settings .modal-bg {
   width: 100%;
@@ -586,32 +569,29 @@ nav.top-bar .title-area .title {
   border-left: 1px solid;
   border-color: rgba(230, 230, 230, 0.6);
 }
-.user-profile {
-  overflow: hidden;
-}
-.user-profile .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
-.user-profile .options {
+.user-profile li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
   text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
 }
-.user-profile .options div {
-  padding: 20px 0;
-  color: blue;
-  border: solid 1px gray;
-  border-left: 0;
-  border-right: 0;
+.user-profile ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
 }
-.edit-unified-data {
-  overflow: hidden;
+.user-profile .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
 }
-.edit-unified-data .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-  margin-bottom: 10px;
+.edit-unified-data .form-inputs {
+  padding-top: 10px;
 }
 .user-bets .title {
   padding-bottom: 10px;
@@ -736,20 +716,13 @@ nav.top-bar .title-area .title {
   padding-bottom: 3px;
   padding-top: 3px;
 }
-.delete-user-account-confirm {
-  overflow: hidden;
-}
-.delete-user-account-confirm .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .delete-user-account-confirm .text {
   margin-top: 80px;
   margin-bottom: 30px;
   text-align: left;
 }
 .delete-user-account-confirm .text p {
+  font-family: 'Roboto', sans-serif !important;
   line-height: 23px !important;
 }
 .main-menu-logged {
