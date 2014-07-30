@@ -3,44 +3,26 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/MainView',
     'text!templates/snippets/UnifiedRegistration.html'
-], function ($, _, Backbone, unifiedRegistrationSrc) {
+], function ($, _, Backbone, MainView, unifiedRegistrationSrc) {
     'use strict';
 
-    var View = Backbone.View.extend({
+    var View = MainView.extend({
+    	
+    	navbar: false,
 
         unifiedRegStep: null,
 
-        el: '#container',
-
-        // Override this
-        template: null,
-
-        // Override this
-        events: {
-        },
-
-        initialize: function (templateSrc) {
-            $('.js-navbar').hide();
-            this.$el.css('max-height', $('body').height() + 'px');
-            this.body = this.$el.parents('body');
-            this.render(templateSrc);
-
-            this.onInit();
-        },
-
-        render: function (templateSrc) {
-            this.body.addClass('body-not-logged');
+        preRender: function (templateSrc) {
+			this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
-            this.$el.html(this.template(templateSrc));
-
             if (this.unifiedRegStep !== null) {
                 this.$el.prepend(_.template(unifiedRegistrationSrc, {
                     step: this.unifiedRegStep,
                     total: 3
                 }));
             }
-
             this.onRender();
         },
 
