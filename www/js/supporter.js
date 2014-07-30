@@ -16492,7 +16492,7 @@ define('routers/router',[
 
 	return Router;
 });
-define('text!templates/snippets/Main.html',[],function () { return '<div class="off-canvas-wrap js-navbar" data-offcanvas>\n\t<div class="inner-wrap">\n\t\t<nav class="tab-bar">\n\t\t\t<section class="left-small">\n\t\t\t\t<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>\n\t\t\t</section>\n\n\t\t\t<section class="middle tab-bar-section">\n\t\t\t\t<h1 class="title">Supporter.se</h1>\n\t\t\t</section>\n\n\t\t\t<section class="right-small">\n\t\t\t\t<img class="search-icon" src="../img/search.png"/>\n\t\t\t</section>\n\t\t</nav>\n\n\t\t<aside class="left-off-canvas-menu">\n\t\t\t<ul class="off-canvas-list">\n\t\t\t\t<li>\n\t\t\t\t\t<label>supporter.se</label>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#mainMenuLogged">Home / Suggested Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userStatistics">My Page / Statistics</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsAllFilter">Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsLiveScoresFilter">Live Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userBets">Bets</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userWallet">My Wallet</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userSettings">Settings</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#about">About Supporter.se</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</aside>\n\n\t\t<section class="main-section">\n\t\t\t<div id="container"></div>\n\t\t</section>\n\t\t<a class="exit-off-canvas"></a>\n\t</div>\n</div>';});
+define('text!templates/snippets/Main.html',[],function () { return '<div class="off-canvas-wrap js-navbar" data-offcanvas>\n\t<div class="inner-wrap">\n\t\t<nav class="tab-bar">\n\t\t\t<section class="left-small">\n\t\t\t\t<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>\n\t\t\t</section>\n\n\t\t\t<section class="middle tab-bar-section">\n\t\t\t\t<h1 class="title">Supporter.se</h1>\n\t\t\t</section>\n\n\t\t\t<section class="right-small">\n\t\t\t\t<img class="search-icon" src="../img/search.png"/>\n\t\t\t</section>\n\t\t</nav>\n\n\t\t<aside class="left-off-canvas-menu">\n\t\t\t<ul class="off-canvas-list">\n\t\t\t\t<li>\n\t\t\t\t\t<label>supporter.se</label>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#mainMenuLogged">Home / Suggested Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userStatistics">My Page / Statistics</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsAllFilter">Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsLiveScoresFilter">Live Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userBets">Bets</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userWallet">My Wallet</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userSettings">Settings</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#about">About Supporter.se</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</aside>\n\n\t\t<section class="main-section">\n\t\t\t<div id="container">Empty View</div>\n\t\t</section>\n\t\t<a class="exit-off-canvas"></a>\n\t</div>\n</div>';});
 
 /*global define*/
 define('views/MainView',[
@@ -16571,6 +16571,7 @@ require([
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
-	router.navigate(window.rootPage, {trigger: true});
+	if(window.rootPage)
+		router.navigate(window.rootPage, {trigger: true});
 });
 define("main", function(){});
