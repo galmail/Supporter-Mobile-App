@@ -19,14 +19,13 @@ define([
         events: {},
 
 		initialize: function(templateSrc) {
-			console.log("LoggedView initialize");
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();
             this.$el.html(this.template(templateSrc));
 
             // refactor into events object later
-            $('.js-search').on('click', function() {
+            $('.search-icon').on('click', function() {
                 window.location.href = '#eventsAllFilter';
             });
             this.onRender();

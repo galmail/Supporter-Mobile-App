@@ -5,12 +5,16 @@ define([
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/DeleteUserAccount.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/DeleteUserAccount.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function() {
+            this.$el.find('.delete-user-account').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
