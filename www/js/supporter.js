@@ -14734,7 +14734,7 @@ define('views/UnloggedView',[
         },
         
         setNavBar: function(){
-        	var $navbar = $('.js-navbar nav.tab-bar');
+        	var $navbar = $('.js-navbar nav.top-bar');
         	if (this.navbar) {
                 $navbar.show();
             }
@@ -14823,7 +14823,7 @@ define('views/KnowMore',[
 
     return View;
 });
-define('text!templates/SignIn.html',[],function () { return '<div class="sign-in">\n    <div class="logo" />\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a href="#selectOperators" class="medium success button full-width js-login">Sign in</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n\n    <a href="#remindPassword" class="link link-bottom-page" href="">Forgot Password</a>\n</div>';});
+define('text!templates/SignIn.html',[],function () { return '<div class="sign-in">\n    <div class="logo" />\n\n    <input type="text" placeholder="Email" />\n    <input type="password" placeholder="Password" />\n\n\n    <a id="login-btn" href="#selectOperators" class="medium success button full-width js-login">Sign in</a><br>\n    <a href="#menuLogClear" class="medium secondary full-width button">Cancel</a><br>\n\n    <a href="#remindPassword" class="link link-bottom-page" href="">Forgot Password</a>\n</div>';});
 
 /*global define*/
 define('views/SignIn',[
@@ -14836,7 +14836,19 @@ define('views/SignIn',[
     
 
     var View = UnloggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        
+        events: {
+        	//'click #login-btn' : 'login'
+        },
+        
+        login: function(){
+        	var data = {email: 'm@0g.se', password: '123'};
+        	$.post(window.serverURL + '/io/services/OpenUserService/openUserService/userAuthentication.json',data,function(res,status,xhr){
+        		var cookie = xhr.getResponseHeader('Set-Cookie');
+        	});
+        }
+        
     });
 
     return View;
@@ -15090,33 +15102,32 @@ define('views/LoggedView',[
     
 
     var View = Backbone.View.extend({
-    	
+
     	el: '#container',
-    	
+
     	body: $('body'),
-    	
+
     	template: null,
-    	
+
         navbar: true,
-        
+
         events: {},
 
 		initialize: function(templateSrc) {
-			console.log("LoggedView initialize");
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();
             this.$el.html(this.template(templateSrc));
-            
+
             // refactor into events object later
-            $('.js-search').on('click', function() {
+            $('.search-icon').on('click', function() {
                 window.location.href = '#eventsAllFilter';
             });
             this.onRender();
         },
-        
+
         setNavBar: function(){
-        	var $navbar = $('.js-navbar nav.tab-bar');
+        	var $navbar = $('.js-navbar nav.top-bar');
         	if (this.navbar) {
                 $navbar.show();
             }
@@ -15134,7 +15145,7 @@ define('views/LoggedView',[
 
     return View;
 });
-define('text!templates/MainMenuLogged.html',[],function () { return '<div class="main-menu-logged">\n\n<div class="intro small"> Welcome Guest.<br> Here are some suggested bets based on your support of AIK FF</div>\n\n    <ul>\n        <li>\n            <div style="background-image: url(\'img/main_menu/top10.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Ten most played</div>\n        </li>\n        <li>\n            <div style="background-image: url(\'img/main_menu/live.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Live scores</div>\n        </li>\n        <li>\n            <div  style="background-image: url(\'img/main_menu/all_games.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">All games</div>\n        </li>\n\n        <li>\n            <div  style="background-image: url(\'img/main_menu/elections.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Swedish election</div>\n        </li>\n    </ul>\n\n</div>\n\n\n\n\n\n';});
+define('text!templates/MainMenuLogged.html',[],function () { return '<div class="main-menu-logged">\n\n<div class="intro small"> Welcome Guest.<br> Here are some suggested bets based on your support of AIK FF</div>\n\n    <ul>\n        <li class="js-menu-item">\n            <div style="background-image: url(\'img/main_menu/top10.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Ten most played</div>\n        </li>\n        <li class="js-menu-item">\n            <div style="background-image: url(\'img/main_menu/live.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Live scores</div>\n        </li>\n        <li class="js-menu-item">\n            <div  style="background-image: url(\'img/main_menu/all_games.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">All games</div>\n        </li>\n\n        <li class="js-menu-item">\n            <div  style="background-image: url(\'img/main_menu/elections.jpg\');" class="team-logo-small"></div>\n            <div class="team-name">Swedish election</div>\n        </li>\n    </ul>\n\n</div>\n\n\n\n\n\n';});
 
 /*global define*/
 
@@ -15148,17 +15159,28 @@ define('views/MainMenuLogged',[
     
 
     var View = LoggedView.extend({
+
         template: _.template(templateSrc),
-        onRender: function() {
+
+        events: {
+            'click li.js-menu-item': 'goToBetting'
+        },
+
+        onRender: function () {
             this.body.addClass('body-not-logged');
+        },
+
+        goToBetting: function () {
+            window.location.href = '#eventsAllFilter';
         }
+
     });
 
     return View;
 });
 define('text!templates/ChangeClub.html',[],function () { return '<div class="change-club">\n\n    <p class="intro small"> Find the club you wish to support and start donating to the club.</p>\n\n    <input type="text" class="js-search" placeholder="Search" />\n\n    <ul style="display: none" class="js-results">\n        <li data-id="ifk">\n            <div class="team-name">IFK Göteborg\n            <div class="team-city">Fotboll, Göteborg</div></div>\n            <div style="background-image: url(\'img/clubs/ifk.jpg\');" class="team-logo-small"></div>\n        </li>\n        <li data-id="hammarby">\n            <div class="team-name">Hammarby IF\n            <div class="team-city">Fotboll, Stockholm</div></div>\n            <div style="background-image: url(\'img/clubs/hammarby.png\');" class="team-logo-small"></div>\n        </li>\n        <li data-id="malmo">\n            <div class="team-name">Malmö FF\n            <div class="team-city">Fotboll, Malmö</div></div>\n            <div  style="background-image: url(\'img/clubs/malmo.png\');" class="team-logo-small"></div>\n        </li>\n    </ul>\n\n</div>';});
 
-define('text!templates/snippets/EmailHeader.html',[],function () { return '<div class="emailheader small">\nAccount&nbsp;&nbsp;sergio@betteranap.com\n</div>';});
+define('text!templates/snippets/EmailHeader.html',[],function () { return '<div class="emailheader large">\nAccount&nbsp;&nbsp;sergio@betteranap.com\n</div>';});
 
 /*global define*/
 define('views/ChangeClub',[
@@ -15284,7 +15306,7 @@ define('views/About',[
 
     return View;
 });
-define('text!templates/DeleteUserAccount.html',[],function () { return '<div class="delete-user-account">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\n\t<div class="text medium">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\t\n\t<input type="text" placeholder="" />\n\t\n\t<a href="#deleteUserAccountConfirm" class="medium success button full-width">Send</a>\n\n</div>';});
+define('text!templates/DeleteUserAccount.html',[],function () { return '<div class="delete-user-account">\n\n\t<div class="text small">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\n\t<input type="text" />\n\n\t<a href="#deleteUserAccountConfirm" class="medium success button full-width">Send</a>\n\n</div>';});
 
 /*global define*/
 
@@ -15293,17 +15315,21 @@ define('views/DeleteUserAccount',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/DeleteUserAccount.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/DeleteUserAccount.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function() {
+            this.$el.find('.delete-user-account').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
 });
-define('text!templates/ChangeUserEmail.html',[],function () { return '<div class="change-user-email">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\n\t<div class="text medium">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\t\n\t<input type="text" placeholder="" />\n\t\n\t<a href="#userProfile" class="medium success button full-width">Send</a>\n\n</div>';});
+define('text!templates/ChangeUserEmail.html',[],function () { return '<div class="change-user-email">\n\n\t<div class="text small">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\n\t<input type="text" placeholder="" />\n\n\t<a href="#userProfile" class="medium success button full-width">Send</a>\n\n</div>';});
 
 /*global define*/
 
@@ -15312,17 +15338,21 @@ define('views/ChangeUserEmail',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/ChangeUserEmail.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/ChangeUserEmail.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function () {
+            this.$el.find('.change-user-email').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
 });
-define('text!templates/ChangeUserPassword.html',[],function () { return '<div class="change-user-password">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\n\t<div class="text medium">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\t\n\t<input type="text" placeholder="" />\n\t\n\t<a href="#userProfile" class="medium success button full-width">Send</a>\n\n</div>';});
+define('text!templates/ChangeUserPassword.html',[],function () { return '<div class="change-user-password">\n\n\n\t<div class="text small">\n\t\tProvide your Supporter password to change the data\n\t</div>\n\n\t<input type="text" placeholder="" />\n\n\t<a href="#userProfile" class="medium success button full-width">Send</a>\n\n</div>';});
 
 /*global define*/
 
@@ -15331,17 +15361,21 @@ define('views/ChangeUserPassword',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/ChangeUserPassword.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/ChangeUserPassword.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function() {
+            this.$el.find('.change-user-password').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
 });
-define('text!templates/UserSettings.html',[],function () { return '<div class="user-settings">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\t\n\t<div class="options">\n\t\t<div id="userProfile">Account Profile</div>\n\t\t<div id="changeClub">Change Club</div>\n\t\t<div id="userFavorites">Favorites List</div>\n\t\t<div id="operatorsList">Betting Operators</div>\n\t\t<div id="signOut">Sign Out</div>\n\t</div>\n\t\n\t<div id="logoutConfirmModal" class="reveal-modal" data-reveal>\n\t  <p class="medium title">Are you sure you want to logout?</p>\n\t  <div class="buttons small">\n\t  \t<div id="closeModal" class="columns small-6 cancel-btn">Cancel</div>\n\t  \t<div id="menuLogClear" class="columns small-6 ok-btn">OK</div>\n\t  </div>\n\t</div>\n\t\n\t<div class="modal-bg">\n\t</div>\n\t\n</div>';});
+define('text!templates/UserSettings.html',[],function () { return '<div class="user-settings">\n\t<ul class="options">\n\t\t<li class="item" id="userProfile">Account Profile</li>\n\t\t<li class="item" id="changeClub">Change Club</li>\n\t\t<li class="item" id="userFavorites">Favorites List</li>\n\t\t<li class="item" id="operatorsList">Betting Operators</li>\n\t\t<li class="item" id="signOut">Sign Out</li>\n\t</ul>\n\n\t<div id="logoutConfirmModal" class="reveal-modal" data-reveal>\n\t  <p class="medium title">Are you sure you want to logout?</p>\n\t  <div class="buttons small">\n\t  \t<div id="closeModal" class="columns small-6 cancel-btn">Cancel</div>\n\t  \t<div id="menuLogClear" class="columns small-6 ok-btn">OK</div>\n\t  </div>\n\t</div>\n\n\t<div class="modal-bg">\n\t</div>\n\n</div>';});
 
 /*global define*/
 
@@ -15350,15 +15384,19 @@ define('views/UserSettings',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/UserSettings.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/UserSettings.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         events: {
-            'click .options div' : 'onItemClick',
+            'click .options li' : 'onItemClick',
             'click .buttons div' : 'onItemClick'
+        },
+        onRender: function() {
+            this.$el.prepend(_.template(emailHeaderSrc));
         },
         onItemClick: function(e) {
         	var target = e.currentTarget.id;
@@ -15374,12 +15412,12 @@ define('views/UserSettings',[
         		window.location.href = '#' + target;
         	}
         }
-        
+
     });
 
     return View;
 });
-define('text!templates/UserProfile.html',[],function () { return '<div class="user-profile">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\t\n\t<div class="options">\n\t\t<div id="changeUserEmail">Change Email</div>\n\t\t<div id="changeUserPassword">Change Password</div>\n\t\t<div id="editUnifiedData">Edit Unified Information</div>\n\t\t<div id="deleteUserAccount">Delete Account</div>\n\t</div>\n\t\n</div>';});
+define('text!templates/UserProfile.html',[],function () { return '<div class="user-profile">\n\n\t<ul class="options">\n\t\t<li class="item" id="changeUserEmail">Change Email</li>\n\t\t<li class="item" id="changeUserPassword">Change Password</li>\n\t\t<li class="item" id="editUnifiedData">Edit Unified Information</li>\n\t\t<li class="item" id="deleteUserAccount">Delete Account</li>\n\t</ul>\n\n</div>';});
 
 /*global define*/
 
@@ -15388,23 +15426,27 @@ define('views/UserProfile',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/UserProfile.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/UserProfile.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         events: {
-            'click .options div' : 'onItemClick'
+            'click .options li' : 'onItemClick'
         },
         onItemClick: function(e) {
             window.location.href = '#' + e.currentTarget.id;
+        },
+        onRender: function() {
+            this.$el.find('.user-profile').prepend(_.template(emailHeaderSrc));
         }
     });
 
     return View;
 });
-define('text!templates/EditUnifiedData.html',[],function () { return '<div class="edit-unified-data">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\n\t<div class="form-inputs">\n\t\t<input type="text" name="username" placeholder="Username" />\n\t\t<input type="text" name="firstname" placeholder="Firstname" />\n\t\t<input type="text" name="surname" placeholder="Surname" />\n\t\t<select name="gender">\n\t\t\t<option value="male">Male</option>\n\t\t\t<option value="female">Female</option>\n\t\t</select>\n\t\t<input type="text" name="address" placeholder="Address" />\n\t\t<input type="text" name="zipcode" placeholder="Zip code" />\n\t\t<input type="text" name="city" placeholder="City" />\n\t</div>\n\n\t<a href="#userProfile" class="medium success button full-width">OK</a>\n\n</div>';});
+define('text!templates/EditUnifiedData.html',[],function () { return '<div class="edit-unified-data">\n\n\n\t<div class="form-inputs">\n\t\t<input type="text" name="username" placeholder="Username" />\n\t\t<input type="text" name="firstname" placeholder="Firstname" />\n\t\t<input type="text" name="surname" placeholder="Surname" />\n\t\t<select name="gender">\n\t\t\t<option value="male">Male</option>\n\t\t\t<option value="female">Female</option>\n\t\t</select>\n\t\t<input type="text" name="address" placeholder="Address" />\n\t\t<input type="text" name="zipcode" placeholder="Zip code" />\n\t\t<input type="text" name="city" placeholder="City" />\n\t</div>\n\n\t<a href="#userProfile" class="medium success button full-width">OK</a>\n\n</div>';});
 
 /*global define*/
 
@@ -15413,12 +15455,16 @@ define('views/EditUnifiedData',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/EditUnifiedData.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/EditUnifiedData.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function() {
+            this.$el.find('.edit-unified-data').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
@@ -15500,7 +15546,7 @@ define('views/UserStatistics',[
 
     return View;
 });
-define('text!templates/DeleteUserAccountConfirm.html',[],function () { return '<div class="delete-user-account-confirm">\n\t<div class="account_details small">\n\t\t<div class="left">\n\t\t\tAccount\n\t\t</div>\n\t\t<div class="right">\n\t\t\tsergio@betteranapp.com\n\t\t</div>\n\t</div>\n\t<div class="text small">\n\t\t<p>Are you sure you want to delete your account?</p>\n\t\t<p>You will only erase your supporter account.\n\t\t\tThe accounts you have registered with operators will still remain active.\n\t\t</p>\n\t</div>\n\t\n\t<a href="#deleteUserAccountDone" class="medium success button full-width">Delete</a>\n\t<a href="#userProfile" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
+define('text!templates/DeleteUserAccountConfirm.html',[],function () { return '<div class="delete-user-account-confirm">\n\n\t<div class="text">\n\t\t<p class="small">Are you sure you want to delete your account?</p>\n\t\t<p class="small">You will only erase your supporter account.\n\t\t\tThe accounts you have registered with operators will still remain active.\n\t\t</p>\n\t</div>\n\n\t<a href="#deleteUserAccountDone" class="medium success button full-width">Delete</a>\n\t<a href="#userProfile" class="medium secondary full-width button">Cancel</a><br>\n</div>';});
 
 /*global define*/
 
@@ -15509,12 +15555,16 @@ define('views/DeleteUserAccountConfirm',[
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/DeleteUserAccountConfirm.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/DeleteUserAccountConfirm.html',
+    'text!templates/snippets/EmailHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
     
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function() {
+            this.$el.find('.delete-user-account-confirm').prepend(_.template(emailHeaderSrc));
+        }
     });
 
     return View;
@@ -16287,6 +16337,440 @@ define("offcanvas", ["jquery","foundation"], (function (global) {
     };
 }(this)));
 
+;(function ($, window, document, undefined) {
+  
+
+  Foundation.libs.topbar = {
+    name : 'topbar',
+
+    version: '5.3.0',
+
+    settings : {
+      index : 0,
+      sticky_class : 'sticky',
+      custom_back_text: true,
+      back_text: 'Back',
+      is_hover: true,
+      scrolltop : true, // jump to top when sticky nav menu toggle is clicked
+      sticky_on : 'all'
+    },
+    
+    init : function (section, method, options) {
+      Foundation.inherit(this, 'add_custom_rule register_media throttle');
+      var self = this;
+
+      self.register_media('topbar', 'foundation-mq-topbar');
+
+      this.bindings(method, options);
+
+      self.S('[' + this.attr_name() + ']', this.scope).each(function () {
+        var topbar = $(this),
+            settings = topbar.data(self.attr_name(true) + '-init'),
+            section = self.S('section', this);
+        topbar.data('index', 0);
+        var topbarContainer = topbar.parent();
+        if (topbarContainer.hasClass('fixed') || self.is_sticky(topbar, topbarContainer, settings) ) {
+          self.settings.sticky_class = settings.sticky_class;
+          self.settings.sticky_topbar = topbar;
+          topbar.data('height', topbarContainer.outerHeight());
+          topbar.data('stickyoffset', topbarContainer.offset().top);
+        } else {
+          topbar.data('height', topbar.outerHeight());
+        }
+
+        if (!settings.assembled) {
+          self.assemble(topbar);
+        }
+
+        if (settings.is_hover) {
+          self.S('.has-dropdown', topbar).addClass('not-click');
+        } else {
+          self.S('.has-dropdown', topbar).removeClass('not-click');
+        }
+
+        // Pad body when sticky (scrolled) or fixed.
+        self.add_custom_rule('.f-topbar-fixed { padding-top: ' + topbar.data('height') + 'px }');
+
+        if (topbarContainer.hasClass('fixed')) {
+          self.S('body').addClass('f-topbar-fixed');
+        }
+      });
+
+    },
+
+    is_sticky: function (topbar, topbarContainer, settings) {
+      var sticky = topbarContainer.hasClass(settings.sticky_class);
+
+      if (sticky && settings.sticky_on === 'all') {
+        return true;
+      } else if (sticky && this.small() && settings.sticky_on === 'small') {
+        return (matchMedia(Foundation.media_queries.small).matches && !matchMedia(Foundation.media_queries.medium).matches &&
+            !matchMedia(Foundation.media_queries.large).matches); 
+        //return true;
+      } else if (sticky && this.medium() && settings.sticky_on === 'medium') {
+        return (matchMedia(Foundation.media_queries.small).matches && matchMedia(Foundation.media_queries.medium).matches &&
+            !matchMedia(Foundation.media_queries.large).matches);
+        //return true;
+      } else if(sticky && this.large() && settings.sticky_on === 'large') {
+        return (matchMedia(Foundation.media_queries.small).matches && matchMedia(Foundation.media_queries.medium).matches &&
+            matchMedia(Foundation.media_queries.large).matches);
+        //return true;
+      }
+
+      return false;
+    },
+
+    toggle: function (toggleEl) {
+      var self = this,
+          topbar;
+
+      if (toggleEl) {
+        topbar = self.S(toggleEl).closest('[' + this.attr_name() + ']');
+      } else {
+        topbar = self.S('[' + this.attr_name() + ']');
+      }
+
+      var settings = topbar.data(this.attr_name(true) + '-init');
+
+      var section = self.S('section, .section', topbar);
+
+      if (self.breakpoint()) {
+        if (!self.rtl) {
+          section.css({left: '0%'});
+          $('>.name', section).css({left: '100%'});
+        } else {
+          section.css({right: '0%'});
+          $('>.name', section).css({right: '100%'});
+        }
+
+        self.S('li.moved', section).removeClass('moved');
+        topbar.data('index', 0);
+
+        topbar
+          .toggleClass('expanded')
+          .css('height', '');
+      }
+
+      if (settings.scrolltop) {
+        if (!topbar.hasClass('expanded')) {
+          if (topbar.hasClass('fixed')) {
+            topbar.parent().addClass('fixed');
+            topbar.removeClass('fixed');
+            self.S('body').addClass('f-topbar-fixed');
+          }
+        } else if (topbar.parent().hasClass('fixed')) {
+          if (settings.scrolltop) {
+            topbar.parent().removeClass('fixed');
+            topbar.addClass('fixed');
+            self.S('body').removeClass('f-topbar-fixed');
+
+            window.scrollTo(0,0);
+          } else {
+            topbar.parent().removeClass('expanded');
+          }
+        }
+      } else {
+        if (self.is_sticky(topbar, topbar.parent(), settings)) {
+          topbar.parent().addClass('fixed');
+        }
+
+        if (topbar.parent().hasClass('fixed')) {
+          if (!topbar.hasClass('expanded')) {
+            topbar.removeClass('fixed');
+            topbar.parent().removeClass('expanded');
+            self.update_sticky_positioning();
+          } else {
+            topbar.addClass('fixed');
+            topbar.parent().addClass('expanded');
+            self.S('body').addClass('f-topbar-fixed');
+          }
+        }
+      }
+    },
+
+    timer : null,
+
+    events : function (bar) {
+      var self = this,
+          S = this.S;
+
+      S(this.scope)
+        .off('.topbar')
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .toggle-topbar', function (e) {
+          e.preventDefault();
+          self.toggle(this);
+        })
+        .on('click.fndtn.topbar','.top-bar .top-bar-section li a[href^="#"],[' + this.attr_name() + '] .top-bar-section li a[href^="#"]',function (e) {
+            var li = $(this).closest('li');
+            if(self.breakpoint() && !li.hasClass('back') && !li.hasClass('has-dropdown'))
+            {
+            self.toggle();
+            }
+        })
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] li.has-dropdown', function (e) {
+          var li = S(this),
+              target = S(e.target),
+              topbar = li.closest('[' + self.attr_name() + ']'),
+              settings = topbar.data(self.attr_name(true) + '-init');
+
+          if(target.data('revealId')) {
+            self.toggle();
+            return;
+          }
+
+          if (self.breakpoint()) return;
+          if (settings.is_hover && !Modernizr.touch) return;
+
+          e.stopImmediatePropagation();
+
+          if (li.hasClass('hover')) {
+            li
+              .removeClass('hover')
+              .find('li')
+              .removeClass('hover');
+
+            li.parents('li.hover')
+              .removeClass('hover');
+          } else {
+            li.addClass('hover');
+
+            $(li).siblings().removeClass('hover');
+
+            if (target[0].nodeName === 'A' && target.parent().hasClass('has-dropdown')) {
+              e.preventDefault();
+            }
+          }
+        })
+        .on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown>a', function (e) {
+          if (self.breakpoint()) {
+
+            e.preventDefault();
+
+            var $this = S(this),
+                topbar = $this.closest('[' + self.attr_name() + ']'),
+                section = topbar.find('section, .section'),
+                dropdownHeight = $this.next('.dropdown').outerHeight(),
+                $selectedLi = $this.closest('li');
+
+            topbar.data('index', topbar.data('index') + 1);
+            $selectedLi.addClass('moved');
+
+            if (!self.rtl) {
+              section.css({left: -(100 * topbar.data('index')) + '%'});
+              section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+            } else {
+              section.css({right: -(100 * topbar.data('index')) + '%'});
+              section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+            }
+
+            topbar.css('height', $this.siblings('ul').outerHeight(true) + topbar.data('height'));
+          }
+        });
+      
+      S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
+        self.resize.call(self);
+      }, 50)).trigger('resize').trigger('resize.fndtn.topbar');
+
+      S('body').off('.topbar').on('click.fndtn.topbar touchstart.fndtn.topbar', function (e) {
+        var parent = S(e.target).closest('li').closest('li.hover');
+
+        if (parent.length > 0) {
+          return;
+        }
+
+        S('[' + self.attr_name() + '] li.hover').removeClass('hover');
+      });
+
+      // Go up a level on Click
+      S(this.scope).on('click.fndtn.topbar', '[' + this.attr_name() + '] .has-dropdown .back', function (e) {
+        e.preventDefault();
+
+        var $this = S(this),
+            topbar = $this.closest('[' + self.attr_name() + ']'),
+            section = topbar.find('section, .section'),
+            settings = topbar.data(self.attr_name(true) + '-init'),
+            $movedLi = $this.closest('li.moved'),
+            $previousLevelUl = $movedLi.parent();
+
+        topbar.data('index', topbar.data('index') - 1);
+
+        if (!self.rtl) {
+          section.css({left: -(100 * topbar.data('index')) + '%'});
+          section.find('>.name').css({left: 100 * topbar.data('index') + '%'});
+        } else {
+          section.css({right: -(100 * topbar.data('index')) + '%'});
+          section.find('>.name').css({right: 100 * topbar.data('index') + '%'});
+        }
+
+        if (topbar.data('index') === 0) {
+          topbar.css('height', '');
+        } else {
+          topbar.css('height', $previousLevelUl.outerHeight(true) + topbar.data('height'));
+        }
+
+        setTimeout(function () {
+          $movedLi.removeClass('moved');
+        }, 300);
+      });
+    },
+
+    resize : function () {
+      var self = this;
+      self.S('[' + this.attr_name() + ']').each(function () {
+        var topbar = self.S(this),
+            settings = topbar.data(self.attr_name(true) + '-init');
+
+        var stickyContainer = topbar.parent('.' + self.settings.sticky_class);
+        var stickyOffset;
+
+        if (!self.breakpoint()) {
+          var doToggle = topbar.hasClass('expanded');
+          topbar
+            .css('height', '')
+            .removeClass('expanded')
+            .find('li')
+            .removeClass('hover');
+
+            if(doToggle) {
+              self.toggle(topbar);
+            }
+        }
+
+        if(self.is_sticky(topbar, stickyContainer, settings)) {
+          if(stickyContainer.hasClass('fixed')) {
+            // Remove the fixed to allow for correct calculation of the offset.
+            stickyContainer.removeClass('fixed');
+
+            stickyOffset = stickyContainer.offset().top;
+            if(self.S(document.body).hasClass('f-topbar-fixed')) {
+              stickyOffset -= topbar.data('height');
+            }
+
+            topbar.data('stickyoffset', stickyOffset);
+            stickyContainer.addClass('fixed');
+          } else {
+            stickyOffset = stickyContainer.offset().top;
+            topbar.data('stickyoffset', stickyOffset);
+          }
+        }
+
+      });
+    },
+
+    breakpoint : function () {
+      return !matchMedia(Foundation.media_queries['topbar']).matches;
+    },
+
+    small : function () {
+      return matchMedia(Foundation.media_queries['small']).matches;
+    },
+
+    medium : function () {
+      return matchMedia(Foundation.media_queries['medium']).matches;
+    },
+
+    large : function () {
+      return matchMedia(Foundation.media_queries['large']).matches;
+    },
+
+    assemble : function (topbar) {
+      var self = this,
+          settings = topbar.data(this.attr_name(true) + '-init'),
+          section = self.S('section', topbar);
+
+      // Pull element out of the DOM for manipulation
+      section.detach();
+
+      self.S('.has-dropdown>a', section).each(function () {
+        var $link = self.S(this),
+            $dropdown = $link.siblings('.dropdown'),
+            url = $link.attr('href'),
+            $titleLi;
+
+        if (!$dropdown.find('.title.back').length) {
+          $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5></li>');
+  
+          // Copy link to subnav
+          if (settings.custom_back_text == true) {
+            $('h5>a', $titleLi).html(settings.back_text);
+          } else {
+            $('h5>a', $titleLi).html('&laquo; ' + $link.html());
+          }
+          $dropdown.prepend($titleLi);
+        }
+      });
+
+      // Put element back in the DOM
+      section.appendTo(topbar);
+
+      // check for sticky
+      this.sticky();
+
+      this.assembled(topbar);
+    },
+
+    assembled : function (topbar) {
+      topbar.data(this.attr_name(true), $.extend({}, topbar.data(this.attr_name(true)), {assembled: true}));
+    },
+
+    height : function (ul) {
+      var total = 0,
+          self = this;
+
+      $('> li', ul).each(function () { 
+        total += self.S(this).outerHeight(true); 
+      });
+
+      return total;
+    },
+
+    sticky : function () {
+      var self = this;
+
+      this.S(window).on('scroll', function() {
+        self.update_sticky_positioning();
+      });
+    },
+
+    update_sticky_positioning: function() {
+      var klass = '.' + this.settings.sticky_class,
+          $window = this.S(window), 
+          self = this;
+
+      if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {
+        var distance = this.settings.sticky_topbar.data('stickyoffset');
+        if (!self.S(klass).hasClass('expanded')) {
+          if ($window.scrollTop() > (distance)) {
+            if (!self.S(klass).hasClass('fixed')) {
+              self.S(klass).addClass('fixed');
+              self.S('body').addClass('f-topbar-fixed');
+            }
+          } else if ($window.scrollTop() <= distance) {
+            if (self.S(klass).hasClass('fixed')) {
+              self.S(klass).removeClass('fixed');
+              self.S('body').removeClass('f-topbar-fixed');
+            }
+          }
+        }
+      }
+    },
+
+    off : function () {
+      this.S(this.scope).off('.fndtn.topbar');
+      this.S(window).off('.fndtn.topbar');
+    },
+
+    reflow : function () {}
+  };
+}(jQuery, this, this.document));
+
+define("topbar", ["jquery","foundation"], (function (global) {
+    return function () {
+        var ret, fn;
+        return ret || global.topbar;
+    };
+}(this)));
+
 /*global define*/
 define('routers/router',[
 	'jquery',
@@ -16324,7 +16808,8 @@ define('routers/router',[
 	'views/DeleteUserAccountConfirm',
 	'views/EventsAllFilter',
 	'foundation',
-	'offcanvas'
+	'offcanvas',
+	'topbar'
 ], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
@@ -16492,7 +16977,7 @@ define('routers/router',[
 
 	return Router;
 });
-define('text!templates/snippets/Main.html',[],function () { return '<div class="off-canvas-wrap js-navbar" data-offcanvas>\n\t<div class="inner-wrap">\n\t\t<nav class="tab-bar">\n\t\t\t<section class="left-small">\n\t\t\t\t<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>\n\t\t\t</section>\n\n\t\t\t<section class="middle tab-bar-section">\n\t\t\t\t<h1 class="title">Supporter.se</h1>\n\t\t\t</section>\n\n\t\t\t<section class="right-small">\n\t\t\t\t<img class="search-icon" src="../img/search.png"/>\n\t\t\t</section>\n\t\t</nav>\n\n\t\t<aside class="left-off-canvas-menu">\n\t\t\t<ul class="off-canvas-list">\n\t\t\t\t<li>\n\t\t\t\t\t<label>supporter.se</label>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#mainMenuLogged">Home / Suggested Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userStatistics">My Page / Statistics</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsAllFilter">Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsLiveScoresFilter">Live Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userBets">Bets</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userWallet">My Wallet</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userSettings">Settings</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#about">About Supporter.se</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</aside>\n\n\t\t<section class="main-section">\n\t\t\t<div id="container">Empty View</div>\n\t\t</section>\n\t\t<a class="exit-off-canvas"></a>\n\t</div>\n</div>';});
+define('text!templates/snippets/Main.html',[],function () { return '<div id="iovationtoken" />\n<div class="off-canvas-wrap js-navbar" data-offcanvas>\n\t<div class="inner-wrap">\n\t\t<nav class="top-bar" data-topbar>\n\t\t\t\n\t\t\t<section class="left-small top-bar-section">\n\t\t\t\t<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>\n\t\t\t</section>\n\t\t\t\n\t\t\t<section class="title-area top-bar-section">\n\t\t\t    <h1 class="title">Supporter.se</h1>\n\t\t    </section>\n\n\t\t\t<section class="right-small">\n\t\t\t\t<img class="search-icon" src="../img/search.png"/>\n\t\t\t</section>\n\t\t</nav>\n\n\t\t<aside class="left-off-canvas-menu">\n\t\t\t<ul class="off-canvas-list">\n\t\t\t\t<li>\n\t\t\t\t\t<label>supporter.se</label>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#mainMenuLogged">Home / Suggested Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userStatistics">My Page / Statistics</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsAllFilter">Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#eventsLiveScoresFilter">Live Games</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userBets">Bets</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userWallet">My Wallet</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#userSettings">Settings</a>\n\t\t\t\t</li>\n\t\t\t\t<li>\n\t\t\t\t\t<a href="#about">About Supporter.se</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</aside>\n\n\t\t<section class="main-section">\n\t\t\t<div id="container">\n\t\t\t\tEmpty View\n\t\t\t\t<a style="margin-top: 100px;" href="#menuLogClear" class="medium success button full-width">Start</a>\n\t\t\t</div>\n\t\t</section>\n\t\t<a class="exit-off-canvas"></a>\n\t</div>\n</div>';});
 
 /*global define*/
 define('views/MainView',[
@@ -16513,6 +16998,15 @@ define('views/MainView',[
         initialize: function (templateSrc) {
         	console.log("MainView initialize");
             $('body').html(_.template(mainTpl));
+            this.loadIOvationScript();
+        },
+        
+        loadIOvationScript: function(){
+        	window.io_operation = 'ioBegin';
+            window.io_bbout_element_id = 'iovationtoken';
+            window.io_install_flash = false;
+            window.io_install_stm = false;
+        	$.getScript("https://ci-mpsnare.iovation.com/snare.js");
         }
         
     });
@@ -16547,6 +17041,10 @@ require.config({
 	    offcanvas: {
 	      deps: ['jquery', 'foundation'],
 	      exports: 'offcanvas'
+	    },
+	    topbar: {
+	      deps: ['jquery', 'foundation'],
+	      exports: 'topbar'
 	    }
 	},
 	paths: {
@@ -16557,7 +17055,8 @@ require.config({
 		text: 'libs/requirejs-text/text',
 		modernizr: 'libs/modernizr/modernizr',
 		foundation: 'libs/foundation/foundation',
-    	offcanvas: 'libs/foundation/foundation.offcanvas'
+    	offcanvas: 'libs/foundation/foundation.offcanvas',
+    	topbar: 'libs/foundation/foundation.topbar'
 	}
 });
 
@@ -16571,7 +17070,8 @@ require([
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
-	if(window.rootPage)
+	if(window.rootPage){
 		router.navigate(window.rootPage, {trigger: true});
+	}
 });
 define("main", function(){});

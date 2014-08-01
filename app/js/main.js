@@ -55,6 +55,7 @@ require([
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
-	if(window.rootPage)
+	if(window.rootPage){
 		router.navigate(window.rootPage, {trigger: true});
+	}
 });

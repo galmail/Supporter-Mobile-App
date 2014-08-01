@@ -68,23 +68,40 @@ div.switch input + label {
 div.switch label {
   display: inline-block;
 }
-.tab-bar {
+nav.top-bar {
   background-color: #15a63f;
 }
-.tab-bar .title {
-  font-style: italic;
-}
-.left-small {
+nav.top-bar .left-small {
   border-right: solid 1px #15a63f;
 }
-.right-small {
-  border-left: solid 1px #15a63f;
-}
-.right-small .search-icon {
+nav.top-bar .left-small a {
   display: block;
   width: 35px;
   height: 35px;
   margin-top: 5px;
+  background-image: url('../img/logo_supporter.png');
+}
+nav.top-bar .right-small {
+  border-left: solid 1px #15a63f;
+}
+nav.top-bar .right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+}
+nav.top-bar .title-area {
+  margin-left: 45px;
+  margin-right: 45px;
+  text-align: center;
+}
+nav.top-bar .title-area .title {
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 38px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #444;
 }
 /**
  * Supporter Fonts
@@ -420,63 +437,28 @@ div.switch label {
   margin: -30px -15px 0px -15px;
   border-bottom: 1px solid rgba(230, 230, 230, 0.6);
 }
-.delete-user-account {
-  overflow: hidden;
-}
-.delete-user-account .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .delete-user-account .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 100px;
   margin-bottom: 30px;
+  text-align: left;
 }
 .delete-user-account-done .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 70%;
   margin-bottom: 20px;
 }
-.change-user-email {
-  overflow: hidden;
-}
-.change-user-email .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .change-user-email .text {
+  font-family: 'Roboto', sans-serif !important;
   margin-top: 100px;
   margin-bottom: 30px;
-}
-.change-user-password {
-  overflow: hidden;
-}
-.change-user-password .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
-.change-user-password .text {
-  margin-top: 100px;
-  margin-bottom: 30px;
-}
-.user-settings {
-  overflow: hidden;
-}
-.user-settings .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
-.user-settings .options {
   text-align: left;
 }
-.user-settings .options div {
-  padding: 20px 0;
-  color: blue;
-  border: solid 1px gray;
-  border-left: 0;
-  border-right: 0;
+.change-user-password .text {
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  text-align: left;
 }
 .user-settings .modal-bg {
   width: 100%;
@@ -487,6 +469,27 @@ div.switch label {
   left: 0;
   background-color: black;
   opacity: 0.6;
+}
+.user-settings li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.user-settings ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.user-settings .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
 }
 .user-settings #logoutConfirmModal {
   min-height: 0;
@@ -513,32 +516,84 @@ div.switch label {
   border-left: 1px solid;
   border-color: rgba(230, 230, 230, 0.6);
 }
-.user-profile {
-  overflow: hidden;
+.user-settings .modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
 }
-.user-profile .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
-.user-profile .options {
+.user-settings li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
   text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
 }
-.user-profile .options div {
-  padding: 20px 0;
-  color: blue;
-  border: solid 1px gray;
-  border-left: 0;
-  border-right: 0;
+.user-settings ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
 }
-.edit-unified-data {
+.user-settings .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
+}
+.user-settings #logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+}
+.user-settings #logoutConfirmModal .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.user-settings #logoutConfirmModal .buttons {
   overflow: hidden;
+  border-top: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
 }
-.edit-unified-data .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-  margin-bottom: 10px;
+.user-settings #logoutConfirmModal .buttons div {
+  padding: 15px;
+}
+.user-settings #logoutConfirmModal .buttons div.ok-btn {
+  border-left: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-profile li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.user-profile ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.user-profile .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
+}
+.edit-unified-data .form-inputs {
+  padding-top: 10px;
 }
 .user-bets .title {
   padding-bottom: 10px;
@@ -663,20 +718,13 @@ div.switch label {
   padding-bottom: 3px;
   padding-top: 3px;
 }
-.delete-user-account-confirm {
-  overflow: hidden;
-}
-.delete-user-account-confirm .account_details {
-  overflow: hidden;
-  padding: 5px 0 15px 0;
-  border-bottom: solid 2px;
-}
 .delete-user-account-confirm .text {
   margin-top: 80px;
   margin-bottom: 30px;
   text-align: left;
 }
 .delete-user-account-confirm .text p {
+  font-family: 'Roboto', sans-serif !important;
   line-height: 23px !important;
 }
 .main-menu-logged {
