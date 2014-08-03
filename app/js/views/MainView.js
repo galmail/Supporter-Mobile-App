@@ -25,7 +25,9 @@ define([
             window.io_bbout_element_id = 'iovationtoken';
             window.io_install_flash = false;
             window.io_install_stm = false;
-        	$.getScript("https://ci-mpsnare.iovation.com/snare.js");
+        	$.getScript("https://ci-mpsnare.iovation.com/snare.js",function(){
+        		console.log($('#iovationtoken').val());
+        	});
         }
         
     });

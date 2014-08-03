@@ -13,7 +13,7 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         onRender: function() {
-            this.$el.find('.delete-user-account-confirm').prepend(_.template(emailHeaderSrc));
+            this.$el.prepend(_.template(emailHeaderSrc));
         }
     });
 

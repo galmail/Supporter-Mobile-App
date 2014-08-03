@@ -19,7 +19,7 @@ define([
             window.location.href = '#' + e.currentTarget.id;
         },
         onRender: function() {
-            this.$el.find('.user-profile').prepend(_.template(emailHeaderSrc));
+        	this.$el.prepend(_.template(emailHeaderSrc));
         }
     });
 

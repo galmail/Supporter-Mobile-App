@@ -24,19 +24,6 @@
 .body-logged {
 }
 
-#container {
-    padding: 30px 15px 30px 15px;
-    text-align: center;
-    height: 100%;
-}
-
-.footer {
-    margin-top: -80px;
-    height: 80px;
-    position: relative;
-    border: 1px solid blue;
-}
-
 .link {
     text-decoration: underline;
     display: inline-block;
@@ -96,6 +83,41 @@
     }
   }
 }
+
+#container {
+    padding: 0;
+    text-align: center;
+    overflow-y: auto;
+    .keep-screen-margin {
+      padding: 5px 15px;
+    }
+}
+
+#footer {
+    background-color: @primary-color;
+    padding-top: 2px;
+    color: white;
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    .back-icon {
+      padding-right: 20px;
+    }
+    .options-icon {
+      padding-right: 5px;
+      padding-left: 20px;
+    }
+    
+    
+}
+
+
+
+
+
 
 
 

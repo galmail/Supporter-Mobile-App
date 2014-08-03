@@ -73,13 +73,15 @@ nav.top-bar {
 }
 nav.top-bar .left-small {
   border-right: solid 1px #15a63f;
+  width: 60px;
 }
 nav.top-bar .left-small a {
   display: block;
-  width: 35px;
-  height: 35px;
+  width: 100%;
+  height: 100%;
   margin-top: 5px;
   background-image: url('../img/logo_supporter.png');
+  background-repeat: no-repeat;
 }
 nav.top-bar .right-small {
   border-left: solid 1px #15a63f;
@@ -139,17 +141,6 @@ nav.top-bar .title-area .title {
   text-shadow: 1px 1px 1px #007399;
   color: #e6e6e6;
 }
-#container {
-  padding: 30px 15px 30px 15px;
-  text-align: center;
-  height: 100%;
-}
-.footer {
-  margin-top: -80px;
-  height: 80px;
-  position: relative;
-  border: 1px solid blue;
-}
 .link {
   text-decoration: underline;
   display: inline-block;
@@ -192,6 +183,32 @@ nav.top-bar .title-area .title {
 }
 .off-canvas-wrap > .inner-wrap {
   height: 100%;
+}
+#container {
+  padding: 0;
+  text-align: center;
+  overflow-y: auto;
+}
+#container .keep-screen-margin {
+  padding: 5px 15px;
+}
+#footer {
+  background-color: #15a63f;
+  padding-top: 2px;
+  color: white;
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+#footer .back-icon {
+  padding-right: 20px;
+}
+#footer .options-icon {
+  padding-right: 5px;
+  padding-left: 20px;
 }
 .club-disclaimer {
   text-align: left;
@@ -241,6 +258,9 @@ nav.top-bar .title-area .title {
   text-align: right;
   vertical-align: middle;
   display: inline-block;
+}
+.user-favorites > p {
+  margin-top: 25%;
 }
 .pick-club-confirm .link {
   color: #e6e6e6;
@@ -422,10 +442,8 @@ nav.top-bar .title-area .title {
   background: white;
   border: 2px solid #15a63f;
 }
-.about {
-  padding-top: 25%;
-}
 .about p {
+  padding-top: 25%;
   font-size: 15px !important;
 }
 .unified-registration {
@@ -434,12 +452,11 @@ nav.top-bar .title-area .title {
 }
 .emailheader {
   padding: 15px 0;
-  margin: -30px -15px 0px -15px;
   border-bottom: 1px solid rgba(230, 230, 230, 0.6);
 }
 .delete-user-account .text {
+  padding-top: 20%;
   font-family: 'Roboto', sans-serif !important;
-  margin-top: 100px;
   margin-bottom: 30px;
   text-align: left;
 }
@@ -450,13 +467,13 @@ nav.top-bar .title-area .title {
 }
 .change-user-email .text {
   font-family: 'Roboto', sans-serif !important;
-  margin-top: 100px;
+  margin-top: 20%;
   margin-bottom: 30px;
   text-align: left;
 }
 .change-user-password .text {
   font-family: 'Roboto', sans-serif !important;
-  margin-top: 100px;
+  margin-top: 20%;
   margin-bottom: 30px;
   text-align: left;
 }
@@ -483,62 +500,7 @@ nav.top-bar .title-area .title {
   text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
 }
 .user-settings ul {
-  margin: 0 -15px 0 -15px;
-  padding: 0;
-}
-.user-settings .item {
-  width: 100%;
-  display: inline-block;
-  line-height: 55px;
-}
-.user-settings #logoutConfirmModal {
-  min-height: 0;
-  width: 90%;
-  visibility: visible;
-  padding: 0;
-  padding-top: 10px;
-  top: 30%;
-  left: 5%;
-}
-.user-settings #logoutConfirmModal .title {
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-.user-settings #logoutConfirmModal .buttons {
-  overflow: hidden;
-  border-top: 1px solid;
-  border-color: rgba(230, 230, 230, 0.6);
-}
-.user-settings #logoutConfirmModal .buttons div {
-  padding: 15px;
-}
-.user-settings #logoutConfirmModal .buttons div.ok-btn {
-  border-left: 1px solid;
-  border-color: rgba(230, 230, 230, 0.6);
-}
-.user-settings .modal-bg {
-  width: 100%;
-  height: 100%;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: black;
-  opacity: 0.6;
-}
-.user-settings li {
-  color: #007399;
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
-  border-top: 1px solid rgba(230, 230, 230, 0.6);
-  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
-}
-.user-settings ul {
-  margin: 0 -15px 0 -15px;
+  margin: 0;
   padding: 0;
 }
 .user-settings .item {
@@ -584,7 +546,7 @@ nav.top-bar .title-area .title {
   text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
 }
 .user-profile ul {
-  margin: 0 -15px 0 -15px;
+  margin: 0;
   padding: 0;
 }
 .user-profile .item {
@@ -596,6 +558,7 @@ nav.top-bar .title-area .title {
   padding-top: 10px;
 }
 .user-bets .title {
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 .user-bets .bet {
@@ -659,6 +622,7 @@ nav.top-bar .title-area .title {
 }
 .user-wallet .title {
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 .user-wallet .title > div:last-child {
   padding-right: 0;
@@ -719,7 +683,7 @@ nav.top-bar .title-area .title {
   padding-top: 3px;
 }
 .delete-user-account-confirm .text {
-  margin-top: 80px;
+  margin-top: 20%;
   margin-bottom: 30px;
   text-align: left;
 }

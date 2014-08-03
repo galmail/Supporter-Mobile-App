@@ -18,10 +18,11 @@
 			var rootPage="menuLogClear";
 			var serverURL="http://suppdev01.cloudapp.net";
 		</script>
-		<script type="text/javascript" src="js/cordova.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
 		<script type="text/javascript">
 			document.addEventListener('deviceready', function() {
 				console.log("device is ready.");
+				StatusBar.overlaysWebView(false);
 			}, false);
 		</script>
 	</body>

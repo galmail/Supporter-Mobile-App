@@ -27,6 +27,10 @@ define([
             this.body.removeClass('body-logged');
             this.setNavBar();
             this.$el.html(this.template(templateSrc));
+            this.fixContainerHeight();
+            
+            
+            
             if (this.unifiedRegStep !== null) {
                 this.$el.prepend(_.template(unifiedRegistrationSrc, {
                     step: this.unifiedRegStep,
@@ -37,13 +41,29 @@ define([
         },
         
         setNavBar: function(){
-        	var $navbar = $('.js-navbar nav.top-bar');
+        	var $navbar = $('#header');
+        	var $footer = $('#footer');
         	if (this.navbar) {
                 $navbar.show();
+                $footer.show();
             }
             else {
                 $navbar.hide();
+                $footer.hide();
             }
+        },
+        
+        fixContainerHeight: function(){
+        	var device_height = $(window).height();
+        	var header_height = 0;
+        	var footer_height = 0;
+        	if($('#header').is(':visible')){
+        		header_height = $('#header').height();
+        	}
+        	if($('#footer').is(':visible')){
+        		footer_height = $('#footer').height();
+        	}
+        	$('#container').height(device_height-(header_height+footer_height));
         },
 
         // Override this

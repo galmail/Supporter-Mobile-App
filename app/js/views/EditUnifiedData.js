@@ -13,7 +13,7 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         onRender: function() {
-            this.$el.find('.edit-unified-data').prepend(_.template(emailHeaderSrc));
+            this.$el.prepend(_.template(emailHeaderSrc));
         }
     });
 
