@@ -33,7 +33,24 @@ define([
 	'views/UserWallet',
 	'views/UserStatistics',
 	'views/DeleteUserAccountConfirm',
+	// Bet Process Zone
 	'views/EventsAllFilter',
+	'views/EventsMostPlayed',
+	'views/EventsLiveScoresFilter',
+	'views/EventsByCountrySubmenu',
+	'views/EventDetails',
+	'views/MostPlayedSubmenuFilter',
+	'views/LiveScoresSubmenu',
+	'views/AllFilterByCountry',
+	'views/ByCountrySubmenuFilter',
+	'views/EventDetailsLive',
+	'views/LiveScoresSubmenuFilter',
+	'views/AllFilterByLeage',
+	'views/EventByCountryDetail',
+	'views/AllFilterByLeageSubmenu',
+	'views/BetOpenProcess',
+	'views/BetOpenProcessPayment',
+	
 	'foundation',
 	'offcanvas',
 	'topbar'
@@ -44,8 +61,11 @@ define([
 	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
 	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
 	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView, UserWalletView,
-	UserStatisticsView, DeleteUserAccountConfirmView,
-	EventsAllFilterView) {
+	UserStatisticsView, DeleteUserAccountConfirmView, EventsAllFilterView, EventsMostPlayedView,
+	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
+	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
+	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
+	BetOpenProcessView, BetOpenProcessPaymentView) {
 
 	'use strict';
 
@@ -87,7 +107,22 @@ define([
 			'deleteUserAccountConfirm': 	'deleteUserAccountConfirm',
 
 			//Bet process zone
-			'eventsAllFilter': 				'eventsAllFilter'
+			'eventsAllFilter': 				'eventsAllFilter',
+			'eventsMostPlayed': 			'eventsMostPlayed',
+			'eventsLiveScoresFilter': 		'eventsLiveScoresFilter',
+			'eventsByCountrySubmenu': 		'eventsByCountrySubmenu',
+			'eventDetails': 				'eventDetails',
+			'mostPlayedSubmenuFilter': 		'mostPlayedSubmenuFilter',
+			'liveScoresSubmenu': 			'liveScoresSubmenu',
+			'allFilterByCountry': 			'allFilterByCountry',
+			'byCountrySubmenuFilter': 		'byCountrySubmenuFilter',
+			'eventDetailsLive': 			'eventDetailsLive',
+			'liveScoresSubmenuFilter': 		'liveScoresSubmenuFilter',
+			'allFilterByLeage': 			'allFilterByLeage',
+			'eventByCountryDetail': 		'eventByCountryDetail',
+			'allFilterByLeageSubmenu': 		'allFilterByLeageSubmenu',
+			'betOpenProcess': 				'betOpenProcess',
+			'betOpenProcessPayment': 		'betOpenProcessPayment'
 		},
 
 		menuLogClear: function () {
@@ -193,6 +228,51 @@ define([
 		// BETTING PROCESS
 		eventsAllFilter: function(){
 			new EventsAllFilterView();
+		},
+		eventsMostPlayed: function(){
+			new EventsMostPlayedView();
+		},
+		eventsLiveScoresFilter: function(){
+			new EventsLiveScoresFilterView();
+		},
+		eventsByCountrySubmenu: function(){
+			new EventsByCountrySubmenuView();
+		},
+		eventDetails: function(){
+			new EventDetailsView();
+		},
+		mostPlayedSubmenuFilter: function(){
+			new MostPlayedSubmenuFilterView();
+		},
+		liveScoresSubmenu: function(){
+			new LiveScoresSubmenuView();
+		},
+		allFilterByCountry: function(){
+			new AllFilterByCountryView();
+		},
+		byCountrySubmenuFilter: function(){
+			new ByCountrySubmenuFilterView();
+		},
+		eventDetailsLive: function(){
+			new EventDetailsLiveView();
+		},
+		liveScoresSubmenuFilter: function(){
+			new LiveScoresSubmenuFilterView();
+		},
+		allFilterByLeage: function(){
+			new AllFilterByLeageView();
+		},
+		eventByCountryDetail: function(){
+			new EventByCountryDetailView();
+		},
+		allFilterByLeageSubmenu: function(){
+			new AllFilterByLeageSubmenuView();
+		},
+		betOpenProcess: function(){
+			new BetOpenProcessView();
+		},
+		betOpenProcessPayment: function(){
+			new BetOpenProcessPaymentView();
 		}
 	});
 
