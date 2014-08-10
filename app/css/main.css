@@ -726,3 +726,115 @@ nav.top-bar .title-area .title {
   margin-left: 0px;
   background: white;
 }
+.events-most-played .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.events-most-played .game-title {
+  padding: 10px 0;
+}
+.events-most-played .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-most-played .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+}
+.events-most-played .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.events-most-played .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.events-most-played .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.events-most-played .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.events-most-played .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.live-scores-submenu .game-title {
+  padding: 10px 0;
+}
+.live-scores-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.live-scores-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.live-scores-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.live-scores-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.live-scores-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.live-scores-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.most-played-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.most-played-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.most-played-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.most-played-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+}
+.most-played-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.most-played-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.most-played-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
