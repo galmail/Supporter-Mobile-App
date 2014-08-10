@@ -141,19 +141,6 @@ nav.top-bar .title-area .title {
   text-shadow: 1px 1px 1px #007399;
   color: #e6e6e6;
 }
-.body-gradient {
-  background: -webkit-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
-  /* Standard syntax */
-}
-.body-gradient input {
-  background: transparent;
-}
 .link {
   text-decoration: underline;
   display: inline-block;
@@ -467,9 +454,6 @@ nav.top-bar .title-area .title {
   padding: 15px 0;
   border-bottom: 1px solid rgba(230, 230, 230, 0.6);
 }
-.searchheader {
-  height: 39px;
-}
 .delete-user-account .text {
   padding-top: 20%;
   font-family: 'Roboto', sans-serif !important;
@@ -742,131 +726,115 @@ nav.top-bar .title-area .title {
   margin-left: 0px;
   background: white;
 }
-.all-filter-by-country li {
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid lightgrey;
-  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+.events-most-played .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 }
-.all-filter-by-country ul {
-  margin: 0;
-  padding: 0;
+.events-most-played .game-title {
+  padding: 10px 0;
 }
-.all-filter-by-country .item {
-  width: 100%;
-  line-height: 55px;
-  position: relative;
-  height: 55px;
-  color: black;
+.events-most-played .game-title span {
+  font-family: 'Roboto', sans-serif !important;
 }
-.all-filter-by-country .heading {
-  display: inline-block;
-  position: absolute;
-  left: 25px;
+.events-most-played .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
 }
-.all-filter-by-country .count {
-  display: inline-block;
-  position: absolute;
-  right: 25px;
-  color: grey;
-  font-size: 12px;
+.events-most-played .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
 }
-.all-filter-by-leage li {
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid lightgrey;
-  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+.events-most-played .event-div-closed .teams .separator {
+  line-height: 5px;
 }
-.all-filter-by-leage ul {
-  margin: 0;
-  padding: 0;
+.events-most-played .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
 }
-.all-filter-by-leage .item {
-  width: 100%;
-  line-height: 55px;
-  position: relative;
-  height: 55px;
-  color: black;
+.events-most-played .event-div-closed .bet-type.small-2 {
+  width: 15%;
 }
-.all-filter-by-leage .heading {
-  display: inline-block;
-  position: absolute;
-  left: 25px;
+.events-most-played .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
 }
-.all-filter-by-leage .count {
-  display: inline-block;
-  position: absolute;
-  right: 25px;
-  color: grey;
-  font-size: 12px;
+.live-scores-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 }
-.events-live-scores-filter li {
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid lightgrey;
-  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+.live-scores-submenu .game-title {
+  padding: 10px 0;
 }
-.events-live-scores-filter ul {
-  margin: 0;
-  padding: 0;
+.live-scores-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
 }
-.events-live-scores-filter .item {
-  width: 100%;
-  line-height: 55px;
-  position: relative;
-  height: 55px;
-  color: black;
+.live-scores-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
 }
-.events-live-scores-filter .heading {
-  display: inline-block;
-  position: absolute;
-  left: 25px;
+.live-scores-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
 }
-.events-live-scores-filter .count {
-  display: inline-block;
-  position: absolute;
-  right: 25px;
-  color: grey;
-  font-size: 12px;
+.live-scores-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
 }
-.events-all-filter li {
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid lightgrey;
-  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+.live-scores-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
 }
-.events-all-filter ul {
-  margin: 0;
-  padding: 0;
+.live-scores-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
 }
-.events-all-filter .item {
-  width: 100%;
-  line-height: 55px;
-  position: relative;
-  height: 55px;
-  color: black;
+.live-scores-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
 }
-.events-all-filter .heading {
-  display: inline-block;
-  position: absolute;
-  left: 25px;
+.most-played-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 }
-.events-all-filter .count {
-  display: inline-block;
-  position: absolute;
-  right: 25px;
-  color: grey;
-  font-size: 12px;
+.most-played-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.most-played-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.most-played-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+}
+.most-played-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.most-played-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.most-played-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
 }
