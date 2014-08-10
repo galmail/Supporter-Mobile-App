@@ -1,3 +1,89 @@
 .event-details-live {
-  
+
+    font-family: 'Roboto', sans-serif !important;
+    @faint-white: rgba(256, 256, 256, 0.2);
+    @faint-border: 1px solid @faint-white;
+
+    .accordion {
+
+        margin: 0 0 20px 0;
+
+        dd a.heading {
+            background-color: grey!important;
+            text-align: left;
+            border-top: @faint-border;
+            border-right: @faint-border;
+            border-left: @faint-border;
+            padding: 2px 0 2px 10px;
+            font-size: @text-small!important;
+            color: white;
+
+        }
+
+        dd:last-child a.heading {
+            border-bottom: @faint-border;
+        }
+
+        .secondary {
+            -webkit-box-shadow:inset 0px 0px 1px 1px @faint-white;
+            -moz-box-shadow:inset 0px 0px 1px 1px @faint-white;
+            box-shadow:inset 0px 0px 1px 1px @faint-white;
+        }
+
+        .button {
+            margin-bottom: 0;
+        }
+
+        table {
+            width: 100%;
+            border: none!important;
+        }
+        th {
+            color: @primary-color!important;
+            text-align: center!important;
+        }
+
+        tr {
+            border: 1px solid red!important;
+        }
+
+        td {
+            color: @primary-color;
+        }
+
+        td.numeric {
+            text-align: center!important;
+            background: blue;
+            color: white;
+            font-weight: bold;
+        }
+
+    }
+    .inner-navigation {
+        .inner-heading {
+            background-color: red;
+        }
+    }
+
+    .vs {
+        background-color: rgb(0, 255, 0);
+        padding: 5px;
+        color: white;
+        margin: 10px 0 0 0;
+    }
+    .date {
+        padding: 7px;
+
+        .live {
+            color: rgb(200, 0, 0);
+        }
+
+    }
+
+    .score {
+        color: green;
+        font-size: 32px;
+        padding: 0 0 10px 0;
+    }
+
 }

@@ -18,6 +18,8 @@ define([
         toggleAccordion: function (e) {
             var currentTarget = $(e.currentTarget);
             var target = $(e.target);
+            console.info('target', target);
+            console.info('currentTarget', currentTarget);
             e.stopPropagation();
             currentTarget.closest('.js-accordion-block').find('.js-content').slideToggle();
         }
