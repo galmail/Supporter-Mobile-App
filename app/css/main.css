@@ -806,6 +806,48 @@ nav.top-bar .title-area .title {
   color: grey;
   font-size: 12px;
 }
+.event-details .accordion {
+  margin: 0 0 20px 0;
+}
+.event-details .accordion dd a.heading {
+  background-color: grey!important;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  font-size: 15px !important;
+  color: white;
+}
+.event-details .accordion dd:last-child a.heading {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.event-details .accordion .secondary {
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+.event-details .accordion .button {
+  margin-bottom: 0;
+}
+.event-details .accordion table {
+  font-family: 'Roboto', sans-serif !important;
+  width: 100%;
+  border: none!important;
+}
+.event-details .accordion th {
+  color: #15a63f !important;
+  text-align: center!important;
+}
+.event-details .accordion td {
+  color: #15a63f;
+}
+.event-details .accordion td.numeric {
+  text-align: center!important;
+  background: blue;
+  color: white;
+  font-weight: bold;
+}
 .events-live-scores-filter li {
   font-family: 'RobotoThin', sans-serif;
   list-style: none;
