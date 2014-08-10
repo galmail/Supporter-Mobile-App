@@ -136,6 +136,10 @@ nav.top-bar .title-area .title {
   font-size: 12px !important;
   line-height: 12px !important;
 }
+.supertiny {
+  font-size: 10px !important;
+  line-height: 10px !important;
+}
 .body-not-logged {
   background-color: #45b0e6;
   text-shadow: 1px 1px 1px #007399;
@@ -887,6 +891,100 @@ nav.top-bar .title-area .title {
 .by-country-submenu-filter .event-div-closed .bet-type .value {
   margin-bottom: 5px;
   font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .accordion dd {
+  display: none;
+}
+.event-by-country-detail .main-filter-title {
+  font-family: 'RobotoThin', sans-serif !important;
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.event-by-country-detail .game-title {
+  padding: 10px 0;
+}
+.event-by-country-detail .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .event {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0 5px 10px;
+  margin-bottom: 2px;
+}
+.event-by-country-detail .event .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.event-by-country-detail .event .teams.single-team {
+  padding: 15px 0;
+}
+.event-by-country-detail .event .teams.team-title {
+  padding: 5px 0;
+  color: black;
+}
+.event-by-country-detail .event .teams .separator {
+  line-height: 5px;
+}
+.event-by-country-detail .bet {
+  padding-right: 5px;
+}
+.event-by-country-detail .bet.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet.winner {
+  color: #007399;
+}
+.event-by-country-detail .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.event-by-country-detail .bet-type.empty {
+  background-color: transparent;
+}
+.event-by-country-detail .bet-type.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet-type.low {
+  background-color: gray;
+}
+.event-by-country-detail .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .bet-type .operator {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+.event-by-country-detail dd .row {
+  padding: 5px 0;
+}
+.event-by-country-detail .event-detail-title {
+  margin-top: 5px;
+  color: gray;
+}
+.event-by-country-detail .operators .whiteblock {
+  line-height: 42px;
+  background-color: white;
+}
+.event-by-country-detail .operators .whiteblock.operator {
+  color: #007399;
+  text-align: left;
+  padding-left: 10px;
+}
+.event-by-country-detail .operators .whiteblock.operator.high {
+  color: #15a63f;
+}
+.event-by-country-detail .operators .whiteblock.profit {
+  color: gray;
+  text-align: right;
+  padding-right: 10px;
 }
 .events-by-country-submenu .main-filter-title {
   white-space: nowrap;
