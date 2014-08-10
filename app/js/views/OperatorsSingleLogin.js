@@ -18,10 +18,11 @@ define([
         },
 
         toggleAccordion: function (e) {
+            e.stopPropagation();
             var currentTarget = $(e.currentTarget);
             var target = $(e.target);
-            e.stopPropagation();
             currentTarget.closest('.js-accordion-block').find('.js-content').slideToggle();
+            return false;
         }
     });
 

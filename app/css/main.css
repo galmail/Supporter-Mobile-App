@@ -136,6 +136,10 @@ nav.top-bar .title-area .title {
   font-size: 12px !important;
   line-height: 12px !important;
 }
+.supertiny {
+  font-size: 10px !important;
+  line-height: 10px !important;
+}
 .body-not-logged {
   background-color: #45b0e6;
   text-shadow: 1px 1px 1px #007399;
@@ -806,128 +810,225 @@ nav.top-bar .title-area .title {
   color: grey;
   font-size: 12px;
 }
-.event-details {
+.all-filter-by-leage-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.all-filter-by-leage-submenu .game-title {
+  padding: 10px 0;
+}
+.all-filter-by-leage-submenu .game-title span {
   font-family: 'Roboto', sans-serif !important;
 }
-.event-details .accordion {
-  margin: 0 0 20px 0;
+.all-filter-by-leage-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
 }
-.event-details .accordion dd a.heading {
-  background-color: grey!important;
-  text-align: left;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2px 0 2px 10px;
-  font-size: 15px !important;
-  color: white;
-}
-.event-details .accordion dd:last-child a.heading {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.event-details .accordion .secondary {
-  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-}
-.event-details .accordion .button {
-  margin-bottom: 0;
-}
-.event-details .accordion table {
-  width: 100%;
-  border: none!important;
-}
-.event-details .accordion th {
-  color: #15a63f !important;
-  text-align: center!important;
-}
-.event-details .accordion tr {
-  border: 1px solid red!important;
-}
-.event-details .accordion td {
+.all-filter-by-leage-submenu .event-div-closed .teams {
   color: #15a63f;
+  padding: 7px 0;
 }
-.event-details .accordion td.numeric {
-  text-align: center!important;
-  background: blue;
+.all-filter-by-leage-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.all-filter-by-leage-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
   color: white;
-  font-weight: bold;
+  background-color: #007399;
+  margin-right: 5px;
 }
-.event-details .vs {
-  background-color: #00ff00;
-  padding: 5px;
-  color: white;
-  margin: 10px 0 0 0;
+.all-filter-by-leage-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
 }
-.event-details .date {
-  padding: 7px;
-}
-.event-details-live {
+.all-filter-by-leage-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
   font-family: 'Roboto', sans-serif !important;
 }
-.event-details-live .accordion {
-  margin: 0 0 20px 0;
-}
-.event-details-live .accordion dd a.heading {
-  background-color: grey!important;
-  text-align: left;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  border-left: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2px 0 2px 10px;
-  font-size: 15px !important;
+.by-country-submenu-filter .main-filter-title {
+  white-space: nowrap;
   color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 }
-.event-details-live .accordion dd:last-child a.heading {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+.by-country-submenu-filter .game-title {
+  padding: 10px 0;
 }
-.event-details-live .accordion .secondary {
-  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+.by-country-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
 }
-.event-details-live .accordion .button {
-  margin-bottom: 0;
+.by-country-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
 }
-.event-details-live .accordion table {
-  width: 100%;
-  border: none!important;
+.by-country-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
 }
-.event-details-live .accordion th {
-  color: #15a63f !important;
-  text-align: center!important;
+.by-country-submenu-filter .event-div-closed .teams.single-team {
+  padding: 15px 0;
 }
-.event-details-live .accordion tr {
-  border: 1px solid red!important;
+.by-country-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
 }
-.event-details-live .accordion td {
+.by-country-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.by-country-submenu-filter .event-div-closed .bet-type.empty {
+  background-color: transparent;
+}
+.by-country-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.by-country-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .accordion dd {
+  display: none;
+}
+.event-by-country-detail .main-filter-title {
+  font-family: 'RobotoThin', sans-serif !important;
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.event-by-country-detail .game-title {
+  padding: 10px 0;
+}
+.event-by-country-detail .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .event {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0 5px 10px;
+  margin-bottom: 2px;
+}
+.event-by-country-detail .event .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.event-by-country-detail .event .teams.single-team {
+  padding: 15px 0;
+}
+.event-by-country-detail .event .teams.team-title {
+  padding: 5px 0;
+  color: black;
+}
+.event-by-country-detail .event .teams .separator {
+  line-height: 5px;
+}
+.event-by-country-detail .bet {
+  padding-right: 5px;
+}
+.event-by-country-detail .bet.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet.winner {
+  color: #007399;
+}
+.event-by-country-detail .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.event-by-country-detail .bet-type.empty {
+  background-color: transparent;
+}
+.event-by-country-detail .bet-type.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet-type.low {
+  background-color: gray;
+}
+.event-by-country-detail .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .bet-type .operator {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+.event-by-country-detail dd .row {
+  padding: 5px 0;
+}
+.event-by-country-detail .event-detail-title {
+  margin-top: 5px;
+  color: gray;
+}
+.event-by-country-detail .operators .whiteblock {
+  line-height: 42px;
+  background-color: white;
+}
+.event-by-country-detail .operators .whiteblock.operator {
+  color: #007399;
+  text-align: left;
+  padding-left: 10px;
+}
+.event-by-country-detail .operators .whiteblock.operator.high {
   color: #15a63f;
 }
-.event-details-live .accordion td.numeric {
-  text-align: center!important;
-  background: blue;
+.event-by-country-detail .operators .whiteblock.profit {
+  color: gray;
+  text-align: right;
+  padding-right: 10px;
+}
+.events-by-country-submenu .main-filter-title {
+  white-space: nowrap;
   color: white;
-  font-weight: bold;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
 }
-.event-details-live .inner-navigation .inner-heading {
-  background-color: red;
+.events-by-country-submenu .game-title {
+  padding: 10px 0;
 }
-.event-details-live .vs {
-  background-color: #00ff00;
-  padding: 5px;
+.events-by-country-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-by-country-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.events-by-country-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.events-by-country-submenu .event-div-closed .teams.single-team {
+  padding: 15px 0;
+}
+.events-by-country-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.events-by-country-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
   color: white;
-  margin: 10px 0 0 0;
+  background-color: #007399;
+  margin-right: 5px;
 }
-.event-details-live .date {
-  padding: 7px;
+.events-by-country-submenu .event-div-closed .bet-type.empty {
+  background-color: transparent;
 }
-.event-details-live .date .live {
-  color: #c80000;
+.events-by-country-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
 }
-.event-details-live .score {
-  color: green;
-  font-size: 32px;
-  padding: 0 0 10px 0;
+.events-by-country-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
 }
 .events-live-scores-filter li {
   font-family: 'RobotoThin', sans-serif;
@@ -977,6 +1078,7 @@ nav.top-bar .title-area .title {
 .events-most-played .event-div-closed {
   background-color: rgba(230, 230, 230, 0.6);
   padding: 5px 0;
+  margin-bottom: 2px;
 }
 .events-most-played .event-div-closed .teams {
   color: #15a63f;
@@ -1068,6 +1170,44 @@ nav.top-bar .title-area .title {
   margin-bottom: 5px;
   font-family: 'Roboto', sans-serif !important;
 }
+.live-scores-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.live-scores-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.live-scores-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.live-scores-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.live-scores-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
 .most-played-submenu-filter .main-filter-title {
   white-space: nowrap;
   color: white;
@@ -1084,6 +1224,7 @@ nav.top-bar .title-area .title {
 .most-played-submenu-filter .event-div-closed {
   background-color: rgba(230, 230, 230, 0.6);
   padding: 5px 0;
+  margin-bottom: 2px;
 }
 .most-played-submenu-filter .event-div-closed .teams {
   color: #15a63f;
