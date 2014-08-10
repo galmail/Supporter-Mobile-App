@@ -5,12 +5,17 @@ define([
     'underscore',
     'backbone',
     'views/LoggedView',
-    'text!templates/EventsLiveScoresFilter.html'
-], function ($, _, Backbone, LoggedView, templateSrc) {
+    'text!templates/EventsLiveScoresFilter.html',
+    'text!templates/snippets/searchHeader.html'
+], function ($, _, Backbone, LoggedView, templateSrc, searchHeaderSrc) {
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        onRender: function () {
+            this.$el.prepend(_.template(searchHeaderSrc));
+            this.$el.addClass('body-gradient');
+        }
     });
 
     return View;
