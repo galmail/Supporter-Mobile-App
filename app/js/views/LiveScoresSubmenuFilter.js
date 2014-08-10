@@ -10,7 +10,13 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        events: {
+        	'click .event .bet-type': 'betTypeClicked'
+        },
+        betTypeClicked: function(){
+        	window.location.href = '#eventDetailsLive';
+        }
     });
 
     return View;
