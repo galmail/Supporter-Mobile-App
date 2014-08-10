@@ -9,7 +9,7 @@ define([
 
     var View = Backbone.View.extend({
     	
-    	el: '#container',
+    	container: '#container',
     	
     	body: $('body'),
     	
@@ -26,17 +26,19 @@ define([
 			this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
             this.setNavBar();
-            this.$el.html(this.template(templateSrc));
+            $(container).html(this.template(templateSrc));
             this.fixContainerHeight();
             
-            
-            
             if (this.unifiedRegStep !== null) {
-                this.$el.prepend(_.template(unifiedRegistrationSrc, {
+                $(container).prepend(_.template(unifiedRegistrationSrc, {
                     step: this.unifiedRegStep,
                     total: 3
                 }));
             }
+            
+            this.el = $(this.element);
+        	this._ensureElement();
+            
             this.onRender();
         },
         

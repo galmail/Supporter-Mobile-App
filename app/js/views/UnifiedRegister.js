@@ -10,6 +10,7 @@ define([
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
+        element: '.unified-register',
         unifiedRegStep: 2
     });
 

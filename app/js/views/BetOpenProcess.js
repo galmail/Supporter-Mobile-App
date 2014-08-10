@@ -10,7 +10,8 @@ define([
     'use strict';
 
     var View = LoggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        element: '.bet-open-process'
     });
 
     return View;

@@ -11,6 +11,8 @@ define([
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
+        
+        element: '.pick-club',
 
         events: {
             'keyup .js-search': 'search',

@@ -9,7 +9,8 @@ define([
     'use strict';
 
     var View = UnloggedView.extend({
-        template: _.template(templateSrc)
+        template: _.template(templateSrc),
+        element: '.create-new-account'
     });
 
     return View;

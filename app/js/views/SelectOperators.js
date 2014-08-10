@@ -10,6 +10,7 @@ define([
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
+        element: '.select-operators',
         unifiedRegStep: 1,
         events: {
             'click .js-select-operator-ok': 'onSelectOperatorsOk'

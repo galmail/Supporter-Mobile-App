@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.live-scores-submenu',
         events: {
         	'click .event .bet-type': 'betTypeClicked'
         },

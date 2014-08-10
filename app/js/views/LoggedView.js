@@ -8,7 +8,7 @@ define([
 
     var View = Backbone.View.extend({
 
-    	el: '#container',
+    	container: '#container',
 
     	body: $('body'),
 
@@ -19,10 +19,13 @@ define([
         events: {},
 
 		initialize: function(templateSrc) {
+			console.log('LoggedView initialize');
+			
+			
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();
-            this.$el.html(this.template(templateSrc));
+            $(container).html(this.template(templateSrc));
             this.fixContainerHeight();
             
 
@@ -40,6 +43,8 @@ define([
                 window.location.href = '#userSettings';
             });
             
+            this.el = $(this.element);
+        	this._ensureElement();
 
             this.onRender();
         },

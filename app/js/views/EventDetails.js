@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.event-details',
         events: {
             'click .js-accordion-header':   'toggleAccordion'
         },
