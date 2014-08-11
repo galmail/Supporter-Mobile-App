@@ -30,6 +30,10 @@ require.config({
 	    topbar: {
 	      deps: ['jquery', 'foundation'],
 	      exports: 'topbar'
+	    },
+	    tabs: {
+	      deps: ['jquery', 'foundation'],
+	      exports: 'tabs'
 	    }
 	},
 	paths: {
@@ -41,7 +45,8 @@ require.config({
 		modernizr: 'libs/modernizr/modernizr',
 		foundation: 'libs/foundation/foundation',
     	offcanvas: 'libs/foundation/foundation.offcanvas',
-    	topbar: 'libs/foundation/foundation.topbar'
+    	topbar: 'libs/foundation/foundation.topbar',
+    	tabs: 'libs/foundation/foundation.tabs'
 	}
 });
 

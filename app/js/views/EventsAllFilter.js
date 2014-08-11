@@ -16,6 +16,12 @@ define([
         onRender: function () {
             this.$el.prepend(_.template(searchHeaderSrc));
             this.$el.addClass('body-gradient');
+        },
+        events: {
+        	'click .item': 'filterByCountryClicked'
+        },
+        filterByCountryClicked: function(){
+        	window.location.href='#allFilterByCountry';
         }
     });
 

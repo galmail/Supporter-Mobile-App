@@ -53,7 +53,8 @@ define([
 	
 	'foundation',
 	'offcanvas',
-	'topbar'
+	'topbar',
+	'tabs'
 ], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,

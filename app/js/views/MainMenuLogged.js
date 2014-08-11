@@ -23,8 +23,8 @@ define([
             this.body.addClass('body-not-logged');
         },
 
-        goToBetting: function () {
-            window.location.href = '#eventsAllFilter';
+        goToBetting: function(el) {
+            window.location.href = '#' + el.currentTarget.id;
         }
 
     });

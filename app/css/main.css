@@ -227,6 +227,55 @@ nav.top-bar .title-area .title {
   padding-right: 5px;
   padding-left: 20px;
 }
+.left-off-canvas-menu {
+  background-color: rgba(230, 230, 230, 0.6);
+  color: black;
+}
+.left-off-canvas-menu li a {
+  color: black !important;
+  text-shadow: none !important;
+  border: none !important;
+  padding: 5px 0 5px 10px !important;
+}
+.left-off-canvas-menu .sidebar-option {
+  background-color: white;
+}
+.left-off-canvas-menu .sidebar-second-option {
+  border-top: 1px solid gray;
+}
+.left-off-canvas-menu .sidebar-user-profile {
+  background-color: dimgrey ;
+  color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  clear: both;
+  overflow: hidden;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-club-photo {
+  float: left;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-user-info {
+  float: left;
+  margin-left: 10px;
+  padding-top: 7px;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-user-info .sidebar-user-email {
+  margin-top: 7px;
+}
+.left-off-canvas-menu .sidebar-logo {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 30px;
+  padding-left: 10px;
+  color: #45b0e6;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  padding-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 0;
+}
 .club-disclaimer {
   text-align: left;
 }
@@ -847,6 +896,47 @@ nav.top-bar .title-area .title {
 .all-filter-by-leage-submenu .event-div-closed .bet-type .value {
   margin-bottom: 5px;
   font-family: 'Roboto', sans-serif !important;
+}
+.bet-open-process {
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+  padding: 3px;
+}
+.bet-open-process .title {
+  clear: both;
+  overflow: hidden;
+  padding: 10px 0 5px 15px;
+}
+.bet-open-process .title .close.button {
+  float: left;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  margin: 0;
+}
+.bet-open-process .title .text {
+  padding-right: 50px;
+  margin-top: 5px;
+  display: block;
+}
+.bet-open-process .tabs {
+  padding: 10px;
+  background-color: gray;
+  font-size: 10px;
+}
+.bet-open-process .tabs .tab-title {
+  width: 50%;
+}
+.bet-open-process .tabs .tab-title a {
+  padding: 5px 0;
+  color: gray;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.bet-open-process .tabs .tab-title.active a {
+  color: white;
+  background-color: orange;
 }
 .by-country-submenu-filter .main-filter-title {
   white-space: nowrap;
