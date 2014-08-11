@@ -192,6 +192,27 @@ nav.top-bar .title-area .title {
 .logo-clear {
   margin: 60px auto 120px auto;
 }
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}
+#betProcessModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  top: 5%;
+  left: 5%;
+}
+#betProcessModal .betslipPlaced {
+  display: none;
+}
 .header {
   padding: 0px 0px 40px 0px;
 }
@@ -545,16 +566,6 @@ nav.top-bar .title-area .title {
   margin-top: 20%;
   margin-bottom: 30px;
   text-align: left;
-}
-.user-settings .modal-bg {
-  width: 100%;
-  height: 100%;
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: black;
-  opacity: 0.6;
 }
 .user-settings li {
   color: #007399;
@@ -937,6 +948,61 @@ nav.top-bar .title-area .title {
 .bet-open-process .tabs .tab-title.active a {
   color: white;
   background-color: orange;
+}
+.bet-open-process .bet-block {
+  overflow: hidden;
+}
+.bet-open-process .bet-block .bet-title {
+  background-color: gray;
+  text-align: left;
+  padding: 10px;
+  color: white;
+}
+.bet-open-process .bet-block .bet-body {
+  overflow: hidden;
+  clear: both;
+}
+.bet-open-process .bet-block .bet-body .delete-icon {
+  width: 30px;
+  margin: 10px;
+}
+.bet-open-process .bet-block .bet-body .bet-info {
+  text-align: left;
+  padding: 6px 2px;
+}
+.bet-open-process .bet-block .bet-body .right-arrow-icon {
+  width: 13px;
+  margin: 14px 10px;
+}
+.bet-open-process .bet-block .bet-body .bet-odds {
+  text-align: right;
+  padding-top: 5px;
+}
+.bet-open-process .bet-block .bet-form {
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #c2dcb4;
+}
+.bet-open-process .bet-block .bet-form .bet-form-labels {
+  text-align: left;
+}
+.bet-open-process .bet-block .bet-form .bet-form-labels .small-label {
+  margin-top: 6px;
+  color: #15a63f;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values {
+  text-align: right;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values input {
+  width: 70px;
+  height: 30px;
+  margin-bottom: 0;
+  text-align: right;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values .small-value {
+  margin-right: 10px;
+  color: #15a63f;
 }
 .by-country-submenu-filter .main-filter-title {
   white-space: nowrap;

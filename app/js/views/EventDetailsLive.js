@@ -13,8 +13,11 @@ define([
         template: _.template(templateSrc),
         element: '.event-details-live',
         events: {
-            'click .js-accordion-header':   'toggleAccordion',
-            'click .js-inner-header':       'toggleInnerAccordion'
+            'click .js-accordion-header':   			'toggleAccordion',
+            'click .js-inner-header':       			'toggleInnerAccordion',
+            'click .numeric':   						'openBetProcess',
+        	'click #betProcessModal .closeButton': 		'closeBetProcess',
+        	'click #betProcessModal .placeBetButton': 	'placeBetProcess'
         },
 
         toggleAccordion: function (e) {
@@ -29,7 +32,31 @@ define([
             var target = $(e.target);
             e.stopPropagation();
             currentTarget.closest('.js-inner-block').find('.js-inner-content').slideToggle();
+        },
+        
+        openBetProcess: function(){
+        	console.log('open bet process modal');
+        	$('.betslip').show();
+    		$('.betslipPlaced').hide();
+        	$('#betProcessModal').show();
+    		$('.modal-bg').show();
+    		return false;
+        },
+        
+        closeBetProcess: function(){
+        	console.log('close bet process modal');
+        	$('#betProcessModal').hide();
+    		$('.modal-bg').hide();
+    		return false;
+        },
+        
+        placeBetProcess: function(){
+        	console.log('place bet process modal');
+        	$('.betslip').hide();
+    		$('.betslipPlaced').show();
+    		return false;
         }
+        
     });
 
     return View;

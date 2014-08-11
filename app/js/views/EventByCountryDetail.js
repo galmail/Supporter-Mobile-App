@@ -13,8 +13,11 @@ define([
         template: _.template(templateSrc),
         element: '.event-by-country-detail',
         events:{
-        	'click .event-div-closed': 'toggleEventDetail',
-        	'click .event .bet-type': 'betTypeClicked'
+        	'click .event-div-closed': 					'toggleEventDetail',
+        	//'click .event .bet-type': 				'betTypeClicked',
+        	'click .event .bet-type':   				'openBetProcess',
+        	'click #betProcessModal .closeButton': 		'closeBetProcess',
+        	'click #betProcessModal .placeBetButton': 	'placeBetProcess'
         },
         toggleEventDetail: function(el){
         	console.log('toggleEventDetail');
@@ -31,6 +34,28 @@ define([
         	el.stopPropagation();
         	window.location.href = '#betOpenProcess';
         	return false;
+        },
+        openBetProcess: function(){
+        	console.log('open bet process modal');
+        	$('.betslip').show();
+    		$('.betslipPlaced').hide();
+        	$('#betProcessModal').show();
+    		$('.modal-bg').show();
+    		return false;
+        },
+        
+        closeBetProcess: function(){
+        	console.log('close bet process modal');
+        	$('#betProcessModal').hide();
+    		$('.modal-bg').hide();
+    		return false;
+        },
+        
+        placeBetProcess: function(){
+        	console.log('place bet process modal');
+        	$('.betslip').hide();
+    		$('.betslipPlaced').show();
+    		return false;
         }
     });
 
