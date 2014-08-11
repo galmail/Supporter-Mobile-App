@@ -1105,6 +1105,10 @@ nav.top-bar .title-area .title {
   width: 120px;
   font-size: 12px;
 }
+.event-details-live .mini {
+  font-family: 'RobotoThin', sans-serif !important;
+  font-size: 10px;
+}
 .event-details-live .inner-navigation .inner-heading {
   background-image: url('/img/chevron-down-black.png');
   background-repeat: no-repeat;
