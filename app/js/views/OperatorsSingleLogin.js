@@ -11,8 +11,8 @@ define([
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
+        element: '.operators-single-login',
         unifiedRegStep: 3,
-
         events: {
             'click .js-accordion-header':   'toggleAccordion'
         },

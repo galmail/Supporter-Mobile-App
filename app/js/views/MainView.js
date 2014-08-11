@@ -15,7 +15,7 @@ define([
         template: null,
 
         initialize: function (templateSrc) {
-        	console.log("MainView initialize");
+        	console.log('MainView initialize');
             $('body').html(_.template(mainTpl));
             this.loadIOvationScript();
         },
@@ -26,7 +26,8 @@ define([
             window.io_install_flash = false;
             window.io_install_stm = false;
         	$.getScript("https://ci-mpsnare.iovation.com/snare.js",function(){
-        		console.log($('#iovationtoken').val());
+        		//console.log($('#iovationtoken').val());
+        		console.log('iovation token loaded');
         	});
         }
         

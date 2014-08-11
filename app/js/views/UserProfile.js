@@ -12,6 +12,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.user-profile',
         events: {
             'click .options li' : 'onItemClick'
         },

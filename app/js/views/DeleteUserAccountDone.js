@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.delete-user-account-done',
         navbar: false
     });
 

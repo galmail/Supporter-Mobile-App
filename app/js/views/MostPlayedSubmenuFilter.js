@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.most-played-submenu-filter',
         events: {
         	'click .event .bet-type': 'betTypeClicked'
         },

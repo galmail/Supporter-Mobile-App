@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.change-club-selection',
         onRender: function() {
             this.$el.prepend(_.template(emailHeaderSrc));
             this.$el.find('.club').css('background-image', 'url(img/clubs/large/' + this.options.clubId + '.png)');        }

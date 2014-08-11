@@ -11,6 +11,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.change-club',
         onRender: function() {
             this.$el.prepend(_.template(emailHeaderSrc));
         },

@@ -12,6 +12,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.delete-user-account',
         onRender: function() {
             this.$el.prepend(_.template(emailHeaderSrc));
         }

@@ -12,6 +12,7 @@ define([
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
+        element: '.all-filter-by-leage',
         onRender: function () {
             this.$el.prepend(_.template(searchHeaderSrc));
             this.$el.addClass('body-gradient');

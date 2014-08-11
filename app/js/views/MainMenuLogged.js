@@ -12,6 +12,8 @@ define([
     var View = LoggedView.extend({
 
         template: _.template(templateSrc),
+        
+        element: '.main-menu-logged',
 
         events: {
             'click li.js-menu-item': 'goToBetting'
