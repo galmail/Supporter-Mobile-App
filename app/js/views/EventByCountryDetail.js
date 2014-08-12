@@ -20,7 +20,7 @@ define([
         	'click #betProcessModal .placeBetButton': 	'placeBetProcess'
         },
         toggleEventDetail: function(el){
-        	console.log('toggleEventDetail');
+        	//console.log('toggleEventDetail');
         	el.stopPropagation();
         	var target = $(el.currentTarget);
         	target.find('.bet-type').toggle();
@@ -30,13 +30,13 @@ define([
         	return false;
         },
         betTypeClicked: function(el){
-        	console.log('betTypeClicked');
+        	//console.log('betTypeClicked');
         	el.stopPropagation();
         	window.location.href = '#betOpenProcess';
         	return false;
         },
         openBetProcess: function(){
-        	console.log('open bet process modal');
+        	//console.log('open bet process modal');
         	$('.betslip').show();
     		$('.betslipPlaced').hide();
         	$('#betProcessModal').show();
@@ -45,14 +45,14 @@ define([
         },
         
         closeBetProcess: function(){
-        	console.log('close bet process modal');
+        	//console.log('close bet process modal');
         	$('#betProcessModal').hide();
     		$('.modal-bg').hide();
     		return false;
         },
         
         placeBetProcess: function(){
-        	console.log('place bet process modal');
+        	//console.log('place bet process modal');
         	$('.betslip').hide();
     		$('.betslipPlaced').show();
     		return false;

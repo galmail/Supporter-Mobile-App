@@ -19,9 +19,7 @@ define([
         events: {},
 
 		initialize: function(templateSrc) {
-			console.log('LoggedView initialize');
-			
-			
+			//console.log('LoggedView initialize');
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();

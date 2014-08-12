@@ -35,7 +35,7 @@ define([
         },
         
         openBetProcess: function(){
-        	console.log('open bet process modal');
+        	//console.log('open bet process modal');
         	$('.betslip').show();
     		$('.betslipPlaced').hide();
         	$('#betProcessModal').show();
@@ -44,14 +44,14 @@ define([
         },
         
         closeBetProcess: function(){
-        	console.log('close bet process modal');
+        	//console.log('close bet process modal');
         	$('#betProcessModal').hide();
     		$('.modal-bg').hide();
     		return false;
         },
         
         placeBetProcess: function(){
-        	console.log('place bet process modal');
+        	//console.log('place bet process modal');
         	$('.betslip').hide();
     		$('.betslipPlaced').show();
     		return false;

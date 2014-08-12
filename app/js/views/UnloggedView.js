@@ -22,7 +22,7 @@ define([
         events: {},
 
         initialize: function (templateSrc) {
-        	console.log("UnloggedView initialize");
+        	//console.log("UnloggedView initialize");
 			this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
             this.setNavBar();
