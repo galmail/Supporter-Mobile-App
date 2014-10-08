@@ -1,0 +1,104 @@
+.event-by-country-detail {
+  font-family: 'Roboto', sans-serif !important;
+  
+  .accordion dd {
+    display: none;
+  }
+  
+  .main-filter-title {
+    font-family: 'RobotoThin', sans-serif !important;
+    white-space: nowrap;
+    color: white;
+    background-color: @primary-color;
+    padding: 10px 0;
+    border-top: 1px solid gray;
+  }
+  .game-title {
+    padding: 10px 0;
+    span {
+      font-family: 'Roboto', sans-serif !important;
+    }
+  }
+  .event {
+    background-color: @disabled;
+    padding: 5px 0 5px 10px;
+    margin-bottom: 2px;
+    .teams {
+      color: @primary-color;
+      padding: 7px 0;
+      &.single-team {
+        padding: 15px 0;
+      }
+      &.team-title {
+        padding: 5px 0;
+        color: black;
+      }
+      .separator {
+        line-height: 5px;
+      }
+    }
+  }
+  .bet {
+    padding-left: 9px;
+    &.small-2 {
+      width: 15%;
+    }
+    &.winner {
+      color: @secondary-color;
+    }
+  }
+  .bet-type {
+    padding: 10px 0;
+    color: white;
+    background-color: @primary-color;
+    margin-right: 5px;
+    &.empty {
+      background-color: transparent;
+    }
+    &.small-2 {
+      width: 15%;
+    }
+    &.low {
+      background-color: gray;
+    }
+    .value {
+      margin-bottom: 5px;
+      font-family: 'Roboto', sans-serif !important;
+    }
+    .operator {
+      font-family: 'RobotoThin', sans-serif !important;
+    }
+  }
+  dd .row {
+    padding: 5px 0;
+  }
+  
+  .event-detail-title {
+    margin-top: 5px;
+    color: gray;
+  }
+  
+  .operators {
+    .whiteblock {
+      line-height: 42px;
+      background-color: white;
+      &.operator {
+        color: @secondary-color;
+        text-align: left;
+        padding-left: 10px;
+        &.high {
+          color: @primary-color;
+        }
+      }
+      &.profit {
+        color: gray;
+        text-align: right;
+        padding-right: 10px;
+        
+      }
+    }
+  }
+  
+}
+
+

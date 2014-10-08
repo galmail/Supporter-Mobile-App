@@ -1,0 +1,126 @@
+/* Foundation overrides */
+
+body, p, a, button, .button {
+    font-family: 'RobotoThin', sans-serif!important;
+    //font-weight: 800;
+    font-size: @text-large!important; //thin 25px, regular 21px, regular 15px
+}
+
+p {
+    line-height: @text-large!important;
+}
+
+button, .button, button:hover {
+    margin-bottom: @text-large;
+}
+
+.secondary {
+    color: @secondary-text-color!important;
+}
+
+.secondary:hover {
+    background-color: @secondary-color!important;
+}
+
+.inline-input {
+    display: inline-block!important;
+}
+
+.body-not-logged{
+    input,
+    select {
+        background-color: transparent!important;
+        border: 1px solid @white!important;
+        color: @white!important;
+
+        &.tight {
+            margin: 0 0 0.5rem 0!important;
+        }
+
+        &.disabled {
+            border: 1px solid @disabled!important;
+            color: @disabled!important;
+        }
+
+        &:focus {
+            color: @white;
+        };
+    }
+}
+
+::-webkit-input-placeholder {
+   color: @white;
+}
+.disabled::-webkit-input-placeholder {
+   color: @disabled;
+}
+
+:-moz-placeholder {
+   color: @white;
+}
+
+::-moz-placeholder {
+   color: @white;
+}
+
+:-ms-input-placeholder {
+   color: @white;
+}
+
+div.switch input:checked + label {
+    background: @primary-color;
+    margin: 0!important;
+}
+
+div.switch input + label {
+    margin: 0!important;
+}
+
+div.switch label {
+    display: inline-block;
+}
+
+
+//  LOGGED ZONE
+
+nav.top-bar {
+  background-color: @primary-color;
+  .left-small {
+    border-right: solid 1px @primary-color;
+    width: 60px;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin-top: 5px;
+      background-image: url('../img/logo_supporter.png');
+      background-repeat: no-repeat;
+    }
+  }
+  .right-small {
+    border-left: solid 1px @primary-color;
+    .search-icon {
+      display: block;
+      width: 35px;
+      height: 35px;
+      margin-top: 5px;
+    }
+  }
+  .title-area {
+    margin-left: 45px;
+    margin-right: 45px;
+    text-align: center;
+    .title {
+      font-style: italic;
+      font-size: 1.25rem;
+      line-height: 38px;
+      color: white;
+      font-weight: bold;
+      text-shadow: @text-shadow-strong;
+    }
+  }
+}
+
+
+
+// navbar

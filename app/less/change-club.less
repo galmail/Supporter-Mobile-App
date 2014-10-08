@@ -1,0 +1,56 @@
+.change-club {
+    text-align: left;
+    @logo-side: 45px;
+    @logo-padded-side: 50px;
+
+    .intro {
+        text-align: center;
+        font-family: 'Roboto', sans-serif!important;
+        margin-top: 35px;
+    }
+
+
+    .team-logo-small {
+        display: inline-block;
+        height: @logo-padded-side;
+        width: @logo-padded-side;
+        vertical-align: middle;
+        float: right;
+        background-size: @logo-side @logo-side;
+        background-repeat: no-repeat;
+        background-position-y: 3px;
+    }
+
+    .team-name {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .team-city {
+        margin: 0;
+        padding: 0;
+        line-height: 5px;
+        font-size: 10px;
+    }
+
+    li {
+        list-style: none;
+        line-height: 38px;
+        padding-left: 10px;
+        border-bottom: 1px solid black;
+    }
+
+    li:last-child {
+        border-bottom: none;
+    }
+
+    ul {
+        color: black;
+        text-shadow: none;
+        font-family: 'Roboto', sans-serif!important;
+        margin-left: 0px;
+        background: white;
+        border: 2px solid @primary-color;
+    }
+}

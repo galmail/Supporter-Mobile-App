@@ -1,0 +1,52 @@
+.user-settings {
+
+  li {
+    color: @secondary-color;
+    font-family: 'RobotoThin', sans-serif;
+    list-style: none;
+    font-size: @text-large;
+    line-height: 25px;
+    padding: 1px 0 1px 10px;
+    text-align: left;
+    border-bottom: 1px solid @disabled;
+    border-top: 1px solid @disabled;
+    text-shadow: @text-shadow-normal;
+  }
+
+  ul {
+      margin: 0;
+      padding: 0;
+  }
+
+  .item {
+      width: 100%;
+      display: inline-block;
+      line-height: 55px;
+  }
+
+  #logoutConfirmModal {
+    min-height: 0;
+    width: 90%;
+    visibility: visible;
+    padding: 0;
+    padding-top: 10px;
+    top: 30%;
+    left: 5%;
+    .title {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    .buttons {
+      overflow: hidden;
+      border-top: 1px solid;
+      border-color: @disabled;
+      div {
+        padding: 15px;
+        &.ok-btn {
+          border-left: 1px solid;
+          border-color: @disabled;
+        }
+      }
+    }
+  }
+}

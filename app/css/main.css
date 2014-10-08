@@ -1,0 +1,1567 @@
+/* Foundation overrides */
+body,
+p,
+a,
+button,
+.button {
+  font-family: 'RobotoThin', sans-serif !important;
+  font-size: 1.2rem !important;
+}
+p {
+  line-height: 1.2rem !important;
+}
+button,
+.button,
+button:hover {
+  margin-bottom: 1.2rem;
+}
+.secondary {
+  color: #45b0e6 !important;
+}
+.secondary:hover {
+  background-color: #007399 !important;
+}
+.inline-input {
+  display: inline-block !important;
+}
+.body-not-logged input,
+.body-not-logged select {
+  background-color: transparent!important;
+  border: 1px solid #e6e6e6 !important;
+  color: #e6e6e6 !important;
+}
+.body-not-logged input.tight,
+.body-not-logged select.tight {
+  margin: 0 0 0.5rem 0!important;
+}
+.body-not-logged input.disabled,
+.body-not-logged select.disabled {
+  border: 1px solid rgba(230, 230, 230, 0.6) !important;
+  color: rgba(230, 230, 230, 0.6) !important;
+}
+.body-not-logged input:focus,
+.body-not-logged select:focus {
+  color: #e6e6e6;
+}
+::-webkit-input-placeholder {
+  color: #e6e6e6;
+}
+.disabled::-webkit-input-placeholder {
+  color: rgba(230, 230, 230, 0.6);
+}
+:-moz-placeholder {
+  color: #e6e6e6;
+}
+::-moz-placeholder {
+  color: #e6e6e6;
+}
+:-ms-input-placeholder {
+  color: #e6e6e6;
+}
+div.switch input:checked + label {
+  background: #15a63f;
+  margin: 0!important;
+}
+div.switch input + label {
+  margin: 0!important;
+}
+div.switch label {
+  display: inline-block;
+}
+nav.top-bar {
+  background-color: #15a63f;
+}
+nav.top-bar .left-small {
+  border-right: solid 1px #15a63f;
+  width: 60px;
+}
+nav.top-bar .left-small a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+  background-image: url('../img/logo_supporter.png');
+  background-repeat: no-repeat;
+}
+nav.top-bar .right-small {
+  border-left: solid 1px #15a63f;
+}
+nav.top-bar .right-small .search-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+}
+nav.top-bar .title-area {
+  margin-left: 45px;
+  margin-right: 45px;
+  text-align: center;
+}
+nav.top-bar .title-area .title {
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 38px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #444444;
+}
+/**
+ * Supporter Fonts
+ **/
+@font-face {
+  font-family: 'Roboto' !important;
+  src: url("../fonts/Roboto-Regular.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+@font-face {
+  font-family: 'RobotoThin' !important;
+  src: url("../fonts/Roboto-Thin.ttf") !important;
+  font-weight: normal!important;
+  font-style: normal!important;
+}
+.large {
+  font-size: 1.2rem !important;
+  line-height: 1.4rem !important;
+}
+.medium {
+  font-size: 18px !important;
+  line-height: 20px !important;
+}
+.small {
+  font-size: 15px !important;
+  line-height: 18px !important;
+}
+.tiny {
+  font-size: 12px !important;
+  line-height: 12px !important;
+}
+.supertiny {
+  font-size: 10px !important;
+  line-height: 10px !important;
+}
+.body-not-logged {
+  background-color: #45b0e6;
+  text-shadow: 1px 1px 1px #007399;
+  color: #e6e6e6;
+}
+.body-gradient {
+  background: -webkit-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(230, 230, 230, 0.6), #ffffff, #ffffff, #ffffff);
+  /* Standard syntax */
+}
+.body-gradient input {
+  background: transparent;
+}
+.link {
+  text-decoration: underline;
+  display: inline-block;
+  color: #007399;
+}
+.link-inline {
+  color: #e6e6e6;
+}
+.link-bottom-page {
+  margin-top: 15px;
+}
+.link:visited {
+  color: #007399 !important;
+}
+.full-width {
+  width: 100%;
+}
+.half-width {
+  width: 49%;
+}
+.one-third-width {
+  width: 31%!important;
+}
+.logo {
+  text-align: center;
+  margin: 15px auto;
+  height: 130px;
+  width: 130px;
+  background: url('../img/logo.png') center center no-repeat;
+  background-size: 130px 130px;
+}
+.logo-clear {
+  margin: 60px auto 120px auto;
+}
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}
+#betProcessModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  top: 5%;
+  left: 5%;
+}
+#betProcessModal .betslipPlaced {
+  display: none;
+}
+.header {
+  padding: 0px 0px 40px 0px;
+}
+.off-canvas-wrap {
+  height: 100%;
+}
+.off-canvas-wrap > .inner-wrap {
+  height: 100%;
+}
+#container {
+  padding: 0;
+  text-align: center;
+  overflow-y: auto;
+}
+#container .keep-screen-margin {
+  padding: 5px 15px;
+}
+#footer {
+  background-color: #15a63f;
+  padding-top: 2px;
+  color: white;
+  height: 45px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+#footer .back-icon {
+  padding-right: 20px;
+}
+#footer .options-icon {
+  padding-right: 5px;
+  padding-left: 20px;
+}
+.left-off-canvas-menu {
+  background-color: rgba(230, 230, 230, 0.6);
+  color: black;
+}
+.left-off-canvas-menu li a {
+  color: black !important;
+  text-shadow: none !important;
+  border: none !important;
+  padding: 5px 0 5px 10px !important;
+}
+.left-off-canvas-menu .sidebar-option {
+  background-color: white;
+}
+.left-off-canvas-menu .sidebar-second-option {
+  border-top: 1px solid gray;
+}
+.left-off-canvas-menu .sidebar-user-profile {
+  background-color: dimgrey ;
+  color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  clear: both;
+  overflow: hidden;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-club-photo {
+  float: left;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-user-info {
+  float: left;
+  margin-left: 10px;
+  padding-top: 7px;
+}
+.left-off-canvas-menu .sidebar-user-profile .sidebar-user-info .sidebar-user-email {
+  margin-top: 7px;
+}
+.left-off-canvas-menu .sidebar-logo {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 30px;
+  padding-left: 10px;
+  color: #45b0e6;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  padding-bottom: 8px;
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.club-disclaimer {
+  text-align: left;
+}
+.club-disclaimer .disclaimer {
+  font-size: 15px !important;
+}
+.create-new-account .intro {
+  margin: 35px 35px 45px 35px ;
+}
+.know-more {
+  text-align: left;
+}
+.know-more .disclaimer {
+  font-size: 15px !important;
+}
+.menu-log-clear .intro {
+  margin: 35px 20px;
+}
+.operators-list .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+}
+.operators-list li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.operators-list ul {
+  margin: 0 -15px 0 -15px;
+  padding: 0;
+}
+.operators-list .operator-name {
+  width: 60%;
+  display: inline-block;
+  text-align: center;
+  line-height: 55px;
+}
+.operators-list .switch {
+  width: 30%;
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
+}
+.user-favorites > p {
+  margin-top: 25%;
+}
+.pick-club-confirm .link {
+  color: #e6e6e6;
+}
+.pick-club-confirm .link:visited {
+  color: #e6e6e6 !important;
+}
+.pick-club-confirm .club {
+  background-color: white;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 20px;
+  padding-bottom: 5px;
+}
+.pick-club-confirm .club img {
+  height: 200px;
+}
+.pick-club-confirm .club .club-name {
+  color: black;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+.pick-club-confirm .club .sport {
+  color: black;
+}
+.pick-club-confirm .disclaimer {
+  text-align: left;
+}
+.pick-club {
+  text-align: left;
+}
+.pick-club input,
+.pick-club input:focus {
+  background: url("../img/search.png");
+  background-repeat: no-repeat;
+  padding-left: 45px;
+  background-size: 35px 35px;
+}
+.pick-club .intro {
+  text-align: center;
+}
+.pick-club .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  float: right;
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.pick-club .team-name {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.pick-club .team-city {
+  margin: 0;
+  padding: 0;
+  line-height: 5px;
+  font-size: 10px;
+}
+.pick-club li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.pick-club li:last-child {
+  border-bottom: none;
+}
+.pick-club ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+}
+.select-operators li {
+  list-style: none;
+  line-height: 15px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+}
+.select-operators .operator {
+  vertical-align: middle;
+  width: 60%;
+  padding: 0 0 0 5px;
+  display: inline-block;
+}
+.select-operators .switch {
+  width: 30%;
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
+}
+.select-operators ul {
+  margin: 25px 0 50px 0;
+}
+.select-operators .list-header {
+  text-align: right;
+  margin: 0 8px 5px 0;
+}
+.operators-single-login .accordion {
+  margin: 0 0 20px 0;
+}
+.operators-single-login .accordion dd a.heading {
+  background-color: #45b0e6 !important;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+}
+.operators-single-login .accordion dd a.heading img {
+  width: 140px;
+  margin-right: 60px;
+}
+.operators-single-login .accordion dd:last-child a.heading {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.operators-single-login .accordion .secondary {
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+.operators-single-login .accordion .button {
+  margin-bottom: 0;
+}
+.operators-single-login .content {
+  background-color: #007399 !important;
+}
+.change-club-selection .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 35px;
+}
+.change-club-selection .club {
+  text-align: center;
+  margin: 20px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.change-club {
+  text-align: left;
+}
+.change-club .intro {
+  text-align: center;
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 35px;
+}
+.change-club .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  float: right;
+  background-size: 45px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.change-club .team-name {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+.change-club .team-city {
+  margin: 0;
+  padding: 0;
+  line-height: 5px;
+  font-size: 10px;
+}
+.change-club li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.change-club li:last-child {
+  border-bottom: none;
+}
+.change-club ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+  border: 2px solid #15a63f;
+}
+.about p {
+  padding-top: 25%;
+  font-size: 15px !important;
+}
+.unified-registration {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.emailheader {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+}
+.searchheader {
+  height: 39px;
+}
+.delete-user-account .text {
+  padding-top: 20%;
+  font-family: 'Roboto', sans-serif !important;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.delete-user-account-done .text {
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 70%;
+  margin-bottom: 20px;
+}
+.change-user-email .text {
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 20%;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.change-user-password .text {
+  font-family: 'Roboto', sans-serif !important;
+  margin-top: 20%;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.user-settings li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.user-settings ul {
+  margin: 0;
+  padding: 0;
+}
+.user-settings .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
+}
+.user-settings #logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+}
+.user-settings #logoutConfirmModal .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.user-settings #logoutConfirmModal .buttons {
+  overflow: hidden;
+  border-top: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-settings #logoutConfirmModal .buttons div {
+  padding: 15px;
+}
+.user-settings #logoutConfirmModal .buttons div.ok-btn {
+  border-left: 1px solid;
+  border-color: rgba(230, 230, 230, 0.6);
+}
+.user-profile li {
+  color: #007399;
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
+  border-top: 1px solid rgba(230, 230, 230, 0.6);
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.user-profile ul {
+  margin: 0;
+  padding: 0;
+}
+.user-profile .item {
+  width: 100%;
+  display: inline-block;
+  line-height: 55px;
+}
+.edit-unified-data .form-inputs {
+  padding-top: 10px;
+}
+.user-bets .title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.user-bets .bet {
+  padding-bottom: 5px;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.user-bets .bet .block {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.user-bets .bet .game-data {
+  text-align: center;
+  background-color: white;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+.user-bets .bet .game-match {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.user-bets .bet .operator {
+  padding: 9px 5px;
+  color: #45b0e6;
+}
+.user-bets .bet .bets-options {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .bets-options .bet-option {
+  padding: 10px 4px;
+  background-color: white;
+  color: gray;
+  margin-right: 10px;
+  text-align: center;
+}
+.user-bets .bet .bets-options .bet-option.selected {
+  background-color: black;
+  color: white;
+}
+.user-bets .bet .bets-options .bet-option:last-child {
+  margin-right: 0;
+}
+.user-bets .bet .player-bet {
+  padding: 0 5px;
+}
+.user-bets .bet .potential-win {
+  padding: 0 0 0 5px;
+}
+.user-bets .bet .potential-win .left {
+  width: 40%;
+}
+.user-bets .bet .donation {
+  text-align: center;
+}
+.user-bets .bet .donation .text {
+  margin-right: 5px;
+}
+.user-bets .bet .donation .club {
+  color: #15a63f;
+}
+.user-wallet .title {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.user-wallet .title > div:last-child {
+  padding-right: 0;
+}
+.user-wallet .wallet-list .wallet-item {
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid gray;
+}
+.user-wallet .wallet-list .wallet-item:last-child {
+  border-bottom: 0;
+}
+.user-wallet .wallet-list .wallet-item .operator {
+  padding-top: 15px;
+  color: #45b0e6;
+}
+.user-wallet .wallet-list .wallet-item .balance {
+  padding-top: 15px;
+}
+.user-wallet .wallet-list .wallet-item .button {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0;
+}
+.user-statistics .title {
+  margin-bottom: 10px;
+}
+.user-statistics .title > div {
+  margin-bottom: 5px;
+}
+.user-statistics .title > div.club {
+  color: #45b0e6;
+}
+.user-statistics .user-history-chart {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list {
+  margin-bottom: 20px;
+}
+.user-statistics .user-history-list .blue {
+  color: #45b0e6;
+}
+.user-statistics .user-history-list .yellow {
+  color: orange;
+}
+.user-statistics .user-history-list .green {
+  color: #15a63f;
+}
+.user-statistics .user-history-list .row {
+  padding-bottom: 5px;
+}
+.user-statistics .all-users-history-list .columns.small-6 {
+  width: 48%;
+}
+.user-statistics .all-users-history-list .row {
+  border-bottom: 1px solid green;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+.delete-user-account-confirm .text {
+  margin-top: 20%;
+  margin-bottom: 30px;
+  text-align: left;
+}
+.delete-user-account-confirm .text p {
+  font-family: 'Roboto', sans-serif !important;
+  line-height: 23px !important;
+}
+.main-menu-logged {
+  text-align: left;
+}
+.main-menu-logged .intro {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.main-menu-logged .team-logo-small {
+  display: inline-block;
+  height: 50px;
+  width: 43px;
+  float: left;
+  background-size: 32px 45px;
+  background-repeat: no-repeat;
+  background-position-y: 3px;
+}
+.main-menu-logged .team-name {
+  line-height: 50px;
+}
+.main-menu-logged li {
+  list-style: none;
+  line-height: 38px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.main-menu-logged li:last-child {
+  border-bottom: none;
+}
+.main-menu-logged ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+}
+.all-filter-by-country li {
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.all-filter-by-country ul {
+  margin: 0;
+  padding: 0;
+}
+.all-filter-by-country .item {
+  width: 100%;
+  line-height: 55px;
+  position: relative;
+  height: 55px;
+  color: black;
+}
+.all-filter-by-country .heading {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+}
+.all-filter-by-country .count {
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  font-size: 12px;
+  color: grey;
+}
+.all-filter-by-leage li {
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.all-filter-by-leage ul {
+  margin: 0;
+  padding: 0;
+}
+.all-filter-by-leage .item {
+  width: 100%;
+  line-height: 55px;
+  position: relative;
+  height: 55px;
+  color: black;
+}
+.all-filter-by-leage .heading {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+}
+.all-filter-by-leage .count {
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  color: grey;
+  font-size: 12px;
+}
+.all-filter-by-leage-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.all-filter-by-leage-submenu .game-title {
+  padding: 10px 0;
+}
+.all-filter-by-leage-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.all-filter-by-leage-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.all-filter-by-leage-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.all-filter-by-leage-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.all-filter-by-leage-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.all-filter-by-leage-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.all-filter-by-leage-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.bet-open-process {
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
+  padding: 3px;
+}
+.bet-open-process .title {
+  clear: both;
+  overflow: hidden;
+  padding: 10px 0 5px 15px;
+}
+.bet-open-process .title .close.button {
+  float: left;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  color: black;
+  margin: 0;
+}
+.bet-open-process .title .text {
+  padding-right: 50px;
+  margin-top: 5px;
+  display: block;
+}
+.bet-open-process .tabs {
+  padding: 10px;
+  background-color: gray;
+  font-size: 10px;
+}
+.bet-open-process .tabs .tab-title {
+  width: 50%;
+}
+.bet-open-process .tabs .tab-title a {
+  padding: 5px 0;
+  color: gray;
+  background-color: rgba(230, 230, 230, 0.6);
+}
+.bet-open-process .tabs .tab-title.active a {
+  color: white;
+  background-color: orange;
+}
+.bet-open-process .bet-block {
+  overflow: hidden;
+}
+.bet-open-process .bet-block .bet-title {
+  background-color: gray;
+  text-align: left;
+  padding: 10px;
+  color: white;
+}
+.bet-open-process .bet-block .bet-body {
+  overflow: hidden;
+  clear: both;
+}
+.bet-open-process .bet-block .bet-body .delete-icon {
+  width: 30px;
+  margin: 10px;
+}
+.bet-open-process .bet-block .bet-body .bet-info {
+  text-align: left;
+  padding: 6px 2px;
+}
+.bet-open-process .bet-block .bet-body .right-arrow-icon {
+  width: 13px;
+  margin: 14px 10px;
+}
+.bet-open-process .bet-block .bet-body .bet-odds {
+  text-align: right;
+  padding-top: 5px;
+}
+.bet-open-process .bet-block .bet-form {
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #c2dcb4;
+}
+.bet-open-process .bet-block .bet-form .bet-form-labels {
+  text-align: left;
+}
+.bet-open-process .bet-block .bet-form .bet-form-labels .small-label {
+  margin-top: 6px;
+  color: #15a63f;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values {
+  text-align: right;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values input {
+  width: 70px;
+  height: 30px;
+  margin-bottom: 0;
+  text-align: right;
+}
+.bet-open-process .bet-block .bet-form .bet-form-values .small-value {
+  margin-right: 10px;
+  color: #15a63f;
+}
+.by-country-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.by-country-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.by-country-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.by-country-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.by-country-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.by-country-submenu-filter .event-div-closed .teams.single-team {
+  padding: 15px 0;
+}
+.by-country-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.by-country-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.by-country-submenu-filter .event-div-closed .bet-type.empty {
+  background-color: transparent;
+}
+.by-country-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.by-country-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .accordion dd {
+  display: none;
+}
+.event-by-country-detail .main-filter-title {
+  font-family: 'RobotoThin', sans-serif !important;
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.event-by-country-detail .game-title {
+  padding: 10px 0;
+}
+.event-by-country-detail .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .event {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0 5px 10px;
+  margin-bottom: 2px;
+}
+.event-by-country-detail .event .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.event-by-country-detail .event .teams.single-team {
+  padding: 15px 0;
+}
+.event-by-country-detail .event .teams.team-title {
+  padding: 5px 0;
+  color: black;
+}
+.event-by-country-detail .event .teams .separator {
+  line-height: 5px;
+}
+.event-by-country-detail .bet {
+  padding-left: 9px;
+}
+.event-by-country-detail .bet.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet.winner {
+  color: #007399;
+}
+.event-by-country-detail .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.event-by-country-detail .bet-type.empty {
+  background-color: transparent;
+}
+.event-by-country-detail .bet-type.small-2 {
+  width: 15%;
+}
+.event-by-country-detail .bet-type.low {
+  background-color: gray;
+}
+.event-by-country-detail .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-by-country-detail .bet-type .operator {
+  font-family: 'RobotoThin', sans-serif !important;
+}
+.event-by-country-detail dd .row {
+  padding: 5px 0;
+}
+.event-by-country-detail .event-detail-title {
+  margin-top: 5px;
+  color: gray;
+}
+.event-by-country-detail .operators .whiteblock {
+  line-height: 42px;
+  background-color: white;
+}
+.event-by-country-detail .operators .whiteblock.operator {
+  color: #007399;
+  text-align: left;
+  padding-left: 10px;
+}
+.event-by-country-detail .operators .whiteblock.operator.high {
+  color: #15a63f;
+}
+.event-by-country-detail .operators .whiteblock.profit {
+  color: gray;
+  text-align: right;
+  padding-right: 10px;
+}
+.event-details {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-details .accordion {
+  margin: 0 0 20px 0;
+}
+.event-details .accordion dd a.heading {
+  background-image: url('../img/chevron-down-white.png');
+  background-repeat: no-repeat;
+  background-size: 17px;
+  background-position: 6px;
+  background-color: grey!important;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2px 0 2px 30px;
+  font-size: 15px !important;
+  color: white;
+}
+.event-details .accordion dd:last-child a.heading {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.event-details .accordion .secondary {
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+.event-details .accordion .button {
+  margin-bottom: 0;
+}
+.event-details .accordion table {
+  width: 100%;
+  border: none!important;
+}
+.event-details .accordion th {
+  color: #15a63f !important;
+  text-align: center!important;
+}
+.event-details .accordion tr {
+  border: 1px solid red!important;
+}
+.event-details .accordion td {
+  color: #15a63f;
+}
+.event-details .accordion td.numeric {
+  text-align: center!important;
+  background: blue;
+  color: white;
+  font-weight: bold;
+}
+.event-details .vs {
+  background-color: #00ff00;
+  padding: 5px;
+  color: white;
+  margin: 10px 0 0 0;
+}
+.event-details .date {
+  padding: 7px;
+}
+.event-details-live {
+  font-family: 'Roboto', sans-serif !important;
+}
+.event-details-live .accordion {
+  margin: 0 0 20px 0;
+}
+.event-details-live .accordion dd a.heading {
+  background-image: url('../img/chevron-down-white.png');
+  background-repeat: no-repeat;
+  background-size: 17px;
+  background-position: 6px;
+  background-color: grey!important;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2px 0 2px 30px;
+  font-size: 15px !important;
+  color: white;
+}
+.event-details-live .accordion dd:last-child a.heading {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.event-details-live .accordion .secondary {
+  -webkit-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  -moz-box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+.event-details-live .accordion .button {
+  margin-bottom: 0;
+}
+.event-details-live .accordion table {
+  width: 100%;
+  border: none!important;
+}
+.event-details-live .accordion th {
+  color: #15a63f !important;
+  text-align: center!important;
+}
+.event-details-live .accordion tr {
+  border: 1px solid red!important;
+}
+.event-details-live .accordion td {
+  color: #15a63f;
+}
+.event-details-live .numeric {
+  text-align: center!important;
+  background: blue;
+  color: white;
+  font-weight: bold;
+  /* float: left; */
+  height: 24px;
+  right: 20px;
+  position: absolute;
+  text-align: left!important;
+  padding: 2px 3px 0 8px;
+  width: 120px;
+  font-size: 12px;
+}
+.event-details-live .mini {
+  font-family: 'RobotoThin', sans-serif !important;
+  font-size: 10px;
+}
+.event-details-live .inner-navigation .inner-heading {
+  background-image: url('../img/chevron-down-black.png');
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: 3px;
+  background-color: white;
+  text-align: left;
+  padding: 2px 0 2px 20px;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 15px !important;
+}
+.event-details-live .vs {
+  background-color: #00ff00;
+  padding: 5px;
+  color: white;
+  margin: 10px 0 0 0;
+}
+.event-details-live .date {
+  padding: 7px;
+}
+.event-details-live .date .live {
+  color: #c80000;
+}
+.event-details-live .score {
+  color: green;
+  font-size: 32px;
+  padding: 0 0 10px 0;
+}
+.events-by-country-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.events-by-country-submenu .game-title {
+  padding: 10px 0;
+}
+.events-by-country-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-by-country-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.events-by-country-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.events-by-country-submenu .event-div-closed .teams.single-team {
+  padding: 15px 0;
+}
+.events-by-country-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.events-by-country-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.events-by-country-submenu .event-div-closed .bet-type.empty {
+  background-color: transparent;
+}
+.events-by-country-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.events-by-country-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-live-scores-filter li {
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.events-live-scores-filter ul {
+  margin: 0;
+  padding: 0;
+}
+.events-live-scores-filter .item {
+  width: 100%;
+  line-height: 55px;
+  position: relative;
+  height: 55px;
+  color: black;
+}
+.events-live-scores-filter .heading {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+}
+.events-live-scores-filter .count {
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  color: grey;
+  font-size: 12px;
+}
+.events-most-played .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.events-most-played .game-title {
+  padding: 10px 0;
+}
+.events-most-played .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-most-played .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.events-most-played .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.events-most-played .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.events-most-played .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.events-most-played .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.events-most-played .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.events-all-filter li {
+  font-family: 'RobotoThin', sans-serif;
+  list-style: none;
+  line-height: 25px;
+  padding: 1px 0 1px 10px;
+  text-align: left;
+  border-bottom: 1px solid lightgrey;
+  text-shadow: 1px 1px 1px rgba(230, 230, 230, 0.6);
+}
+.events-all-filter ul {
+  margin: 0;
+  padding: 0;
+}
+.events-all-filter .item {
+  width: 100%;
+  line-height: 55px;
+  position: relative;
+  height: 55px;
+  color: black;
+}
+.events-all-filter .heading {
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+}
+.events-all-filter .count {
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  color: grey;
+  font-size: 12px;
+}
+.live-scores-submenu .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #45b0e6;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.live-scores-submenu .game-title {
+  padding: 10px 0;
+}
+.live-scores-submenu .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.live-scores-submenu .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.live-scores-submenu .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.live-scores-submenu .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #007399;
+  margin-right: 5px;
+}
+.live-scores-submenu .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.live-scores-submenu .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.live-scores-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.live-scores-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.live-scores-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.live-scores-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.live-scores-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.live-scores-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}
+.most-played-submenu-filter .main-filter-title {
+  white-space: nowrap;
+  color: white;
+  background-color: #15a63f;
+  padding: 10px 0;
+  border-top: 1px solid gray;
+}
+.most-played-submenu-filter .game-title {
+  padding: 10px 0;
+}
+.most-played-submenu-filter .game-title span {
+  font-family: 'Roboto', sans-serif !important;
+}
+.most-played-submenu-filter .event-div-closed {
+  background-color: rgba(230, 230, 230, 0.6);
+  padding: 5px 0;
+  margin-bottom: 2px;
+}
+.most-played-submenu-filter .event-div-closed .teams {
+  color: #15a63f;
+  padding: 7px 0;
+}
+.most-played-submenu-filter .event-div-closed .teams .separator {
+  line-height: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type {
+  padding: 10px 0;
+  color: white;
+  background-color: #15a63f;
+  margin-right: 5px;
+}
+.most-played-submenu-filter .event-div-closed .bet-type.small-2 {
+  width: 15%;
+}
+.most-played-submenu-filter .event-div-closed .bet-type .value {
+  margin-bottom: 5px;
+  font-family: 'Roboto', sans-serif !important;
+}

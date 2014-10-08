@@ -1,0 +1,161 @@
+.large {
+    font-size: @text-large!important;
+    line-height: @line-height-large!important;
+}
+.medium {
+    font-size: @text-medium!important;
+    line-height: @line-height-medium!important;
+}
+.small {
+    font-size: @text-small!important;
+    line-height: @line-height-small!important;
+}
+.tiny {
+    font-size: @text-tiny!important;
+    line-height: @line-height-tiny!important;
+}
+.supertiny {
+    font-size: @text-super-tiny!important;
+    line-height: @line-height-super-tiny!important;
+}
+
+.body-not-logged {
+    background-color: @not-logged-color;
+    text-shadow: @text-shadow-blue;
+    color: @white;
+}
+
+.body-logged {
+}
+
+.body-gradient {
+    background: -webkit-linear-gradient(@disabled, white, white, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(@disabled, white, white, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(@disabled, white, white, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(@disabled, white, white, white); /* Standard syntax */
+
+    input {
+        background: transparent;
+    }
+}
+
+.link {
+    text-decoration: underline;
+    display: inline-block;
+    color: @secondary-color;
+
+    &-inline {
+        color: @white;
+    }
+
+    &-bottom-page {
+        margin-top: 15px;
+    }
+}
+
+.link:visited{
+    color: @secondary-color!important;
+}
+
+.full-width {
+    width: 100%;
+}
+.half-width {
+    width: 49%;
+}
+.one-third-width {
+    width: 31%!important;
+}
+
+.logo {
+    text-align: center;
+    margin: 15px auto;
+    height: 130px;
+    width: 130px;
+    background: url('../img/logo.png') center center no-repeat;
+    background-size: 130px 130px;
+}
+
+.logo-clear {
+    margin: 60px auto 120px auto;
+}
+
+.modal-bg {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.6;
+}
+
+#betProcessModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  top: 5%;
+  left: 5%;
+  .betslipPlaced {
+    display: none;
+  }
+}
+
+.header {
+    padding: 0px 0px 40px 0px;
+}
+
+// fixing container's height
+.off-canvas-wrap {
+  height: 100%;
+  &>.inner-wrap {
+    height: 100%;
+    &>.main-section {
+      //height: 100%;
+      &>#container {
+        //min-height: inherit !important;
+        //max-height: inherit !important;
+      }
+    }
+  }
+}
+
+#container {
+    padding: 0;
+    text-align: center;
+    overflow-y: auto;
+    .keep-screen-margin {
+      padding: 5px 15px;
+    }
+}
+
+#footer {
+    background-color: @primary-color;
+    padding-top: 2px;
+    color: white;
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    .back-icon {
+      padding-right: 20px;
+    }
+    .options-icon {
+      padding-right: 5px;
+      padding-left: 20px;
+    }
+
+
+}
+
+
+
+
+
+
+
+
