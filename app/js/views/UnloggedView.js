@@ -8,17 +8,17 @@ define([
     'use strict';
 
     var View = Backbone.View.extend({
-    	
+
     	container: '#container',
-    	
+
     	body: $('body'),
-    	
+
     	template: null,
-    	
+
     	navbar: false,
 
         unifiedRegStep: null,
-        
+
         events: {},
 
         initialize: function (templateSrc) {
@@ -28,20 +28,21 @@ define([
             this.setNavBar();
             $(container).html(this.template(templateSrc));
             this.fixContainerHeight();
-            
+
             if (this.unifiedRegStep !== null) {
                 $(container).prepend(_.template(unifiedRegistrationSrc, {
                     step: this.unifiedRegStep,
                     total: 3
                 }));
             }
-            
+
             this.el = $(this.element);
         	this._ensureElement();
-            
+
             this.onRender();
+            this.onInit();
         },
-        
+
         setNavBar: function(){
         	var $navbar = $('#header');
         	var $footer = $('#footer');
@@ -54,7 +55,7 @@ define([
                 $footer.hide();
             }
         },
-        
+
         fixContainerHeight: function(){
         	var device_height = $(window).height();
         	var header_height = 0;
