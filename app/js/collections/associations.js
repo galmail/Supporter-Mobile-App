@@ -5,7 +5,10 @@ define([
 ], function (_, Backbone, Association) {
     var Associations = Backbone.Collection.extend({
         model: Association,
-        url: 'http://dev01.supporter.com/v2/associations/getpopular'
+        url: '/v2/associations/getpopular',
+        parse: function(response){
+        	return response.data;
+        }
     });
     return Associations;
 });

@@ -2,7 +2,8 @@ var express = require('express');
 var httpProxy = require('http-proxy');
 var app = express();
 var proxy = httpProxy.createProxyServer({
-	target : 'http://suppdev01.cloudapp.net'
+	//target : 'http://suppdev01.cloudapp.net'
+	target : 'http://dev01.supporter.com'
 });
 
 ////////// STATIC FILES CONFIGURATION //////////
@@ -29,9 +30,18 @@ proxy.on('proxyRes', function(res) {
 	//console.log(res.headers);
 });
 
-app.all(/^\/io\//, function(req, res, next){
-	proxy.web(req,res);
+var request = require('request');
+
+app.all(/^\/v2\//, function(req, res, next){
+	//proxy.web(req,res);
+	var url = 'http://dev01.supporter.com' + req.url;
+	console.log('Calling: ' + url);
+	req.pipe(request(url)).pipe(res);
 });
+
+
+
+
 
 ////////// STARTING SERVER //////////
 

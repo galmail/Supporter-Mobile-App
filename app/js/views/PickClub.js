@@ -26,7 +26,7 @@ define([
 
         search: function () {
             // var searchStr = $('.js-search').val();
-            // this.collection.fetch(searchStr);
+            //this.collection.fetch(searchStr);
             this.render();
         },
 
@@ -36,35 +36,17 @@ define([
         },
 
         onInit: function () {
+            var self = this;
             this.results = this.$el.find('.js-results');
-
             this.collection = new AssociationsCollection();
-            // collection.fetch();
-
-            this.collection.add([{
-                'id': '13294',
-                'name': 'Degerfors IF',
-                'sport': 'Fotboll',
-                'logo': 'hammarby.png',
-                'csv_id': '20617',
-                'borough': 'Degerfors'
-            }, {
-                'id': '18071',
-                'name': 'Gränbyskolans IF',
-                'sport': 'Skolidrott',
-                'logo': 'malmo.png',
-                'csv_id': '41261',
-                'borough': 'Uppsala'
-            }, {
-                'id': '18100',
-                'name': 'Fotbollsklubb Bosna Skövde',
-                'sport': 'Fotboll',
-                'logo': '',
-                'csv_id': '20926',
-                'borough': 'Skövde'
-            }]);
-
-            this.render();
+            this.collection.fetch({
+            	success: function(collection, response, options){
+            		self.render();
+            	},
+            	error: function(collection, response, options){
+            		console.log('Errrrorrr');
+            	}
+            });
         },
 
         render: function () {
