@@ -4,13 +4,15 @@ define([
     'underscore',
     'backbone',
     'text!templates/MenuLogClear.html',
-    'views/UnloggedView'
+    'views/UnloggedView',
 ], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
+    
     var polyglot = new Polyglot();
 	polyglot.extend({
 		'welcome': 'Welcome'
 	});
+	
 	var View = UnloggedView.extend({
 		template: _.template(templateSrc),
 		templateData: {

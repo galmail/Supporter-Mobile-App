@@ -57,14 +57,19 @@ require.config({
 require([
 	'backbone',
 	'routers/router',
-	'views/MainView'
-], function (Backbone, Router, AppView) {
+	'views/MainView',
+	'models/I18n',
+], function (Backbone, Router, AppView, I18n) {
 	// initialize main view
     var mainView = new AppView({ el:$("#content") });
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
-	if(window.rootPage){
-		router.navigate(window.rootPage, {trigger: true});
-	}
+	// load translations
+	window.i18n = new I18n({id: 'en'});
+	window.i18n.load(function(){
+		if(window.rootPage){
+			router.navigate(window.rootPage, {trigger: true});
+		}
+	});	
 });
