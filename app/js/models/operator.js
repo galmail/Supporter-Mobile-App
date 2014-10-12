@@ -7,7 +7,7 @@ define([
 			
 		},
 		initialize: function(){
-	        console.log("New Operator Created.");
+	        //console.log("New Operator Created.");
 	    }
 	});
 	return Operator;

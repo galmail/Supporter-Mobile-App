@@ -25,9 +25,12 @@ define([
         },
 
         search: function () {
-            // var searchStr = $('.js-search').val();
-            //this.collection.fetch(searchStr);
-            this.render();
+        	var self = this;
+            var searchStr = $('.js-search').val();
+            this.collection.search(searchStr, function(collection){
+            	self.collection = collection;
+            	self.render();
+            });
         },
 
         onItemClick: function (e) {
@@ -38,38 +41,25 @@ define([
         onInit: function () {
             var self = this;
             this.results = this.$el.find('.js-results');
-            this.collection = new AssociationsCollection();
-            this.collection.fetch({
-            	success: function(collection, response, options){
-            		self.render();
-            	},
-            	error: function(collection, response, options){
-            		console.log('Errrrorrr');
-            	}
+            new AssociationsCollection().getPopular(function(collection){
+            	self.collection = collection;
+            	self.render();
             });
         },
 
         render: function () {
-
             var collection = this.collection;
-
             this.results.empty();
-
             for (var i = 0; i < collection.length; i++) {
-
                 var model = collection.at(i);
-
                 var compiled = _.template(elementTemplate);
-
                 var result = compiled({
                     name: model.get('name'),
                     sport: model.get('sport'),
                     borough: model.get('borough'),
                     logo: model.get('logo')
                 });
-
                 this.results.append($(result));
-
             }
         }
     });

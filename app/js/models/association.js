@@ -12,7 +12,7 @@ define([
             'borough': null
         },
         initialize: function () {
-            console.log('New Association Created.');
+            //console.log('New Association Created.');
         }
     });
     return Association;
