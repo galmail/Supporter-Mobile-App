@@ -34,6 +34,9 @@ require.config({
 	    tabs: {
 	      deps: ['jquery', 'foundation'],
 	      exports: 'tabs'
+	    },
+	    polyglot: {
+	      exports: 'polyglot'
 	    }
 	},
 	paths: {
@@ -46,7 +49,8 @@ require.config({
 		foundation: 'libs/foundation/foundation',
     	offcanvas: 'libs/foundation/foundation.offcanvas',
     	topbar: 'libs/foundation/foundation.topbar',
-    	tabs: 'libs/foundation/foundation.tabs'
+    	tabs: 'libs/foundation/foundation.tabs',
+    	polyglot: 'libs/polyglot/polyglot.min'
 	}
 });
 

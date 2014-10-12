@@ -54,7 +54,8 @@ define([
 	'foundation',
 	'offcanvas',
 	'topbar',
-	'tabs'
+	'tabs',
+	'polyglot'
 ], function ($, Backbone,
 	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
 	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,

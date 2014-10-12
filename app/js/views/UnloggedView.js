@@ -14,6 +14,8 @@ define([
     	body: $('body'),
 
     	template: null,
+    	
+    	templateData: null,
 
     	navbar: false,
 
@@ -26,7 +28,8 @@ define([
 			this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
             this.setNavBar();
-            $(container).html(this.template(templateSrc));
+            
+            $(container).html(this.template(this.templateData));
             this.fixContainerHeight();
 
             if (this.unifiedRegStep !== null) {

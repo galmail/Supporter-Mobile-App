@@ -7,11 +7,17 @@ define([
     'views/UnloggedView'
 ], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
-
-    var View = UnloggedView.extend({
-        template: _.template(templateSrc),
-        element: '.menu-log-clear'
-    });
+    var polyglot = new Polyglot();
+	polyglot.extend({
+		'welcome': 'Welcome'
+	});
+	var View = UnloggedView.extend({
+		template: _.template(templateSrc),
+		templateData: {
+			welcome: polyglot.t('welcome')
+		},
+		element: '.menu-log-clear'
+	}); 
 
     return View;
 });
