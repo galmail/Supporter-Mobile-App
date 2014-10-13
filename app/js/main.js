@@ -58,7 +58,7 @@ require([
 	'backbone',
 	'routers/router',
 	'views/MainView',
-	'models/I18n',
+	'models/i18n',
 ], function (Backbone, Router, AppView, I18n) {
 	// initialize main view
     var mainView = new AppView({ el:$("#content") });
