@@ -5,6 +5,8 @@ define([
     'backbone'
 ], function ($, _, Backbone) {
     'use strict';
+    
+    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
     var View = Backbone.View.extend({
 

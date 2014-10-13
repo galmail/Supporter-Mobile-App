@@ -10,16 +10,11 @@ define([
     'use strict';
     
     console.log('App version: ' + config.version);
-    
-    var polyglot = new Polyglot();
-	polyglot.extend({
-		'welcome': 'Welcome'
-	});
 	
 	var View = UnloggedView.extend({
 		template: _.template(templateSrc),
 		templateData: {
-			welcome: polyglot.t('welcome')
+			welcome: "Welcome"
 		},
 		element: '.menu-log-clear'
 	}); 

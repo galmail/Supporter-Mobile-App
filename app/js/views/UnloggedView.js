@@ -6,6 +6,8 @@ define([
     'text!templates/snippets/UnifiedRegistration.html'
 ], function ($, _, Backbone, unifiedRegistrationSrc) {
     'use strict';
+    
+    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
     var View = Backbone.View.extend({
 
