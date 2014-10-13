@@ -32,7 +32,7 @@ proxy.on('proxyRes', function(res) {
 
 var request = require('request');
 
-app.all(/^\/v2\//, function(req, res, next){
+app.all(/v2\//, function(req, res, next){
 	//proxy.web(req,res);
 	var url = 'http://dev01.supporter.com' + req.url;
 	console.log('Calling: ' + url);

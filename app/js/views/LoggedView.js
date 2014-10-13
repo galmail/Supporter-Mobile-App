@@ -13,17 +13,19 @@ define([
     	body: $('body'),
 
     	template: null,
+    	
+    	templateData: null,
 
         navbar: true,
 
         events: {},
 
-		initialize: function(templateSrc) {
+		initialize: function() {
 			//console.log('LoggedView initialize');
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();
-            $(container).html(this.template(templateSrc));
+            $(container).html(this.template(this.templateData));
             this.fixContainerHeight();
             
 

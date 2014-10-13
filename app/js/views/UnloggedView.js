@@ -23,7 +23,7 @@ define([
 
         events: {},
 
-        initialize: function (templateSrc) {
+        initialize: function () {
         	//console.log("UnloggedView initialize");
 			this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');

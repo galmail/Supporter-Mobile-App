@@ -7,8 +7,6 @@ define([
     'views/UnloggedView'
 ], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
-    
-    console.debug();
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),

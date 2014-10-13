@@ -5,8 +5,11 @@ define([
     'backbone',
     'text!templates/MenuLogClear.html',
     'views/UnloggedView',
-], function ($, _, Backbone, templateSrc, UnloggedView) {
+    'config'
+], function ($, _, Backbone, templateSrc, UnloggedView, config) {
     'use strict';
+    
+    console.log('App version: ' + config.version);
     
     var polyglot = new Polyglot();
 	polyglot.extend({
