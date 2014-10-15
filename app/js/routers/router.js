@@ -78,7 +78,7 @@ define([
 			'pickClub': 					'pickClub',
 			'knowMore': 					'knowMore',
 			'signIn': 						'signIn',
-			'pickClubConfirm/:club': 		'pickClubConfirm',
+			'pickClubConfirm': 				'pickClubConfirm',
 			'clubDisclaimer': 				'clubDisclaimer',
 			'remindPassword': 				'remindPassword',
 			'createNewAccount': 			'createNewAccount',
@@ -139,10 +139,8 @@ define([
 		signIn: function () {
 			new SignInView();
 		},
-		pickClubConfirm: function (param) {
-			new PickClubConfirmView({
-				clubId: param
-			});
+		pickClubConfirm: function () {
+			new PickClubConfirmView();
 		},
 		clubDisclaimer: function () {
 			new ClubDisclaimerView();

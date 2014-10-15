@@ -21,7 +21,7 @@ define([
 
         events: {
             'keyup .js-search': 'search',
-            'click .js-results li': 'onItemClick'
+            'click .js-results li': 'selectClub'
         },
 
         search: function () {
@@ -29,37 +29,38 @@ define([
             var searchStr = $('.js-search').val();
             this.collection.search(searchStr, function(collection){
             	self.collection = collection;
-            	self.render();
+            	self.renderScreen();
             });
         },
 
-        onItemClick: function (e) {
+        selectClub: function (e) {
             var clubId = $(e.currentTarget).data('id');
-            window.location.href = '#pickClubConfirm/' + clubId;
+            AssociationsCollection.selectedAssociation = this.collection.get(clubId);
+            window.location.href = '#pickClubConfirm';
         },
 
-        onInit: function () {
+        onRender: function () {
+        	console.log('PickClub init');
             var self = this;
             this.results = this.$el.find('.js-results');
             new AssociationsCollection().getPopular(function(collection){
             	self.collection = collection;
-            	self.render();
+            	self.renderScreen();
             });
+            return this;
         },
 
-        render: function () {
+        renderScreen: function () {
+        	console.log('PickClub render');
             var collection = this.collection;
-            this.results.empty();
-            for (var i = 0; i < collection.length; i++) {
-                var model = collection.at(i);
-                var compiled = _.template(elementTemplate);
-                var result = compiled({
-                    name: model.get('name'),
-                    sport: model.get('sport'),
-                    borough: model.get('borough'),
-                    logo: model.get('logo')
-                });
-                this.results.append($(result));
+            if(collection!=null){
+            	this.results.empty();
+	            for (var i = 0; i < collection.length; i++) {
+	                var model = collection.at(i);
+	                var compiled = _.template(elementTemplate);
+	                var result = compiled(model.attributes);
+	                this.results.append($(result));
+	            }
             }
         }
     });

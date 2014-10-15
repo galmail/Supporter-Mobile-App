@@ -26,26 +26,28 @@ define([
         events: {},
 
         initialize: function () {
-        	//console.log("UnloggedView initialize");
-			this.body.addClass('body-not-logged');
+        	console.log("UnloggedView initialize");
+            // if (this.unifiedRegStep !== null) {
+                // $(container).prepend(_.template(unifiedRegistrationSrc, {
+                    // step: this.unifiedRegStep,
+                    // total: 3
+                // }));
+            // }
+            this.onInit();
+            this.render();
+        },
+        
+        render: function(){
+        	console.log("UnloggedView render");
+        	
+        	this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
             this.setNavBar();
-            
             $(container).html(this.template(this.templateData));
             this.fixContainerHeight();
-
-            if (this.unifiedRegStep !== null) {
-                $(container).prepend(_.template(unifiedRegistrationSrc, {
-                    step: this.unifiedRegStep,
-                    total: 3
-                }));
-            }
-
-            this.el = $(this.element);
+        	this.el = $(this.element);
         	this._ensureElement();
-
-            this.onRender();
-            this.onInit();
+        	return this.onRender();
         },
 
         setNavBar: function(){
@@ -78,7 +80,9 @@ define([
         onInit: function() {},
 
         // Override this
-        onRender: function() {}
+        onRender: function() {
+        	return this;
+        }
     });
 
     return View;

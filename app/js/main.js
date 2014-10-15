@@ -71,5 +71,5 @@ require([
 		if(window.rootPage){
 			router.navigate(window.rootPage, {trigger: true});
 		}
-	});	
+	});
 });

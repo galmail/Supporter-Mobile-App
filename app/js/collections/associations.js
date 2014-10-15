@@ -34,6 +34,10 @@ define([
         	});
         }
         
+    },
+    // static properties
+    {
+    	selectedAssociation: null
     });
     return Associations;
 });

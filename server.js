@@ -1,8 +1,8 @@
 var express = require('express');
 var httpProxy = require('http-proxy');
+var request = require('request');
 var app = express();
 var proxy = httpProxy.createProxyServer({
-	//target : 'http://suppdev01.cloudapp.net'
 	target : 'http://dev01.supporter.com'
 });
 
@@ -26,11 +26,9 @@ switch(app.get('env')) {
 
 ////////// PROXY SERVER CONFIGURATION //////////
 
-proxy.on('proxyRes', function(res) {
+//proxy.on('proxyRes', function(res) {
 	//console.log(res.headers);
-});
-
-var request = require('request');
+//});
 
 app.all(/v2\//, function(req, res, next){
 	//proxy.web(req,res);
@@ -38,10 +36,6 @@ app.all(/v2\//, function(req, res, next){
 	console.log('Calling: ' + url);
 	req.pipe(request(url)).pipe(res);
 });
-
-
-
-
 
 ////////// STARTING SERVER //////////
 
