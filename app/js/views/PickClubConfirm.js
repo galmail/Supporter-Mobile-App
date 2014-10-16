@@ -13,9 +13,10 @@ define([
         template: _.template(templateSrc),
         element: '.pick-club-confirm',
         
-        onInit: function(){
+        onInit: function(callback){
         	console.log("PickClubConfirm init");
         	this.templateData = Associations.selectedAssociation.attributes;
+        	callback();
         },
         
         onRender: function () {

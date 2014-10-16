@@ -4,8 +4,9 @@ define([
     'underscore',
     'backbone',
     'text!templates/SelectOperators.html',
-    'views/UnloggedView'
-], function ($, _, Backbone, templateSrc, UnloggedView) {
+    'views/UnloggedView',
+    'collections/operators'
+], function ($, _, Backbone, templateSrc, UnloggedView, Operators) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -14,6 +15,15 @@ define([
         unifiedRegStep: 1,
         events: {
             'click .js-select-operator-ok': 'onSelectOperatorsOk'
+        },
+        
+        onInit: function(callback){
+        	var self = this;
+        	// get available operators
+        	new Operators().getAvailable(function(availableOperators){
+        		self.templateData = availableOperators;
+        		callback();
+        	});
         },
 
         onSelectOperatorsOk: function () {

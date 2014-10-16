@@ -21,9 +21,10 @@ define([
 				pin: null
 			}
 		},
-		initialize: function(email){
+		initialize: function(email,association){
 			this.properties = {};
 			this.properties.email = email;
+			this.association = association;
 	   	},
 	   	parse: function(response){
         	return response.data;
@@ -37,10 +38,30 @@ define([
             		callback(true);
             	},
             	error: function(model, response, options){
+            		console.log('Error User.login');
+            		callback(false);
+            	}
+        	});
+	   	},
+	   	signUp: function(password, callback){
+	   		var self = this;
+	   		this.url = '/v2/users/create?email='+encodeURIComponent(this.properties.email)+'&password='+encodeURIComponent(password)+'&association='+this.association;
+        	this.fetch({
+        		success: function(model, response, options){
+        			self.login(password, callback);
+            	},
+            	error: function(model, response, options){
+            		console.log('Error User.signUp');
             		callback(false);
             	}
         	});
 	   	}
+	   	
+	   	
+	   	
+	   	
+	   	
+	   	
 	});
 	return User;
 });

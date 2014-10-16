@@ -27,14 +27,16 @@ define([
 
         initialize: function () {
         	console.log("UnloggedView initialize");
-            // if (this.unifiedRegStep !== null) {
-                // $(container).prepend(_.template(unifiedRegistrationSrc, {
-                    // step: this.unifiedRegStep,
-                    // total: 3
-                // }));
-            // }
-            this.onInit();
-            this.render();
+        	var self = this;
+            if (this.unifiedRegStep !== null) {
+                $(container).prepend(_.template(unifiedRegistrationSrc, {
+                    step: this.unifiedRegStep,
+                    total: 3
+                }));
+            }
+            this.onInit(function(){
+            	self.render();
+            });
         },
         
         render: function(){
@@ -77,7 +79,7 @@ define([
         },
 
         // Override this
-        onInit: function() {},
+        onInit: function(callback) { callback(); },
 
         // Override this
         onRender: function() {
