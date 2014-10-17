@@ -5,13 +5,15 @@ define([
     'backbone',
     'text!templates/SelectOperators.html',
     'views/UnloggedView',
-    'collections/operators'
-], function ($, _, Backbone, templateSrc, UnloggedView, Operators) {
+    'collections/operators',
+    'text!templates/snippets/SelectOperatorsElement.html'
+], function ($, _, Backbone, templateSrc, UnloggedView, Operators, elementTemplate) {
     'use strict';
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.select-operators',
+        collection: null,
         unifiedRegStep: 1,
         events: {
             'click .js-select-operator-ok': 'onSelectOperatorsOk'
@@ -21,9 +23,15 @@ define([
         	var self = this;
         	// get available operators
         	new Operators().getAvailable(function(availableOperators){
-        		self.templateData = availableOperators;
+        		self.collection = availableOperators;
         		callback();
         	});
+        },
+        
+        onRender: function () {
+        	console.log('SelectOperators render');
+        	var results = this.$el.find('#operatorsList');
+            this.renderCollection(this.collection, results, elementTemplate);
         },
 
         onSelectOperatorsOk: function () {

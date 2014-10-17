@@ -14,10 +14,10 @@ define([
         template: _.template(templateSrc),
 
         element: '.pick-club',
+        
+        collection: null,
 
         results: null,
-
-        collection: null,
 
         events: {
             'keyup .js-search': 'search',
@@ -29,7 +29,7 @@ define([
             var searchStr = $('.js-search').val();
             this.collection.search(searchStr, function(collection){
             	self.collection = collection;
-            	self.renderScreen();
+            	self.renderCollection(collection, self.results, elementTemplate);
             });
         },
 
@@ -45,24 +45,11 @@ define([
             this.results = this.$el.find('.js-results');
             new AssociationsCollection().getPopular(function(collection){
             	self.collection = collection;
-            	self.renderScreen();
+            	self.renderCollection(collection, self.results, elementTemplate);
             });
             return this;
-        },
-
-        renderScreen: function () {
-        	console.log('PickClub render');
-            var collection = this.collection;
-            if(collection!=null){
-            	this.results.empty();
-	            for (var i = 0; i < collection.length; i++) {
-	                var model = collection.at(i);
-	                var compiled = _.template(elementTemplate);
-	                var result = compiled(model.attributes);
-	                this.results.append($(result));
-	            }
-            }
         }
+        
     });
 
     return View;

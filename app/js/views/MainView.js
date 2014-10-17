@@ -6,6 +6,8 @@ define([
     'text!templates/snippets/Main.html'
 ], function ($, _, Backbone, mainTpl) {
     'use strict';
+    
+    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
     var View = Backbone.View.extend({
     	
@@ -29,6 +31,18 @@ define([
         		//console.log($('#iovationtoken').val());
         		console.log('iovation token loaded');
         	});
+        },
+        
+        renderCollection: function(collection, resultsElement, elementTemplate){
+            if(collection!=null){
+            	resultsElement.empty();
+	            for (var i = 0; i < collection.length; i++) {
+	                var model = collection.at(i);
+	                var compiled = _.template(elementTemplate);
+	                var result = compiled(model.attributes);
+	                resultsElement.append($(result));
+	            }
+            }
         }
         
     });

@@ -2,13 +2,12 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function ($, _, Backbone) {
+    'backbone',
+    'views/MainView'
+], function ($, _, Backbone, MainView) {
     'use strict';
-    
-    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
-    var View = Backbone.View.extend({
+    var View = MainView.extend({
 
     	container: '#container',
 

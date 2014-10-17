@@ -3,13 +3,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'views/MainView',
     'text!templates/snippets/UnifiedRegistration.html'
-], function ($, _, Backbone, unifiedRegistrationSrc) {
+], function ($, _, Backbone, MainView, unifiedRegistrationSrc) {
     'use strict';
-    
-    _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
 
-    var View = Backbone.View.extend({
+    var View = MainView.extend({
 
     	container: '#container',
 

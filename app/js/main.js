@@ -59,9 +59,9 @@ require([
 	'routers/router',
 	'views/MainView',
 	'models/i18n',
-], function (Backbone, Router, AppView, I18n) {
+], function (Backbone, Router, MainView, I18n) {
 	// initialize main view
-    var mainView = new AppView({ el:$("#content") });
+    var mainView = new MainView({ el:$("#content") });
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
