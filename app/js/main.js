@@ -66,7 +66,8 @@ require([
 	Backbone.history.start();
 	$(document).foundation();
 	// load translations
-	window.i18n = new I18n({id: 'en'});
+	var userLang = navigator.language;
+	window.i18n = new I18n({code: 'sv'});
 	window.i18n.load(function(){
 		if(window.rootPage){
 			router.navigate(window.rootPage, {trigger: true});

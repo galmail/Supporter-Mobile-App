@@ -26,16 +26,21 @@ switch(app.get('env')) {
 
 ////////// PROXY SERVER CONFIGURATION //////////
 
-//proxy.on('proxyRes', function(res) {
-	//console.log(res.headers);
-//});
-
 app.all(/v2\//, function(req, res, next){
 	//proxy.web(req,res);
 	var url = 'http://dev01.supporter.com' + req.url;
 	console.log('Calling: ' + url);
 	req.pipe(request(url)).pipe(res);
 });
+
+app.all(/lang\//, function(req, res, next){
+	//proxy.web(req,res);
+	var url = 'http://static.supporter.com' + req.url;
+	console.log('Calling: ' + url);
+	req.pipe(request(url)).pipe(res);
+});
+
+
 
 ////////// STARTING SERVER //////////
 

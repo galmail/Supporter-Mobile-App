@@ -14,7 +14,6 @@ define([
 			this.url = '/v2/operators/listavailable?session='+localStorage.getItem('session');
 			this.fetch({
 				success: function(collection, response, options){
-					window.x = collection;
             		callback(collection);
             	},
             	error: function(collection, response, options){
