@@ -4,38 +4,44 @@ define([
     'underscore',
     'backbone',
     'views/MainView',
-    'text!templates/snippets/UnifiedRegistration.html'
-], function ($, _, Backbone, MainView, unifiedRegistrationSrc) {
+    'text!templates/snippets/UnifiedRegistration.html',
+    'models/i18n'
+], function ($, _, Backbone, MainView, unifiedRegistrationSrc, I18n) {
     'use strict';
 
     var View = MainView.extend({
-
-    	container: '#container',
-
-    	body: $('body'),
-
-    	template: null,
-    	
-    	templateData: null,
 
     	navbar: false,
 
         unifiedRegStep: null,
 
-        events: {},
-
         initialize: function () {
         	console.log("UnloggedView initialize");
         	var self = this;
-            if (this.unifiedRegStep !== null) {
+            this.unifiedRegSteps();
+            this.onInit(function(){
+            	// before render, add to templateData the language translation
+            	if(I18n.transData!=null){
+            		self.templateData.i18n = I18n.transData;
+            		self.render();
+            	}
+            	else {
+            		new I18n({code: I18n.locale}).load(function(model){
+            			I18n.transData = model.attributes;
+            			self.templateData.i18n = I18n.transData;
+	            		self.render();
+            		});
+            	}
+            });
+        },
+        
+        unifiedRegSteps: function(){
+        	if (this.unifiedRegStep !== null) {
                 $(container).prepend(_.template(unifiedRegistrationSrc, {
                     step: this.unifiedRegStep,
                     total: 3
                 }));
             }
-            this.onInit(function(){
-            	self.render();
-            });
         },
         
         render: function(){
@@ -49,32 +55,6 @@ define([
         	this.el = $(this.element);
         	this._ensureElement();
         	return this.onRender();
-        },
-
-        setNavBar: function(){
-        	var $navbar = $('#header');
-        	var $footer = $('#footer');
-        	if (this.navbar) {
-                $navbar.show();
-                $footer.show();
-            }
-            else {
-                $navbar.hide();
-                $footer.hide();
-            }
-        },
-
-        fixContainerHeight: function(){
-        	var device_height = $(window).height();
-        	var header_height = 0;
-        	var footer_height = 0;
-        	if($('#header').is(':visible')){
-        		header_height = $('#header').height();
-        	}
-        	if($('#footer').is(':visible')){
-        		footer_height = $('#footer').height();
-        	}
-        	$('#container').height(device_height-(header_height+footer_height));
         },
 
         // Override this

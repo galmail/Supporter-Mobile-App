@@ -12,9 +12,17 @@ define([
     var View = Backbone.View.extend({
     	
     	el: '#container',
+    	
+    	container: '#container',
+
+    	body: $('body'),
 
         // Override this
         template: null,
+        
+        templateData: {},
+        
+        events: {},
 
         initialize: function (templateSrc) {
         	console.log('MainView initialize');
@@ -43,7 +51,35 @@ define([
 	                resultsElement.append($(result));
 	            }
             }
+        },
+        
+        setNavBar: function(){
+        	var $navbar = $('#header');
+        	var $footer = $('#footer');
+        	if (this.navbar) {
+                $navbar.show();
+                $footer.show();
+            }
+            else {
+                $navbar.hide();
+                $footer.hide();
+            }
+        },
+
+        fixContainerHeight: function(){
+        	var device_height = $(window).height();
+        	var header_height = 0;
+        	var footer_height = 0;
+        	if($('#header').is(':visible')){
+        		header_height = $('#header').height();
+        	}
+        	if($('#footer').is(':visible')){
+        		footer_height = $('#footer').height();
+        	}
+        	$('#container').height(device_height-(header_height+footer_height));
         }
+        
+        
         
     });
 

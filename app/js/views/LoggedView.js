@@ -3,34 +3,37 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/MainView'
-], function ($, _, Backbone, MainView) {
+    'views/MainView',
+    'models/i18n'
+], function ($, _, Backbone, MainView, I18n) {
     'use strict';
 
     var View = MainView.extend({
 
-    	container: '#container',
-
-    	body: $('body'),
-
-    	template: null,
-    	
-    	templateData: null,
-
         navbar: true,
 
-        events: {},
-
 		initialize: function() {
-			//console.log('LoggedView initialize');
-        	this.body.addClass('body-logged');
-            this.body.removeClass('body-not-logged');
-            this.setNavBar();
-            $(container).html(this.template(this.templateData));
-            this.fixContainerHeight();
-            
-
-            // refactor into events object later
+			console.log('LoggedView initialize');
+        	var self = this;
+            this.bindSomeEvents();
+            this.onInit(function(){
+            	// before render, add to templateData the language translation
+            	if(I18n.transData!=null){
+            		self.templateData.i18n = I18n.transData;
+            		self.render();
+            	}
+            	else {
+            		new I18n({code: I18n.locale}).load(function(model){
+            			I18n.transData = model.attributes;
+            			self.templateData.i18n = I18n.transData;
+	            		self.render();
+            		});
+            	}
+            });
+        },
+        
+		bindSomeEvents: function(){
+        	// refactor into events object later
             $('.search-icon').on('click', function() {
                 window.location.href = '#eventsAllFilter';
             });
@@ -43,39 +46,21 @@ define([
             $('.options-icon').on('click', function() {
                 window.location.href = '#userSettings';
             });
-            
-            this.el = $(this.element);
-        	this._ensureElement();
-
-            this.onRender();
-        },
-
-        setNavBar: function(){
-        	var $navbar = $('#header');
-        	var $footer = $('#footer');
-        	if (this.navbar) {
-                $navbar.show();
-                $footer.show();
-            }
-            else {
-                $navbar.hide();
-                $footer.hide();
-            }
         },
         
-        fixContainerHeight: function(){
-        	var device_height = $(window).height();
-        	var header_height = 0;
-        	var footer_height = 0;
-        	if($('#header').is(':visible')){
-        		header_height = $('#header').height();
-        	}
-        	if($('#footer').is(':visible')){
-        		footer_height = $('#footer').height();
-        	}
-        	$('#container').height(device_height-(header_height+footer_height));
+        render: function(){
+        	console.log("LoggedView render");
+        	
+        	this.body.addClass('body-logged');
+            this.body.removeClass('body-not-logged');
+            this.setNavBar();
+            $(container).html(this.template(this.templateData));
+            this.fixContainerHeight();
+        	this.el = $(this.element);
+        	this._ensureElement();
+        	return this.onRender();
         },
-
+        
         // Override this
         onInit: function() {},
 

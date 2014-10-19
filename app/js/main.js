@@ -13,9 +13,13 @@ require.config({
 			],
 			exports: 'Backbone'
 		},
-		backboneLocalstorage: {
+		backboneLocalStorage: {
 			deps: ['backbone'],
-			exports: 'Store'
+			exports: 'bbLocalStorage'
+		},
+		backboneDualStorage: {
+			deps: ['underscore','backbone'],
+			exports: 'bbDualStorage'
 		},
 	    foundation: {
 	      deps: ['jquery', 'modernizr']
@@ -34,23 +38,20 @@ require.config({
 	    tabs: {
 	      deps: ['jquery', 'foundation'],
 	      exports: 'tabs'
-	    },
-	    polyglot: {
-	      exports: 'polyglot'
 	    }
 	},
 	paths: {
 		jquery: 'libs/jquery/jquery',
 		underscore: 'libs/underscore/underscore',
 		backbone: 'libs/backbone/backbone',
-		backboneLocalstorage: 'libs/backbone.localStorage/backbone.localStorage',
+		backboneLocalStorage: 'libs/backbone.localStorage/backbone.localStorage',
+		backboneDualStorage: 'libs/backbone.dualStorage/backbone.dualStorage',
 		text: 'libs/requirejs-text/text',
 		modernizr: 'libs/modernizr/modernizr',
 		foundation: 'libs/foundation/foundation',
     	offcanvas: 'libs/foundation/foundation.offcanvas',
     	topbar: 'libs/foundation/foundation.topbar',
-    	tabs: 'libs/foundation/foundation.tabs',
-    	polyglot: 'libs/polyglot/polyglot.min'
+    	tabs: 'libs/foundation/foundation.tabs'
 	}
 });
 
@@ -65,12 +66,7 @@ require([
 	var router = Router.getInstance();
 	Backbone.history.start();
 	$(document).foundation();
-	// load translations
-	var userLang = navigator.language;
-	window.i18n = new I18n({code: 'sv'});
-	window.i18n.load(function(){
-		if(window.rootPage){
-			router.navigate(window.rootPage, {trigger: true});
-		}
-	});
+	if(window.rootPage){
+		router.navigate(window.rootPage, {trigger: true});
+	}
 });

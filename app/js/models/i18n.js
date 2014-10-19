@@ -1,5 +1,6 @@
 define(['underscore', 'backbone'], function(_, Backbone) {
 	var I18n = Backbone.Model.extend({
+		//storeName: 'I18n',
 		defaults: {
 			code: null,
 			lang: null
@@ -8,16 +9,28 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 			
 		},
 		load: function(callback) {
+			var self = this;
 			this.url = '/lang/'+ this.get('code') +'/strings.json';
         	this.fetch({
         		success: function(obj, response, options){
             		callback(obj);
             	},
             	error: function(collection, response, options){
-            		console.log('Error: ' + response);
+            		console.log('Error getting lang='+self.get('code')+' ..getting default lang=sv');
+            		if(self.get('code')!='sv'){
+            			self.set('code','sv');
+            			self.load(callback);
+            		}
             	}
         	});
 		}
+	},
+	// static properties
+	{
+		locale: navigator.language,
+		
+		transData: null
+	
 	});
 	return I18n;
 });
