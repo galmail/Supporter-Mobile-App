@@ -3,19 +3,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/MainView',
+    'views/global/MainView',
+    'text!templates/snippets/UnifiedRegistration.html',
     'models/i18n'
-], function ($, _, Backbone, MainView, I18n) {
+], function ($, _, Backbone, MainView, unifiedRegistrationSrc, I18n) {
     'use strict';
 
     var View = MainView.extend({
 
-        navbar: true,
+    	navbar: false,
 
-		initialize: function() {
-			console.log('LoggedView initialize');
+        unifiedRegStep: null,
+
+        initialize: function () {
+        	console.log("UnloggedView initialize");
         	var self = this;
-            this.bindSomeEvents();
+            this.unifiedRegSteps();
             this.onInit(function(){
             	// before render, add to templateData the language translation
             	if(I18n.transData!=null){
@@ -32,27 +35,20 @@ define([
             });
         },
         
-		bindSomeEvents: function(){
-        	// refactor into events object later
-            $('.search-icon').on('click', function() {
-                window.location.href = '#eventsAllFilter';
-            });
-            $('.back-icon').on('click', function() {
-                window.history.back();
-            });
-            $('.home-icon').on('click', function() {
-                window.location.href = '#mainMenuLogged';
-            });
-            $('.options-icon').on('click', function() {
-                window.location.href = '#userSettings';
-            });
+        unifiedRegSteps: function(){
+        	if (this.unifiedRegStep !== null) {
+                $(container).prepend(_.template(unifiedRegistrationSrc, {
+                    step: this.unifiedRegStep,
+                    total: 3
+                }));
+            }
         },
         
         render: function(){
-        	console.log("LoggedView render");
+        	console.log("UnloggedView render");
         	
-        	this.body.addClass('body-logged');
-            this.body.removeClass('body-not-logged');
+        	this.body.addClass('body-not-logged');
+            this.body.removeClass('body-logged');
             this.setNavBar();
             $(container).html(this.template(this.templateData));
             this.fixContainerHeight();
@@ -60,12 +56,14 @@ define([
         	this._ensureElement();
         	return this.onRender();
         },
-        
-        // Override this
-        onInit: function() {},
 
         // Override this
-        onRender: function() {}
+        onInit: function(callback) { callback(); },
+
+        // Override this
+        onRender: function() {
+        	return this;
+        }
     });
 
     return View;

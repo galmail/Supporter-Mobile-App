@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/MenuLogClear.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'config'
 ], function ($, _, Backbone, templateSrc, UnloggedView, config) {
     'use strict';

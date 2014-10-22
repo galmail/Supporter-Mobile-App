@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/PickClubConfirm.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'collections/associations'
 ], function ($, _, Backbone, templateSrc, UnloggedView, Associations) {
     'use strict';

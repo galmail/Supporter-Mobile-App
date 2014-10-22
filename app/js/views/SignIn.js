@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/SignIn.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'models/user'
 ], function ($, _, Backbone, templateSrc, UnloggedView, User) {
     'use strict';

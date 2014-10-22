@@ -4,7 +4,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/LoggedView',
+    'views/global/LoggedView',
     'text!templates/DeleteUserAccountConfirm.html',
     'text!templates/snippets/EmailHeader.html'
 ], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {

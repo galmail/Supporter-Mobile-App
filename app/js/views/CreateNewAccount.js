@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/CreateNewAccount.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'collections/associations',
     'models/user'
 ], function ($, _, Backbone, templateSrc, UnloggedView, Associations, User) {

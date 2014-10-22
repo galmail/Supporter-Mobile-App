@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/SelectOperators.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'collections/operators',
     'text!templates/snippets/SelectOperatorsElement.html'
 ], function ($, _, Backbone, templateSrc, UnloggedView, Operators, elementTemplate) {

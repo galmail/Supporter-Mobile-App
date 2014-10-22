@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/WarningInfo.html',
-    'views/UnloggedView'
+    'views/global/UnloggedView'
 ], function ($, _, Backbone, templateSrc, UnloggedView) {
     'use strict';
 

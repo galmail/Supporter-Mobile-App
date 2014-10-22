@@ -4,7 +4,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/LoggedView',
+    'views/global/LoggedView',
     'text!templates/DeleteUserAccountDone.html'
 ], function ($, _, Backbone, LoggedView, templateSrc) {
     'use strict';

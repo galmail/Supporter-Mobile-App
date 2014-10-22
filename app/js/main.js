@@ -58,7 +58,7 @@ require.config({
 require([
 	'backbone',
 	'routers/router',
-	'views/MainView',
+	'views/global/MainView',
 	'models/i18n',
 ], function (Backbone, Router, MainView, I18n) {
 	// initialize main view

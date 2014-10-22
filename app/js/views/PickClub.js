@@ -4,7 +4,7 @@ define([
     'underscore',
     'backbone',
     'text!templates/PickClub.html',
-    'views/UnloggedView',
+    'views/global/UnloggedView',
     'collections/associations',
     'text!templates/snippets/PickClubElement.html'
 ], function ($, _, Backbone, templateSrc, UnloggedView, AssociationsCollection, elementTemplate) {
