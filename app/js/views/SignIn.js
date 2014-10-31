@@ -5,8 +5,9 @@ define([
     'backbone',
     'text!templates/SignIn.html',
     'views/global/UnloggedView',
-    'models/user'
-], function ($, _, Backbone, templateSrc, UnloggedView, User) {
+    'models/user',
+    'utils'
+], function ($, _, Backbone, templateSrc, UnloggedView, User, Utils) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -21,10 +22,14 @@ define([
         	var email = $('#email').val();
         	var password = $('#password').val();
         	var user = new User(email);
-        	user.login(password,function(success){
+        	user.login(password,function(success, response){
         		if(success){
         			console.log('logged in successful!');
         			window.location.href = "#selectOperators";
+        		}
+        		else {
+        			var resp = JSON.parse(response.responseText);
+        			Utils.alert(resp.message,null,'Error','Ok');
         		}
         	});
         	return false;
