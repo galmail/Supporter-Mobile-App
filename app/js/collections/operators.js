@@ -1,8 +1,9 @@
 define([
   'underscore',
   'backbone',
-  'models/operator'
-], function(_, Backbone, Operator){
+  'models/operator',
+  'utils'
+], function(_, Backbone, Operator, Utils){
 	var Operators = Backbone.Collection.extend({
 		model: Operator,
 		
@@ -11,7 +12,7 @@ define([
         },
         
 		getAvailable: function(callback){
-			this.url = '/v2/operators/listavailable?session='+localStorage.getItem('session');
+			this.url = Utils.buildUrl('/v2/operators/listavailable');
 			this.fetch({
 				success: function(collection, response, options){
             		callback(collection);

@@ -6,8 +6,9 @@ define([
     'text!templates/CreateNewAccount.html',
     'views/global/UnloggedView',
     'collections/associations',
-    'models/user'
-], function ($, _, Backbone, templateSrc, UnloggedView, Associations, User) {
+    'models/user',
+    'utils'
+], function ($, _, Backbone, templateSrc, UnloggedView, Associations, User, Utils) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -16,6 +17,7 @@ define([
         events: {
         	'click #createButton': 'createAccount'
         },
+        
         createAccount: function(){
         	// validate email and password
         	var email = $('#email').val();
@@ -23,14 +25,17 @@ define([
         	if(email.length<1 || password.length<1) return false;
         	// create account
         	var user = new User(email,Associations.selectedAssociation.id);
-        	user.signUp(password,function(result){
-        		// go to next screen
-        		window.location.href='#selectOperators';
+        	user.signUp(password,function(success, response){
+        		if(success){
+        			window.location.href='#unifiedRegister';
+        		}
+        		else {
+        			var resp = JSON.parse(response.responseText);
+        			Utils.alert(resp.message,null,'Error','Ok');
+        		}
         	});
         	return false;
         }
-        
-        
         
     });
 

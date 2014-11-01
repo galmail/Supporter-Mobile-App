@@ -61,11 +61,11 @@ define([
         	return this.onRender();
         },
         
-        // Override this
-        onInit: function() {},
+        // All views can override this
+        onInit: function(callback) { callback(); },
 
-        // Override this
-        onRender: function() {}
+        // All views can override this
+        onRender: function() { return this; }
     });
 
     return View;

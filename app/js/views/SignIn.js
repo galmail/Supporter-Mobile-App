@@ -24,8 +24,7 @@ define([
         	var user = new User(email);
         	user.login(password,function(success, response){
         		if(success){
-        			console.log('logged in successful!');
-        			window.location.href = "#selectOperators";
+        			window.location.href = "#mainMenuLogged";
         		}
         		else {
         			var resp = JSON.parse(response.responseText);

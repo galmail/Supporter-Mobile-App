@@ -58,9 +58,8 @@ require.config({
 require([
 	'backbone',
 	'routers/router',
-	'views/global/MainView',
-	'models/i18n',
-], function (Backbone, Router, MainView, I18n) {
+	'views/global/MainView'
+], function (Backbone, Router, MainView) {
 	// initialize main view
     var mainView = new MainView({ el:$("#content") });
 	var router = Router.getInstance();

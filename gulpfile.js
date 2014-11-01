@@ -13,7 +13,7 @@ var rename = require('gulp-rename');
 
 // Lint Task
 gulp.task('lint', function() {
-	return gulp.src('app/js/*.js').pipe(jshint()).pipe(jshint.reporter('default'));
+	return gulp.src('app/js/*/*.js').pipe(jshint()).pipe(jshint.reporter('default'));
 });
 
 // Compile Our Sass

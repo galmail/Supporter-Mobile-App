@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
-    'models/association'
-], function (_, Backbone, Association) {
+    'models/association',
+    'utils'
+], function (_, Backbone, Association, Utils) {
     var Associations = Backbone.Collection.extend({
         model: Association,
         
@@ -11,7 +12,7 @@ define([
         },
         
         getPopular: function(callback){
-        	this.url = '/v2/associations/getpopular';
+        	this.url = Utils.buildUrl('/v2/associations/getpopular');
         	this.fetch({
         		success: function(collection, response, options){
             		callback(collection);
@@ -23,7 +24,9 @@ define([
         },
         
         search: function(searchStr, callback){
-        	this.url = '/v2/associations/getbystring?string='+searchStr;
+        	this.url = Utils.buildUrl('/v2/associations/getbystring',{
+        		string: searchStr
+        	});
         	this.fetch({
         		success: function(collection, response, options){
             		callback(collection);

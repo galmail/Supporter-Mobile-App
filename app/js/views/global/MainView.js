@@ -8,7 +8,7 @@ define([
     'use strict';
     
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
-
+    
     var View = Backbone.View.extend({
     	
     	el: '#container',

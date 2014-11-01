@@ -1,8 +1,10 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone){
+  'backbone',
+  'utils'
+], function(_, Backbone, Utils){
 	var User = Backbone.Model.extend({
+		
 		defaults: {
 			session: null,
 			key: null,
@@ -21,16 +23,42 @@ define([
 				pin: null
 			}
 		},
+		
 		initialize: function(email,association){
 			this.properties = {};
 			this.properties.email = email;
 			this.association = association;
 	   	},
-	   	parse: function(response){
+	   	
+	   	//// parsers ////
+	   	
+	   	defaultParse: function(response){
         	return response.data;
         },
+        updateParse: function(response){
+        	return { properties: response.data };
+        },
+        pinLookUpParse: function(response){
+        	var data = response.data;
+        	var attrs = {
+        		pin: data.sanitizedPin,
+        		firstName: data.first_name,
+        		lastName: data.last_name,
+        		street: data.street,
+        		zipCode: data.zipcode,
+        		city: data.city
+        	};
+        	return { properties: attrs };
+        },
+	   	
+	   	//// methods ////
+	   	
 	   	login: function(password, callback){
-	   		this.url = '/v2/users/authenticate?email='+encodeURIComponent(this.properties.email)+'&password='+encodeURIComponent(password);
+	   		this.parse = this.defaultParse;
+	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
+	   			email: this.properties.email,
+	   			password: password
+	   		});
         	this.fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
@@ -45,23 +73,51 @@ define([
 	   	},
 	   	signUp: function(password, callback){
 	   		var self = this;
-	   		this.url = '/v2/users/create?email='+encodeURIComponent(this.properties.email)+'&password='+encodeURIComponent(password)+'&association='+this.association;
+	   		this.parse = this.defaultParse;
+	   		this.url = Utils.buildUrl('/v2/users/create',{
+	   			email: this.properties.email,
+	   			password: password,
+	   			association: this.association
+	   		});
         	this.fetch({
         		success: function(model, response, options){
         			self.login(password, callback);
             	},
             	error: function(model, response, options){
             		console.log('Error User.signUp');
-            		callback(false);
+            		callback(false, response);
+            	}
+        	});
+	   	},
+	   	pinLookUp: function(pin, callback){
+	   		var self = this;
+	   		this.parse = this.pinLookUpParse;
+	   		this.url = Utils.buildUrl('/v2/users/pinlookup',{
+	   			pin: pin
+	   		});
+	   		this.fetch({
+        		success: function(model, response, options){
+        			callback(true, model, response);
+            	},
+            	error: function(model, response, options){
+            		console.log('Error User.pinLookUp');
+            		callback(false, model, response);
+            	}
+        	});
+	   	},
+	   	update: function(callback){
+	   		this.parse = this.updateParse;
+	   		this.url = Utils.buildUrl('/v2/users/update');
+        	this.save(this.attributes.properties,{
+        		success: function(model, response, options){
+        			callback(true, model, response);
+            	},
+            	error: function(model, response, options){
+            		console.log('Error User.update');
+            		callback(false, model, response);
             	}
         	});
 	   	}
-	   	
-	   	
-	   	
-	   	
-	   	
-	   	
 	});
 	return User;
 });
