@@ -1,7 +1,8 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone){
+  'backbone',
+  'utils'
+], function(_, Backbone, Utils){
 	var Operator = Backbone.Model.extend({
 		defaults: {
 			id: null,
@@ -34,7 +35,15 @@ define([
 		},
 		initialize: function(){
 	        //console.log("New Operator Created.");
-	    }
+	   	},
+	   	createAccount: function(){
+	   		var self = this;
+	   		this.url = Utils.buildUrl('/v2/operators/createaccount',{
+        		operator: self.get('name'),
+        		key: self.get('key')
+        	});
+        	this.save();
+	   	}
 	});
 	return Operator;
 });

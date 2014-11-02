@@ -22,6 +22,7 @@ define([
             	} 
 			});
 		}
+		
 	});
 	return Operators;
 });

@@ -51,6 +51,9 @@ define([
 	'views/BetOpenProcess',
 	'views/BetOpenProcessPayment',
 	
+	// new mockups
+	'views/AccountsActivation',
+	
 	'foundation',
 	'offcanvas',
 	'topbar',
@@ -66,7 +69,7 @@ define([
 	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
 	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
 	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
-	BetOpenProcessView, BetOpenProcessPaymentView) {
+	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView) {
 
 	'use strict';
 
@@ -123,7 +126,13 @@ define([
 			'eventByCountryDetail': 		'eventByCountryDetail',
 			'allFilterByLeageSubmenu': 		'allFilterByLeageSubmenu',
 			'betOpenProcess': 				'betOpenProcess',
-			'betOpenProcessPayment': 		'betOpenProcessPayment'
+			'betOpenProcessPayment': 		'betOpenProcessPayment',
+			
+			// New Mockups
+			'accountsActivation': 			'accountsActivation'
+			
+			
+			
 		},
 
 		menuLogClear: function () {
@@ -272,7 +281,15 @@ define([
 		},
 		betOpenProcessPayment: function(){
 			new BetOpenProcessPaymentView();
+		},
+		
+		// New Mockups
+		
+		accountsActivation: function () {
+			new AccountsActivationView();
 		}
+		
+		
 	});
 
 	var instance;

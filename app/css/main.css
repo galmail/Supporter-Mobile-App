@@ -1588,3 +1588,24 @@ nav.top-bar .title-area .title {
   margin-bottom: 5px;
   font-family: 'Roboto', sans-serif !important;
 }
+.accounts-activation .operator {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.accounts-activation .operator .switch {
+  float: left;
+  margin-right: 20px;
+}
+.accounts-activation .operator .operator-logo {
+  float: left;
+}
+.accounts-activation .operator .chevron {
+  font-size: 32px;
+  line-height: 26px;
+  color: blue;
+  float: right;
+}
+.accounts-activation .footer {
+  margin-bottom: 20px;
+}
