@@ -1609,3 +1609,17 @@ nav.top-bar .title-area .title {
 .accounts-activation .footer {
   margin-bottom: 20px;
 }
+.operator-terms .header {
+  clear: both;
+  overflow: hidden;
+}
+.operator-terms .header .back-icon {
+  background: url('/img/back_big.png') no-repeat;
+  width: 42px;
+  height: 42px;
+  float: left;
+}
+.operator-terms .header .operator-logo {
+  float: right;
+  margin-top: 2px;
+}

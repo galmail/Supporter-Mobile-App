@@ -23,6 +23,10 @@ define([
 			});
 		}
 		
+	},
+	// static properties
+	{
+		SelectedOperator: null
 	});
 	return Operators;
 });

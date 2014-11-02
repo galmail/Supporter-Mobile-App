@@ -53,6 +53,7 @@ define([
 	
 	// new mockups
 	'views/AccountsActivation',
+	'views/OperatorTerms',
 	
 	'foundation',
 	'offcanvas',
@@ -69,7 +70,7 @@ define([
 	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
 	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
 	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
-	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView) {
+	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView) {
 
 	'use strict';
 
@@ -129,7 +130,8 @@ define([
 			'betOpenProcessPayment': 		'betOpenProcessPayment',
 			
 			// New Mockups
-			'accountsActivation': 			'accountsActivation'
+			'accountsActivation': 			'accountsActivation',
+			'operatorTerms': 				'operatorTerms'
 			
 			
 			
@@ -284,11 +286,12 @@ define([
 		},
 		
 		// New Mockups
-		
-		accountsActivation: function () {
+		accountsActivation: function() {
 			new AccountsActivationView();
+		},
+		operatorTerms: function() {
+			new OperatorTermsView();
 		}
-		
 		
 	});
 

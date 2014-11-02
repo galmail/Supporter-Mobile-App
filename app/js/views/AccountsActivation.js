@@ -35,6 +35,7 @@ define([
             this.renderCollection(this.collection, results, AccountsActivationElement);
             
             // bind events
+            $('.operator').on('click', this.showOperatorTC);
             $('#activateButton').on('click', this.createAccounts);
             
             
@@ -56,10 +57,14 @@ define([
         			operator.createAccount();
         		}
         	});
-        	return false;
+        	return true;
+        },
+        
+        showOperatorTC: function(event){
+        	// get selected operator
+        	Operators.SelectedOperator = this.collection.get(event.currentTarget.id);
+        	window.location.href = "#operatorTerms";
         }
-        
-        
         
     });
 
