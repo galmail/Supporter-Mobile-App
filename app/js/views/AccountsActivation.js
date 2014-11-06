@@ -62,7 +62,7 @@ define([
         
         showOperatorTC: function(event){
         	// get selected operator
-        	Operators.SelectedOperator = this.collection.get(event.currentTarget.id);
+        	Operators.SelectedOperator = this.collection.get(event.currentTarget.id).attributes;
         	window.location.href = "#operatorTerms";
         }
         

@@ -26,7 +26,7 @@ define([
 	},
 	// static properties
 	{
-		SelectedOperator: null
+		SelectedOperator: {}
 	});
 	return Operators;
 });

@@ -5,13 +5,14 @@ define([
     'underscore',
     'backbone',
     'views/global/UnloggedView',
-    'text!templates/OperatorTerms.html'
-], function ($, _, Backbone, UnloggedView, templateSrc) {
+    'text!templates/OperatorTerms.html',
+    'collections/operators'
+], function ($, _, Backbone, UnloggedView, templateSrc, Operators) {
     'use strict';
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
-        templateData: Operators.SelectedOperator.attributes,
+        templateData: Operators.SelectedOperator,
         element: '.operator-terms',
         onRender: function () {
             // bind back button event
