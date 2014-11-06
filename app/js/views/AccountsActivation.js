@@ -14,7 +14,7 @@ define([
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.accounts-activation',
-        collection: null,
+        collection: new Operators(),
         
         // events: {
             // 'click .js-select-operator': 'selectOperator',
@@ -23,47 +23,41 @@ define([
         
         onInit: function(callback){
         	var self = this;
+        	console.log('onInit accountsActivation');
         	// get available operators
-        	new Operators().getAvailable(function(availableOperators){
-        		self.collection = availableOperators;
+        	self.collection.getAvailable(function(availableOperators){
+        		console.log('loaded operators accountsActivation');
+        		//self.collection = availableOperators;
         		callback();
         	});
         },
         
         onRender: function() {
+        	var self = this;
         	var results = this.$el.find('#operatorsList');
             this.renderCollection(this.collection, results, AccountsActivationElement);
             
-            // bind events
-            $('.operator').on('click', this.showOperatorTC);
-            $('#activateButton').on('click', this.createAccounts);
-            
-            
+            // bind operators terms event
+            $('.operator').on('click', function(){
+	        	Operators.SelectedOperator = self.collection.get(this.id).attributes;
+	        	window.location.href = "#operatorTerms";
+            });
+            // bind activate accounts event
+            $('#activateButton').on('click', function(){
+            	var self = this;
+	        	$('.switch input').each(function(op,chk){
+	        		if(chk.checked){
+	        			var operator = self.collection.get($(chk).data().id);
+	        			// var operator = new Operator({
+	        				// name: $(chk).data().name,
+	        				// key: $(chk).data().id
+	        			// });
+	        			operator.createAccount();
+	        		}
+	        	});
+	        	return true;
+            });
             return this;
-        },
-        
-        selectOperator: function(){
-        	return false;
-        },
-        
-        createAccounts: function(){
-        	var self = this;
-        	$('.switch input').each(function(op,chk){
-        		if(chk.checked){
-        			var operator = new Operator({
-        				name: $(chk).data().name,
-        				key: $(chk).data().id
-        			});
-        			operator.createAccount();
-        		}
-        	});
-        	return true;
-        },
-        
-        showOperatorTC: function(event){
-        	// get selected operator
-        	Operators.SelectedOperator = this.collection.get(event.currentTarget.id).attributes;
-        	window.location.href = "#operatorTerms";
         }
         
     });
