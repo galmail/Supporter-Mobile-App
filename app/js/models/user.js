@@ -63,6 +63,7 @@ define([
         		success: function(model, response, options){
         			// persist session in localstorage
         			localStorage.session = model.get('session');
+        			localStorage.key = model.get('key');
             		callback(true);
             	},
             	error: function(model, response, options){

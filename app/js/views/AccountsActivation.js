@@ -44,14 +44,13 @@ define([
             });
             // bind activate accounts event
             $('#activateButton').on('click', function(){
-            	var self = this;
 	        	$('.switch input').each(function(op,chk){
 	        		if(chk.checked){
-	        			var operator = self.collection.get($(chk).data().id);
-	        			// var operator = new Operator({
-	        				// name: $(chk).data().name,
-	        				// key: $(chk).data().id
-	        			// });
+	        			//var operator = self.collection.get($(chk).data().id);
+	        			var operator = new Operator({
+	        				name: $(chk).data().name,
+	        				key: localStorage.key
+	        			});
 	        			operator.createAccount();
 	        		}
 	        	});
