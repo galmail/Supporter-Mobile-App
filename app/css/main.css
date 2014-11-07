@@ -1597,14 +1597,19 @@ nav.top-bar .title-area .title {
   float: left;
   margin-right: 20px;
 }
-.accounts-activation .operator .operator-logo {
+.accounts-activation .operator .operator-data {
+  float: right;
+  overflow: hidden;
+}
+.accounts-activation .operator .operator-data .operator-logo {
   float: left;
 }
-.accounts-activation .operator .chevron {
-  font-size: 32px;
-  line-height: 26px;
+.accounts-activation .operator .operator-data .chevron {
+  font-size: 22px;
+  line-height: 23px;
   color: blue;
   float: right;
+  margin-left: 30px;
 }
 .accounts-activation .footer {
   margin-bottom: 20px;
