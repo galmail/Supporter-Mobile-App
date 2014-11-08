@@ -16,7 +16,7 @@ define([
        	
        	pinlookup: function(pin){
        		var self = this;
-       		new User().pinLookUp(pin,function(success, model, response){
+       		User.LoggedUser.pinLookUp(pin,function(success, model, response){
        			if(success){
        				// fill data
        				$.each(model.attributes.properties,function(key,value){

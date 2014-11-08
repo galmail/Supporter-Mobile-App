@@ -7,8 +7,9 @@ define([
     'views/global/UnloggedView',
     'collections/operators',
     'models/operator',
+    'models/user',
     'text!templates/snippets/AccountsActivationElement.html',
-], function ($, _, Backbone, templateSrc, UnloggedView, Operators, Operator, AccountsActivationElement) {
+], function ($, _, Backbone, templateSrc, UnloggedView, Operators, Operator, User, AccountsActivationElement) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -49,7 +50,7 @@ define([
 	        			//var operator = self.collection.get($(chk).data().id);
 	        			var operator = new Operator({
 	        				name: $(chk).data().name,
-	        				key: localStorage.key
+	        				key: User.LoggedUser.get('key')
 	        			});
 	        			operator.createAccount();
 	        		}

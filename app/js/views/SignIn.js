@@ -21,10 +21,12 @@ define([
         login: function(){
         	var email = $('#email').val();
         	var password = $('#password').val();
-        	var user = new User(email);
+        	var user = new User({
+        		properties: { email: email }
+        	});
         	user.login(password,function(success, response){
         		if(success){
-        			window.location.href = "#mainMenuLogged";
+        			window.location.href = "#userSettings";
         		}
         		else {
         			var resp = JSON.parse(response.responseText);

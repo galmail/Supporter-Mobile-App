@@ -13,12 +13,18 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.user-settings',
-        events: {
-            'click .options li' : 'onItemClick',
-            'click .buttons div' : 'onItemClick'
-        },
-        onRender: function() {
+        // events: {
+            // 'click .options li' : 'onItemClick',
+            // 'click .buttons div' : 'onItemClick'
+        // },
+        
+        onRender: function(){
+        	var self = this;
             this.$el.prepend(_.template(emailHeaderSrc));
+            // bind events
+            $('.options li').on('click',self.onItemClick);
+            $('.buttons div').on('click',self.onItemClick);
+            return this;
         },
         onItemClick: function(e) {
         	var target = e.currentTarget.id;

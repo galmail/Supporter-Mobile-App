@@ -16,7 +16,11 @@ define([
 		templateData: {
 			welcome: "Welcome"
 		},
-		element: '.menu-log-clear'
+		element: '.menu-log-clear',
+		onInit: function(callback){
+			localStorage.clear();
+			callback();
+		}
 	}); 
 
     return View;

@@ -24,11 +24,11 @@ define([
 			}
 		},
 		
-		initialize: function(email,association){
-			this.properties = {};
-			this.properties.email = email;
-			this.association = association;
-	   	},
+		// initialize: function(email,association){
+			// this.set('properties') = {};
+			// this.get('properties').email = email;
+			// this.set('association') = association;
+	   	// },
 	   	
 	   	//// parsers ////
 	   	
@@ -56,14 +56,14 @@ define([
 	   	login: function(password, callback){
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
-	   			email: this.properties.email,
+	   			email: this.get('properties').email,
 	   			password: password
 	   		});
         	this.fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
         			localStorage.session = model.get('session');
-        			localStorage.key = model.get('key');
+            		User.LoggedUser = model;
             		callback(true);
             	},
             	error: function(model, response, options){
@@ -76,9 +76,9 @@ define([
 	   		var self = this;
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/create',{
-	   			email: this.properties.email,
+	   			email: this.get('properties').email,
 	   			password: password,
-	   			association: this.association
+	   			association: this.get('association')
 	   		});
         	this.fetch({
         		success: function(model, response, options){
@@ -109,7 +109,7 @@ define([
 	   	update: function(callback){
 	   		this.parse = this.updateParse;
 	   		this.url = Utils.buildUrl('/v2/users/update');
-        	this.save(this.attributes.properties,{
+        	this.save(this.get('properties'),{
         		success: function(model, response, options){
         			callback(true, model, response);
             	},
@@ -118,7 +118,14 @@ define([
             		callback(false, model, response);
             	}
         	});
+	   	},
+	   	updatePassword: function(passwd, callback){
+	   		callback(false);
 	   	}
+	},
+	// static properties
+	{
+		LoggedUser: null
 	});
 	return User;
 });

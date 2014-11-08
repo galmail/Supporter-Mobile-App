@@ -6,15 +6,46 @@ define([
     'backbone',
     'views/global/LoggedView',
     'text!templates/ChangeUserEmail.html',
-    'text!templates/snippets/EmailHeader.html'
-], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc) {
+    'text!templates/snippets/EmailHeader.html',
+    'models/user',
+    'utils'
+], function ($, _, Backbone, LoggedView, templateSrc, emailHeaderSrc, User, Utils) {
     'use strict';
 
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.change-user-email',
-        onRender: function () {
+        onRender: function(){
         	this.$el.prepend(_.template(emailHeaderSrc));
+        	// bind events
+        	$('#sendBtn').on('click',function(){
+        		// verify if the registered email is correct
+        		var regEmail = $('#registeredEmail').val();
+        		if(regEmail != User.LoggedUser.get('properties').email){
+        			Utils.alert('Registered Email is incorrect.',null,'Error','Ok');
+        			return false;
+        		}
+        		// verify the new email is valid
+        		var newEmail = $('#newEmail').val();
+        		var success = Utils.validateEmail(newEmail);
+        		if(!success){
+        			Utils.alert('The New Email you entered is not a valid email address.',null,'Error','Ok');
+        			return false;
+        		}
+        		// update the email and show msg confirmation to user (and go back to settings)
+    			User.LoggedUser.get('properties').email = newEmail;
+    			User.LoggedUser.update(function(ok){
+    				if(ok){
+    					Utils.alert('The New Email has been updated.',null,'Success','Ok');
+    					window.history.back();
+    				}
+    				else {
+    					Utils.alert('The New Email has not been updated.',null,'Error','Ok');
+    				}
+    			});
+        		return false;
+        	});
+        	return this;
         }
     });
 

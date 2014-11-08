@@ -15,7 +15,7 @@ define([
 		initialize: function() {
 			console.log('LoggedView initialize');
         	var self = this;
-            this.bindSomeEvents();
+            //this.bindSomeEvents();
             this.onInit(function(){
             	// before render, add to templateData the language translation
             	if(I18n.transData!=null){

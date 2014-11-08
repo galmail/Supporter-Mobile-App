@@ -24,7 +24,10 @@ define([
         	var password = $('#password').val();
         	if(email.length<1 || password.length<1) return false;
         	// create account
-        	var user = new User(email,Associations.selectedAssociation.id);
+        	var user = new User({
+        		association: Associations.selectedAssociation.id,
+        		properties: { email: email }
+        	});
         	user.signUp(password,function(success, response){
         		if(success){
         			window.location.href='#unifiedRegister';
