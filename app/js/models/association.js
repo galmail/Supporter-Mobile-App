@@ -7,9 +7,27 @@ define([
             'id': null,
             'name': null,
             'sport': null,
-            'logo': 'default_club.png',
             'csv_id': null,
-            'borough': null
+            'borough': null,
+            'logo': {
+            	width: null,
+            	height: null,
+            	file: null,
+            	sizes: {
+            		thumbnail: {
+            			file: null,
+            			width: null,
+            			height: null,
+            			'mime-type': "image/png"
+            		},
+            		medium: {
+            			file: null,
+            			width: null,
+            			height: null,
+            			'mime-type': "image/png"
+            		}
+            	}
+            }
         },
         initialize: function () {
             //console.log('New Association Created.');
