@@ -24,7 +24,6 @@ define([
         
         onInit: function(callback){
         	var self = this;
-        	console.log('onInit accountsActivation');
         	// get available operators
         	self.collection.getAvailable(function(availableOperators){
         		console.log('loaded operators accountsActivation');
@@ -41,6 +40,7 @@ define([
             // bind operators terms event
             $('.operator-data').on('click', function(){
 	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
+	        	Operators.SelectedOperator.showCreateAccountBtn = '';
 	        	window.location.href = "#operatorTerms";
             });
             // bind activate accounts event

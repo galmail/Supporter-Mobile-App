@@ -36,13 +36,13 @@ define([
 		initialize: function(){
 	        //console.log("New Operator Created.");
 	   	},
-	   	createAccount: function(){
+	   	createAccount: function(callbacks){
 	   		var self = this;
 	   		this.url = Utils.buildUrl('/v2/operators/createaccount',{
         		operator: self.get('name'),
         		key: self.get('key')
         	});
-        	this.save();
+        	this.save(null,callbacks);
 	   	}
 	});
 	return Operator;

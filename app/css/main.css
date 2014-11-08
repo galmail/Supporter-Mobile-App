@@ -325,36 +325,28 @@ nav.top-bar .title-area .title {
 .menu-log-clear .intro {
   margin: 35px 20px;
 }
-.operators-list .intro {
-  text-align: center;
-  font-family: 'Roboto', sans-serif !important;
+.operators-list .operator {
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
-.operators-list li {
-  color: #007399;
-  font-family: 'RobotoThin', sans-serif;
-  list-style: none;
-  line-height: 25px;
-  padding: 1px 0 1px 10px;
-  text-align: left;
-  border-bottom: 1px solid rgba(230, 230, 230, 0.6);
-  border-top: 1px solid rgba(230, 230, 230, 0.6);
-  text-shadow: none;
+.operators-list .operator .info {
+  float: left;
+  margin-right: 20px;
 }
-.operators-list ul {
-  margin: 0 -15px 0 -15px;
-  padding: 0;
+.operators-list .operator .operator-data {
+  float: right;
+  overflow: hidden;
 }
-.operators-list .operator-name {
-  width: 60%;
-  display: inline-block;
-  text-align: center;
-  line-height: 55px;
+.operators-list .operator .operator-data .operator-logo {
+  float: left;
 }
-.operators-list .switch {
-  width: 30%;
-  text-align: right;
-  vertical-align: middle;
-  display: inline-block;
+.operators-list .operator .operator-data .chevron {
+  font-size: 22px;
+  line-height: 23px;
+  color: blue;
+  float: right;
+  margin-left: 30px;
 }
 .user-favorites > p {
   margin-top: 25%;
