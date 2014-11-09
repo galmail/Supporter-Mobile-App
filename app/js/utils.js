@@ -16,7 +16,8 @@ define(
         	// build url from params and authenticate
         	this.buildUrl = function(baseUrl,params){
         		var sessionId = localStorage.getItem('session');
-        		var url = baseUrl + '?session=' + sessionId;
+        		var domain = window.serverURL || '';
+        		var url = domain + baseUrl + '?session=' + sessionId;
         		if(params==null) params = {}; 
         		$.each(params,function(key,value){
         			url += '&'+key+'='+encodeURIComponent(value);
