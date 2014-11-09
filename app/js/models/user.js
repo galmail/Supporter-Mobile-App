@@ -8,8 +8,8 @@ define([
 		defaults: {
 			session: null,
 			key: null,
-			association: null,
 			properties: {
+				association: null,
 				email: null,
 				firstName: null,
 				lastName: null,
@@ -75,7 +75,7 @@ define([
 	   		this.url = Utils.buildUrl('/v2/users/create',{
 	   			email: this.get('properties').email,
 	   			password: password,
-	   			association: this.get('association')
+	   			association: this.get('properties').association
 	   		});
         	this.fetch({
         		success: function(model, response, options){

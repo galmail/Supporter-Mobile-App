@@ -25,8 +25,10 @@ define([
         	if(email.length<1 || password.length<1) return false;
         	// create account
         	var user = new User({
-        		association: Associations.selectedAssociation.id,
-        		properties: { email: email }
+        		properties: {
+        			email: email,
+        			association: Associations.selectedAssociation.id
+        		}
         	});
         	user.signUp(password,function(success, response){
         		if(success){
