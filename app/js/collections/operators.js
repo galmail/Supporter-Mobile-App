@@ -26,7 +26,9 @@ define([
 	},
 	// static properties
 	{
-		SelectedOperator: {}
+		SelectedOperator: {},
+		ActivatedOperators: null
 	});
+	Operators.ActivatedOperators = new Operators();
 	return Operators;
 });

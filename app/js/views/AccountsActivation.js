@@ -45,14 +45,30 @@ define([
             });
             // bind activate accounts event
             $('#activateButton').on('click', function(){
-	        	$('.switch input').each(function(op,chk){
+            	$('.switch input').each(function(op,chk){
+	        		var myOperator = self.collection.get($(chk).data().id);
 	        		if(chk.checked){
-	        			//var operator = self.collection.get($(chk).data().id);
+	        			//Operators.ActivatedOperators.push();
 	        			var operator = new Operator({
 	        				name: $(chk).data().name,
 	        				key: User.LoggedUser.get('key')
 	        			});
-	        			operator.createAccount();
+	        			operator.createAccount({
+	        				success: function(){
+	        					console.log('account created successfully');
+	        					myOperator.set('status','success');
+	        					Operators.ActivatedOperators.add(myOperator);
+	        				},
+	        				error: function(){
+	        					console.log('account not created');
+	        					myOperator.set('status','error');
+	        					Operators.ActivatedOperators.add(myOperator);
+	        				}
+	        			});
+	        		}
+	        		else {
+	        			console.log('account not selected');
+	        			Operators.ActivatedOperators.add(myOperator);
 	        		}
 	        	});
 	        	return true;

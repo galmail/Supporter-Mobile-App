@@ -24,11 +24,8 @@ define([
 			}
 		},
 		
-		// initialize: function(email,association){
-			// this.set('properties') = {};
-			// this.get('properties').email = email;
-			// this.set('association') = association;
-	   	// },
+		initialize: function(){
+	   	},
 	   	
 	   	//// parsers ////
 	   	

@@ -330,9 +330,8 @@ nav.top-bar .title-area .title {
   overflow: hidden;
   margin-bottom: 20px;
 }
-.operators-list .operator .info {
-  float: left;
-  margin-right: 20px;
+.operators-list .operator i.fa-li {
+  position: relative;
 }
 .operators-list .operator .operator-data {
   float: right;
