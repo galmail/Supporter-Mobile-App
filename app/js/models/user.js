@@ -20,7 +20,12 @@ define([
 				mobileNumber: null,
 				currency: null,
 				gender: null,
-				pin: null
+				pin: null,
+				birthdate: {
+					day: null,
+					month: null,
+					year: null
+				}
 			}
 		},
 		

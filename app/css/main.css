@@ -365,9 +365,6 @@ nav.top-bar .title-area .title {
   padding: 20px;
   padding-bottom: 5px;
 }
-.pick-club-confirm .club img {
-  height: 200px;
-}
 .pick-club-confirm .club .club-name {
   color: black;
   margin-bottom: 2px;
@@ -393,14 +390,10 @@ nav.top-bar .title-area .title {
   text-align: center;
 }
 .pick-club .team-logo-small {
-  display: inline-block;
-  height: 50px;
-  width: 50px;
-  vertical-align: middle;
   float: right;
-  background-size: 45px 45px;
-  background-repeat: no-repeat;
-  background-position-y: 3px;
+  height: 50px;
+  margin-right: 5px;
+  margin-top: 3px;
 }
 .pick-club .team-name {
   display: inline-block;
