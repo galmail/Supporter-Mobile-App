@@ -35,16 +35,19 @@ define([
         	window.history.back();
         },
         joinOperator: function(){
+        	var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
         	var operator = new Operator({
 				name: Operators.SelectedOperator.name,
 				key: User.LoggedUser.get('key')
 			});
 			operator.createAccount({
 				success: function(){
+					myOperator.set('status','success');
 					Utils.alert('Account created successfully.',null,'Success','Ok');
         			return false;
 				},
 				error: function(){
+					myOperator.set('status','error');
 					Utils.alert('Error creating an account.',null,'Error','Ok');
         			return false;
 				}
