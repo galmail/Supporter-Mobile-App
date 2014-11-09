@@ -46,8 +46,14 @@ define([
             // bind operators terms event
             $('.operator-data').on('click', function(){
 	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
-	        	Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
-	        	window.location.href = "#operatorTerms";
+	        	if(Operators.SelectedOperator.status=='pending'){
+	        		Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
+	        		window.location.href = "#operatorTerms";
+	        	}
+	        	else if(Operators.SelectedOperator.status=='error'){
+	        		window.location.href = "#operatorConnect";
+	        	}
+	        	return false;
             });
             return this;
         }
