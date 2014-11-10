@@ -50,7 +50,16 @@ define([
 				var user = new User();
 				var props = {};
 				$.each(user.attributes.properties,function(key,value){
-					props[key] = self.$el.find('#'+key).val();
+					if(key=='birthdate'){
+						props.birthdate = {
+							year: self.$el.find('#year').val(),
+							month: self.$el.find('#month').val(),
+							day: self.$el.find('#day').val()
+						};
+					}
+					else {
+						props[key] = self.$el.find('#'+key).val();
+					}
 				});
 				user.set('properties',props);
 				user.update(function(success){

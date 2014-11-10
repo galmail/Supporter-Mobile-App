@@ -48,7 +48,13 @@ define([
         		lastName: data.last_name,
         		street: data.street,
         		zipCode: data.zipcode,
-        		city: data.city
+        		city: data.city,
+        		gender: data.gender,
+        		birthdate: {
+        			year: data.year,
+        			month: data.month,
+        			day: data.day
+        		}
         	};
         	return { properties: attrs };
         },
