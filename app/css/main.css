@@ -4,7 +4,8 @@ p,
 a,
 button,
 .button {
-  font-family: 'RobotoThin', sans-serif !important;
+  font-family: 'Roboto', sans-serif !important;
+  /* Ditching RobotoThin for now */
   font-size: 1.2rem !important;
 }
 p {
@@ -124,7 +125,7 @@ nav.top-bar .title-area .title {
 @font-face {
   font-family: 'RobotoThin' !important;
   src: url("../fonts/Roboto-Thin.ttf") !important;
-  font-weight: normal!important;
+  font-weight: 600!important;
   font-style: normal!important;
 }
 /* without shadows */
@@ -177,7 +178,6 @@ nav.top-bar .title-area .title {
 }
 .link {
   text-decoration: underline;
-  display: inline-block;
   color: #007399;
 }
 .link-inline {
@@ -454,6 +454,9 @@ nav.top-bar .title-area .title {
   text-align: right;
   margin: 0 8px 5px 0;
 }
+.unified-register .birth-date {
+  text-align: right;
+}
 .unified-register .birth-date label {
   width: 35%;
   display: inline;
@@ -595,7 +598,7 @@ nav.top-bar .title-area .title {
 }
 .user-settings li {
   color: #007399;
-  font-family: 'RobotoThin', sans-serif;
+  font-family: 'Roboto', sans-serif;
   list-style: none;
   font-size: 1.2rem;
   line-height: 25px;
@@ -1598,7 +1601,7 @@ nav.top-bar .title-area .title {
 .accounts-activation .operator .operator-data .chevron {
   font-size: 22px;
   line-height: 23px;
-  color: blue;
+  color: white;
   float: right;
   margin-left: 30px;
 }
