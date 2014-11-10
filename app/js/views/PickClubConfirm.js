@@ -15,7 +15,11 @@ define([
         
         onInit: function(callback){
         	console.log("PickClubConfirm init");
-        	this.templateData = Associations.selectedAssociation.attributes;
+        	var data = Associations.selectedAssociation.attributes;
+        	if(!data.logo.sizes.medium){
+        		data.logo.sizes.medium = { file: data.logo.file };
+        	}
+        	this.templateData = data;
         	callback();
         },
         
