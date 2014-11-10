@@ -58,6 +58,13 @@ button:hover {
 :-ms-input-placeholder {
   color: #e6e6e6;
 }
+.edit-unified-data ::-webkit-input-placeholder,
+.change-user-email ::-webkit-input-placeholder,
+.change-user-password ::-webkit-input-placeholder,
+.change-club ::-webkit-input-placeholder,
+.change-club-selection ::-webkit-input-placeholder {
+  color: #666666;
+}
 div.switch input:checked + label {
   background: #15a63f;
   margin: 0!important;
