@@ -28,18 +28,22 @@ switch(app.get('env')) {
 
 app.all(/v2\//, function(req, res, next){
 	//proxy.web(req,res);
-	var url = 'http://dev01.supporter.com' + req.url;
-	console.log('Calling: ' + url);
-	req.pipe(request(url)).pipe(res);
+	var url = 'http://api.supporter.com' + req.url;
+	reqpipe(req, url, res);
 });
 
 app.all(/lang\//, function(req, res, next){
 	//proxy.web(req,res);
 	var url = 'http://static.supporter.com' + req.url;
-	console.log('Calling: ' + url);
-	req.pipe(request(url)).pipe(res);
+	reqpipe(req, url, res);
 });
 
+function reqpipe(req, url, res) {
+	var start = new Date();
+	process.stdout.write('Calling: ' + url);
+	req.pipe(request(url)).pipe(res);	
+	console.log('  ' + (new Date()- start) + " ms");
+}
 
 
 ////////// STARTING SERVER //////////
