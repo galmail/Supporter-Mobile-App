@@ -1,36 +1,41 @@
 <div class="unified-register keep-screen-margin">
 
     <div class="header small">
-	    Unified Registration<br>
-	    We use your social security number to try to fill out the form for you
+	    {{i18n.Unifiedregistration}}<br>
+        {{i18n.unifiedregistration_txt}}
     </div>
     
-    <input id="pin" type="search" placeholder="Social Security Number" />
+    <input id="pin" type="search" placeholder="{{i18n.Pin}}" />
+    <p class="tiny">{{i18n.pin_txt}}</p>
 
     <!-- <div class="clearfix">
 	    <a href="#menuLogClear" class="medium secondary button half-width left">Cancel</a>
 	    <a href="#operatorsSingleLogin" class="medium success button half-width right">OK</a>
     </div> -->
 
-    <input id="firstName" type="text" class="tight" placeholder="First name" />
-    <input id="lastName" type="text" class="tight" placeholder="Surname" />
+    <input id="firstName" type="text" class="tight" placeholder="{{i18n.Firstname}}" />
+    <input id="lastName" type="text" class="tight" placeholder="{{i18n.Surname}}" />
     <select id="gender" class="tight">
-    	<option value="M">Male</option>
-    	<option value="F">Female</option>
+    	<option value="M">{{i18n.Male}}</option>
+    	<option value="F">{{i18n.Female}}</option>
     </select>
-    <input id="street" type="text" class="tight" placeholder="Address" />
-    <input id="zipCode" type="text" class="tight" placeholder="Zip Code" />
-    <input id="city" type="text" class="tight" placeholder="City" />
-    <input id="mobileNumber" type="tel" class="tight" placeholder="Mobile Number" />
+    <input id="street" type="text" class="tight" placeholder="{{i18n.Address}}" />
+    <input id="zipCode" type="text" class="tight" placeholder="{{i18n.Postcode}}" />
+    <input id="city" type="text" class="tight" placeholder="{{i18n.City}}" />
+    <input id="mobileNumber" type="tel" class="tight" placeholder="{{i18n.Mobilenumber}}" />
     
     <div class="row birth-date">
     	<label class="tiny">Date of Birth:</label>
-        <input id="year" type="text" class="tight year inline-input" placeholder="Year" />
-	    <input id="month" type="text" class="tight month inline-input" placeholder="Month" />
-        <input id="day" type="text" class="tight day inline-input" placeholder="Day" />
+        <input id="year" type="text" class="tight year inline-input" placeholder="{{i18n.Year}}" />
+	    <input id="month" type="text" class="tight month inline-input" placeholder="{{i18n.Month}}" />
+        <input id="day" type="text" class="tight day inline-input" placeholder="{{i18n.Day}}" />
 	</div>
 	
-    <a id="createButton" href="#accountsActivation" class="medium success button full-width">Create</a>
-    <a href="#userSettings" class="medium secondary full-width button">Cancel</a><br>
+    <a id="createButton" href="#accountsActivation" class="medium success button full-width">{{i18n.Create}}</a>
+    <a href="#userSettings" class="medium secondary full-width button">{{i18n.Cancel}}</a><br>
 
 </div>
+
+
+
+

@@ -460,6 +460,7 @@ nav.top-bar .title-area .title {
 .unified-register .birth-date label {
   width: 35%;
   display: inline;
+  color: #e6e6e6;
 }
 .unified-register .birth-date .day {
   width: 20%;
