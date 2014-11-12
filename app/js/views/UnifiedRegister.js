@@ -20,7 +20,14 @@ define([
        			if(success){
        				// fill data
        				$.each(model.attributes.properties,function(key,value){
-       					self.$el.find('#'+key).val(value);
+       					if(key=='birthdate'){
+       						self.$el.find('#year').val(model.attributes.properties.birthdate.year);
+       						self.$el.find('#month').val(model.attributes.properties.birthdate.month);
+       						self.$el.find('#day').val(model.attributes.properties.birthdate.day);
+						}
+						else {
+							self.$el.find('#'+key).val(value);
+						}
        				});
        			}
        			else {
