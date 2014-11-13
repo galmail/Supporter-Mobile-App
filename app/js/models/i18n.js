@@ -11,7 +11,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 		load: function(callback) {
 			var self = this;
 			var domain = window.staticCDN || ''; 
-			this.url = domain + '/lang/'+ this.get('code') +'/strings.json';
+			this.url = domain + '/lang/'+ this.get('code') +'/strings.json?nocache='+Math.random();
         	this.fetch({
         		success: function(obj, response, options){
             		callback(obj);
