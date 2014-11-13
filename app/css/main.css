@@ -458,18 +458,20 @@ nav.top-bar .title-area .title {
   text-align: right;
 }
 .unified-register .birth-date label {
-  width: 35%;
   display: inline;
   color: #e6e6e6;
 }
 .unified-register .birth-date .day {
-  width: 20%;
+  width: 23%;
+  text-align: center;
 }
 .unified-register .birth-date .month {
-  width: 20%;
+  width: 23%;
+  text-align: center;
 }
 .unified-register .birth-date .year {
-  width: 31%;
+  width: 24%;
+  text-align: center;
 }
 .operators-single-login .accordion {
   margin: 0 0 20px 0;
