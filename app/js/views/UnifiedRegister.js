@@ -39,7 +39,7 @@ define([
         
         onRender: function(){
             var self = this;
-            if(User.LoggedUser){
+            if(User.LoggedUser.get('properties').firstName){
         		$('#createBtn').hide();
         		$('#updateBtn').show();
         		$('#cancelBtn').attr('href','#userSettings');
