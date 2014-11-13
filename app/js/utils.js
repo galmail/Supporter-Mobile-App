@@ -10,6 +10,7 @@ define(
         		}
         		else {
         			alert(msg);
+        			callback();
         		}
         	};
         	

@@ -5,8 +5,10 @@ define([
     'backbone',
     'text!templates/PickClubConfirm.html',
     'views/global/UnloggedView',
-    'collections/associations'
-], function ($, _, Backbone, templateSrc, UnloggedView, Associations) {
+    'collections/associations',
+    'models/user',
+    'utils'
+], function ($, _, Backbone, templateSrc, UnloggedView, Associations, User, Utils) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -25,9 +27,26 @@ define([
         
         onRender: function () {
         	console.log("PickClubConfirm render");
-        	
-        	
-            //this.$el.find('.club').css('background-image', 'url(img/clubs/large/' + this.options.clubId + '.png)');
+        	$('#confirmClubBtn').on('click',function(){
+        		if(User.LoggedUser){
+        			// change club
+        			User.LoggedUser.changeClub(Associations.selectedAssociation,function(success){
+        				if(success){
+        					Utils.alert('Club Changed Successfully.',function(){
+        						window.location.href = "#userSettings";
+        					},'Success','Ok');
+        				}
+        				else {
+        					Utils.alert('A communication error occured, please try again later.',null,'Error','Ok');
+        				}
+        			});
+        			return false;
+        		}
+        		else {
+        			return true;
+        		}
+        	});
+            return this;
         }
     });
 

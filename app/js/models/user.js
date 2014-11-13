@@ -129,6 +129,10 @@ define([
 	   	},
 	   	updatePassword: function(passwd, callback){
 	   		callback(false);
+	   	},
+	   	changeClub: function(newAssociation,callback){
+	   		this.get('properties').association = newAssociation;
+	   		this.update(callback);
 	   	}
 	},
 	// static properties
