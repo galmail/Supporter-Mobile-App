@@ -22,8 +22,8 @@ define([
        				$.each(model.attributes.properties,function(key,value){
        					if(key=='birthdate'){
        						self.$el.find('#year').val(model.attributes.properties.birthdate.year);
-       						self.$el.find('#month').val(model.attributes.properties.birthdate.month);
-       						self.$el.find('#day').val(model.attributes.properties.birthdate.day);
+       						self.$el.find('#month').val(("0" + model.attributes.properties.birthdate.month).slice(-2));
+       						self.$el.find('#day').val(("0" + model.attributes.properties.birthdate.day).slice(-2));
 						}
 						else {
 							self.$el.find('#'+key).val(value);
