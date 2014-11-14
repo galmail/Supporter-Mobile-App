@@ -5,8 +5,9 @@ define([
     'backbone',
     'text!templates/MenuLogClear.html',
     'views/global/UnloggedView',
+    'models/user',
     'config'
-], function ($, _, Backbone, templateSrc, UnloggedView, config) {
+], function ($, _, Backbone, templateSrc, UnloggedView, User, config) {
     'use strict';
     
     console.log('App version: ' + config.version);
@@ -19,6 +20,7 @@ define([
 		element: '.menu-log-clear',
 		onInit: function(callback){
 			localStorage.clear();
+			User.LoggedUser = null;
 			callback();
 		}
 	}); 
