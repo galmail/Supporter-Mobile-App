@@ -16,13 +16,14 @@ define([
         template: _.template(templateSrc),
         element: '.change-user-email',
         onRender: function(){
+        	var self = this;
         	this.$el.prepend(_.template(emailHeaderSrc));
         	// bind events
         	$('#sendBtn').on('click',function(){
         		// verify if the registered email is correct
         		var regEmail = $('#registeredEmail').val();
         		if(regEmail != User.LoggedUser.get('properties').email){
-        			Utils.alert('Registered Email is incorrect.',null,'Error','Ok');
+        			Utils.alert('Registered ' + self.templateData.i18n.Emailaddress + ' is incorrect.',null,'Error','Ok');
         			return false;
         		}
         		// verify the new email is valid
