@@ -1,4 +1,7 @@
 /* Foundation overrides */
+input[type="search"] {
+  margin-bottom: .5rem;
+}
 body,
 p,
 a,
@@ -265,6 +268,9 @@ nav.top-bar .title-area .title {
   padding-right: 5px;
   padding-left: 20px;
 }
+iframe {
+  border: 0;
+}
 .left-off-canvas-menu {
   background-color: rgba(230, 230, 230, 0.6);
   color: black;
@@ -453,6 +459,9 @@ nav.top-bar .title-area .title {
 .select-operators .list-header {
   text-align: right;
   margin: 0 8px 5px 0;
+}
+.unified-register .header {
+  padding-bottom: 0;
 }
 .unified-register .birth-date {
   text-align: right;
