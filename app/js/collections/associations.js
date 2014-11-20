@@ -2,9 +2,10 @@ define([
     'underscore',
     'backbone',
     'models/association',
-    'utils'
-], function (_, Backbone, Association, Utils) {
-    var Associations = Backbone.Collection.extend({
+    'utils',
+    'collections/base'
+], function (_, Backbone, Association, Utils, BaseCollection) {
+    var Associations = BaseCollection.extend({
         model: Association,
         
         parse: function(response){
@@ -13,7 +14,7 @@ define([
         
         getPopular: function(callback){
         	this.url = Utils.buildUrl('/v2/associations/getpopular');
-        	this.fetch({
+        	this.$fetch({
         		success: function(collection, response, options){
             		callback(collection);
             	},
@@ -27,7 +28,7 @@ define([
         	this.url = Utils.buildUrl('/v2/associations/getbystring',{
         		string: searchStr
         	});
-        	this.fetch({
+        	this.$fetch({
         		success: function(collection, response, options){
             		callback(collection);
             	},

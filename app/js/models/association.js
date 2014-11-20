@@ -1,8 +1,9 @@
 define([
     'underscore',
-    'backbone'
-], function (_, Backbone) {
-    var Association = Backbone.Model.extend({
+    'backbone',
+    'models/base'
+], function (_, Backbone, BaseModel) {
+    var Association = BaseModel.extend({
         defaults: {
             'id': null,
             'name': null,

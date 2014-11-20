@@ -2,9 +2,10 @@ define([
   'underscore',
   'backbone',
   'models/operator',
-  'utils'
-], function(_, Backbone, Operator, Utils){
-	var Operators = Backbone.Collection.extend({
+  'utils',
+  'collections/base'
+], function(_, Backbone, Operator, Utils, BaseCollection){
+	var Operators = BaseCollection.extend({
 		model: Operator,
 		
 		parse: function(response){
@@ -13,7 +14,7 @@ define([
         
 		getAvailable: function(callback){
 			this.url = Utils.buildUrl('/v2/operators/listavailable');
-			this.fetch({
+			this.$fetch({
 				success: function(collection, response, options){
             		callback(collection);
             	},

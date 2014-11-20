@@ -1,13 +1,15 @@
 define([
   'underscore',
   'backbone',
-  'utils'
-], function(_, Backbone, Utils){
-	var User = Backbone.Model.extend({
+  'utils',
+  'models/base'
+], function(_, Backbone, Utils, BaseModel){
+	var User = BaseModel.extend({
 		
 		defaults: {
 			session: null,
 			key: null,
+			password: null,
 			properties: {
 				association: null,
 				email: null,
@@ -62,16 +64,19 @@ define([
 	   	//// methods ////
 	   	
 	   	login: function(password, callback){
+	   		var pswd = password || User.LoggedUser.get('password');
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
 	   			email: this.get('properties').email,
-	   			password: password
+	   			password: pswd
 	   		});
-        	this.fetch({
+        	this.$fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
         			localStorage.session = model.get('session');
             		User.LoggedUser = model;
+            		User.LoggedUser.set('password',pswd);
+            		window.LoggedUser = User.LoggedUser;
             		callback(true);
             	},
             	error: function(model, response, options){
@@ -88,7 +93,7 @@ define([
 	   			password: password,
 	   			association: this.get('properties').association
 	   		});
-        	this.fetch({
+        	this.$fetch({
         		success: function(model, response, options){
         			self.login(password, callback);
             	},
@@ -104,7 +109,7 @@ define([
 	   		this.url = Utils.buildUrl('/v2/users/pinlookup',{
 	   			pin: pin
 	   		});
-	   		this.fetch({
+	   		this.$fetch({
         		success: function(model, response, options){
         			callback(true, model, response);
             	},
@@ -117,7 +122,7 @@ define([
 	   	update: function(callback){
 	   		this.parse = this.updateParse;
 	   		this.url = Utils.buildUrl('/v2/users/update');
-        	this.save(this.get('properties'),{
+        	this.$save(this.get('properties'),{
         		success: function(model, response, options){
         			callback(true, model, response);
             	},

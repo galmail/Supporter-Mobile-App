@@ -1,9 +1,10 @@
 define([
   'underscore',
   'backbone',
-  'utils'
-], function(_, Backbone, Utils){
-	var Operator = Backbone.Model.extend({
+  'utils',
+  'models/base'
+], function(_, Backbone, Utils, BaseModel){
+	var Operator = BaseModel.extend({
 		defaults: {
 			id: null,
 			name: null,
@@ -43,7 +44,7 @@ define([
         		operator: self.get('name'),
         		key: self.get('key')
         	});
-        	this.save(null,callbacks);
+        	this.$save(null,callbacks);
 	   	},
 	   	connectAccount: function(credentials,callbacks){
 	   		var self = this;
@@ -51,7 +52,7 @@ define([
         		operator: self.get('name'),
         		key: self.get('key')
         	});
-        	this.save(credentials,callbacks);
+        	this.$save(credentials,callbacks);
 	   	}
 	});
 	return Operator;

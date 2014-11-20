@@ -35,8 +35,15 @@ define([
         			window.location.href='#unifiedRegister';
         		}
         		else {
-        			var resp = JSON.parse(response.responseText);
-        			Utils.alert(resp.message,null,'Error','Ok');
+        			user.login(password,function(ok, resp){
+        				if(ok){
+        					window.location.href='#mainMenuLogged';
+        				}
+        				else {
+        					var res = JSON.parse(resp.responseText);
+        					Utils.alert(res.message,null,'Error','Ok');
+        				}
+        			});
         		}
         	});
         	return false;
