@@ -1,5 +1,5 @@
-define(['underscore', 'backbone'], function(_, Backbone) {
-	var I18n = Backbone.Model.extend({
+define(['underscore', 'backbone','models/base'], function(_, Backbone, BaseModel) {
+	var I18n = BaseModel.extend({
 		//storeName: 'I18n',
 		defaults: {
 			code: null,
@@ -12,7 +12,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 			var self = this;
 			var domain = window.staticCDN || ''; 
 			this.url = domain + '/lang/'+ this.get('code') +'/strings.json?nocache='+Math.random();
-        	this.fetch({
+        	this.$fetch({
         		success: function(obj, response, options){
             		callback(obj);
             	},
