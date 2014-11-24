@@ -26,7 +26,7 @@ define([
         	});
         	user.login(password,function(success, response){
         		if(success){
-        			window.location.href = "#userSettings";
+        			window.location.href = "#mainMenuLogged";
         		}
         		else {
         			var resp = JSON.parse(response.responseText);
