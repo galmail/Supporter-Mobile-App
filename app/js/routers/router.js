@@ -55,6 +55,8 @@ define([
 	'views/AccountsActivation',
 	'views/OperatorTerms',
 	'views/OperatorConnect',
+
+	'views/RecommendedLinks',
 	
 	'foundation',
 	'offcanvas',
@@ -71,7 +73,7 @@ define([
 	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
 	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
 	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
-	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView) {
+	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView, RecommendedLinksView) {
 
 	'use strict';
 
@@ -133,7 +135,9 @@ define([
 			// New Mockups
 			'accountsActivation': 			'accountsActivation',
 			'operatorTerms': 				'operatorTerms',
-			'operatorConnect': 				'operatorConnect'
+			'operatorConnect': 				'operatorConnect',
+
+			'recommendedLinks': 			'recommendedLinks'
 		},
 
 		menuLogClear: function () {
@@ -293,6 +297,9 @@ define([
 		},
 		operatorConnect: function() {
 			new OperatorConnectView();
+		},
+		recommendedLinks: function() {
+			new RecommendedLinksView();
 		}
 	});
 
