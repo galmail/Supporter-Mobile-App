@@ -32,7 +32,7 @@ define([
         	});
         	user.signUp(password,function(success, response){
         		if(success){
-        			window.location.href='#unifiedRegister';
+        			window.location.href='#createNewAccountConfirmation';
         		}
         		else {
         			user.login(password,function(ok, resp){

@@ -1634,3 +1634,11 @@ iframe {
   float: right;
   margin-top: 2px;
 }
+.create-new-account-confirmation .title {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 1.4rem !important;
+}
+.create-new-account-confirmation .text {
+  margin-bottom: 30px;
+}

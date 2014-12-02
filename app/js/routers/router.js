@@ -55,8 +55,8 @@ define([
 	'views/AccountsActivation',
 	'views/OperatorTerms',
 	'views/OperatorConnect',
-
 	'views/RecommendedLinks',
+	'views/CreateNewAccountConfirmation',
 	
 	'foundation',
 	'offcanvas',
@@ -73,7 +73,8 @@ define([
 	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
 	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
 	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
-	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView, RecommendedLinksView) {
+	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView,
+	RecommendedLinksView, CreateNewAccountConfirmationView) {
 
 	'use strict';
 
@@ -136,8 +137,8 @@ define([
 			'accountsActivation': 			'accountsActivation',
 			'operatorTerms': 				'operatorTerms',
 			'operatorConnect': 				'operatorConnect',
-
-			'recommendedLinks': 			'recommendedLinks'
+			'recommendedLinks': 			'recommendedLinks',
+			'createNewAccountConfirmation': 'createNewAccountConfirmation'
 		},
 
 		menuLogClear: function () {
@@ -300,7 +301,12 @@ define([
 		},
 		recommendedLinks: function() {
 			new RecommendedLinksView();
-		}
+		},
+		createNewAccountConfirmation: function() {
+			new CreateNewAccountConfirmationView();
+		},
+		
+		
 	});
 
 	var instance;

@@ -54,7 +54,7 @@ define([
         	else {
         		$('#createBtn').show();
         		$('#updateBtn').hide();
-        		$('#cancelBtn').attr('href','#menuLogClear');
+        		$('#cancelBtn').attr('href','javascript:window.history.back();');
         		$('#pin').prop('disabled', false);
         	}
         	
@@ -108,7 +108,7 @@ define([
         
         createAccount: function(){
         	this.updateUserInfo(function(){
-        		window.location.href = "#accountsActivation";
+        		window.location.href = "#operatorsList";
         	});
         	return false;
         },
