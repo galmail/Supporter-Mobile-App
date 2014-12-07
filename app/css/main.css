@@ -1598,6 +1598,7 @@ iframe {
   clear: both;
   overflow: hidden;
   margin-bottom: 20px;
+  padding-top: 10px;
 }
 .accounts-activation .operator .switch {
   float: left;
@@ -1606,16 +1607,12 @@ iframe {
 .accounts-activation .operator .operator-data {
   float: right;
   overflow: hidden;
+  margin-top: -10px;
 }
-.accounts-activation .operator .operator-data .operator-logo {
-  float: left;
-}
-.accounts-activation .operator .operator-data .chevron {
-  font-size: 22px;
-  line-height: 23px;
+.accounts-activation .operator .operator-data .tandc {
+  display: block;
+  font-size: 14px;
   color: white;
-  float: right;
-  margin-left: 30px;
 }
 .accounts-activation .footer {
   margin-bottom: 20px;

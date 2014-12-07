@@ -38,11 +38,15 @@ define([
             this.renderCollection(this.collection, results, AccountsActivationElement);
             
             // bind operators terms event
-            $('.operator-data').on('click', function(){
-	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
+            $('.tandc').on('click', function(){
+	        	Operators.SelectedOperator = self.collection.get(this.parentElement.parentElement.id).attributes;
 	        	Operators.SelectedOperator.showCreateAccountBtn = '';
 	        	window.location.href = "#operatorTerms";
             });
+            
+            
+            
+            
             // bind activate accounts event
             $('#activateButton').on('click', function(){
             	$('.switch input').each(function(op,chk){
