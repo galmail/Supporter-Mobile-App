@@ -39,3 +39,34 @@ text-align: left;
         background: white;
     }
 }
+
+
+
+#logoutConfirmModal {
+  min-height: 0;
+  width: 90%;
+  visibility: visible;
+  padding: 0;
+  padding-top: 10px;
+  top: 30%;
+  left: 5%;
+  color: black;
+  text-align: center;
+  .title {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  .buttons {
+    overflow: hidden;
+    border-top: 1px solid;
+    border-color: @disabled;
+    div {
+      padding: 15px;
+      &.ok-btn {
+        border-left: 1px solid;
+        border-color: @disabled;
+      }
+    }
+  }
+}
+

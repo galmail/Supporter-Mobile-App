@@ -11,6 +11,7 @@
 			<section class="title-area top-bar-section">
 			    <h1 class="title">Supporter.se</h1>
 		    </section>
+		    
 			<!--
 			<section class="right-small">
 				<img class="search-icon" src="img/search.png"/>
@@ -22,37 +23,39 @@
 			<ul class="off-canvas-list">
 				<li>
 					<div class="sidebar-user-profile row">
-						<img class="sidebar-club-photo" src="img/clubs/ifk.jpg" />
+						<img id="supporter-logged-user-club" class="sidebar-club-photo" src="img/clubs/ifk.jpg" />
 						<div class="sidebar-user-info">
-							<div class="sidebar-user-name large">Guest User</div>
-							<div class="sidebar-user-email tiny">sergio@betteranapp.com</div>
+							<div id="supporter-logged-user-name" class="sidebar-user-name large">Guest User</div>
+							<div id="supporter-logged-user-email" class="sidebar-user-email tiny">guest@supporter.com</div>
 						</div>
 					</div>
 				</li>
-				<li>
+				
+				<!-- <li>
 					<h1 class="sidebar-logo">supporter.se</h1>
-				</li>
+				</li> -->
+				
 				<li class="sidebar-option">
 					<a href="#mainMenuLogged">Home / Suggested Games</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#userStatistics">My Page / Statistics</a>
+					<a href="#changeUserPassword">Change Password</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#eventsAllFilter">Games</a>
+					<a href="#unifiedRegister">Edit Unified Information</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#eventsLiveScoresFilter">Live Games</a>
+					<a href="#pickClub">Change Club</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#userBets">Bets</a>
+					<a href="#operatorsList">Betting Operators</a>
 				</li>
-				<li class="sidebar-option">
-					<a href="#userWallet">My Wallet</a>
+				<li id="supporterSignOut" class="sidebar-option">
+					<a href="#">Sign Out</a>
 				</li>
-				<li class="sidebar-second-option">
+				<!-- <li class="sidebar-second-option">
 					<a href="#userSettings">Settings</a>
-				</li>
+				</li> -->
 				<li class="sidebar-second-option">
 					<a href="#about">About Supporter.se</a>
 				</li>
@@ -75,3 +78,20 @@
 		<a class="exit-off-canvas"></a>
 	</div>
 </div>
+
+
+
+
+<div id="logoutConfirmModal" class="reveal-modal" data-reveal>
+  <p class="medium title">Are you sure you want to logout?</p>
+  <div class="buttons small">
+  	<div id="supporterCloseModal" class="columns small-6 cancel-btn">Cancel</div>
+  	<div id="supporterSignOutOK" class="columns small-6 ok-btn">OK</div>
+  </div>
+</div>
+
+<div class="modal-bg">
+</div>
+
+
+

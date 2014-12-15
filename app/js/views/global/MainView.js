@@ -23,11 +23,32 @@ define([
         templateData: {},
         
         events: {},
+        
+        showSignOut: function(){
+        	$('#logoutConfirmModal').show();
+    		$('.modal-bg').show();
+        },
+        
+        closeModal: function(){
+        	$('#logoutConfirmModal').hide();
+    		$('.modal-bg').hide();
+        },
+        
+        signOut: function(me){
+        	window.location.href = '#menuLogClear';
+        	me.closeModal();
+        },
 
         initialize: function (templateSrc) {
         	console.log('MainView initialize');
+            var self = this;
             $('body').html(_.template(mainTpl));
             this.loadIOvationScript();
+            $('#supporterSignOut').on('click',this.showSignOut);
+            $('#supporterCloseModal').on('click',this.closeModal);
+            $('#supporterSignOutOK').on('click',function(){
+            	self.signOut(self);
+            });
         },
         
         loadIOvationScript: function(){

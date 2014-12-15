@@ -42,7 +42,7 @@ define([
             if(User.LoggedUser.get('properties').firstName){
         		$('#createBtn').hide();
         		$('#updateBtn').show();
-        		$('#cancelBtn').attr('href','#userSettings');
+        		//$('#cancelBtn').attr('href','#userSettings');
         		if(User.LoggedUser.get('properties').pin){
         			$('#pin').prop('disabled', true);
         			self.pinlookup(User.LoggedUser.get('properties').pin);
@@ -54,7 +54,7 @@ define([
         	else {
         		$('#createBtn').show();
         		$('#updateBtn').hide();
-        		$('#cancelBtn').attr('href','javascript:window.history.back();');
+        		//$('#cancelBtn').attr('href','javascript:window.history.back();');
         		$('#pin').prop('disabled', false);
         	}
         	
@@ -116,7 +116,7 @@ define([
         updateAccount: function(){
         	this.updateUserInfo(function(){
         		Utils.alert('User Info was updated!',function(){
-        			window.location.href = "#userSettings";
+        			window.location.href = "#mainMenuLogged";
         		},'Success','Ok');
         	});
         	return false;

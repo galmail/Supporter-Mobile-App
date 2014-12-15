@@ -65,6 +65,7 @@ define([
 	   	
 	   	login: function(password, callback){
 	   		var pswd = password || User.LoggedUser.get('password');
+	   		var self = this;
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
 	   			email: this.get('properties').email,
@@ -77,6 +78,7 @@ define([
             		User.LoggedUser = model;
             		User.LoggedUser.set('password',pswd);
             		window.LoggedUser = User.LoggedUser;
+            		self.updateSideMenu();
             		callback(true);
             	},
             	error: function(model, response, options){
@@ -138,6 +140,14 @@ define([
 	   	changeClub: function(newAssociation,callback){
 	   		this.get('properties').association = newAssociation;
 	   		this.update(callback);
+	   	},
+	   	updateSideMenu: function(){
+	   		console.log('Im in updateSideMenu...');
+	   		var name = this.get('properties').firstName + ' ' + this.get('properties').lastName;
+	   		var email = this.get('properties').email;
+	   		$('#supporter-logged-user-name').text(name);
+	   		$('#supporter-logged-user-email').text(email);
+	   		// $('#supporter-logged-user-club')
 	   	}
 	},
 	// static properties

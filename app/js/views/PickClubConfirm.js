@@ -33,7 +33,7 @@ define([
         			User.LoggedUser.changeClub(Associations.selectedAssociation,function(success){
         				if(success){
         					Utils.alert('Club Changed Successfully.',function(){
-        						window.location.href = "#userSettings";
+        						window.location.href = "#mainMenuLogged";
         					},'Success','Ok');
         				}
         				else {
