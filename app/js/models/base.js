@@ -41,8 +41,25 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 					}
 				}
 			});
+		},
+		
+		loadMainMenuLinks: function(callback){
+			if(BaseModel.MenuLinks.length>0) return callback(BaseModel.MenuLinks);
+			var self = this;
+			var domain = window.staticCDN || ''; 
+			this.url = domain + '/lang/'+ this.get('code') +'/links.json?nocache='+Math.random();
+        	this.$fetch({
+        		success: function(obj, response, options){
+            		BaseModel.MenuLinks = obj.categories;
+            		return callback(BaseModel.MenuLinks);
+            	}
+        	});
 		}
 		
+	},
+	// static properties and methods
+	{
+		MenuLinks: []
 	});
 	return BaseModel;
 });
