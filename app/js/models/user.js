@@ -2,8 +2,9 @@ define([
   'underscore',
   'backbone',
   'utils',
-  'models/base'
-], function(_, Backbone, Utils, BaseModel){
+  'models/base',
+  'models/association'
+], function(_, Backbone, Utils, BaseModel, Association){
 	var User = BaseModel.extend({
 		
 		defaults: {
@@ -147,7 +148,12 @@ define([
 	   		var email = this.get('properties').email;
 	   		$('#supporter-logged-user-name').text(name);
 	   		$('#supporter-logged-user-email').text(email);
-	   		// $('#supporter-logged-user-club')
+	   		var club = new Association({ id: this.get('properties').association });
+	   		club.load(function(ok){
+	   			if(ok){
+	   				$('#supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
+	   			}
+	   		});
 	   	}
 	},
 	// static properties

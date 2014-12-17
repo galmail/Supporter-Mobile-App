@@ -1,8 +1,9 @@
 define([
     'underscore',
     'backbone',
-    'models/base'
-], function (_, Backbone, BaseModel) {
+    'models/base',
+    'utils'
+], function (_, Backbone, BaseModel, Utils) {
     var Association = BaseModel.extend({
         defaults: {
             'id': null,
@@ -32,7 +33,26 @@ define([
         },
         initialize: function () {
             //console.log('New Association Created.');
-        }
+        },
+        parse: function(response){
+        	return response.data[0];
+        },
+        load: function(callback){
+	   		var self = this;
+	   		this.url = Utils.buildUrl('/v2/associations/' + self.get('id'));
+        	this.$fetch({
+        		success: function(obj, response, options){
+            		callback(true);
+            	},
+            	error: function(obj, response, options){
+            		console.log('Error: ' + response);
+            		callback(false);
+            	}
+        	});
+	   	}
+        
+        
+        
     });
     return Association;
 });

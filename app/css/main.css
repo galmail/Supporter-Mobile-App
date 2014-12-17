@@ -298,6 +298,7 @@ iframe {
 }
 .left-off-canvas-menu .sidebar-user-profile .sidebar-club-photo {
   float: left;
+  width: 60px;
 }
 .left-off-canvas-menu .sidebar-user-profile .sidebar-user-info {
   float: left;
