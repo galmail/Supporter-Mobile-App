@@ -61,11 +61,11 @@ define([
         			var success = false;
         			var auth = 'auth=' + model.get('auth') + ';';
         			var iframe = $('#inAppBrowser');
-        			iframe[0].contentWindow.document.cookie=auth;
         			iframe.attr('src', model.get('url'));
-        			iframe.height(window.innerHeight - 45);
-			        iframe.show();
-			        Utils.showLoading(3000,function(){			        	
+        			Utils.showLoading(3000,function(){
+        				iframe[0].contentWindow.document.cookie=auth;
+		        		iframe[0].contentWindow.location.reload();
+			        	iframe.show();
 			        	$('#closeFrameIcon').show();
 			        });
         			
