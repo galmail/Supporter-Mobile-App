@@ -1667,3 +1667,34 @@ iframe {
 .create-new-account-confirmation .text {
   margin-bottom: 30px;
 }
+.category-screen {
+  text-align: left;
+}
+.category-screen .intro {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.category-screen .team-name {
+  line-height: 50px;
+}
+.category-screen li {
+  list-style: none;
+  line-height: 50px;
+  padding-left: 10px;
+  border-bottom: 1px solid black;
+}
+.category-screen li.cat-link a {
+  display: block;
+  width: 100%;
+}
+.category-screen li:last-child {
+  border-bottom: none;
+}
+.category-screen ul {
+  color: black;
+  text-shadow: none;
+  font-family: 'Roboto', sans-serif !important;
+  margin-left: 0px;
+  background: white;
+}

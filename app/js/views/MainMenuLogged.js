@@ -7,9 +7,10 @@ define([
     'views/global/LoggedView',
     'text!templates/MainMenuLogged.html',
     'models/base',
+    'models/user',
     'collections/categories',
     'text!templates/snippets/MainMenuLoggedCategory.html',
-], function ($, _, Backbone, LoggedView, templateSrc, BaseModel, Categories, TemplateCategory) {
+], function ($, _, Backbone, LoggedView, templateSrc, BaseModel, User, Categories, TemplateCategory) {
     'use strict';
 
     var View = LoggedView.extend({
@@ -21,11 +22,18 @@ define([
         collection: new Categories(),
 
         events: {
-            'click li.js-menu-item': 'goToBetting'
+            //'click li.js-menu-item': 'goToBetting'
         },
         
         onInit: function(callback){
         	var self = this;
+        	var name = "guest";
+        	var club = "your club";
+        	if(User.LoggedUser){
+        		name = User.LoggedUser.get('properties').firstName;
+        		club = User.LoggedUser.get('clubName');
+        	}
+        	self.templateData = { name: name, club: club };
         	self.collection.load(function(categories){
         		console.log('loaded categories');
         		callback();
@@ -33,14 +41,22 @@ define([
         },
 
         onRender: function () {
+        	var self = this;
             this.body.addClass('body-not-logged');
             var results = this.$el.find('#linksList');
             this.renderCollection(this.collection, results, TemplateCategory);
+            
+            // bind category onclick event
+            $('.js-menu-item').on('click',function(el){
+            	self.showCategoryScreen(el,self);
+            });
             return this;
         },
 
-        goToBetting: function(el) {
-            window.location.href = '#' + el.currentTarget.id;
+        showCategoryScreen: function(el,self) {
+        	var category = $(el.currentTarget).find('.team-name').text();
+        	self.collection.selectByName(category);
+        	window.location.href = '#categoryScreen';
         }
 
     });

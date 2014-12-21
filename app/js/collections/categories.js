@@ -27,6 +27,11 @@ define([
             		console.log('Error: ' + response);
             	}
         	});
+        },
+        
+        selectByName: function(name){
+        	Categories.selectedCategory = this.where({title: name})[0];
+        	Categories.selectedCategory.setLinks();
         }
         
     },

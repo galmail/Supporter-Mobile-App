@@ -79,8 +79,7 @@ define([
             		User.LoggedUser = model;
             		User.LoggedUser.set('password',pswd);
             		window.LoggedUser = User.LoggedUser;
-            		self.updateSideMenu();
-            		callback(true);
+            		self.updateSideMenu(callback);
             	},
             	error: function(model, response, options){
             		console.log('Error User.login');
@@ -142,16 +141,17 @@ define([
 	   		this.get('properties').association = newAssociation;
 	   		this.update(callback);
 	   	},
-	   	updateSideMenu: function(){
-	   		console.log('Im in updateSideMenu...');
+	   	updateSideMenu: function(callback){
 	   		var name = this.get('properties').firstName + ' ' + this.get('properties').lastName;
 	   		var email = this.get('properties').email;
-	   		$('#supporter-logged-user-name').text(name);
-	   		$('#supporter-logged-user-email').text(email);
+	   		$('.supporter-logged-user-name').text(name);
+	   		$('.supporter-logged-user-email').text(email);
 	   		var club = new Association({ id: this.get('properties').association });
 	   		club.load(function(ok){
 	   			if(ok){
-	   				$('#supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
+	   				User.LoggedUser.set('clubName',club.get('name'));
+	   				$('.supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
+	   				callback(true);
 	   			}
 	   		});
 	   	}

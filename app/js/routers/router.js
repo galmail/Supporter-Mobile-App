@@ -57,6 +57,7 @@ define([
 	'views/OperatorConnect',
 	'views/RecommendedLinks',
 	'views/CreateNewAccountConfirmation',
+	'views/CategoryScreen',
 	
 	'foundation',
 	'offcanvas',
@@ -74,7 +75,7 @@ define([
 	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
 	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
 	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView,
-	RecommendedLinksView, CreateNewAccountConfirmationView) {
+	RecommendedLinksView, CreateNewAccountConfirmationView, CategoryScreenView) {
 
 	'use strict';
 
@@ -138,7 +139,8 @@ define([
 			'operatorTerms': 				'operatorTerms',
 			'operatorConnect': 				'operatorConnect',
 			'recommendedLinks': 			'recommendedLinks',
-			'createNewAccountConfirmation': 'createNewAccountConfirmation'
+			'createNewAccountConfirmation': 'createNewAccountConfirmation',
+			'categoryScreen': 				'categoryScreen'
 		},
 
 		menuLogClear: function () {
@@ -305,7 +307,9 @@ define([
 		createNewAccountConfirmation: function() {
 			new CreateNewAccountConfirmationView();
 		},
-		
+		categoryScreen: function(){
+			new CategoryScreenView();
+		}
 		
 	});
 
