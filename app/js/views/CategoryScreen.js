@@ -9,7 +9,8 @@ define([
     'collections/categories',
     'collections/links',
     'text!templates/snippets/CategoryScreenLink.html',
-], function ($, _, Backbone, LoggedView, templateSrc, Categories, Links, TemplateLink) {
+    'utils'
+], function ($, _, Backbone, LoggedView, templateSrc, Categories, Links, TemplateLink, Utils) {
     'use strict';
 
     var View = LoggedView.extend({
@@ -24,10 +25,73 @@ define([
         },
         
         onRender: function(){
+        	var self = this;
         	this.body.addClass('body-not-logged');
         	var results = this.$el.find('#operatorsLinkList');
         	this.renderCollection(this.collection, results, TemplateLink);
+        	
+        	// bind link onclick event
+        	$('.cat-link > a').on('click',function(el){
+        		self.openOperatorApp(el,self);
+        		return false;
+        	});
+        	// bind close frame event
+        	$('#closeFrameIcon').on('click',function(el){
+        		self.closeOperatorApp(el,self);
+        		return false;
+        	});
         	return this;
+        },
+        
+        closeOperatorApp: function(el,self){
+        	console.log('closing app');
+        	$('#closeFrameIcon').hide();
+        	var iframe = $('#inAppBrowser');
+        	iframe[0].contentWindow.document.cookie='';
+        	iframe.attr('src','');
+        	iframe.hide();
+        },
+        
+        openOperatorApp: function(el,self){
+        	console.log('open operator page: ' + el.currentTarget.id);
+        	var link = self.collection.searchByName(el.currentTarget.id);
+        	link.loadAuthTokens(function(ok,model){
+        		if(ok){
+        			// setup cookies and open page
+        			var success = false;
+        			var auth = 'auth=' + model.get('auth') + ';';
+        			var iframe = $('#inAppBrowser');
+        			iframe[0].contentWindow.document.cookie=auth;
+        			iframe.attr('src', model.get('url'));
+        			iframe.height(window.innerHeight - 45);
+			        iframe.show();
+			        Utils.showLoading(3000,function(){			        	
+			        	$('#closeFrameIcon').show();
+			        });
+        			
+        			// var ref = window.open(encodeURI(model.get('url')),'_blank','hidden=yes');
+        			// var setCookie = 'document.cookie="' + auth + '";location.reload();';
+// 			        
+			        // ref.addEventListener('loadstop', function(){
+			            // ref.executeScript({
+			                // code: setCookie
+			            // },function(ret){ 
+			                // success = true; 
+			            // });
+			            // ref.close();
+			        // });
+			        // ref.addEventListener('exit', function () {   
+			            // if (!success) alert("Couldn't execute script");   
+			            // var frame = $('#inAppBrowser');
+			            // //frame.height(window.innerHeight - frame.offset().top - 20);
+			            // frame.attr('src', model.get('url'));
+			            // frame.show();
+			        // });
+			        
+			        
+			        
+        		}
+        	});
         }
     });
 

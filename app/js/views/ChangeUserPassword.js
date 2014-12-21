@@ -29,7 +29,7 @@ define([
         			// verify the new password has been confirmed
         			var newPaswd = $('#newPaswd').val();
         			var newPaswdConfirm = $('#newPaswdConfirm').val();
-        			if(newPaswd.length==0 || newPaswd != newPaswdConfirm){
+        			if(newPaswd.length===0 || newPaswd != newPaswdConfirm){
         				Utils.alert('Please make sure you confirm the new password.',null,'Error','Ok');
         				return false;
         			}

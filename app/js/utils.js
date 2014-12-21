@@ -3,6 +3,14 @@ define(
     function (Utils) {
         return new (function Utils(){
         	
+        	this.showLoading = function(ms,callback){
+        		$('#loader').show();
+        		setTimeout(function(){
+        			$('#loader').hide();
+        			callback();
+        		}, ms);
+        	};
+        	
         	// native alert notification function
         	this.alert = function(msg,callback,title,btnName){
         		if(navigator.notification){
@@ -16,9 +24,10 @@ define(
         	
         	// build url from params and authenticate
         	this.buildUrl = function(baseUrl,params){
-        		var sessionId = localStorage.getItem('session');
+        		var sessionId = localStorage.session;
+        		var keyId = localStorage.key;
         		var domain = window.serverURL || '';
-        		var url = domain + baseUrl + '?session=' + sessionId;
+        		var url = domain + baseUrl + '?session=' + sessionId + '&key=' + keyId;
         		if(params==null) params = {}; 
         		$.each(params,function(key,value){
         			url += '&'+key+'='+encodeURIComponent(value);

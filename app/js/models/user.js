@@ -76,6 +76,7 @@ define([
         		success: function(model, response, options){
         			// persist session in localstorage
         			localStorage.session = model.get('session');
+        			localStorage.key = model.get('key');
             		User.LoggedUser = model;
             		User.LoggedUser.set('password',pswd);
             		window.LoggedUser = User.LoggedUser;
