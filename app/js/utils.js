@@ -27,7 +27,10 @@ define(
         		var sessionId = localStorage.session;
         		var keyId = localStorage.key;
         		var domain = window.serverURL || '';
-        		var url = domain + baseUrl + '?session=' + sessionId + '&key=' + keyId;
+        		var url = domain + baseUrl + '?session=' + sessionId;
+        		if(typeof(keyId) == "string"){
+        			url += '&key=' + keyId;
+        		}
         		if(params==null) params = {}; 
         		$.each(params,function(key,value){
         			url += '&'+key+'='+encodeURIComponent(value);

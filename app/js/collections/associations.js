@@ -16,6 +16,7 @@ define([
         	this.url = Utils.buildUrl('/v2/associations/getpopular');
         	this.$fetch({
         		success: function(collection, response, options){
+            		window.debugme = collection;
             		callback(collection);
             	},
             	error: function(collection, response, options){
