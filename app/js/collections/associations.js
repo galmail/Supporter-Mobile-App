@@ -16,7 +16,6 @@ define([
         	this.url = Utils.buildUrl('/v2/associations/getpopular');
         	this.$fetch({
         		success: function(collection, response, options){
-            		window.debugme = collection;
             		callback(collection);
             	},
             	error: function(collection, response, options){
@@ -37,7 +36,21 @@ define([
             		console.log('Error: ' + response);
             	}
         	});
-        }
+        },
+        
+        getById: function(id,callback){
+	   		var self = this;
+	   		this.url = Utils.buildUrl('/v2/associations/' + id);
+        	this.$fetch({
+        		success: function(collection, response, options){
+        			callback(collection.first());
+            	},
+            	error: function(collection, response, options){
+            		console.log('Error: ' + response);
+            		callback(null);
+            	}
+        	});
+	   	}
         
     },
     // static properties

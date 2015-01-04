@@ -3,8 +3,9 @@ define([
   'backbone',
   'utils',
   'models/base',
-  'models/association'
-], function(_, Backbone, Utils, BaseModel, Association){
+  'models/association',
+  'collections/associations',
+], function(_, Backbone, Utils, BaseModel, Association, Associations){
 	var User = BaseModel.extend({
 		
 		defaults: {
@@ -147,14 +148,17 @@ define([
 	   		var email = this.get('properties').email;
 	   		$('.supporter-logged-user-name').text(name);
 	   		$('.supporter-logged-user-email').text(email);
-	   		var club = new Association({ id: this.get('properties').association });
-	   		club.load(function(ok){
-	   			if(ok){
-	   				User.LoggedUser.set('clubName',club.get('name'));
+	   		var clubId = this.get('properties').association;
+	   		if(clubId){
+	   			new Associations().getById(clubId,function(club){
+		   			User.LoggedUser.set('clubName',club.get('name'));
 	   				$('.supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
 	   				callback(true);
-	   			}
-	   		});
+		   		});
+	   		}
+	   		else {
+	   			callback(false);
+	   		}
 	   	}
 	},
 	// static properties
