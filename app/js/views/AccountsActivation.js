@@ -44,22 +44,11 @@ define([
 	        	window.location.href = "#operatorTerms";
             });
             
-            
-            
-            
             // bind activate accounts event
             $('#activateButton').on('click', function(){
             	$('.switch input').each(function(op,chk){
 	        		var myOperator = self.collection.get($(chk).data().id);
 	        		if(chk.checked){
-	        			//Operators.ActivatedOperators.push();
-	        			// var operator = new Operator({
-	        				// name: $(chk).data().name,
-	        				// key: User.LoggedUser.get('key')
-	        			// });
-	        			
-	        			window.debugme = myOperator;
-	        			
 	        			myOperator.createAccount({
 	        				success: function(){
 	        					console.log('account created successfully');
