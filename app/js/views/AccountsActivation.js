@@ -53,11 +53,14 @@ define([
 	        		var myOperator = self.collection.get($(chk).data().id);
 	        		if(chk.checked){
 	        			//Operators.ActivatedOperators.push();
-	        			var operator = new Operator({
-	        				name: $(chk).data().name,
-	        				key: User.LoggedUser.get('key')
-	        			});
-	        			operator.createAccount({
+	        			// var operator = new Operator({
+	        				// name: $(chk).data().name,
+	        				// key: User.LoggedUser.get('key')
+	        			// });
+	        			
+	        			window.debugme = myOperator;
+	        			
+	        			myOperator.createAccount({
 	        				success: function(){
 	        					console.log('account created successfully');
 	        					myOperator.set('status','success');

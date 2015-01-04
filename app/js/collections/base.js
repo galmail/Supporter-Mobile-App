@@ -26,6 +26,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 		$save: function(params,callbacks){
 			var self = this;
 			self.save(params,{
+				type: 'POST',
 				success: callbacks.success,
 				error: function(obj, response, options){
 					if(response.error == self.SessionExpirationErrorCode){

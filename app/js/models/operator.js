@@ -41,16 +41,16 @@ define([
 	   	createAccount: function(callbacks){
 	   		var self = this;
 	   		this.url = Utils.buildUrl('/v2/operators/createaccount',{
-        		operator: self.get('name'),
-        		key: self.get('key')
+        		operator: self.get('identifier') //name
+        		//key: self.get('key')
         	});
         	this.$save(null,callbacks);
 	   	},
 	   	connectAccount: function(credentials,callbacks){
 	   		var self = this;
 	   		this.url = Utils.buildUrl('/v2/operators/registerexisting',{
-        		operator: self.get('name'),
-        		key: self.get('key')
+        		operator: self.get('identifier') //name
+        		//key: self.get('key')
         	});
         	this.$save(credentials,callbacks);
 	   	}
