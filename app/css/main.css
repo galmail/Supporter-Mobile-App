@@ -829,6 +829,15 @@ iframe {
   background-repeat: no-repeat;
   background-position-y: 3px;
 }
+.main-menu-logged .category-icon {
+  display: inline-block;
+  height: 50px;
+  width: 43px;
+  float: left;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position-y: 8px;
+}
 .main-menu-logged .team-name {
   line-height: 50px;
 }
