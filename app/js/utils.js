@@ -7,7 +7,7 @@ define(
         		$('#loader').show();
         		setTimeout(function(){
         			$('#loader').hide();
-        			callback();
+        			if(typeof(callback)=='function') callback();
         		}, ms);
         	};
         	
@@ -18,7 +18,7 @@ define(
         		}
         		else {
         			alert(msg);
-        			callback();
+        			if(typeof(callback)=='function') callback();
         		}
         	};
         	

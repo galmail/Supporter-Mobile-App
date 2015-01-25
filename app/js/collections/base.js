@@ -17,7 +17,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 						});
 					}
 					else {
-						return callbacks.error;
+						callbacks.error();
 					}
 				}
 			});
@@ -38,7 +38,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 						});
 					}
 					else {
-						return callbacks.error;
+						callbacks.error();
 					}
 				}
 			});

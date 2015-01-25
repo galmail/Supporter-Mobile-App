@@ -6,8 +6,9 @@ define([
     'text!templates/UnifiedRegister.html',
     'views/global/UnloggedView',
     'models/user',
+    'collections/operators',
     'utils'
-], function ($, _, Backbone, templateSrc, UnloggedView, User, Utils) {
+], function ($, _, Backbone, templateSrc, UnloggedView, User, Operators, Utils) {
     'use strict';
 
     var View = UnloggedView.extend({
@@ -71,8 +72,8 @@ define([
 				}
 			});
 			
-			$('#createBtn').on('click',function(){ self.createAccount(); });
-			$('#updateBtn').on('click',function(){ self.updateAccount(); });
+			$('#createBtn').on('click',function(){ return self.createAccount(); });
+			$('#updateBtn').on('click',function(){ return self.updateAccount(); });
 			
             return this;
         },
@@ -107,8 +108,46 @@ define([
         },
         
         createAccount: function(){
+        	
+        	var hookOperators = function(){
+        		var ready = true;
+        		Operators.ActivatedOperators.each(function(operator){
+        			if(operator.get('status')=='pending'){
+        				ready = false;
+        				return false;
+        			}
+        		});
+        		if(ready){
+        			$('#loader').hide();
+        			$('#loader').text('Loading...');
+        			window.location.href = "#operatorsList";
+        		}
+        	};
+        	
         	this.updateUserInfo(function(){
-        		window.location.href = "#operatorsList";
+        		var loadingTxt = $('#loader').text();
+        		$('#loader').text('Stand by while we create your accounts...');
+        		$('#loader').show();
+        		
+        		window.debugme = Operators.ActivatedOperators;
+        		
+        		// create accounts
+        		Operators.ActivatedOperators.each(function(operator){
+        			if(operator.get('status')=='pending'){
+        				operator.createAccount({
+	        				success: function(){
+	        					console.log('account created successfully on ', operator.get('name'));
+	        					operator.set('status','success');
+	        					hookOperators();
+	        				},
+	        				error: function(){
+	        					console.log('account not created on ', operator.get('name'));
+	        					operator.set('status','error');
+	        					hookOperators();
+	        				}
+	        			});
+        			}
+        		});
         	});
         	return false;
         },

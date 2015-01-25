@@ -14,17 +14,16 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.operators-list',
-        collection: Operators.ActivatedOperators,
         
-        // onInit: function(callback){
-        	// //this.collection = ;
-        	// callback();
-        	// // var self = this;
-        	// // self.collection.getAvailable(function(availableOperators){
-        		// // console.log('loaded operators operatorsList');
-        		// // callback();
-        	// // });
-        // },
+        onInit: function(callback){
+        	this.collection = Operators.ActivatedOperators;
+        	callback();
+        	// var self = this;
+        	// self.collection.getAvailable(function(availableOperators){
+        		// console.log('loaded operators operatorsList');
+        		// callback();
+        	// });
+        },
         
         onRender: function() {
             var self = this;
@@ -32,7 +31,7 @@ define([
         	// set icons
         	for(var i=0;i<this.collection.length;i++){
         		var model = this.collection.at(i);
-        		if(model.get('status')=='pending'){
+        		if(model.get('status')=='not-selected'){
         			model.set('statusIcon','fa-circle-o');
         		}
         		else if(model.get('status')=='success'){
@@ -46,7 +45,7 @@ define([
             // bind operators terms event
             $('.operator-data').on('click', function(){
 	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
-	        	if(Operators.SelectedOperator.status=='pending'){
+	        	if(Operators.SelectedOperator.status=='not-selected'){
 	        		Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
 	        		window.location.href = "#operatorTerms";
 	        	}
