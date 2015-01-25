@@ -24,8 +24,8 @@ define(
         	
         	// build url from params and authenticate
         	this.buildUrl = function(baseUrl,params){
-        		var sessionId = localStorage.session;
-        		var keyId = localStorage.key;
+        		var sessionId = localStorage.getItem('userSession');
+        		var keyId = localStorage.getItem('userKey');
         		var domain = window.serverURL || '';
         		var url = domain + baseUrl + '?session=' + sessionId;
         		if(typeof(keyId) == "string"){

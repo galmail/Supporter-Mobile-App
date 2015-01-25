@@ -4,7 +4,7 @@ define([
   'utils',
   'models/base',
   'models/association',
-  'collections/associations',
+  'collections/associations'
 ], function(_, Backbone, Utils, BaseModel, Association, Associations){
 	var User = BaseModel.extend({
 		
@@ -76,8 +76,8 @@ define([
         	this.$fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
-        			localStorage.session = model.get('session');
-        			localStorage.key = model.get('key');
+        			localStorage.setItem('userSession',model.get('session'));
+        			localStorage.setItem('userKey',model.get('key'));
             		User.LoggedUser = model;
             		User.LoggedUser.set('password',pswd);
             		window.LoggedUser = User.LoggedUser;
