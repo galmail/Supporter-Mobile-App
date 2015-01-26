@@ -15,21 +15,26 @@ define([
         template: _.template(templateSrc),
         element: '.unified-register',
        	
+       	fillData: function(model){
+       		var self = this;
+       		// fill data
+			$.each(model.attributes.properties,function(key,value){
+				if(key=='birthdate'){
+					self.$el.find('#year').val(model.attributes.properties.birthdate.year);
+					self.$el.find('#month').val(("0" + model.attributes.properties.birthdate.month).slice(-2));
+					self.$el.find('#day').val(("0" + model.attributes.properties.birthdate.day).slice(-2));
+				}
+				else {
+					self.$el.find('#'+key).val(value);
+				}
+			});
+       	},
+       	
        	pinlookup: function(pin){
        		var self = this;
-       		User.LoggedUser.pinLookUp(pin,function(success, model, response){
+       		window.LoggedUser.pinLookUp(pin,function(success, model, response){
        			if(success){
-       				// fill data
-       				$.each(model.attributes.properties,function(key,value){
-       					if(key=='birthdate'){
-       						self.$el.find('#year').val(model.attributes.properties.birthdate.year);
-       						self.$el.find('#month').val(("0" + model.attributes.properties.birthdate.month).slice(-2));
-       						self.$el.find('#day').val(("0" + model.attributes.properties.birthdate.day).slice(-2));
-						}
-						else {
-							self.$el.find('#'+key).val(value);
-						}
-       				});
+       				self.fillData(model);
        			}
        			else {
        				var resp = JSON.parse(response.responseText);
@@ -37,20 +42,33 @@ define([
        			}
        		});
        	},
+       	
+       	loadUserData: function(){
+       		var self = this;
+       		window.LoggedUser.getData(function(success, model, response){
+       			if(success){
+       				self.fillData(model);
+       			}
+       			else {
+       				var resp = JSON.parse(response.responseText);
+        			Utils.alert(resp.message,null,'User Data','Ok');
+       			}
+       		});
+       	},
         
         onRender: function(){
             var self = this;
-            if(User.LoggedUser.get('properties').firstName){
+            if(window.LoggedUser.get('properties').firstName){
         		$('#createBtn').hide();
         		$('#updateBtn').show();
         		//$('#cancelBtn').attr('href','#userSettings');
-        		if(User.LoggedUser.get('properties').pin){
+        		if(window.LoggedUser.get('properties').pin){
         			$('#pin').prop('disabled', true);
-        			self.pinlookup(User.LoggedUser.get('properties').pin);
         		}
         		else {
         			$('#pin').prop('disabled', false);
         		}
+        		self.loadUserData();
         	}
         	else {
         		$('#createBtn').show();

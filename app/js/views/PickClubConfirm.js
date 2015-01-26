@@ -28,9 +28,9 @@ define([
         onRender: function () {
         	console.log("PickClubConfirm render");
         	$('#confirmClubBtn').on('click',function(){
-        		if(User.LoggedUser){
+        		if(window.LoggedUser){
         			// change club
-        			User.LoggedUser.changeClub(Associations.selectedAssociation,function(success){
+        			window.LoggedUser.changeClub(Associations.selectedAssociation,function(success){
         				if(success){
         					Utils.alert('Club Changed Successfully.',function(){
         						window.location.href = "#mainMenuLogged";

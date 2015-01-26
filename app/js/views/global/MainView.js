@@ -41,7 +41,7 @@ define([
 
         initialize: function (templateSrc) {
         	console.log('MainView initialize');
-            var self = this;
+        	var self = this;
             $('body').html(_.template(mainTpl));
             this.loadIOvationScript();
             $('#supporterSignOut').on('click',this.showSignOut);
