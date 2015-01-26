@@ -1,7 +1,7 @@
 <div class="unified-register keep-screen-margin">
 
     <div class="header small">
-	    {{i18n.Unifiedregistration}}
+        {{i18n.Unifiedregistration}}
     </div>
     <p class="small">
         {{i18n.unifiedregistration_txt}}
@@ -13,27 +13,25 @@
     <input id="firstName" type="text" class="tight" placeholder="{{i18n.Firstname}}" />
     <input id="lastName" type="text" class="tight" placeholder="{{i18n.Surname}}" />
     <select id="gender" class="tight">
-    	<option value="M">{{i18n.Male}}</option>
-    	<option value="F">{{i18n.Female}}</option>
+        <option value="M">{{i18n.Male}}</option>
+        <option value="F">{{i18n.Female}}</option>
     </select>
     <input id="street" type="text" class="tight" placeholder="{{i18n.Address}}" />
     <input id="zipCode" type="text" class="tight" placeholder="{{i18n.Postcode}}" />
     <input id="city" type="text" class="tight" placeholder="{{i18n.City}}" />
     <input id="mobileNumber" type="tel" class="tight" placeholder="{{i18n.Mobilenumber}}" />
-    
+   
+    <input id="currency" type="hidden" value="SEK" />
+
     <div class="row birth-date">
-    	<label class="tiny">Date of Birth:</label>
+        <label class="tiny">Date of Birth:</label>
         <input id="year" type="text" class="tight year inline-input" placeholder="{{i18n.Year}}" />
-	    <input id="month" type="text" class="tight month inline-input" placeholder="{{i18n.Month}}" />
+        <input id="month" type="text" class="tight month inline-input" placeholder="{{i18n.Month}}" />
         <input id="day" type="text" class="tight day inline-input" placeholder="{{i18n.Day}}" />
-	</div>
-	
+    </div>
+    
     <a id="createBtn" href="#operatorsList" class="medium success button full-width">{{i18n.Create}}</a>
     <a id="updateBtn" href="#userSettings" class="medium success button full-width">Update</a>
     <a id="cancelBtn" href="javascript:window.history.back();" class="medium secondary full-width button">{{i18n.Cancel}}</a><br>
 
 </div>
-
-
-
-
