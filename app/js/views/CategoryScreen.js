@@ -61,35 +61,20 @@ define([
         			var success = false;
         			var auth = 'auth=' + model.get('auth') + ';';
         			var iframe = $('#inAppBrowser');
-        			iframe.attr('src', model.get('url'));
-        			Utils.showLoading(3000,function(){
+        			
+        			iframe.on('load',function(){
+        				if(iframe[0].contentWindow.document.cookie.indexOf('auth')>=0) return false;
+        				console.log('iFrame has loaded.. inject auth cookie and reload');
         				iframe[0].contentWindow.document.cookie=auth;
-		        		iframe[0].contentWindow.location.reload();
+        				iframe[0].contentWindow.location.reload();
+        			});
+        			
+        			iframe.attr('src', model.get('url'));
+        			
+        			Utils.showLoading(3000,function(){
 			        	iframe.show();
 			        	$('#closeFrameIcon').show();
 			        });
-        			
-        			// var ref = window.open(encodeURI(model.get('url')),'_blank','hidden=yes');
-        			// var setCookie = 'document.cookie="' + auth + '";location.reload();';
-// 			        
-			        // ref.addEventListener('loadstop', function(){
-			            // ref.executeScript({
-			                // code: setCookie
-			            // },function(ret){ 
-			                // success = true; 
-			            // });
-			            // ref.close();
-			        // });
-			        // ref.addEventListener('exit', function () {   
-			            // if (!success) alert("Couldn't execute script");   
-			            // var frame = $('#inAppBrowser');
-			            // //frame.height(window.innerHeight - frame.offset().top - 20);
-			            // frame.attr('src', model.get('url'));
-			            // frame.show();
-			        // });
-			        
-			        
-			        
         		}
         	});
         }
