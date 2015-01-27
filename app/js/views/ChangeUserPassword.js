@@ -43,7 +43,7 @@ define([
         	$('#sendBtn').on('click',function(){
         		// verify if the old password is correct
         		var oldPaswd = $('#oldPaswd').val();
-        		User.LoggedUser.login(oldPaswd,function(ok){
+        		window.LoggedUser.login(oldPaswd,function(ok){
         			if(!ok){
         				Utils.alert(self.templateData.i18n.incorrectpassword_txt,null,self.templateData.i18n.Error,self.templateData.i18n.Ok);
         				return false;
@@ -56,7 +56,7 @@ define([
         				return false;
         			}
         			// update the password and show msg confirmation to user (and go back to settings)
-        			User.LoggedUser.updatePassword(newPaswd,function(ok){
+        			window.LoggedUser.updatePassword(newPaswd,function(ok){
 	    				if(ok){
 	    					Utils.alert(self.templateData.i18n.passwordupdated_txt,null,self.templateData.i18n.Success,self.templateData.i18n.Ok);
 	    					window.history.back();

@@ -22,7 +22,7 @@ define([
         	$('#sendBtn').on('click',function(){
         		// verify if the registered email is correct
         		var regEmail = $('#registeredEmail').val();
-        		if(regEmail != User.LoggedUser.get('properties').email){
+        		if(regEmail != window.LoggedUser.get('properties').email){
         			Utils.alert('Registered ' + self.templateData.i18n.Emailaddress + ' is incorrect.',null,'Error','Ok');
         			return false;
         		}
@@ -34,8 +34,8 @@ define([
         			return false;
         		}
         		// update the email and show msg confirmation to user (and go back to settings)
-    			User.LoggedUser.get('properties').email = newEmail;
-    			User.LoggedUser.update(function(ok){
+    			window.LoggedUser.get('properties').email = newEmail;
+    			window.LoggedUser.update(function(ok){
     				if(ok){
     					Utils.alert('The New Email has been updated.',null,'Success','Ok');
     					window.history.back();

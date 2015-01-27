@@ -14,8 +14,10 @@ define([
         template: _.template(templateSrc),
         element: '.sign-in',
         
-        events: {
-        	'click #login-btn' : 'login'
+        onRender: function(){
+        	var self = this;
+        	$('#login-btn').on('click',self.login);
+        	return this;
         },
         
         login: function(){
@@ -35,15 +37,6 @@ define([
         	});
         	return false;
         }
-        
-        /*
-        login: function(){
-        	var data = {email: 'm@0g.se', password: '123'};
-        	$.post(window.serverURL + '/io/services/OpenUserService/openUserService/userAuthentication.json',data,function(res,status,xhr){
-        		var cookie = xhr.getResponseHeader('Set-Cookie');
-        	});
-        }
-        */
         
     });
 

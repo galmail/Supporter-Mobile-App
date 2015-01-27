@@ -9,7 +9,7 @@ define([
 			id: null,
 			name: null,
 			identifier: null,
-			status: 'pending', // status: {pending, success, error}
+			status: 'not-selected', // status: {not-selected, pending, success, error}
 			logo: {
 				width: null,
 				height: null,

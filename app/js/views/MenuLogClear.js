@@ -19,8 +19,8 @@ define([
 		},
 		element: '.menu-log-clear',
 		onInit: function(callback){
+			window.LoggedUser = null;
 			localStorage.clear();
-			User.LoggedUser = null;
 			callback();
 		}
 	}); 

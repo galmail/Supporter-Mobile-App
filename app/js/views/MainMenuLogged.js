@@ -29,9 +29,9 @@ define([
         	var self = this;
         	var name = "guest";
         	var club = "your club";
-        	if(User.LoggedUser){
-        		name = User.LoggedUser.get('properties').firstName;
-        		club = User.LoggedUser.get('clubName');
+        	if(window.LoggedUser){
+        		name = window.LoggedUser.get('properties').firstName;
+        		club = window.LoggedUser.get('clubName');
         	}
         	self.templateData = { name: name, club: club };
         	self.collection.load(function(categories){

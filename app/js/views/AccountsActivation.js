@@ -49,23 +49,13 @@ define([
             	$('.switch input').each(function(op,chk){
 	        		var myOperator = self.collection.get($(chk).data().id);
 	        		if(chk.checked){
-	        			myOperator.createAccount({
-	        				success: function(){
-	        					console.log('account created successfully');
-	        					myOperator.set('status','success');
-	        					Operators.ActivatedOperators.add(myOperator);
-	        				},
-	        				error: function(){
-	        					console.log('account not created');
-	        					myOperator.set('status','error');
-	        					Operators.ActivatedOperators.add(myOperator);
-	        				}
-	        			});
+	        			console.log('operator selected: ' + myOperator.get('name'));
+	        			myOperator.set('status','pending');
 	        		}
 	        		else {
-	        			console.log('account not selected');
-	        			Operators.ActivatedOperators.add(myOperator);
+	        			console.log('operator not selected: ' + myOperator.get('name'));
 	        		}
+	        		Operators.ActivatedOperators.add(myOperator);
 	        	});
 	        	return true;
             });

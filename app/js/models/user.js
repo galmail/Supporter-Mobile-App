@@ -4,7 +4,7 @@ define([
   'utils',
   'models/base',
   'models/association',
-  'collections/associations',
+  'collections/associations'
 ], function(_, Backbone, Utils, BaseModel, Association, Associations){
 	var User = BaseModel.extend({
 		
@@ -66,21 +66,23 @@ define([
 	   	//// methods ////
 	   	
 	   	login: function(password, callback){
-	   		var pswd = password || User.LoggedUser.get('password');
+	   		var pswd = password;
+	   		if(window.LoggedUser){
+	   			pswd = window.LoggedUser.get('password');
+	   		}
 	   		var self = this;
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
-	   			email: this.get('properties').email,
+	   			email: self.get('properties').email,
 	   			password: pswd
 	   		});
         	this.$fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
-        			localStorage.session = model.get('session');
-        			localStorage.key = model.get('key');
-            		User.LoggedUser = model;
-            		User.LoggedUser.set('password',pswd);
-            		window.LoggedUser = User.LoggedUser;
+        			localStorage.setItem('userSession',model.get('session'));
+        			localStorage.setItem('userKey',model.get('key'));
+            		window.LoggedUser = model;
+            		window.LoggedUser.set('password',pswd);
             		self.updateSideMenu(callback);
             	},
             	error: function(model, response, options){
@@ -123,6 +125,20 @@ define([
             	}
         	});
 	   	},
+	   	getData: function(callback){
+	   		var self = this;
+	   		this.parse = this.defaultParse;
+	   		this.url = Utils.buildUrl('/v2/users/userdata',{});
+	   		this.$fetch({
+        		success: function(model, response, options){
+        			callback(true, model, response);
+            	},
+            	error: function(model, response, options){
+            		console.log('Error User.getData');
+            		callback(false, model, response);
+            	}
+        	});
+	   	},
 	   	update: function(callback){
 	   		this.parse = this.updateParse;
 	   		this.url = Utils.buildUrl('/v2/users/update');
@@ -151,7 +167,7 @@ define([
 	   		var clubId = this.get('properties').association;
 	   		if(clubId){
 	   			new Associations().getById(clubId,function(club){
-		   			User.LoggedUser.set('clubName',club.get('name'));
+		   			window.LoggedUser.set('clubName',club.get('name'));
 	   				$('.supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
 	   				callback(true);
 		   		});
@@ -163,7 +179,7 @@ define([
 	},
 	// static properties
 	{
-		LoggedUser: null
+		
 	});
 	return User;
 });

@@ -40,7 +40,7 @@ define([
         					window.location.href='#mainMenuLogged';
         				}
         				else {
-        					var res = JSON.parse(resp.responseText);
+        					var res = JSON.parse(response.responseText);
         					Utils.alert(res.message,null,'Error','Ok');
         				}
         			});

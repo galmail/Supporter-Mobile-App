@@ -38,7 +38,7 @@ define([
         	var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
         	var operator = new Operator({
 				name: Operators.SelectedOperator.name,
-				key: User.LoggedUser.get('key')
+				key: window.LoggedUser.get('key')
 			});
 			operator.createAccount({
 				success: function(){

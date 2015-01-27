@@ -7,7 +7,7 @@ define(
         		$('#loader').show();
         		setTimeout(function(){
         			$('#loader').hide();
-        			callback();
+        			if(typeof(callback)=='function') callback();
         		}, ms);
         	};
         	
@@ -18,14 +18,14 @@ define(
         		}
         		else {
         			alert(msg);
-        			callback();
+        			if(typeof(callback)=='function') callback();
         		}
         	};
         	
         	// build url from params and authenticate
         	this.buildUrl = function(baseUrl,params){
-        		var sessionId = localStorage.session;
-        		var keyId = localStorage.key;
+        		var sessionId = localStorage.getItem('userSession');
+        		var keyId = localStorage.getItem('userKey');
         		var domain = window.serverURL || '';
         		var url = domain + baseUrl + '?session=' + sessionId;
         		if(typeof(keyId) == "string"){
