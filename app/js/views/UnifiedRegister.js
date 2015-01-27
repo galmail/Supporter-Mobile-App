@@ -147,8 +147,6 @@ define([
         		$('#loader').text('Stand by while we create your accounts...');
         		$('#loader').show();
         		
-        		window.debugme = Operators.ActivatedOperators;
-        		
         		// create accounts
         		Operators.ActivatedOperators.each(function(operator){
         			if(operator.get('status')=='pending'){

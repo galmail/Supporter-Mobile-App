@@ -27,7 +27,7 @@ define([
         	// get available operators
         	self.collection.getAvailable(function(availableOperators){
         		console.log('loaded operators accountsActivation');
-        		//self.collection = availableOperators;
+        		Operators.ActivatedOperators = availableOperators;
         		callback();
         	});
         },
@@ -49,11 +49,7 @@ define([
             	$('.switch input').each(function(op,chk){
 	        		var myOperator = self.collection.get($(chk).data().id);
 	        		if(chk.checked){
-	        			console.log('operator selected: ' + myOperator.get('name'));
 	        			myOperator.set('status','pending');
-	        		}
-	        		else {
-	        			console.log('operator not selected: ' + myOperator.get('name'));
 	        		}
 	        		Operators.ActivatedOperators.add(myOperator);
 	        	});

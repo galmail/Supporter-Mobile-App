@@ -16,34 +16,32 @@ define([
         element: '.operators-list',
         
         onInit: function(callback){
-        	this.collection = Operators.ActivatedOperators;
-        	callback();
-        	// var self = this;
-        	// self.collection.getAvailable(function(availableOperators){
-        		// console.log('loaded operators operatorsList');
-        		// callback();
-        	// });
+        	var self = this;
+        	Operators.getActiveOperators(function(operators){
+        		self.collection = operators;
+        		callback(); 
+        	});
         },
         
         onRender: function() {
-            var self = this;
-        	var results = this.$el.find('#operatorsList');
-        	// set icons
-        	for(var i=0;i<this.collection.length;i++){
-        		var model = this.collection.at(i);
-        		if(model.get('status')=='not-selected'){
-        			model.set('statusIcon','fa-circle-o');
-        		}
-        		else if(model.get('status')=='success'){
-        			model.set('statusIcon','fa-check');
-        		}
-        		if(model.get('status')=='error'){
-        			model.set('statusIcon','fa-close');
-        		}
-        	}
-            this.renderCollection(this.collection, results, OperatorsListElement);
-            // bind operators terms event
-            $('.operator-data').on('click', function(){
+	        var self = this;
+	    	var results = this.$el.find('#operatorsList');
+	    	// set icons
+	    	for(var i=0;i<this.collection.length;i++){
+	    		var model = this.collection.at(i);
+	    		if(model.get('status')=='not-selected'){
+	    			model.set('statusIcon','fa-circle-o');
+	    		}
+	    		else if(model.get('status')=='success'){
+	    			model.set('statusIcon','fa-check');
+	    		}
+	    		if(model.get('status')=='error'){
+	    			model.set('statusIcon','fa-close');
+	    		}
+	    	}
+	        this.renderCollection(this.collection, results, OperatorsListElement);
+	        // bind operators terms event
+	        $('.operator-data').on('click', function(){
 	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
 	        	if(Operators.SelectedOperator.status=='not-selected'){
 	        		Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
@@ -53,8 +51,8 @@ define([
 	        		window.location.href = "#operatorConnect";
 	        	}
 	        	return false;
-            });
-            return this;
+	        });
+	        return this;
         }
     });
 
