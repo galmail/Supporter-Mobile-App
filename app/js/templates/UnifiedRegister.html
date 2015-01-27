@@ -24,14 +24,14 @@
     <input id="currency" type="hidden" value="SEK" />
 
     <div class="row birth-date">
-        <label class="tiny">Date of Birth:</label>
+    	<label class="tiny">{{i18n.Dateofbirth}}:</label>
         <input id="year" type="text" class="tight year inline-input" placeholder="{{i18n.Year}}" />
         <input id="month" type="text" class="tight month inline-input" placeholder="{{i18n.Month}}" />
         <input id="day" type="text" class="tight day inline-input" placeholder="{{i18n.Day}}" />
     </div>
     
     <a id="createBtn" href="#operatorsList" class="medium success button full-width">{{i18n.Create}}</a>
-    <a id="updateBtn" href="#userSettings" class="medium success button full-width">Update</a>
+    <a id="updateBtn" href="#userSettings" class="medium success button full-width">{{i18n.Update}}</a>
     <a id="cancelBtn" href="javascript:window.history.back();" class="medium secondary full-width button">{{i18n.Cancel}}</a><br>
 
 </div>
