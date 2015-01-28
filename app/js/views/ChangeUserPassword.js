@@ -52,7 +52,7 @@ define([
         			var newPaswd = $('#newPaswd').val();
         			var newPaswdConfirm = $('#newPaswdConfirm').val();
         			if(newPaswd.length===0 || newPaswd != newPaswdConfirm){
-        				Utils.alert(self.templateData.i18n.incorrectpassword_txt,null,self.templateData.i18n.Error,self.templateData.i18n.Ok);
+        				Utils.alert(self.templateData.i18n.confirmnewpassword_txt,null,self.templateData.i18n.Error,self.templateData.i18n.Ok);
         				return false;
         			}
         			// update the password and show msg confirmation to user (and go back to settings)

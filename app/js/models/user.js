@@ -68,6 +68,7 @@ define([
 	   	login: function(password, callback){
 	   		var pswd = password;
 	   		if(window.LoggedUser){
+	   			// BUG: If called from ChangeUserPassword, the provided oldPassword will be overwritten.
 	   			pswd = window.LoggedUser.get('password');
 	   		}
 	   		var self = this;
@@ -153,7 +154,19 @@ define([
         	});
 	   	},
 	   	updatePassword: function(passwd, callback){
-	   		callback(false);
+	   		var self = this;
+	   		this.url = Utils.buildUrl('/v2/users/changepassword',{
+	   			password: passwd
+	   		});
+	   		this.$fetch({
+        		success: function(model, response, options){
+        			callback(true, model, response);
+            	},
+            	error: function(model, response, options){
+            		console.log('Error User.updatePassword');
+            		callback(false, model, response);
+            	}
+        	});
 	   	},
 	   	changeClub: function(newAssociation,callback){
 	   		this.get('properties').association = newAssociation;
