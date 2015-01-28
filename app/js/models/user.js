@@ -84,7 +84,9 @@ define([
         			localStorage.setItem('userKey',model.get('key'));
             		window.LoggedUser = model;
             		window.LoggedUser.set('password',pswd);
-            		self.updateSideMenu(callback);
+            		self.updateSideMenu(function (success) {
+            			callback(true); // continue regardless
+            		});
             	},
             	error: function(model, response, options){
             		console.log('Error User.login');
@@ -180,9 +182,14 @@ define([
 	   		var clubId = this.get('properties').association;
 	   		if(clubId){
 	   			new Associations().getById(clubId,function(club){
-		   			window.LoggedUser.set('clubName',club.get('name'));
-	   				$('.supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
-	   				callback(true);
+	   				if (club === null) {
+	   					console.log('Error User.updateSideMenu');
+	   					callback(false);
+	   				} else {
+			   			window.LoggedUser.set('clubName',club.get('name'));
+		   				$('.supporter-logged-user-club').attr('src',club.get('logo').sizes.thumbnail.file);
+		   				callback(true);
+		   			}
 		   		});
 	   		}
 	   		else {
