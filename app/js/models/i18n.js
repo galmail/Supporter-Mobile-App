@@ -28,7 +28,12 @@ define(['underscore', 'backbone','models/base'], function(_, Backbone, BaseModel
 	},
 	// static properties
 	{
-		locale: navigator.languages[0] || navigator.language,		
+		locale:
+			navigator.languages && navigator.languages[0] ||
+			navigator.language  ||
+			navigator.browserLanguage ||
+			navigator.systemLanguage ||
+			navigator.userLanguage,
 		transData: null
 	
 	});

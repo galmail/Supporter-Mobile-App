@@ -21,7 +21,7 @@ define([
         	var self = this;
             this.onInit(function(){
             	// before render, add to templateData the language translation
-            	if(I18n.transData!=null){
+            	if(I18n.transData!==null){
             		self.templateData.i18n = I18n.transData;
             		self.render();
             	}
