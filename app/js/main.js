@@ -60,12 +60,20 @@ require([
 	'routers/router',
 	'views/global/MainView'
 ], function (Backbone, Router, MainView) {
+	
+	var init = function(){
+		var router = Router.getInstance();
+		Backbone.history.start();
+		$(document).foundation();
+		if(window.rootPage){
+			router.navigate(window.rootPage, {trigger: true});
+		}
+	};
 	// initialize main view
     var mainView = new MainView({ el:$("#content") });
-	var router = Router.getInstance();
-	Backbone.history.start();
-	$(document).foundation();
-	if(window.rootPage){
-		router.navigate(window.rootPage, {trigger: true});
-	}
+    mainView.loadI18n(function(){
+    	mainView.renderView();
+    	init();
+    });
+	
 });

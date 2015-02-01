@@ -3,8 +3,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'text!templates/snippets/Main.html'
-], function ($, _, Backbone, mainTpl) {
+    'text!templates/snippets/Main.html',
+    'models/i18n'
+], function ($, _, Backbone, mainTpl, I18n) {
     'use strict';
     
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
@@ -39,16 +40,42 @@ define([
         	me.closeModal();
         },
 
-        initialize: function (templateSrc) {
+        initialize: function(templateSrc) {
         	console.log('MainView initialize');
+        },
+        
+        renderView: function(){
+        	console.log('MainView renderView');
         	var self = this;
-            $('body').html(_.template(mainTpl));
-            this.loadIOvationScript();
-            $('#supporterSignOut').on('click',this.showSignOut);
-            $('#supporterCloseModal').on('click',this.closeModal);
+        	var tpl = _.template(mainTpl);
+        	$('body').html(tpl(self.templateData));
+        	// load iovation token
+        	self.loadIOvationScript();
+        	// bind events
+        	$('#supporterSignOut').on('click',self.showSignOut);
+            $('#supporterCloseModal').on('click',self.closeModal);
             $('#supporterSignOutOK').on('click',function(){
             	self.signOut(self);
             });
+        },
+        
+        loadI18n: function(callback){
+			console.log('MainView Loading i18n data');
+			var tplData = {};
+        	var self = this;
+        	if(I18n.transData!=null){
+        		tplData.i18n = I18n.transData;
+        		self.templateData = tplData; 
+        		callback();
+        	}
+        	else {
+        		new I18n({code: I18n.locale}).load(function(model){
+        			I18n.transData = model.attributes;
+        			tplData.i18n = I18n.transData;
+        			self.templateData = tplData;
+            		callback();
+        		});
+        	}
         },
         
         loadIOvationScript: function(){

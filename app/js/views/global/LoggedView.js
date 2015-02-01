@@ -13,11 +13,9 @@ define([
         navbar: true,
 
 		initialize: function() {
-			console.log('LoggedView initialize');
+			console.log('LoggedView onInitialize');
         	var self = this;
-            //this.bindSomeEvents();
             this.onInit(function(){
-            	// before render, add to templateData the language translation
             	if(I18n.transData!=null){
             		self.templateData.i18n = I18n.transData;
             		self.render();

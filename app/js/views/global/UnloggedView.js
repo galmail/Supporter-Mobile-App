@@ -16,7 +16,7 @@ define([
         unifiedRegStep: null,
 
         initialize: function () {
-        	console.log("UnloggedView initialize");
+        	console.log("UnloggedView onInitialize");
         	var self = this;
             this.unifiedRegSteps();
             this.onInit(function(){
