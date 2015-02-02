@@ -340,26 +340,19 @@ iframe {
   margin: 35px 20px;
 }
 .operators-list .operator {
-  clear: both;
-  overflow: hidden;
-  margin-bottom: 20px;
+  text-align: left;
 }
-.operators-list .operator i.fa-li {
-  position: relative;
+.operators-list .operator .fa-check {
+  color: green;
 }
-.operators-list .operator .operator-data {
+.operators-list .operator .fa-info-circle {
+  color: #d00;
+}
+.operators-list .operator .fa-unlink {
+  color: gray;
+}
+.operators-list .operator .fa-chevron-right {
   float: right;
-  overflow: hidden;
-}
-.operators-list .operator .operator-data .operator-logo {
-  float: left;
-}
-.operators-list .operator .operator-data .chevron {
-  font-size: 22px;
-  line-height: 23px;
-  color: blue;
-  float: right;
-  margin-left: 30px;
 }
 .user-favorites > p {
   margin-top: 25%;
