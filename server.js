@@ -3,10 +3,12 @@ var httpProxy = require('http-proxy');
 var request = require('request');
 var app = express();
 var proxy = httpProxy.createProxyServer({
-	target : 'http://dev01.supporter.com'
+	target : 'https://api.supporter.com'
 });
 
 ////////// STATIC FILES CONFIGURATION //////////
+
+
 
 switch(app.get('env')) {
 	case 'development':
@@ -33,21 +35,22 @@ switch(app.get('env')) {
 
 app.all(/v2\//, function(req, res, next){
 	//proxy.web(req,res);
-	var url = 'http://api.supporter.com' + req.url;
+	var url = 'https://api.supporter.com' + req.url;
 	reqpipe(req, url, res);
 });
 
 app.all(/lang\//, function(req, res, next){
 	//proxy.web(req,res);
-	var url = 'http://static.supporter.com' + req.url;
+	var url = 'https://static.supporter.com' + req.url;
 	reqpipe(req, url, res);
 });
 
 function reqpipe(req, url, res) {
 	var start = new Date();
-	process.stdout.write('Calling: ' + url);
+
+	process.stdout.write(start.toLocaleTimeString() + ' → ' + url);
 	req.pipe(request(url)).pipe(res);	
-	console.log('  ' + (new Date()- start) + " ms");
+	console.log(' [' + (new Date()- start) + " ms]");
 }
 
 
