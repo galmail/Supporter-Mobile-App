@@ -15,7 +15,7 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.change-user-email',
-        onRender: function(){
+        onRender: function(callback){
         	var self = this;
         	this.$el.prepend(_.template(emailHeaderSrc));
         	// bind events
@@ -46,7 +46,7 @@ define([
     			});
         		return false;
         	});
-        	return this;
+        	callback();
         }
     });
 

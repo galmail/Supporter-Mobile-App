@@ -18,16 +18,16 @@ define([
        	fillData: function(model){
        		var self = this;
        		// fill data
-			$.each(model.attributes.properties,function(key,value){
-				if(key=='birthdate'){
-					self.$el.find('#year').val(model.attributes.properties.birthdate.year);
-					self.$el.find('#month').val(("0" + model.attributes.properties.birthdate.month).slice(-2));
-					self.$el.find('#day').val(("0" + model.attributes.properties.birthdate.day).slice(-2));
-				}
-				else {
-					self.$el.find('#'+key).val(value);
-				}
-			});
+    			$.each(model.attributes.properties,function(key,value){
+    				if(key=='birthdate'){
+    					self.$el.find('#year').val(model.attributes.properties.birthdate.year);
+    					self.$el.find('#month').val(("0" + model.attributes.properties.birthdate.month).slice(-2));
+    					self.$el.find('#day').val(("0" + model.attributes.properties.birthdate.day).slice(-2));
+    				}
+    				else {
+    					self.$el.find('#'+key).val(value);
+    				}
+    			});
        	},
        	
        	pinlookup: function(pin){
@@ -56,9 +56,9 @@ define([
        		});
        	},
         
-        onRender: function(){
-            var self = this;
-            if(window.LoggedUser.get('properties').firstName){
+        onRender: function(callback){
+          var self = this;
+          if(window.LoggedUser.get('properties').firstName){
         		$('#createBtn').hide();
         		$('#updateBtn').show();
         		//$('#cancelBtn').attr('href','#userSettings');
@@ -76,24 +76,35 @@ define([
         		//$('#cancelBtn').attr('href','javascript:window.history.back();');
         		$('#pin').prop('disabled', false);
         	}
+
+          // manage focus on input ids
+          self.$el.find('input').on('click',function(){
+            console.log('input on click: ' + this.id);
+            var jInput = $(this);
+            if(jInput.prev().prop("tagName")=='INPUT'){
+              jInput.prev().trigger('focus');
+              setTimeout(function(){ jInput.trigger('focus'); }, 300);
+            }
+          });
+
         	
         	// bind lookup pin event
-			$('#pin').bind({
-				keyup: function(e){
-					var charCode = (typeof e.which === "number") ? e.which : e.keyCode;
-					if(charCode == 13){
-						self.pinlookup($(this).val());
-					}
-				},
-				focusout: function(){
-					self.pinlookup($(this).val());
-				}
-			});
+    			$('#pin').bind({
+    				keyup: function(e){
+    					var charCode = (typeof e.which === "number") ? e.which : e.keyCode;
+    					if(charCode == 13){
+    						self.pinlookup($(this).val());
+    					}
+    				},
+    				focusout: function(){
+    					self.pinlookup($(this).val());
+    				}
+			    });
 			
-			$('#createBtn').on('click',function(){ return self.createAccount(); });
-			$('#updateBtn').on('click',function(){ return self.updateAccount(); });
+			    $('#createBtn').on('click',function(){ return self.createAccount(); });
+			    $('#updateBtn').on('click',function(){ return self.updateAccount(); });
 			
-            return this;
+          callback();
         },
         
         updateUserInfo: function(callback){

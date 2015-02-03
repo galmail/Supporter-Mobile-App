@@ -12,11 +12,11 @@ define([
         template: _.template(templateSrc),
         element: '.club-disclaimer',
 
-        onRender: function () {
+        onRender: function (callback) {
             var $iframe = $('#iframe-terms-and-conditions');
             $iframe.width($iframe.parent().width());
             $iframe.height($('#container').height()-$iframe.parent().height());
-            
+            callback();
             // bind back button event
             //$('.back-icon').on('click', this.goBack);
             //$('#joinOperatorBtn').on('click', this.joinOperator);

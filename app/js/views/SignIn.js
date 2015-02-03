@@ -14,10 +14,10 @@ define([
         template: _.template(templateSrc),
         element: '.sign-in',
         
-        onRender: function(){
+        onRender: function(callback){
         	var self = this;
         	$('#login-btn').on('click',self.login);
-        	return this;
+        	callback();
         },
         
         login: function(){

@@ -36,7 +36,7 @@ define([
             });
         },        
         //End translation
-        onRender: function() {
+        onRender: function(callback) {
 	        var self = this;
         	this.$el.prepend(_.template(emailHeaderSrc));
         	// bind events
@@ -68,7 +68,7 @@ define([
         		});
         		return false;
         	});
-        	return this;
+        	callback();
         }
     });
 

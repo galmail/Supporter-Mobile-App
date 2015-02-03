@@ -28,10 +28,11 @@ define([
         	});
         },
         
-        onRender: function () {
+        onRender: function (callback) {
         	console.log('SelectOperators render');
         	var results = this.$el.find('#operatorsList');
             this.renderCollection(this.collection, results, elementTemplate);
+            callback();
         },
 
         onSelectOperatorsOk: function () {

@@ -24,7 +24,7 @@ define([
         	callback();
         },
         
-        onRender: function(){
+        onRender: function(callback){
         	var self = this;
         	this.body.addClass('body-not-logged');
         	var results = this.$el.find('#operatorsLinkList');
@@ -40,7 +40,7 @@ define([
         		self.closeOperatorApp(el,self);
         		return false;
         	});
-        	return this;
+        	callback();
         },
         
         closeOperatorApp: function(el,self){

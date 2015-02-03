@@ -124,7 +124,10 @@ define([
         	if($('#footer').is(':visible')){
         		footer_height = $('#footer').height();
         	}
-        	$('#container').height(device_height-(header_height+footer_height));
+        	$('#container').height('0px');
+        	setTimeout(function(){
+        		$('#container').height(device_height-(header_height+footer_height));
+        	}, 10);
         }
         
         

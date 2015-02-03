@@ -25,7 +25,7 @@ define([
         	callback();
         },
         
-        onRender: function () {
+        onRender: function (callback) {
         	console.log("PickClubConfirm render");
         	$('#confirmClubBtn').on('click',function(){
         		if(window.LoggedUser){
@@ -46,7 +46,7 @@ define([
         			return true;
         		}
         	});
-            return this;
+            callback();
         }
     });
 

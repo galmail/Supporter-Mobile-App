@@ -22,9 +22,9 @@ define([
         	callback();
         },
         
-        onRender: function(){
+        onRender: function(callback){
         	$('#connectOperatorBtn').on('click',this.connectOperator);
-        	return this;
+        	callback();
         },
         
         connectOperator: function(){

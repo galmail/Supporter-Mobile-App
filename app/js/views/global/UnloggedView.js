@@ -46,24 +46,26 @@ define([
         
         render: function(){
         	console.log("UnloggedView render");
-        	
+        	var self = this;
         	this.body.addClass('body-not-logged');
             this.body.removeClass('body-logged');
             this.setNavBar();
             $(container).html(this.template(this.templateData));
-            this.fixContainerHeight();
+            //this.fixContainerHeight();
         	this.el = $(this.element);
         	this._ensureElement();
-        	return this.onRender();
+        	this.onRender(function(){
+        		self.fixContainerHeight();
+        		return self;
+        	});
         },
 
         // Override this
         onInit: function(callback) { callback(); },
 
         // Override this
-        onRender: function() {
-        	return this;
-        }
+        onRender: function(callback) { callback(); }
+        
     });
 
     return View;

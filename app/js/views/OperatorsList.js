@@ -23,7 +23,7 @@ define([
         	});
         },
         
-        onRender: function() {
+        onRender: function(callback) {
 	        var self = this;
 	    	var results = this.$el.find('#operatorsList');
 	    	// set icons
@@ -52,7 +52,7 @@ define([
 	        	}
 	        	return false;
 	        });
-	        return this;
+	        callback();
         }
     });
 

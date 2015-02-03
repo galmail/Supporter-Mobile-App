@@ -22,7 +22,7 @@ define([
         	callback();
         },
         
-        onRender: function () {
+        onRender: function (callback) {
         	var $iframe = $('#iframe-terms-and-conditions');
         	$iframe.width($iframe.parent().width());
         	$iframe.height($('#container').height()-$iframe.parent().height());
@@ -30,6 +30,7 @@ define([
             // bind back button event
             $('.back-icon').on('click', this.goBack);
             $('#joinOperatorBtn').on('click', this.joinOperator);
+            callback();
         },
         goBack: function(){
         	window.history.back();
