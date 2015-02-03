@@ -36,22 +36,22 @@
 				</li> -->
 				
 				<li class="sidebar-option">
-					<a href="#mainMenuLogged">Home / Suggested Games</a>
+					<a href="#mainMenuLogged">{{i18n.HomeSuggestedGames}}</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#changeUserPassword">Change Password</a>
+					<a href="#changeUserPassword">{{i18n.ChangePassword}}</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#unifiedRegister">Edit Unified Information</a>
+					<a href="#unifiedRegister">{{i18n.PersonalInformation}}</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#pickClub">Change Club</a>
+					<a href="#pickClub">{{i18n.ChangeClub}}</a>
 				</li>
 				<li class="sidebar-option">
-					<a href="#operatorsList">Betting Operators</a>
+					<a href="#operatorsList">{{i18n.BettingOperators}}</a>
 				</li>
 				<li id="supporterSignOut" class="sidebar-option">
-					<a href="#">Sign Out</a>
+					<a href="#">{{i18n.SignOut}}</a>
 				</li>
 				<!-- <li class="sidebar-second-option">
 					<a href="#userSettings">Settings</a>
@@ -83,10 +83,10 @@
 
 
 <div id="logoutConfirmModal" class="reveal-modal" data-reveal>
-  <p class="medium title">Are you sure you want to logout?</p>
+  <p class="medium title">{{i18n.YouAreSigninOut}}</p>
   <div class="buttons small">
-  	<div id="supporterCloseModal" class="columns small-6 cancel-btn">Cancel</div>
-  	<div id="supporterSignOutOK" class="columns small-6 ok-btn">OK</div>
+  	<div id="supporterCloseModal" class="columns small-6 cancel-btn">{{i18n.Cancel}}</div>
+  	<div id="supporterSignOutOK" class="columns small-6 ok-btn">{{i18n.Ok}}</div>
   </div>
 </div>
 
@@ -96,5 +96,5 @@
 <iframe id="inAppBrowser" style="position:absolute;top:45px;height:100%;width:100%;display:none;">
 </iframe>
 
-<div id="loader" style="position:absolute;top:0;left:0;z-index:999;height:100%;width:100%;background:black;opacity:0.7;text-align:center;padding-top:200px;color:white;display:none;">Loading...</div>
+<div id="loader" style="position:absolute;top:0;left:0;z-index:999;height:100%;width:100%;background:black;opacity:0.7;text-align:center;padding-top:200px;color:white;display:none;">{{i18n.Loading}}</div>
 
