@@ -30,13 +30,13 @@ define([
 	    	for(var i=0;i<this.collection.length;i++){
 	    		var model = this.collection.at(i);
 	    		if(model.get('status')=='not-selected'){
-	    			model.set('statusIcon','fa-circle-o');
+	    			model.set('statusIcon','fa-unlink');
 	    		}
 	    		else if(model.get('status')=='success'){
 	    			model.set('statusIcon','fa-check');
 	    		}
 	    		if(model.get('status')=='error'){
-	    			model.set('statusIcon','fa-close');
+	    			model.set('statusIcon','fa-info-circle');
 	    		}
 	    	}
 	        this.renderCollection(this.collection, results, OperatorsListElement);

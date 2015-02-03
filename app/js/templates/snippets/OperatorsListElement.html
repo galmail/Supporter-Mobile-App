@@ -1,7 +1,9 @@
-<div class="operator" id="{{id}}">
-  <i class="fa-li fa {{statusIcon}}"></i>
-  <div class="operator-data">
-  	<img alt="{{name}}" class="operator-logo" style="width:{{logo.sizes.thumbnail.width}}px;height:{{logo.sizes.thumbnail.height}}px;" src="{{logo.sizes.thumbnail.file}}" />
-  	<label class="chevron">⟩</label>
+<li class="operator" id="{{id}}">
+	<i class="fa-li fa {{statusIcon}}" style="line-height:{{logo.sizes.thumbnail.height}}px"></i>
+	<div class="operator-data"> 
+		<img alt="{{name}}" class="operator-logo" 
+			xstyle="width:{{logo.sizes.thumbnail.width}}px;height:{{logo.sizes.thumbnail.height}}px;" 
+			src="{{logo.sizes.thumbnail.file}}" />
+		<i class="fa fa-chevron-right" style="line-height:{{logo.sizes.thumbnail.height}}px"></i> 
 	</div>
-</div>
+</li>
