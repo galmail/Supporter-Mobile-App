@@ -7,13 +7,34 @@ define([
     'views/global/UnloggedView',
     'models/user',
     'collections/operators',
-    'utils'
-], function ($, _, Backbone, templateSrc, UnloggedView, User, Operators, Utils) {
+    'utils',
+    'models/i18n'        
+], function ($, _, Backbone, templateSrc, UnloggedView, User, Operators, Utils, I18n) {
     'use strict';
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.unified-register',
+ //Add translation
+        initialize: function () {
+        	var self = this;
+            this.onInit(function(){
+            	// before render, add to templateData the language translation
+            	if(I18n.transData!==null){
+            		self.templateData.i18n = I18n.transData;
+            		self.render();
+            	}
+            	else {
+            		new I18n({code: I18n.locale}).load(function(model){
+            			I18n.transData = model.attributes;
+            			self.templateData.i18n = I18n.transData;
+	            		self.render();
+            		});
+
+            	}
+            });
+        },        
+        //End translation
        	
        	fillData: function(model){
        		var self = this;
@@ -38,7 +59,7 @@ define([
        			}
        			else {
        				var resp = JSON.parse(response.responseText);
-        			Utils.alert(resp.message,null,'PIN LookUp','Ok');
+        			Utils.alert(resp.message,null,'PIN LookUp',self.templateData.i18n.Ok);
        			}
        		});
        	},
@@ -120,13 +141,14 @@ define([
 				}
 				else {
 					var resp = JSON.parse(response.responseText);
-    				Utils.alert(resp.message,null,'Error','Ok');
+    				Utils.alert(resp.message,null,self.templateData.i18n.Error,self.templateData.i18n.Ok);
 				}
 			});
         },
         
         createAccount: function(){
-        	
+        		        	var self = this; 
+
         	var hookOperators = function(){
         		var ready = true;
         		Operators.ActivatedOperators.each(function(operator){
@@ -137,14 +159,14 @@ define([
         		});
         		if(ready){
         			$('#loader').hide();
-        			$('#loader').text('Loading...');
+        			$('#loader').text(self.templateData.i18n.Loading);
         			window.location.href = "#operatorsList";
         		}
         	};
         	
         	this.updateUserInfo(function(){
         		var loadingTxt = $('#loader').text();
-        		$('#loader').text('Stand by while we create your accounts...');
+        		$('#loader').text(self.templateData.i18n.StandByWhileWeCreate);
         		$('#loader').show();
         		
         		// create accounts
@@ -169,10 +191,11 @@ define([
         },
         
         updateAccount: function(){
+	        var self = this;
         	this.updateUserInfo(function(){
-        		Utils.alert('User Info was updated!',function(){
+        		Utils.alert(self.templateData.i18n.UserInfoWasUpdated,function(){
         			window.location.href = "#mainMenuLogged";
-        		},'Success','Ok');
+        		},self.templateData.i18n.Success,self.templateData.i18n.Ok);
         	});
         	return false;
         }
