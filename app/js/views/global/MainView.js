@@ -115,7 +115,7 @@ define([
         },
 
         fixContainerHeight: function(){
-        	var device_height = $(window).height();
+        	var device_height = screen.height; //$(window).height()
         	var header_height = 0;
         	var footer_height = 0;
         	if($('#header').is(':visible')){
