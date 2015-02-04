@@ -16,6 +16,9 @@ define([
         
         onRender: function(callback){
         	var self = this;
+            if ((!$('#email').val()) && (localStorage.getItem('userEmail'))) { 
+                $('#email').val(localStorage.getItem('userEmail'));
+            }
         	$('#login-btn').on('click',self.login);
         	callback();
         },

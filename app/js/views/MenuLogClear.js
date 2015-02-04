@@ -20,7 +20,13 @@ define([
 		element: '.menu-log-clear',
 		onInit: function(callback){
 			window.LoggedUser = null;
-			localStorage.clear();
+
+			if (localStorage.getItem("userEmail") && !sessionStorage.getItem("start")) {
+				console.log("Got email!");
+				sessionStorage.setItem("start", (new Date()).toLocaleString('sv')); // sv → iso
+				window.location.href = "#signIn";
+			}
+
 			callback();
 		}
 	}); 

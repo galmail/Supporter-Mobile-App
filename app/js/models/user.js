@@ -80,6 +80,7 @@ define([
         	this.$fetch({
         		success: function(model, response, options){
         			// persist session in localstorage
+        			localStorage.setItem('userEmail',model.get('properties').email);
         			localStorage.setItem('userSession',model.get('session'));
         			localStorage.setItem('userKey',model.get('key'));
             		window.LoggedUser = model;
