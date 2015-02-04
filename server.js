@@ -47,10 +47,18 @@ app.all(/lang\//, function(req, res, next){
 
 function reqpipe(req, url, res) {
 	var start = new Date();
-
-	process.stdout.write(start.toLocaleTimeString() + ' → ' + url);
+	var operation = start.toLocaleTimeString() + ' → ' + url;
+	process.stdout.write(operation);
+	
 	req.pipe(request(url)).pipe(res);	
-	console.log(' [' + (new Date()- start) + " ms]");
+	
+	var timelapse = ' [' + (new Date()- start) + " ms]";
+	var cols = process.stdout.columns;
+	var padding = cols - operation.length - timelapse.length;
+	padding = (padding % cols + cols) % cols;
+	
+	process.stdout.cursorTo(0);
+	console.log(operation + new Array(padding).join(' ') + timelapse);
 }
 
 
