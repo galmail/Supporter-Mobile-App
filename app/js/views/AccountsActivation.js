@@ -32,7 +32,7 @@ define([
         	});
         },
         
-        onRender: function() {
+        onRender: function(callback) {
         	var self = this;
         	var results = this.$el.find('#operatorsList');
             this.renderCollection(this.collection, results, AccountsActivationElement);
@@ -55,7 +55,7 @@ define([
 	        	});
 	        	return true;
             });
-            return this;
+            callback();
         }
         
     });

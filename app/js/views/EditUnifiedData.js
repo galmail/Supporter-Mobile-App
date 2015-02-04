@@ -13,8 +13,9 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.edit-unified-data',
-        onRender: function() {
+        onRender: function(callback) {
             this.$el.prepend(_.template(emailHeaderSrc));
+            callback();
         }
     });
 

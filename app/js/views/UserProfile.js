@@ -19,8 +19,9 @@ define([
         onItemClick: function(e) {
             window.location.href = '#' + e.currentTarget.id;
         },
-        onRender: function() {
+        onRender: function(callback) {
         	this.$el.prepend(_.template(emailHeaderSrc));
+        	callback();
         }
     });
 

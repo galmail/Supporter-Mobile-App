@@ -14,10 +14,13 @@ define([
         template: _.template(templateSrc),
         element: '.sign-in',
         
-        onRender: function(){
+        onRender: function(callback){
         	var self = this;
+            if ((!$('#email').val()) && (localStorage.getItem('userEmail'))) { 
+                $('#email').val(localStorage.getItem('userEmail'));
+            }
         	$('#login-btn').on('click',self.login);
-        	return this;
+        	callback();
         },
         
         login: function(){

@@ -50,7 +50,7 @@ define([
         	var tpl = _.template(mainTpl);
         	$('body').html(tpl(self.templateData));
         	// load iovation token
-        	self.loadIOvationScript();
+        	//self.loadIOvationScript(); // not anymore
         	// bind events
         	$('#supporterSignOut').on('click',self.showSignOut);
             $('#supporterCloseModal').on('click',self.closeModal);
@@ -63,7 +63,7 @@ define([
 			console.log('MainView Loading i18n data');
 			var tplData = {};
         	var self = this;
-        	if(I18n.transData!=null){
+        	if(I18n.transData!==null){
         		tplData.i18n = I18n.transData;
         		self.templateData = tplData; 
         		callback();
@@ -78,19 +78,19 @@ define([
         	}
         },
         
-        loadIOvationScript: function(){
-        	window.io_operation = 'ioBegin';
-            window.io_bbout_element_id = 'iovationtoken';
-            window.io_install_flash = false;
-            window.io_install_stm = false;
-        	$.getScript("https://ci-mpsnare.iovation.com/snare.js",function(){
-        		//console.log($('#iovationtoken').val());
-        		console.log('iovation token loaded');
-        	});
-        },
+        // loadIOvationScript: function(){
+        // 	window.io_operation = 'ioBegin';
+        //     window.io_bbout_element_id = 'iovationtoken';
+        //     window.io_install_flash = false;
+        //     window.io_install_stm = false;
+        // 	$.getScript("https://ci-mpsnare.iovation.com/snare.js",function(){
+        // 		//console.log($('#iovationtoken').val());
+        // 		console.log('iovation token loaded');
+        // 	});
+        // },
         
         renderCollection: function(collection, resultsElement, elementTemplate){
-            if(collection!=null){
+            if(collection!==null){
             	resultsElement.empty();
 	            for (var i = 0; i < collection.length; i++) {
 	                var model = collection.at(i);
@@ -124,7 +124,10 @@ define([
         	if($('#footer').is(':visible')){
         		footer_height = $('#footer').height();
         	}
-        	$('#container').height(device_height-(header_height+footer_height));
+        	$('#container').height('0px');
+        	setTimeout(function(){
+        		$('#container').height(device_height-(header_height+footer_height));
+        	}, 10);
         }
         
         

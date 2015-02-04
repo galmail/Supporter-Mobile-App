@@ -39,7 +39,7 @@ define([
             window.location.href = '#pickClubConfirm';
         },
 
-        onRender: function () {
+        onRender: function (callback) {
         	console.log('PickClub init');
             var self = this;
             this.results = this.$el.find('.js-results');
@@ -47,7 +47,7 @@ define([
             	self.collection = collection;
             	self.renderCollection(collection, self.results, elementTemplate);
             });
-            return this;
+            callback();
         }
         
     });

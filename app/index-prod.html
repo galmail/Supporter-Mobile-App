@@ -25,6 +25,14 @@
 			document.addEventListener('deviceready', function() {
 				console.log("device is ready.");
 				StatusBar.overlaysWebView(false);
+				
+				$(document).bind("backbutton", function() {
+				  if(window.location.href.indexOf('#mainMenuLogged')>0){
+					return false;
+		          }
+				  history.back();
+				});
+				
 			}, false);
 		</script>
 	</body>

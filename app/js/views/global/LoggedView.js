@@ -48,22 +48,25 @@ define([
         
         render: function(){
         	console.log("LoggedView render");
-        	
+        	var self = this;
         	this.body.addClass('body-logged');
             this.body.removeClass('body-not-logged');
             this.setNavBar();
             $(container).html(this.template(this.templateData));
-            this.fixContainerHeight();
+            //this.fixContainerHeight();
         	this.el = $(this.element);
         	this._ensureElement();
-        	return this.onRender();
+        	this.onRender(function(){
+        		self.fixContainerHeight();
+        		return self;
+        	});
         },
         
         // All views can override this
         onInit: function(callback) { callback(); },
 
         // All views can override this
-        onRender: function() { return this; }
+        onRender: function(callback) { callback(); }
     });
 
     return View;

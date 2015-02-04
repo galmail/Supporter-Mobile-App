@@ -13,9 +13,10 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.all-filter-by-leage',
-        onRender: function () {
+        onRender: function (callback) {
             this.$el.prepend(_.template(searchHeaderSrc));
             this.$el.addClass('body-gradient');
+            callback();
         },
         events: {
         	'click .item': 'filterByLeageSubmenuClicked'

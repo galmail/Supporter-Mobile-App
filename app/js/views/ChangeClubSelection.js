@@ -12,9 +12,11 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.change-club-selection',
-        onRender: function() {
+        onRender: function(callback) {
             this.$el.prepend(_.template(emailHeaderSrc));
-            this.$el.find('.club').css('background-image', 'url(img/clubs/large/' + this.options.clubId + '.png)');        }
+            this.$el.find('.club').css('background-image', 'url(img/clubs/large/' + this.options.clubId + '.png)');
+            callback();
+        }
     });
 
     return View;

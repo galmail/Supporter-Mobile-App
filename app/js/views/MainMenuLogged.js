@@ -40,7 +40,7 @@ define([
         	});
         },
 
-        onRender: function () {
+        onRender: function (callback) {
         	var self = this;
             this.body.addClass('body-not-logged');
             var results = this.$el.find('#linksList');
@@ -50,7 +50,8 @@ define([
             $('.js-menu-item').on('click',function(el){
             	self.showCategoryScreen(el,self);
             });
-            return this;
+            
+            callback();
         },
 
         showCategoryScreen: function(el,self) {
