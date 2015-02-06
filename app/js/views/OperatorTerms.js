@@ -16,17 +16,22 @@ define([
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.operator-terms',
-        
+
         onInit: function(callback){
         	this.templateData = Operators.SelectedOperator;
         	callback();
         },
-        
+
         onRender: function (callback) {
+            console.log("render OperatorTerms");
+            var terms_url =
+              this.templateData.i18n[this.templateData.identifier + "_terms_url"];
+
         	var $iframe = $('#iframe-terms-and-conditions');
         	$iframe.width($iframe.parent().width());
         	$iframe.height($('#container').height()-$iframe.parent().height());
-        	
+            $iframe.attr('src', terms_url);
+
             // bind back button event
             $('.back-icon').on('click', this.goBack);
             $('#joinOperatorBtn').on('click', this.joinOperator);
