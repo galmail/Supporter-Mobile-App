@@ -7,34 +7,13 @@ define([
     'views/global/UnloggedView',
     'models/user',
     'collections/operators',
-    'utils',
-    'models/i18n'        
-], function ($, _, Backbone, templateSrc, UnloggedView, User, Operators, Utils, I18n) {
+    'utils'
+], function ($, _, Backbone, templateSrc, UnloggedView, User, Operators, Utils) {
     'use strict';
 
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.unified-register',
- //Add translation
-        initialize: function () {
-        	var self = this;
-            this.onInit(function(){
-            	// before render, add to templateData the language translation
-            	if(I18n.transData!==null){
-            		self.templateData.i18n = I18n.transData;
-            		self.render();
-            	}
-            	else {
-            		new I18n({code: I18n.locale}).load(function(model){
-            			I18n.transData = model.attributes;
-            			self.templateData.i18n = I18n.transData;
-	            		self.render();
-            		});
-
-            	}
-            });
-        },        
-        //End translation
        	
        	fillData: function(model){
        		var self = this;
@@ -179,7 +158,6 @@ define([
         		var loadingTxt = $('#loader').text();
         		$('#loader').text(self.templateData.i18n.StandByWhileWeCreate);
         		$('#loader').show();
-        		
         		// create accounts
         		Operators.ActivatedOperators.each(function(operator){
         			if(operator.get('status')=='pending'){
