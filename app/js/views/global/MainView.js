@@ -57,6 +57,16 @@ define([
             $('#supporterSignOutOK').on('click',function(){
             	self.signOut(self);
             });
+            
+            $(window).on('resize', function(){
+            	console.log('window resized...');
+            	self.fixContainerHeight();
+			      // var win = $(this); //this = window
+			      // if (win.height() >= 820) { /* ... */ }
+			      // if (win.width() >= 1280) { /* ... */ }
+			});
+            
+            
         },
         
         loadI18n: function(callback){
@@ -115,7 +125,7 @@ define([
         },
 
         fixContainerHeight: function(){
-        	var device_height = screen.height; //$(window).height()
+        	var device_height = $(window).height(); //screen.height
         	var header_height = 0;
         	var footer_height = 0;
         	if($('#header').is(':visible')){
@@ -124,10 +134,14 @@ define([
         	if($('#footer').is(':visible')){
         		footer_height = $('#footer').height();
         	}
-        	$('#container').height('0px');
-        	setTimeout(function(){
-        		$('#container').height(device_height-(header_height+footer_height));
-        	}, 10);
+        	
+        	$('#container').height(device_height-(header_height+footer_height));
+        	
+        	// $('#container').height('0px');
+        	// setTimeout(function(){
+        		// $('#container').height(device_height-(header_height+footer_height));
+        	// }, 10);
+        	
         }
         
         
