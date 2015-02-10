@@ -71,6 +71,7 @@ require([
 	};
 	// initialize main view
     var mainView = new MainView({ el:$("#content") });
+    
     mainView.loadI18n(function(){
     	mainView.renderView();
     	init();

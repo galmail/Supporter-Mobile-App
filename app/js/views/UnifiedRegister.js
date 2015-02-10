@@ -83,7 +83,9 @@ define([
             var jInput = $(this);
             if(jInput.prev().prop("tagName")=='INPUT'){
               jInput.prev().trigger('focus');
-              setTimeout(function(){ jInput.trigger('focus'); }, 300);
+              setTimeout(function(){
+              	jInput.trigger('focus');
+              }, 300);
             }
           });
 
