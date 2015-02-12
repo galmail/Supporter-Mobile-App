@@ -29,12 +29,14 @@ define([
         
         connectOperator: function(){
         	var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
-        	var operator = new Operator({
-				name: Operators.SelectedOperator.name,
-				key: window.LoggedUser.get('key')
-			});
+        	myOperator.set('key',window.LoggedUser.get('key'));
+        	
+        	// var operator = new Operator({
+				// name: Operators.SelectedOperator.name,
+				// key: window.LoggedUser.get('key')
+			// });
 			
-			operator.connectAccount({
+			myOperator.connectAccount({
 				username: $('#operatorEmail').val(),
 				password: $('#operatorPassword').val()
 			},
