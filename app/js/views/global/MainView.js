@@ -59,14 +59,8 @@ define([
             });
             
             $(window).on('resize', function(){
-            	console.log('window resized...');
             	self.fixContainerHeight();
-			      // var win = $(this); //this = window
-			      // if (win.height() >= 820) { /* ... */ }
-			      // if (win.width() >= 1280) { /* ... */ }
 			});
-            
-            
         },
         
         loadI18n: function(callback){

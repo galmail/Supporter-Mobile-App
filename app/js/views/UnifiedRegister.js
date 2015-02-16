@@ -130,8 +130,51 @@ define([
           callback();
         },
         
+        isValidText: function(val){
+        	return (val!=null && val.length>0);
+        },
+        
+        isValidNumber: function(val){
+        	return (val!=null && val>0);
+        },
+        
+        isFormValid: function(){
+        	if(!this.isValidText(this.$el.find('#firstName').val())){
+        		alert('First Name is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidText(this.$el.find('#lastName').val())){
+        		alert('Last Name is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidText(this.$el.find('#street').val())){
+        		alert('Address is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidText(this.$el.find('#zipCode').val())){
+        		alert('Post code is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidText(this.$el.find('#city').val())){
+        		alert('City is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidNumber(this.$el.find('#mobileNumber').val())){
+        		alert('Mobile Number is Invalid');
+        		return false;
+        	}
+        	if(!this.isValidNumber(this.$el.find('#year').val()) || !this.isValidNumber(this.$el.find('#month').val()) || !this.isValidNumber(this.$el.find('#day').val())){
+        		alert('Date of Birth is Invalid');
+        		return false;
+        	}
+        	return true;
+        },
+        
         updateUserInfo: function(callback){
         	var self = this;
+        	// validate all form fields
+        	if(!this.isFormValid()) return; // and ignore callback
+        	
         	// get form field values
 			var user = new User();
 			var props = {};
@@ -148,7 +191,7 @@ define([
 				}
 			});
 			user.set('properties',props);
-			user.update(function(success){
+			user.update(function(success,model,response){
 				if(success){
 					callback();
 				}
