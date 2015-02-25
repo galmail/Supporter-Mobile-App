@@ -53,6 +53,29 @@ define([
         		//key: self.get('key')
         	});
         	this.$save(credentials,callbacks);
+	   	},
+	   	getStatusIcon: function(){
+	   		var icon = null;
+	   		switch(this.get('status')){
+	   			case 'UNCONNECTED':
+	   				icon = 'fa-unlink';
+	   				break;
+	   			case 'FAILED_SIGNIN':
+	   				icon = 'fa-info-circle';
+	   				break;
+	   			case 'FAILED_CREATE':
+	   				icon = 'fa-info-circle';
+	   				break;
+	   			case 'CONNECTED':
+	   				icon = 'fa-check';
+	   				break;
+	   			case 'CHANGED_PASSWORD':
+	   				icon = 'fa-info-circle';
+	   				break;
+	   			default:
+	   				icon = 'unknown';
+	   		}
+	   		return icon;
 	   	}
 	});
 	return Operator;
