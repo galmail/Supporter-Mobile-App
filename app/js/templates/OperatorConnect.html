@@ -1,19 +1,18 @@
 <div class="operator-connect keep-screen-margin">
 
 	<div class="header">
-		<div class="back-icon"></div>
 		<img width="180px" class="operator-logo" src="{{logo.file}}" />
+		<i class="fa {{statusIcon}}" style="line-height:{{logo.sizes.medium.height}}px"></i>
 	</div>
 	
-    <p>
-    It seems that you already have an account, please enter your credentials to connect
-    </p>
+    <p>{{firstParagraph}}</p>
+    <a id="createAccountBtn" href="#" style="{{showCreateAccountBtn}}" class="medium success button full-width">Sure, let's do it!</a>
+    <p>{{secondParagraph}}</p>    
     
     <input id="operatorEmail" type="email" placeholder="email"/>
     <input id="operatorPassword" type="password" placeholder="password"/>
     
-    <a id="connectOperatorBtn" href="#" class="medium success button full-width">Connect Account</a>
-    
+    <a id="connectOperatorBtn" href="#" class="medium success button full-width">OK</a>
     <a href="javascript:window.history.back();" class="medium secondary button full-width">Go Back</a>
 
 </div>

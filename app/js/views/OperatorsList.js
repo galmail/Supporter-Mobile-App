@@ -19,7 +19,7 @@ define([
         	var self = this;
         	Operators.getActiveOperators(function(operators){
         		self.collection = operators;
-        		callback(); 
+        		callback();
         	});
         },
         
@@ -29,27 +29,22 @@ define([
 	    	// set icons
 	    	for(var i=0;i<this.collection.length;i++){
 	    		var model = this.collection.at(i);
-	    		if(model.get('status')=='not-selected'){
-	    			model.set('statusIcon','fa-unlink');
-	    		}
-	    		else if(model.get('status')=='success'){
-	    			model.set('statusIcon','fa-check');
-	    		}
-	    		if(model.get('status')=='error'){
-	    			model.set('statusIcon','fa-info-circle');
-	    		}
+	    		model.set('statusIcon',model.getStatusIcon());
 	    	}
 	        this.renderCollection(this.collection, results, OperatorsListElement);
 	        // bind operators terms event
 	        $('.operator-data').on('click', function(){
 	        	Operators.SelectedOperator = self.collection.get(this.parentElement.id).attributes;
-	        	if(Operators.SelectedOperator.status=='not-selected'){
-	        		Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
-	        		window.location.href = "#operatorTerms";
-	        	}
-	        	else if(Operators.SelectedOperator.status=='error'){
-	        		window.location.href = "#operatorConnect";
-	        	}
+	        	window.location.href = "#operatorConnect";
+	        	
+	        	// if(Operators.SelectedOperator.status=='not-selected'){
+	        		// Operators.SelectedOperator.showCreateAccountBtn = 'display:block;';
+	        		// window.location.href = "#operatorTerms";
+	        	// }
+	        	// else if(Operators.SelectedOperator.status=='error'){
+	        		// window.location.href = "#operatorConnect";
+	        	// }
+	        	
 	        	return false;
 	        });
 	        callback();
