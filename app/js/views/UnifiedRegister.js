@@ -140,31 +140,31 @@ define([
         
         isFormValid: function(){
         	if(!this.isValidText(this.$el.find('#firstName').val())){
-        		alert('First Name is Invalid');
+        		Utils.alert('First Name is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidText(this.$el.find('#lastName').val())){
-        		alert('Last Name is Invalid');
+        		Utils.alert('Last Name is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidText(this.$el.find('#street').val())){
-        		alert('Address is Invalid');
+        		Utils.alert('Address is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidText(this.$el.find('#zipCode').val())){
-        		alert('Post code is Invalid');
+        		Utils.alert('Post code is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidText(this.$el.find('#city').val())){
-        		alert('City is Invalid');
+        		Utils.alert('City is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidNumber(this.$el.find('#mobileNumber').val())){
-        		alert('Mobile Number is Invalid');
+        		Utils.alert('Mobile Number is Invalid',null,'Error','Ok');
         		return false;
         	}
         	if(!this.isValidNumber(this.$el.find('#year').val()) || !this.isValidNumber(this.$el.find('#month').val()) || !this.isValidNumber(this.$el.find('#day').val())){
-        		alert('Date of Birth is Invalid');
+        		Utils.alert('Date of Birth is Invalid',null,'Error','Ok');
         		return false;
         	}
         	return true;
