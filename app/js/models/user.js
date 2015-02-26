@@ -67,10 +67,6 @@ define([
 	   	
 	   	login: function(password, callback){
 	   		var pswd = password;
-	   		if(window.LoggedUser){
-	   			// BUG: If called from ChangeUserPassword, the provided oldPassword will be overwritten.
-	   			pswd = window.LoggedUser.get('password');
-	   		}
 	   		var self = this;
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
