@@ -16,25 +16,26 @@ define([
     var View = LoggedView.extend({
         template: _.template(templateSrc),
         element: '.change-user-password',
- //Add translation
-        initialize: function () {
-        	var self = this;
-            this.onInit(function(){
-            	// before render, add to templateData the language translation
-            	if(I18n.transData!==null){
-            		self.templateData.i18n = I18n.transData;
-            		self.render();
-            	}
-            	else {
-            		new I18n({code: I18n.locale}).load(function(model){
-            			I18n.transData = model.attributes;
-            			self.templateData.i18n = I18n.transData;
-	            		self.render();
-            		});
-
-            	}
-            });
-        },        
+        
+ 		//Add translation
+        // initialize: function () {
+        	// var self = this;
+            // this.onInit(function(){
+            	// // before render, add to templateData the language translation
+            	// if(I18n.transData!==null){
+            		// self.templateData.i18n = I18n.transData;
+            		// self.render();
+            	// }
+            	// else {
+            		// new I18n({code: I18n.locale}).load(function(model){
+            			// I18n.transData = model.attributes;
+            			// self.templateData.i18n = I18n.transData;
+	            		// self.render();
+            		// });
+            	// }
+            // });
+        // },        
+        
         //End translation
         onRender: function(callback) {
 	        var self = this;
