@@ -7,8 +7,9 @@ define([
     'views/global/LoggedView',
     'text!templates/OperatorsList.html',
     'text!templates/snippets/OperatorsListElement.html',
-    'collections/operators'
-], function ($, _, Backbone, LoggedView, templateSrc, OperatorsListElement, Operators) {
+    'collections/operators',
+    'utils'
+], function ($, _, Backbone, LoggedView, templateSrc, OperatorsListElement, Operators, Utils) {
     'use strict';
 
     var View = LoggedView.extend({
@@ -21,6 +22,10 @@ define([
         		self.collection = operators;
         		callback();
         	});
+        	this.templateData.showBackButton = 'block';
+        	if(window.showBackButton=='hidebackbutton'){
+        		this.templateData.showBackButton = 'none';
+        	}
         },
         
         onRender: function(callback) {
