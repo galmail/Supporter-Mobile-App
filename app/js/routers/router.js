@@ -99,6 +99,8 @@ define([
 
 			//Logged zone
 			'operatorsList': 				'operatorsList',
+			'operatorsList/:backbutton': 	'operatorsList',
+			
 			'userFavorites': 				'userFavorites',
 			'changeClubSelection/:club': 	'changeClubSelection',
 			'changeClub': 					'changeClub',
@@ -187,7 +189,8 @@ define([
 		},
 
 		//LOGGED ZONE
-		operatorsList: function () {
+		operatorsList: function (backbutton) {
+			window.showBackButton = backbutton;
 			new OperatorsListView();
 		},
 		userFavorites: function () {
