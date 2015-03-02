@@ -4,15 +4,28 @@
 		<img width="180px" class="operator-logo" src="{{logo.file}}" />
 		<i class="fa {{statusIcon}}" style="line-height:{{logo.sizes.medium.height}}px"></i>
 	</div>
-	
+
     <p>{{firstParagraph}}</p>
     <a id="createAccountBtn" href="#" style="{{showCreateAccountBtn}}" class="medium success button full-width">Sure, let's do it!</a>
-    <p>{{secondParagraph}}</p>    
-    
+    <p>{{secondParagraph}}</p>
+
     <input id="operatorEmail" type="email" placeholder="email"/>
     <input id="operatorPassword" type="password" placeholder="password"/>
-    
+
     <a id="connectOperatorBtn" href="#" class="medium success button full-width">OK</a>
     <a href="javascript:window.history.back();" class="medium secondary button full-width">Go Back</a>
+
+
+    <p>{{firstParagraph}}</p>
+    <a id="createAccountBtn" href="#" style="{{showCreateAccountBtn}}" class="medium success button full-width">Sure, let's do it!</a>
+    <p>{{secondParagraph}}</p>
+
+    <input id="operatorEmail" type="email" placeholder="{{i18n.Emailaddress}}"/>
+    <input id="operatorPassword" type="password" placeholder="{{i18n.Password}}"/>
+
+    <a id="connectOperatorBtn" href="#" class="medium success button full-width">{{i18n.Connectaccount}}</a>
+
+    <a href="javascript:window.history.back();" class="medium secondary button full-width">{{i18n.Goback}}</a>
+
 
 </div>

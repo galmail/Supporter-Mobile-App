@@ -1,14 +1,14 @@
 define(['underscore', 'backbone'], function(_, Backbone) {
 	var BaseModel = Backbone.Model.extend({
-		
-		SessionExpirationErrorCode: '419',
-		
+
+		SessionExpirationErrorCode: 419,
+
 		$fetch: function(callbacks){
 			var self = this;
 			self.fetch({
 				success: callbacks.success,
 				error: function(obj, response, options){
-					if(response.error == self.SessionExpirationErrorCode){
+					if(response.status === self.SessionExpirationErrorCode){
 						console.log('The session has expired. Reconnecting...');
 						window.LoggedUser.login(null,function(logged){
 							if(logged){
@@ -29,7 +29,7 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 				type: 'POST',
 				success: callbacks.success,
 				error: function(obj, response, options){
-					if(response.error == self.SessionExpirationErrorCode){
+					if(response.status == self.SessionExpirationErrorCode){
 						console.log('The session has expired. Reconnecting...');
 						window.LoggedUser.login(null,function(logged){
 							if(logged){

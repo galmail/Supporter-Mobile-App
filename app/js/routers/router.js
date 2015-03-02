@@ -8,6 +8,7 @@ define([
 	'views/SignIn',
 	'views/PickClubConfirm',
 	'views/ClubDisclaimer',
+	'views/PrivacyPolicy',
 	'views/RemindPassword',
 	'views/CreateNewAccount',
 	'views/SelectOperators',
@@ -50,7 +51,7 @@ define([
 	'views/AllFilterByLeageSubmenu',
 	'views/BetOpenProcess',
 	'views/BetOpenProcessPayment',
-	
+
 	// new mockups
 	'views/AccountsActivation',
 	'views/OperatorTerms',
@@ -58,24 +59,31 @@ define([
 	'views/RecommendedLinks',
 	'views/CreateNewAccountConfirmation',
 	'views/CategoryScreen',
-	
+
 	'foundation',
 	'offcanvas',
 	'topbar',
 	'tabs'
 ], function ($, Backbone,
-	MenuLogClearView, PickClubView, KnowMoreView, SignInView, PickClubConfirmView, ClubDisclaimerView,
-	RemindPasswordView, CreateNewAccountView, SelectOperatorsView, WarningInfoView, UnifiedRegisterView,
-	UnifiedLoginView, OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView, ChangeClubView,
-	ChangeClubSelectionView, UserFavoritesView, OperatorsListView,
-	AboutView, DeleteUserAccountView, ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
-	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView, UserBetsView, UserWalletView,
-	UserStatisticsView, DeleteUserAccountConfirmView, EventsAllFilterView, EventsMostPlayedView,
-	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView, MostPlayedSubmenuFilterView,
-	LiveScoresSubmenuView, AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
-	LiveScoresSubmenuFilterView, AllFilterByLeageView, EventByCountryDetailView, AllFilterByLeageSubmenuView,
-	BetOpenProcessView, BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView, OperatorConnectView,
-	RecommendedLinksView, CreateNewAccountConfirmationView, CategoryScreenView) {
+	MenuLogClearView, PickClubView, KnowMoreView, SignInView,
+	PickClubConfirmView, ClubDisclaimerView, PrivacyPolicyView,
+	RemindPasswordView, CreateNewAccountView, SelectOperatorsView,
+	WarningInfoView, UnifiedRegisterView, UnifiedLoginView,
+	OperatorsSingleLoginView, NewAccountEndView, MainMenuLoggedView,
+	ChangeClubView, ChangeClubSelectionView, UserFavoritesView,
+	OperatorsListView, AboutView, DeleteUserAccountView,
+	ChangeUserEmailView, ChangeUserPasswordView, UserSettingsView,
+	UserProfileView, EditUnifiedDataView, DeleteUserAccountDoneView,
+	UserBetsView, UserWalletView, UserStatisticsView,
+	DeleteUserAccountConfirmView, EventsAllFilterView, EventsMostPlayedView,
+	EventsLiveScoresFilterView, EventsByCountrySubmenuView, EventDetailsView,
+	MostPlayedSubmenuFilterView, LiveScoresSubmenuView,
+	AllFilterByCountryView, ByCountrySubmenuFilterView, EventDetailsLiveView,
+	LiveScoresSubmenuFilterView, AllFilterByLeageView,
+	EventByCountryDetailView, AllFilterByLeageSubmenuView, BetOpenProcessView,
+	BetOpenProcessPaymentView, AccountsActivationView, OperatorTermsView,
+	OperatorConnectView, RecommendedLinksView,
+	CreateNewAccountConfirmationView, CategoryScreenView) {
 
 	'use strict';
 
@@ -88,6 +96,7 @@ define([
 			'signIn': 						'signIn',
 			'pickClubConfirm': 				'pickClubConfirm',
 			'clubDisclaimer': 				'clubDisclaimer',
+			'privacyPolicy': 				'privacyPolicy',
 			'remindPassword': 				'remindPassword',
 			'createNewAccount': 			'createNewAccount',
 			'selectOperators': 				'selectOperators',
@@ -135,7 +144,7 @@ define([
 			'allFilterByLeageSubmenu': 		'allFilterByLeageSubmenu',
 			'betOpenProcess': 				'betOpenProcess',
 			'betOpenProcessPayment': 		'betOpenProcessPayment',
-			
+
 			// New Mockups
 			'accountsActivation': 			'accountsActivation',
 			'operatorTerms': 				'operatorTerms',
@@ -162,6 +171,9 @@ define([
 		},
 		clubDisclaimer: function () {
 			new ClubDisclaimerView();
+		},
+		privacyPolicy: function () {
+			new PrivacyPolicyView();
 		},
 		remindPassword: function () {
 			new RemindPasswordView();
@@ -293,7 +305,7 @@ define([
 		betOpenProcessPayment: function(){
 			new BetOpenProcessPaymentView();
 		},
-		
+
 		// New Mockups
 		accountsActivation: function() {
 			new AccountsActivationView();
@@ -313,7 +325,7 @@ define([
 		categoryScreen: function(){
 			new CategoryScreenView();
 		}
-		
+
 	});
 
 	var instance;

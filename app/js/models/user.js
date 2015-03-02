@@ -7,7 +7,7 @@ define([
   'collections/associations'
 ], function(_, Backbone, Utils, BaseModel, Association, Associations){
 	var User = BaseModel.extend({
-		
+
 		defaults: {
 			session: null,
 			key: null,
@@ -32,12 +32,12 @@ define([
 				}
 			}
 		},
-		
+
 		initialize: function(){
 	   	},
-	   	
+
 	   	//// parsers ////
-	   	
+
 	   	defaultParse: function(response){
         	return response.data;
         },
@@ -62,11 +62,11 @@ define([
         	};
         	return { properties: attrs };
         },
-	   	
+
 	   	//// methods ////
-	   	
+
 	   	login: function(password, callback){
-	   		var pswd = password;
+	   		var pswd = (password !== null) ? password : window.LoggedUser.get('password');
 	   		var self = this;
 	   		this.parse = this.defaultParse;
 	   		this.url = Utils.buildUrl('/v2/users/authenticate',{
@@ -196,7 +196,7 @@ define([
 	},
 	// static properties
 	{
-		
+
 	});
 	return User;
 });
