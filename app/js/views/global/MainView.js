@@ -7,34 +7,34 @@ define([
     'models/i18n'
 ], function ($, _, Backbone, mainTpl, I18n) {
     'use strict';
-    
+
     _.templateSettings = { interpolate: /\{\{(.+?)\}\}/g };
-    
+
     var View = Backbone.View.extend({
-    	
+
     	el: '#container',
-    	
+
     	container: '#container',
 
     	body: $('body'),
 
         // Override this
         template: null,
-        
+
         templateData: {},
-        
+
         events: {},
-        
+
         showSignOut: function(){
         	$('#logoutConfirmModal').show();
     		$('.modal-bg').show();
         },
-        
+
         closeModal: function(){
         	$('#logoutConfirmModal').hide();
     		$('.modal-bg').hide();
         },
-        
+
         signOut: function(me){
         	window.location.href = '#menuLogClear';
         	me.closeModal();
@@ -43,7 +43,7 @@ define([
         initialize: function(templateSrc) {
         	console.log('MainView initialize');
         },
-        
+
         renderView: function(){
         	console.log('MainView renderView');
         	var self = this;
@@ -57,19 +57,19 @@ define([
             $('#supporterSignOutOK').on('click',function(){
             	self.signOut(self);
             });
-            
+
             $(window).on('resize', function(){
             	self.fixContainerHeight();
 			});
         },
-        
+
         loadI18n: function(callback){
 			console.log('MainView Loading i18n data');
 			var tplData = {};
         	var self = this;
         	if(I18n.transData!==null){
         		tplData.i18n = I18n.transData;
-        		self.templateData = tplData; 
+        		self.templateData = tplData;
         		callback();
         	}
         	else {
@@ -81,7 +81,7 @@ define([
         		});
         	}
         },
-        
+
         // loadIOvationScript: function(){
         // 	window.io_operation = 'ioBegin';
         //     window.io_bbout_element_id = 'iovationtoken';
@@ -92,7 +92,7 @@ define([
         // 		console.log('iovation token loaded');
         // 	});
         // },
-        
+
         renderCollection: function(collection, resultsElement, elementTemplate){
             if(collection!==null){
             	resultsElement.empty();
@@ -104,7 +104,7 @@ define([
 	            }
             }
         },
-        
+
         setNavBar: function(){
         	var $navbar = $('#header');
         	var $footer = $('#footer');
@@ -128,18 +128,18 @@ define([
         	if($('#footer').is(':visible')){
         		footer_height = $('#footer').height();
         	}
-        	
+
         	$('#container').height(device_height-(header_height+footer_height));
-        	
+
         	// $('#container').height('0px');
         	// setTimeout(function(){
         		// $('#container').height(device_height-(header_height+footer_height));
         	// }, 10);
-        	
+
         }
-        
-        
-        
+
+
+
     });
 
     return View;
