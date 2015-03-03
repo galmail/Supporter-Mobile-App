@@ -1664,8 +1664,16 @@ iframe {
 .operator-connect .header i.fa {
   display: block;
   font-size: 40px;
-  color: green;
   margin-top: 5px;
+}
+.operator-connect .header i.fa.fa-unlink {
+  color: gray;
+}
+.operator-connect .header i.fa.fa-info-circle {
+  color: red;
+}
+.operator-connect .header i.fa.fa-check {
+  color: green;
 }
 .create-new-account-confirmation .title {
   margin-bottom: 20px;

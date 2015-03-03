@@ -47,22 +47,23 @@ define([
 		ActivatedOperators: null,
 
 		getActiveOperators: function(callback){
+			var self = this;
 			var allOps = new Operators();
 			var activeOps = new Operators();
+			
 			allOps.getAvailable(function(){
 				activeOps.getActivatedOperators(function(){
 					activeOps.each(function(op){
-						allOps.where({identifier: op.get('identifier')})[0].set('status','success');
+						allOps.where({identifier: op.get('identifier')})[0].set('status',op.get('status'));
+						allOps.where({identifier: op.get('identifier')})[0].set('username',op.get('username'));
+						allOps.where({identifier: op.get('identifier')})[0].set('password',op.get('password'));
 					});
-					Operators.ActivatedOperators.each(function(op){
-						if(op.get('status')=='error'){
-							allOps.where({id: op.get('id')})[0].set('status','error');
-						}
-					});
+					self.ActivatedOperators = allOps;
 					callback(allOps);
 				});
 			});
 		}
+		
 
 	});
 	Operators.ActivatedOperators = new Operators();
