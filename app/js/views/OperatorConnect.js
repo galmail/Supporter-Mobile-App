@@ -22,16 +22,28 @@ define([
         	var firstParagraph = null;
         	var secondParagraph = null;
         	var showCreateAccountBtn = 'display:none;';
+        	var showConnectAccountBtn = 'display:block;';
+        	
         	switch(Operators.SelectedOperator.status){
         		case 'CONNECTED':
         			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is 15%.';
         			secondParagraph = 'These are your '+ Operators.SelectedOperator.name +' credentials:';
+        			showConnectAccountBtn = 'display:none;';
+        			break;
+        		case 'PENDING_ACTIVATION':
+        			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is 15%.';
+        			secondParagraph = 'These are your '+ Operators.SelectedOperator.name +' credentials:';
+        			showConnectAccountBtn = 'display:none;';
         			break;
         		case 'CHANGED_PASSWORD':
         			firstParagraph = 'We detected a password change at your '+ Operators.SelectedOperator.name +' account.';
         			secondParagraph = 'In order to enable all functionality, please enter your new '+ Operators.SelectedOperator.name +' password:';
         			break;
         		case 'FAILED_CREATE':
+        			firstParagraph = 'We could not create an account for you at '+ Operators.SelectedOperator.name +' because your email address was already in use.';
+        			secondParagraph = 'Please enter your credentials at '+ Operators.SelectedOperator.name +':';
+        			break;
+        		case 'FAILED_SIGNIN':
         			firstParagraph = 'We could not create an account for you at '+ Operators.SelectedOperator.name +' because your email address was already in use.';
         			secondParagraph = 'Please enter your credentials at '+ Operators.SelectedOperator.name +':';
         			break;
@@ -47,6 +59,7 @@ define([
         	this.templateData.firstParagraph = firstParagraph;
         	this.templateData.secondParagraph = secondParagraph;
         	this.templateData.showCreateAccountBtn = showCreateAccountBtn;
+        	this.templateData.showConnectAccountBtn = showConnectAccountBtn;
         	callback();
         },
         
@@ -57,12 +70,8 @@ define([
         
         connectOperator: function(){
         	var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
+        	//var myOperator = Operators.SelectedOperator;
         	myOperator.set('key',window.LoggedUser.get('key'));
-        	
-        	// var operator = new Operator({
-				// name: Operators.SelectedOperator.name,
-				// key: window.LoggedUser.get('key')
-			// });
 			
 			myOperator.connectAccount({
 				username: $('#operatorEmail').val(),

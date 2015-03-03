@@ -72,6 +72,9 @@ define([
 	   			case 'CHANGED_PASSWORD':
 	   				icon = 'fa-info-circle';
 	   				break;
+	   			case 'PENDING_ACTIVATION':
+	   				icon = 'fa-check';
+	   				break;
 	   			default:
 	   				icon = 'unknown';
 	   		}
