@@ -14,7 +14,7 @@ define([
     var View = UnloggedView.extend({
         template: _.template(templateSrc),
         element: '.unified-register',
-       	
+
        	fillData: function(model){
        		var self = this;
        		// fill data
@@ -29,8 +29,10 @@ define([
     				}
     			});
        	},
-       	
+
        	pinlookup: function(pin){
+            if (pin.length < 10) return;
+
        		var self = this;
        		window.LoggedUser.pinLookUp(pin,function(success, model, response){
        			if(success){
@@ -42,7 +44,7 @@ define([
        			}
        		});
        	},
-       	
+
        	loadUserData: function(){
        		var self = this;
        		window.LoggedUser.getData(function(success, model, response){
@@ -55,7 +57,7 @@ define([
        			}
        		});
        	},
-        
+
         onRender: function(callback){
           var self = this;
           if(window.LoggedUser.get('properties').firstName){
@@ -89,7 +91,7 @@ define([
             }
           });
 
-        	
+
         	// bind lookup pin event
     			$('#pin').bind({
     				keyup: function(e){
@@ -102,21 +104,21 @@ define([
     					self.pinlookup($(this).val());
     				}
 			    });
-			
+
 			    $('#createBtn').on('click',function(){ return self.createAccount(); });
 			    $('#updateBtn').on('click',function(){ return self.updateAccount(); });
-			
+
           callback();
         },
-        
+
         isValidText: function(val){
         	return (val!=null && val.length>0);
         },
-        
+
         isValidNumber: function(val){
         	return (val!=null && val>0);
         },
-        
+
         isFormValid: function(){
         	if(!this.isValidText(this.$el.find('#firstName').val())){
         		Utils.alert('First Name is Invalid',null,'Error','Ok');
@@ -148,12 +150,12 @@ define([
         	}
         	return true;
         },
-        
+
         updateUserInfo: function(callback){
         	var self = this;
         	// validate all form fields
         	if(!this.isFormValid()) return; // and ignore callback
-        	
+
         	// get form field values
 			var user = new User();
 			var props = {};
@@ -180,9 +182,9 @@ define([
 				}
 			});
         },
-        
+
         createAccount: function(){
-        		        	var self = this; 
+        		        	var self = this;
 
         	var hookOperators = function(){
         		var ready = true;
@@ -198,7 +200,7 @@ define([
         			window.location.href = "#operatorsList";
         		}
         	};
-        	
+
         	this.updateUserInfo(function(){
         		var loadingTxt = $('#loader').text();
         		$('#loader').text(self.templateData.i18n.StandByWhileWeCreate);
@@ -223,7 +225,7 @@ define([
         	});
         	return false;
         },
-        
+
         updateAccount: function(){
 	        var self = this;
         	this.updateUserInfo(function(){
@@ -233,8 +235,8 @@ define([
         	});
         	return false;
         }
-        
-        
+
+
     });
 
     return View;
