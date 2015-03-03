@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.supporter.supporterapp" version="0.0.2">
-    <name>SupporterXMobile</name>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.supporter.supporterapp" version="0.0.5">
+    <name>Supporter</name>
     <description>
         Supporter HTML5 Mobile App
     </description>
     <author email="admin@supporter.com" href="http://www.supporter.com">
         Gal Dubitski, Adrian Lozano, Erik Torsner
     </author>
-    
+
     <preference name="Fullscreen" value="false"/>
     <preference name="Orientation" value="portrait"/>
     <preference name="BackgroundColor" value="0xffffffff"/>
@@ -15,7 +15,7 @@
 
     <!-- Android specific preferences -->
     <preference name="KeepRunning" value="false"/>
-    
+
     <content src="index.html#menuLogClear"/>
     <access origin="*"/>
 
