@@ -47,8 +47,8 @@ define([
         			secondParagraph = 'Please enter your credentials at '+ Operators.SelectedOperator.name +':';
         			break;
         		case 'FAILED_SIGNIN':
-        			firstParagraph = 'We could not create an account for you at '+ Operators.SelectedOperator.name +' because your email address was already in use.';
-        			secondParagraph = 'Please enter your credentials at '+ Operators.SelectedOperator.name +':';
+        			firstParagraph = 'The sign in attempt at '+ Operators.SelectedOperator.name +' failed, please verify your credentials:';
+        			secondParagraph = '';
         			break;
         		case 'UNCONNECTED':
         			firstParagraph = 'Create an account with '+ Operators.SelectedOperator.name +' to support your club with 15% of the proceeds.';
