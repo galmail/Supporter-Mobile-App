@@ -28,6 +28,9 @@ define([
         	switch(Operators.SelectedOperator.status){
         		case 'CONNECTED':
         			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is '+ Operators.SelectedOperator.generosity +'%.';
+        			if(Operators.SelectedOperator.balance){
+        				firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected. Your account balance is'+ Operators.SelectedOperator.balance +' and your donation level is '+ Operators.SelectedOperator.generosity +'%.';
+        			}
         			secondParagraph = 'These are your '+ Operators.SelectedOperator.name +' credentials:';
         			showConnectAccountBtn = 'display:none;';
         			showPasswordBtn = 'display:block;';

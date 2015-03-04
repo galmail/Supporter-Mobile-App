@@ -58,6 +58,7 @@ define([
 						allOps.where({identifier: op.get('identifier')})[0].set('username',op.get('username'));
 						allOps.where({identifier: op.get('identifier')})[0].set('password',op.get('password'));
 						allOps.where({identifier: op.get('identifier')})[0].set('generosity',op.get('generosity'));
+						allOps.where({identifier: op.get('identifier')})[0].set('balance',op.get('balance'));
 					});
 					self.ActivatedOperators = allOps;
 					callback(allOps);
