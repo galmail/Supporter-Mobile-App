@@ -182,7 +182,7 @@ define([
         },
         
         createAccount: function(){
-        		        	var self = this; 
+        	var self = this; 
 
         	var hookOperators = function(){
         		var ready = true;
@@ -200,12 +200,14 @@ define([
         	};
         	
         	this.updateUserInfo(function(){
+        		var connectingOp = false;
         		var loadingTxt = $('#loader').text();
         		$('#loader').text(self.templateData.i18n.StandByWhileWeCreate);
         		$('#loader').show();
         		// create accounts
         		Operators.ActivatedOperators.each(function(operator){
         			if(operator.get('status')=='pending'){
+        				connectingOp = true;
         				operator.createAccount({
 	        				success: function(){
 	        					console.log('account created successfully on ', operator.get('name'));
@@ -220,6 +222,11 @@ define([
 	        			});
         			}
         		});
+        		if(!connectingOp){
+        			$('#loader').hide();
+        			$('#loader').text(self.templateData.i18n.Loading);
+        			window.location.href = "#operatorsList";
+        		}
         	});
         	return false;
         },

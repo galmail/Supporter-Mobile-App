@@ -23,17 +23,20 @@ define([
         	var secondParagraph = null;
         	var showCreateAccountBtn = 'display:none;';
         	var showConnectAccountBtn = 'display:block;';
+        	var showPasswordBtn = 'display:none;';
         	
         	switch(Operators.SelectedOperator.status){
         		case 'CONNECTED':
-        			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is 15%.';
+        			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is '+ Operators.SelectedOperator.generosity +'%.';
         			secondParagraph = 'These are your '+ Operators.SelectedOperator.name +' credentials:';
         			showConnectAccountBtn = 'display:none;';
+        			showPasswordBtn = 'display:block;';
         			break;
         		case 'PENDING_ACTIVATION':
-        			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is 15%.';
+        			firstParagraph = 'Your Supporter '+ Operators.SelectedOperator.name +' accounts are now connected and your donation level is '+ Operators.SelectedOperator.generosity +'%.';
         			secondParagraph = 'These are your '+ Operators.SelectedOperator.name +' credentials:';
         			showConnectAccountBtn = 'display:none;';
+        			showPasswordBtn = 'display:block;';
         			break;
         		case 'CHANGED_PASSWORD':
         			firstParagraph = 'We detected a password change at your '+ Operators.SelectedOperator.name +' account.';
@@ -60,12 +63,26 @@ define([
         	this.templateData.secondParagraph = secondParagraph;
         	this.templateData.showCreateAccountBtn = showCreateAccountBtn;
         	this.templateData.showConnectAccountBtn = showConnectAccountBtn;
+        	this.templateData.showPasswordBtn = showPasswordBtn;
         	callback();
         },
         
         onRender: function(callback){
         	$('#connectOperatorBtn').on('click',this.connectOperator);
+        	$('#showHidePasswordBtn').on('click',this.showHidePassword);
         	callback();
+        },
+        
+        showHidePassword: function(){
+        	if($('#operatorPassword').attr('type')=='password'){
+        		$('#operatorPassword').attr('type','text');
+        		$('#showHidePasswordBtn').text('Hide Password');
+        	}
+        	else {
+        		$('#operatorPassword').attr('type','password');
+        		$('#showHidePasswordBtn').text('Show Password');
+        	}
+        	return false;
         },
         
         connectOperator: function(){
