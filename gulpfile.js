@@ -76,5 +76,14 @@ gulp.task('assets', function(){
 // gulp.watch('scss/*.scss', ['sass']);
 // });
 
+// Bump version number
+// Usage:
+// $ gulp bump --patch
+// $ gulp bump --minor
+// $ gulp bump --major
+// $ gulp bump --setversion=2.1.0
+gulp.task('bump', require('gulp-cordova-bump'));
+
 // Default Task
-gulp.task('default', ['lint', 'requirejsBuild','assets','html']); 
+gulp.task('default', ['lint', 'requirejsBuild','assets','html']);
+
