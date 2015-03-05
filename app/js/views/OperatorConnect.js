@@ -71,9 +71,38 @@ define([
         },
         
         onRender: function(callback){
+        	var self = this;
         	$('#connectOperatorBtn').on('click',this.connectOperator);
         	$('#showHidePasswordBtn').on('click',this.showHidePassword);
+        	$('#createAccountBtn').on('click',function(){ self.createAccount(); return false; });
         	callback();
+        },
+        
+        createAccount: function(){
+        	var self = this;
+        	$('#loader').text(self.templateData.i18n.StandByWhileWeCreate);
+    		$('#loader').show();
+    		var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
+    		myOperator.set('key',window.LoggedUser.get('key'));
+    		
+    		myOperator.createAccount({
+				success: function(){
+					$('#loader').hide();
+					$('#loader').text(self.templateData.i18n.Loading);
+					myOperator.set('status','CONNECTED');
+					Utils.alert('Account connected successfully.',function(){
+						window.location.href="#operatorsList/hidebackbutton";
+					},'Success','Ok');
+				},
+				error: function(){
+					$('#loader').hide();
+					$('#loader').text(self.templateData.i18n.Loading);
+					myOperator.set('status','FAILED_SIGNIN');
+					Utils.alert('Error connecting your account.',function(){
+						window.location.href="#operatorsList/hidebackbutton";
+					},'Error','Ok');
+				}
+			});
         },
         
         showHidePassword: function(){
@@ -90,7 +119,6 @@ define([
         
         connectOperator: function(){
         	var myOperator = Operators.ActivatedOperators.where({id: Operators.SelectedOperator.id})[0];
-        	//var myOperator = Operators.SelectedOperator;
         	myOperator.set('key',window.LoggedUser.get('key'));
 			
 			myOperator.connectAccount({
